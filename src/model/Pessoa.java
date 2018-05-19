@@ -3,7 +3,7 @@ package bank.model;
 import java.io.Serializable;
 
 /**
- * 
+ * Esta classe é uma abstração de um possível usuário do banco.
  */
 
 import java.util.ArrayList;
