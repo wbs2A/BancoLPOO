@@ -34,13 +34,15 @@ public class Conta implements Serializable{
 	private String Senha;
 	private int Numero;
 	private int Agencia;
+	private String Tipo;
 	private Pessoa pessoa;
 
-	public Conta( int agencia, int numero, Pessoa pessoa){
+	public Conta( int agencia, int numero, String tipo, Pessoa pessoa){
 		this.setAgencia(agencia);
 		this.setSaldo(0);
 		this.setPessoa(pessoa);
 		this.setNumero(numero);
+		this.setTipo(tipo);
 	}
 	//Sacar,Depositar,Emprestar,transferir,varSaldo
 	
@@ -98,7 +100,12 @@ public class Conta implements Serializable{
 	public void setPessoa(Pessoa pessoa) {
 		this.pessoa = pessoa;
 	}
-
+	public String getTipo(){
+		return Tipo;
+	}
+	public void setTipo(String tipo){
+		Tipo = tipo;
+	}
 	/**
 	 * @return the agencia
 	 */
