@@ -19,15 +19,22 @@ public class Pessoa implements Serializable{
 	private Date dtNasci;
 	private String Sexo;
 	private String Cpf;
+	private String Email;
+	private String Telefone;
+	private String Funcao;
 	private ArrayList<Conta> contas;
 	
-	public Pessoa(String nome,String senha, String cpf, Date data, String sexo){
+	public Pessoa(String nome,String senha, String cpf, Date data, String sexo, String telefone, String funcao, String email){
 		this.setNome(nome);
 		this.setSenha(senha);
 		this.setCpf(cpf);
 		this.setDtNasci(data);
 		this.setContas(new ArrayList<Conta>());
 		this.setSexo(sexo);
+		this.setEmail(email);
+		this.setFuncao(funcao);
+		this.setTelefone(telefone);
+	
 	}
 
 	/**
@@ -36,17 +43,60 @@ public class Pessoa implements Serializable{
 	public String getNome() {
 		return Nome;
 	}
-
+	
 	/**
 	 * @param nome the nome to set
 	 */
 	public void setNome(String nome) {
 		Nome = nome;
 	}
+	
+	/**
+	 * @param email the set
+	 */
+	
+	public String getEmail(){
+		return Email;	
+	}
+	/**
+	 * email the email set
+	 */
+	public void setEmail(String email){
+		this.Email = email;
+	}
+	
+	/**
+	 * @return the telefone
+	 */
+	public String getTelefone(){
+		 return Telefone;
+		 
+	}
+	/**
+	 * telefone the telefone to set
 
+	 */
+	
+	public void setTelefone(String telefone){
+		this.Telefone = telefone;
+	
+	}
+	/**
+	 * @return the funcao/cargo
+	 */
+	public String getFuncao(){
+	  return Funcao;
+	}
+	/**
+	 * funcao the funcao to set
+	 */
+	public void setFuncao(String funcao){
+		this.Funcao = funcao;
+	}
 	/**
 	 * @return the senha
 	 */
+	
 	public String getSenha() {
 		return senha;
 	}
