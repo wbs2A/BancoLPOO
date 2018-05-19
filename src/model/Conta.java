@@ -3,23 +3,6 @@ package bank.model;
 import java.io.Serializable;
 
 /**
-*Saldo
-*senha
-*numero
-*Agencia
-*Pessoa
-*Metodos:
-*Sacar,Depositar,Emprestar,transferir,varSaldo
-*
-*
-*
-*FAZER TODA A IMPLEMENTAÇÃO DOS SETS E GET DO ATRIBUTOS E OS METODOS DETERMINADOS
-*PROXIMA AULA
-*/
-
-
-//import Cconta.Pessoa;
-/**
  * 
  */
 
@@ -69,14 +52,12 @@ public class Conta implements Serializable{
 				this.sacar(valor);
 				return true;
 			}else{
-				//this.depositar(valor); Nao preciso fazer isso, apenas retorna false;
 				return false;
 			}				
 		}else{
 			return false;
 		}
 	}
-
 	public boolean Emprestar(int valor){
 		if (this.getSaldo() >= valor) {
 			return true;
@@ -155,13 +136,3 @@ public class Conta implements Serializable{
 		Saldo = saldo;
 	}	
 
-	/****public void ValSaldo(){}
-	public Conta maiorSaldo(Conta teste){
-		if (this.getSaldo() > teste.getSaldo()) {
-			return this;
-		}else{
-			return teste;
-		}
-	}
-	**/
-}
