@@ -115,7 +115,7 @@ public class Conta implements Serializable{
 	 * @param tipo the Tipo to set
 	 */
 	public void setTipo(String tipo){
-		Tipo = tipo;
+		this.Tipo = tipo;
 	}
 	/**
 	 * @return the agencia
@@ -128,7 +128,7 @@ public class Conta implements Serializable{
 	 * @param agencia the agencia to set
 	 */
 	public void setAgencia(int agencia) {
-		Agencia = agencia;
+		this.Agencia = agencia;
 	}
 
 	/**
@@ -142,7 +142,7 @@ public class Conta implements Serializable{
 	 * @param numero the numero to set
 	 */
 	public void setNumero(int numero) {
-		Numero = numero;
+		this.Numero = numero;
 	}
 
 	/**
@@ -156,7 +156,7 @@ public class Conta implements Serializable{
 	 * @param senha the senha to set
 	 */
 	public void setSenha(String senha) {
-		Senha = senha;
+		this.Senha = senha;
 	}
 
 	/**
@@ -170,7 +170,7 @@ public class Conta implements Serializable{
 	 * @param saldo the saldo to set
 	 */
 	public void setSaldo(float saldo) {
-		Saldo = saldo;
+		this.Saldo = saldo;
 	}	
 
 	/**
