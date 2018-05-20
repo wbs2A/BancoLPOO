@@ -21,7 +21,7 @@ public class Conta implements Serializable{
 	private ArrayList<Movimentacoes> movimentacoes = new ArrayList<Movimentacoes>();
 			
 	/**
-	* @param agencia
+	* @paramss agencia
 	* @param numero s
 	* @param tipo
 	* @param pessoa
@@ -44,22 +44,25 @@ public class Conta implements Serializable{
 		if (this.Emprestar(valor)) {
 			this.setSaldo(this.getSaldo()-valor);
 			return true;
-		}else{
+			}
+		
 			return false;
-		}
+		
 	}
 	/**
 	 * @param valor
 	 * @return boolean
 	 *
 	 */
+
+
 	public boolean depositar(int valor){
 		if (valor > 0) {
 			this.setSaldo(this.getSaldo()+valor);
 			return true;
-		}else{
-			return false;
+			
 		}
+			return false;
 	}
 	/**
 	 * @param valor
@@ -87,9 +90,10 @@ public class Conta implements Serializable{
 	public boolean Emprestar(int valor){
 		if (valor > 0 && this.getSaldo() >= valor) {
 			return true;
-		}else{
+			}
+		
 			return false;
-		}
+		
 	}
 
 	/**
@@ -186,3 +190,6 @@ public class Conta implements Serializable{
 	public void setMovimentacoes(ArrayList<Movimentacoes> movimentacoes) {
 		this.movimentacoes = movimentacoes;
 	}
+	
+	
+}
