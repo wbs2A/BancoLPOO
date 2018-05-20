@@ -5,7 +5,9 @@ import java.io.Serializable;
 public class Movimentacoes implements Serializable {
 	private String nomeOperacao;
 	private float valorOperacao;
+	private boolean aconteceu;
 	
+
 	public Movimentacoes(String nome, float valor){
 		this.setNomeOperacao(nome);
 		this.setValorOperacao(valor);
@@ -37,5 +39,18 @@ public class Movimentacoes implements Serializable {
 	 */
 	public void setValorOperacao(float valorOperacao) {
 		this.valorOperacao = valorOperacao;
+	}
+	/**
+	 * @return the aconteceu
+	 */
+	public boolean isAconteceu() {
+		return aconteceu;
+	}
+
+	/**
+	 * @param aconteceu the aconteceu to set
+	 */
+	public void setAconteceu(boolean aconteceu) {
+		this.aconteceu = aconteceu;
 	}
 }

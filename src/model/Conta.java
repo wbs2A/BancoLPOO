@@ -1,4 +1,4 @@
-package bank.model;
+package model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -6,8 +6,6 @@ import java.util.ArrayList;
 /**
  * 
  */
-
-
 
 public class Conta implements Serializable{
 	/**
@@ -21,7 +19,6 @@ public class Conta implements Serializable{
 	private String Tipo;
 	private Pessoa pessoa;
 	private ArrayList<Movimentacoes> movimentacoes = new ArrayList<Movimentacoes>();
-	return boolean
 			
 	/**
 	* @param agencia
@@ -44,7 +41,7 @@ public class Conta implements Serializable{
 	 *
 	 */
 	public boolean sacar(int valor){
-		if (this.getSaldo() >= valor) {
+		if (this.Emprestar(valor)) {
 			this.setSaldo(this.getSaldo()-valor);
 			return true;
 		}else{
@@ -57,7 +54,7 @@ public class Conta implements Serializable{
 	 *
 	 */
 	public boolean depositar(int valor){
-		if (valor >= 0) {
+		if (valor > 0) {
 			this.setSaldo(this.getSaldo()+valor);
 			return true;
 		}else{
@@ -88,7 +85,7 @@ public class Conta implements Serializable{
 	 *
 	 */
 	public boolean Emprestar(int valor){
-		if (this.getSaldo() >= valor) {
+		if (valor > 0 && this.getSaldo() >= valor) {
 			return true;
 		}else{
 			return false;
