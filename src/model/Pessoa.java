@@ -171,4 +171,23 @@ public class Pessoa implements Serializable{
  		this.contas.add(conta);
  			
  		}
+	
+	  /**
+	   * Metodo toString classe pessoa 
+	   */
+	
+	   @Override
+	   public String toString(){
+	     return "Nome: "+ this.Nome +
+	         "\nCpf: " + this.Cpf +
+	         "\nSexo: " + this.Sexo +
+	         "\nData: " + this.dtNasci +
+	          "\nFuncao: " + this.Funcao +
+	           "\nTelefone: " + this.Telefone +
+	           "\nEmail: " + this.Email;
+	   }
+	    
+
+
+
 }
