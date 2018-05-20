@@ -1,0 +1,39 @@
+package bank.model;
+
+public class Movimentacoes {
+	private String nomeOperacao;
+	private float valorOperacao;
+	
+	public Movimentacoes(String nome, float valor){
+		this.setNomeOperacao(nome);
+		this.setValorOperacao(valor);
+	}
+
+	/**
+	 * @return the nomeOperacao
+	 */
+	public String getNomeOperacao() {
+		return nomeOperacao;
+	}
+
+	/**
+	 * @param nomeOperacao the nomeOperacao to set
+	 */
+	public void setNomeOperacao(String nomeOperacao) {
+		this.nomeOperacao = nomeOperacao;
+	}
+
+	/**
+	 * @return the valorOperacao
+	 */
+	public float getValorOperacao() {
+		return valorOperacao;
+	}
+
+	/**
+	 * @param valorOperacao the valorOperacao to set
+	 */
+	public void setValorOperacao(float valorOperacao) {
+		this.valorOperacao = valorOperacao;
+	}
+}

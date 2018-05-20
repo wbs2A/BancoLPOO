@@ -1,6 +1,7 @@
 package bank.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 /**
  * 
@@ -19,7 +20,16 @@ public class Conta implements Serializable{
 	private int Agencia;
 	private String Tipo;
 	private Pessoa pessoa;
-
+	private ArrayList<Movimentacoes> movimentacoes = new ArrayList<Movimentacoes>();
+	return boolean
+			
+	/**
+	* @param agencia
+	* @param numero s
+	* @param tipo
+	* @param pessoa
+	*
+	*/
 	public Conta( int agencia, int numero, String tipo, Pessoa pessoa){
 		this.setAgencia(agencia);
 		this.setSaldo(0);
@@ -27,8 +37,12 @@ public class Conta implements Serializable{
 		this.setNumero(numero);
 		this.setTipo(tipo);
 	}
-	//Sacar,Depositar,Emprestar,transferir,varSaldo
 	
+	/**
+	 * @param valor
+	 * @return boolean
+	 *
+	 */
 	public boolean sacar(int valor){
 		if (this.getSaldo() >= valor) {
 			this.setSaldo(this.getSaldo()-valor);
@@ -37,7 +51,11 @@ public class Conta implements Serializable{
 			return false;
 		}
 	}
-	
+	/**
+	 * @param valor
+	 * @return boolean
+	 *
+	 */
 	public boolean depositar(int valor){
 		if (valor >= 0) {
 			this.setSaldo(this.getSaldo()+valor);
@@ -46,7 +64,11 @@ public class Conta implements Serializable{
 			return false;
 		}
 	}
-	
+	/**
+	 * @param valor
+	 * @return boolean
+	 *
+	 */
 	public boolean transferir(int valor, Conta DepositarNela){
 		if (this.Emprestar(valor)) {
 
@@ -60,6 +82,11 @@ public class Conta implements Serializable{
 			return false;
 		}
 	}
+	/**
+	 * @param valor
+	 * @return boolean
+	 *
+	 */
 	public boolean Emprestar(int valor){
 		if (this.getSaldo() >= valor) {
 			return true;
@@ -81,9 +108,15 @@ public class Conta implements Serializable{
 	public void setPessoa(Pessoa pessoa) {
 		this.pessoa = pessoa;
 	}
+	/**
+	 * @return the Tipo
+	 */
 	public String getTipo(){
 		return Tipo;
 	}
+	/**
+	 * @param tipo the Tipo to set
+	 */
 	public void setTipo(String tipo){
 		Tipo = tipo;
 	}
@@ -143,3 +176,16 @@ public class Conta implements Serializable{
 		Saldo = saldo;
 	}	
 
+	/**
+	 * @return the movimentacoes
+	 */
+	public ArrayList<Movimentacoes> getMovimentacoes() {
+		return movimentacoes;
+	}
+
+	/**
+	 * @param movimentacoes the movimentacoes to set
+	 */
+	public void setMovimentacoes(ArrayList<Movimentacoes> movimentacoes) {
+		this.movimentacoes = movimentacoes;
+	}
