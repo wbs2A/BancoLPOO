@@ -1,12 +1,11 @@
-package bank.model;
+package model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 /**
  * 
  */
-
-
 
 public class Conta implements Serializable{
 	/**
@@ -19,7 +18,15 @@ public class Conta implements Serializable{
 	private int Agencia;
 	private String Tipo;
 	private Pessoa pessoa;
-
+	private ArrayList<Movimentacoes> movimentacoes = new ArrayList<Movimentacoes>();
+			
+	/**
+	* @param agencia
+	* @param numero s
+	* @param tipo
+	* @param pessoa
+	*
+	*/
 	public Conta( int agencia, int numero, String tipo, Pessoa pessoa){
 		this.setAgencia(agencia);
 		this.setSaldo(0);
@@ -27,26 +34,38 @@ public class Conta implements Serializable{
 		this.setNumero(numero);
 		this.setTipo(tipo);
 	}
-	//Sacar,Depositar,Emprestar,transferir,varSaldo
 	
+	/**
+	 * @param valor
+	 * @return boolean
+	 *
+	 */
 	public boolean sacar(int valor){
-		if (this.getSaldo() >= valor) {
+		if (this.Emprestar(valor)) {
 			this.setSaldo(this.getSaldo()-valor);
 			return true;
 		}else{
 			return false;
 		}
 	}
-	
+	/**
+	 * @param valor
+	 * @return boolean
+	 *
+	 */
 	public boolean depositar(int valor){
-		if (valor >= 0) {
+		if (valor > 0) {
 			this.setSaldo(this.getSaldo()+valor);
 			return true;
 		}else{
 			return false;
 		}
 	}
-	
+	/**
+	 * @param valor
+	 * @return boolean
+	 *
+	 */
 	public boolean transferir(int valor, Conta DepositarNela){
 		if (this.Emprestar(valor)) {
 
@@ -60,8 +79,13 @@ public class Conta implements Serializable{
 			return false;
 		}
 	}
+	/**
+	 * @param valor
+	 * @return boolean
+	 *
+	 */
 	public boolean Emprestar(int valor){
-		if (this.getSaldo() >= valor) {
+		if (valor > 0 && this.getSaldo() >= valor) {
 			return true;
 		}else{
 			return false;
@@ -81,11 +105,17 @@ public class Conta implements Serializable{
 	public void setPessoa(Pessoa pessoa) {
 		this.pessoa = pessoa;
 	}
+	/**
+	 * @return the Tipo
+	 */
 	public String getTipo(){
 		return Tipo;
 	}
+	/**
+	 * @param tipo the Tipo to set
+	 */
 	public void setTipo(String tipo){
-		Tipo = tipo;
+		this.Tipo = tipo;
 	}
 	/**
 	 * @return the agencia
@@ -98,7 +128,7 @@ public class Conta implements Serializable{
 	 * @param agencia the agencia to set
 	 */
 	public void setAgencia(int agencia) {
-		Agencia = agencia;
+		this.Agencia = agencia;
 	}
 
 	/**
@@ -112,7 +142,7 @@ public class Conta implements Serializable{
 	 * @param numero the numero to set
 	 */
 	public void setNumero(int numero) {
-		Numero = numero;
+		this.Numero = numero;
 	}
 
 	/**
@@ -126,7 +156,7 @@ public class Conta implements Serializable{
 	 * @param senha the senha to set
 	 */
 	public void setSenha(String senha) {
-		Senha = senha;
+		this.Senha = senha;
 	}
 
 	/**
@@ -140,6 +170,19 @@ public class Conta implements Serializable{
 	 * @param saldo the saldo to set
 	 */
 	public void setSaldo(float saldo) {
-		Saldo = saldo;
+		this.Saldo = saldo;
 	}	
 
+	/**
+	 * @return the movimentacoes
+	 */
+	public ArrayList<Movimentacoes> getMovimentacoes() {
+		return movimentacoes;
+	}
+
+	/**
+	 * @param movimentacoes the movimentacoes to set
+	 */
+	public void setMovimentacoes(ArrayList<Movimentacoes> movimentacoes) {
+		this.movimentacoes = movimentacoes;
+	}

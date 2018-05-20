@@ -1,4 +1,4 @@
-package bank.model;
+package model;
 
 import java.io.Serializable;
 
@@ -48,7 +48,7 @@ public class Pessoa implements Serializable{
 	 * @param nome the nome to set
 	 */
 	public void setNome(String nome) {
-		Nome = nome;
+		this.Nome = nome;
 	}
 	
 	/**
@@ -133,7 +133,7 @@ public class Pessoa implements Serializable{
 	 * @param sexo the sexo to set
 	 */
 	public void setSexo(String sexo) {
-		Sexo = sexo;
+		this.Sexo = sexo;
 	}
 
 	/**
@@ -147,7 +147,7 @@ public class Pessoa implements Serializable{
 	 * @param cpf the cpf to set
 	 */
 	public void setCpf(String cpf) {
-		Cpf = cpf;
+		this.Cpf = cpf;
 	}
 
 	/**
@@ -165,8 +165,9 @@ public class Pessoa implements Serializable{
 	}
 	/**
 	* metodo que adiconar uma conta ao arraylist de pessoa.
+	*@param conta the contas to set 
 	*/
-	public void addPessoas(Conta conta){
+	public void addConta(Conta conta){
  	  	
  		this.contas.add(conta);
  			
