@@ -1,4 +1,4 @@
-package model;
+ package model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -8,17 +8,15 @@ import java.util.ArrayList;
  */
 
 public class Conta implements Serializable{
-	/**
-	 * 
-	 */
+	
 	private static final long serialVersionUID = 1L;
 	private float Saldo;
 	private String Senha;
 	private int Numero;
 	private int Agencia;
-	private String Tipo;
+	private Conta contaPadrao;
 	private Pessoa pessoa;
-	private ArrayList<Movimentacoes> movimentacoes = new ArrayList<Movimentacoes>();
+    private ArrayList<Movimentacoes> movimentacoes = new ArrayList<Movimentacoes>();
 			
 	/**
 	* @paramss agencia
@@ -27,7 +25,7 @@ public class Conta implements Serializable{
 	* @param pessoa
 	*
 	*/
-	public Conta( int agencia, int numero, String tipo, Pessoa pessoa){
+	public Conta( int agencia, int numero, Pessoa pessoa){
 		this.setAgencia(agencia);
 		this.setSaldo(0);
 		this.setPessoa(pessoa);
@@ -109,18 +107,7 @@ public class Conta implements Serializable{
 	public void setPessoa(Pessoa pessoa) {
 		this.pessoa = pessoa;
 	}
-	/**
-	 * @return the Tipo
-	 */
-	public String getTipo(){
-		return Tipo;
-	}
-	/**
-	 * @param tipo the Tipo to set
-	 */
-	public void setTipo(String tipo){
-		this.Tipo = tipo;
-	}
+	
 	/**
 	 * @return the agencia
 	 */
@@ -190,6 +177,18 @@ public class Conta implements Serializable{
 	public void setMovimentacoes(ArrayList<Movimentacoes> movimentacoes) {
 		this.movimentacoes = movimentacoes;
 	}
+	
+	  /**
+	   * Metodo tostring de conta, ver as informacoes da conta.
+	   */
+	   @Override
+	   public String toString(){
+	     return "\nNome:"+this.getPessoa().getNome() + 
+	    		"\nNumero: "+ this.Numero +
+	    		"\nAgencia: " + this.Agencia;
+	         
+	    }
+	    
 	
 	
 }
