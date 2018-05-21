@@ -208,7 +208,7 @@ public class TratamentodeEntradas {
                 }
             } catch (Exception e) {
                 System.out.println();
-                System.out.println("\t\t\t[Formato de E-mail Incorreto]");
+                System.out.println("\t\t\t\t[Formato de E-mail Incorreto]");
                 System.out.println();
             }
         }
