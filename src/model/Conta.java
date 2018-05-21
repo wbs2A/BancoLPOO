@@ -25,12 +25,13 @@ public class Conta implements Serializable{
 	* @param pessoa
 	*
 	*/
-	public Conta( int agencia, int numero, float saldo, Pessoa pessoa){
+	public Conta( int agencia, int numero, float saldo, String senha, Pessoa pessoa){
 		this.setAgencia(agencia);
 		this.setSaldo(saldo);
 		this.setPessoa(pessoa);
 		this.setNumero(numero);
 		this.setTipo(tipo);
+		this.setSenha(senha);
 	}
 	
 	/**
