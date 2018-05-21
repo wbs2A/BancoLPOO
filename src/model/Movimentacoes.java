@@ -2,6 +2,10 @@ package model;
 
 import java.io.Serializable;
 
+/*
+*
+*/
+
 public class Movimentacoes implements Serializable {
 	private String nomeOperacao;
 	private float valorOperacao;
