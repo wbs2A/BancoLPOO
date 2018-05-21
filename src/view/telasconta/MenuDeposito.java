@@ -3,7 +3,10 @@ package view.telasconta;
 public enum MenuDeposito {
 	DEPOSITARCONTAPADRAO(1), DEPOSITAROUTRACONTA(2), SAIR(0);
 	
+	int opcao;
+	
 	MenuDeposito(int op) {
+		 this.opcap = op;
 	}
 	
 	public static MenuDeposito menuOpcao(int opcao) {

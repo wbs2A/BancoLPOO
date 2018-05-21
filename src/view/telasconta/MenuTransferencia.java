@@ -1,7 +1,7 @@
 package view.telasconta;
 
 public enum MenuTransferencia {
-TRANSFERIRDACONTAPADRAO(1), TRANSFERIRDEUTRACONTA(2), SAIR(0);
+TRANSFERIRDACONTAPADRAO(1), TRANSFERIRDEOUTRACONTA(2), SAIR(0);
 	
 	int opcao;
 	
@@ -13,7 +13,7 @@ TRANSFERIRDACONTAPADRAO(1), TRANSFERIRDEUTRACONTA(2), SAIR(0);
 		if(opcao == 1)
 			return MenuTransferencia.TRANSFERIRDACONTAPADRAO;
 		else if(opcao == 2)
-			return MenuTransferencia.TRANSFERIRDEUTRACONTA;
+			return MenuTransferencia.TRANSFERIRDEOUTRACONTA;
 		else if(opcao == 0)
 			return MenuTransferencia.SAIR;
 		return null;

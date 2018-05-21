@@ -38,9 +38,9 @@ public class TelaExcluiConta {
 					System.out.println("\t\t\t\tDeseja realmente excluir uma conta bancaria?");
 					System.out.println("\t\t\tAo excluir, seus dados serão perdidos permanentemente");
 					System.out.println("\t \t\t\t**************************************");
-					System.out.println("\t\t\t\t*               (1)Não                *");
+					System.out.println("\t\t\t\t*   "+MenuExcluiConta.NAO.opcao+".N�o    *");
 					System.out.println("\t \t\t\t**************************************");
-					System.out.println("\t\t\t\t*               (2)Sim                *");
+					System.out.println("\t\t\t\t*   "+MenuExcluiConta.SIM.opcao+".Sim    *");
 					System.out.println("\t \t\t\t**************************************");
 					System.out.println("\t\t\t\t\n\t\t\t\t");
 					opcao = ExecoesDeEntrada.trataEntradaOpcao();

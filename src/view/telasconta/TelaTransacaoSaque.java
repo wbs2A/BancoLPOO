@@ -30,11 +30,11 @@ public class TelaTransacaoSaque {
 		        System.out.println("\t \t\t\t**************************************");
 		        System.out.println("\t\t\t\t\n\t\t\t\t");
 		        System.out.println("\t \t\t\t**************************************");
-		        System.out.println("\t\t\t\t*   1. Sacar da Conta Padrao          *");
+		        System.out.println("\t\t\t\t*   "+MenuSaque.SACARCONTAPADRAO.opcao+".Sacar da Conta Padrao    *");
 		        System.out.println("\t\t\t\t***************************************");
-		        System.out.println("\t\t\t\t*   2. Sacar de Outra Conta           *");
+		        System.out.println("\t\t\t\t*   "+MenuSaque.SACAROUTRACONTA.opcao+".Sacar de Outra Conta    *");
 		        System.out.println("\t\t\t\t***************************************");
-		        System.out.println("\t\t\t\t*   0. Voltar                         *");
+		        System.out.println("\t\t\t\t*   "+MenuSaque.SAIR.opcao+".Voltar    *");
 		        System.out.println("\t\t\t\t***************************************");
 		        opcao = ExecoesDeEntrada.trataEntradaOpcao();
 		        

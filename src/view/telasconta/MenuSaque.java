@@ -3,7 +3,10 @@ package view.telasconta;
 public enum MenuSaque {
 SACARCONTAPADRAO(1), SACAROUTRACONTA(2), SAIR(0);
 	
+	int opcao;
+	
 	MenuSaque(int op) {
+		this.opcao = op;
 	}
 	
 	public static MenuSaque menuOpcao(int opcao) {

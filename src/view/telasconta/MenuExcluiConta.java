@@ -3,7 +3,10 @@ package view.telasconta;
 public enum MenuExcluiConta {
 	NAO(1), SIM(2);
 	
+	int opcao;
+	
 	MenuExcluiConta(int op) {
+		this.opcao = op;
 	}
 	
 	public static MenuExcluiConta menuConfirma(int opcao) {

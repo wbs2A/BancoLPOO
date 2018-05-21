@@ -31,11 +31,11 @@ public class TelaTransacaoTransferencia {
 		        System.out.println("\t \t\t\t**************************************");
 		        System.out.println("\t\t\t\t\n\t\t\t\t");
 		        System.out.println("\t \t\t\t****************************************");
-		        System.out.println("\t\t\t\t*   1. Transferir da Conta Padrao    *");
+		        System.out.println("\t\t\t\t*   "+MenuTransferencia.TRANSFERIRDACONTAPADRAO.opcao+".Transferir da Conta Padrao             *");
 		        System.out.println("\t\t\t\t**************************************");
-		        System.out.println("\t\t\t\t*   2. Transferir de Outra Conta     *");
+		        System.out.println("\t\t\t\t*   "+MenuTransferencia.TRANSFERIRDEOUTRACONTA.opcao+".Transferir de Outra Conta             *");
 		        System.out.println("\t\t\t\t**************************************");
-		        System.out.println("\t\t\t\t*   0. Voltar                        *");
+		        System.out.println("\t\t\t\t*   "+MenuTransferencia.SAIR.opcao+".Voltar             *");
 		        System.out.println("\t\t\t\t**************************************");
 		        opcao = ExecoesDeEntrada.trataEntradaOpcao();
 		        
