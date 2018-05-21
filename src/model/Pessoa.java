@@ -21,10 +21,9 @@ public class Pessoa implements Serializable{
 	private String Cpf;
 	private String Email;
 	private String Telefone;
-	private String Funcao;
 	private ArrayList<Conta> contas;
 	
-	public Pessoa(String nome,String senha, String cpf, Date data, String sexo, String telefone, String funcao, String email){
+	public Pessoa(String nome,String senha, String cpf, Date data, String sexo, String telefone, String email){
 		this.setNome(nome);
 		this.setSenha(senha);
 		this.setCpf(cpf);
@@ -32,7 +31,6 @@ public class Pessoa implements Serializable{
 		this.setContas(new ArrayList<Conta>());
 		this.setSexo(sexo);
 		this.setEmail(email);
-		this.setFuncao(funcao);
 		this.setTelefone(telefone);
 	
 	}
@@ -81,18 +79,7 @@ public class Pessoa implements Serializable{
 		this.Telefone = telefone;
 	
 	}
-	/**
-	 * @return the funcao/cargo
-	 */
-	public String getFuncao(){
-	  return Funcao;
-	}
-	/**
-	 * funcao the funcao to set
-	 */
-	public void setFuncao(String funcao){
-		this.Funcao = funcao;
-	}
+
 	/**
 	 * @return the senha
 	 */
@@ -183,7 +170,6 @@ public class Pessoa implements Serializable{
 	         "\nCpf: " + this.Cpf +
 	         "\nSexo: " + this.Sexo +
 	         "\nData: " + this.dtNasci +
-	          "\nFuncao: " + this.Funcao +
 	           "\nTelefone: " + this.Telefone +
 	           "\nEmail: " + this.Email;
 	   }
