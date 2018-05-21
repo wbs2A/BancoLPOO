@@ -25,7 +25,7 @@ public class Conta implements Serializable{
 	* @param pessoa
 	*
 	*/
-	public Conta( int agencia, int numero, String tipo, Pessoa pessoa){
+	public Conta( int agencia, int numero, Pessoa pessoa){
 		this.setAgencia(agencia);
 		this.setSaldo(0);
 		this.setPessoa(pessoa);
@@ -107,18 +107,7 @@ public class Conta implements Serializable{
 	public void setPessoa(Pessoa pessoa) {
 		this.pessoa = pessoa;
 	}
-	/**
-	 * @return the Tipo
-	 */
-	public String getTipo(){
-		return Tipo;
-	}
-	/**
-	 * @param tipo the Tipo to set
-	 */
-	public void setTipo(String tipo){
-		this.Tipo = tipo;
-	}
+	
 	/**
 	 * @return the agencia
 	 */
