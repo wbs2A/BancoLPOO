@@ -4,7 +4,7 @@ import controller.ContaDAO;
 import controller.PessoaDAO;
 import controller.SessaoConta;
 import view.ClearConsole;
-import view.ExecoesDeEntrada;
+import view.TratamentodeEntradas;
 import view.telasconta.TelaGerenciaConta;
 import view.telaspessoa.TelaGerenciaPessoa;
 
@@ -24,17 +24,17 @@ public class TelaGerenciamentoContaPessoa {
 				System.out.println("\t \t\t\t**************************************");
 				System.out.println("\t\t\t\t*                HOME                *");
 				System.out.println("\t\t\t\t**************************************");
-				System.out.println("\t\t\t\tUsuario: "+ SessaoConta.getPessoa().getNome());
+				System.out.println("\t\t\t\tUsuario: " + SessaoConta.getPessoa().getNome());
 				System.out.println("\t\t\t\t**************************************");
 				System.out.println("\t\t\t\t\n\t\t\t\t");
 				System.out.println("\t\t\t\t**************************************");
-				System.out.println("\t\t\t\t*   1. Gerenciar Conta(s)            *");
+				System.out.println("\t\t\t\t*" + MenuHome.GERENCIARCONTA.opcao + ". Gerenciar Conta(s)            *");
 				System.out.println("\t\t\t\t**************************************");
-				System.out.println("\t\t\t\t*   2. Gerenciar Pessoa              *");
+				System.out.println("\t\t\t\t*" + MenuHome.GERENCIARPESSOA.opcao + ". Gerenciar Pessoa              *");
 				System.out.println("\t\t\t\t**************************************");
-				System.out.println("\t\t\t\t*   0. Sair                          *");
+				System.out.println("\t\t\t\t*" + MenuHome.SAIR.opcao + ". Sair                          *");
 				System.out.println("\t\t\t\t**************************************");
-				opcao = ExecoesDeEntrada.trataEntradaOpcao();
+				opcao = TratamentodeEntradas.trataEntradaOpcao();
 
 				switch (MenuHome.menuOpcao(opcao)) {
 				case GERENCIARCONTA:
@@ -45,7 +45,7 @@ public class TelaGerenciamentoContaPessoa {
 				case GERENCIARPESSOA:
 					TelaGerenciaPessoa.menuGerenciaPessoas();
 					break;
-
+					
 				case SAIR:
 					ContaDAO.salvarContas();
 					PessoaDAO.salvarPessoas();

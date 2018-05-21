@@ -2,8 +2,10 @@ package view.comum;
 
 public enum MenuHome {
 	GERENCIARCONTA(1), GERENCIARPESSOA(2), SAIR(0);
+	int opcao;
 	
 	MenuHome(int op) {
+	this.opcao = op;
 	}
 	
 	public static MenuHome menuOpcao(int opcao) {
