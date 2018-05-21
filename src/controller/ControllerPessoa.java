@@ -1,5 +1,6 @@
 
 
+import bancotrabalholuciano.Pessoa;
 import java.util.ArrayList;
 import java.util.Objects;
 
@@ -9,30 +10,30 @@ import java.util.Objects;
  */
 public class ControllerPessoa {
 
+    ArrayList<Pessoa> lista = new ArrayList<>();
+    
     /**
-     * mÃ©todo para a criaÃ§Ã£o de um array de Pessoas
+     * método para a criação de um array de Pessoas
      *
-     * @param lista
      * @param pessoas
-     * @return
      *
      */
-    public static ArrayList<Pessoa> criar(ArrayList<Pessoa> lista, Pessoa pessoas) {
+    
+    public  void criar(Pessoa pessoas) {
 
         lista.add(pessoas);
 
-        return lista;
+        
     }
     
     /**
-     * Metodo do tipo boolean utilizado para fazer a remoÃ§Ã£o de um usuario
-     * @param lista
+     * Metodo do tipo boolean utilizado para fazer a remoção de um usuario
      * @param id
      * @return 
      */
 
     
-    public static boolean remove (ArrayList<Pessoa> lista, Long id){
+    public  boolean remove (Long id){
         
        for (Pessoa p : lista){
            if (Objects.equals(p.getId(), id)){
@@ -48,11 +49,10 @@ public class ControllerPessoa {
      *
      * Metodo do tipo pessoa utilizado para buscar pessoas da lista
      *
-     * @param lista
      * @param id
      * @return
      */
-    public static Pessoa busca(ArrayList<Pessoa> lista, Long id) {
+    public Pessoa busca(Long id) {
 
         for (Pessoa p : lista) {
             if (Objects.equals(p.getId(), id)) {
@@ -70,13 +70,13 @@ public class ControllerPessoa {
     *metodo para imprimir todas as pessoas da lista
     */
     
-    public static void mostra(ArrayList<Pessoa> lista) {
+    public void mostra() {
         if (lista.isEmpty()) {
             System.out.println("Lista Vazia");
         } else {
-            for (Pessoa p : lista) {
+            lista.forEach((p) -> {
                 System.out.println(p);
-            }
+            });
         }
     }
 
