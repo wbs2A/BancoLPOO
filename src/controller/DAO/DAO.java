@@ -3,14 +3,22 @@ abstract class DAO{
 	**
 	*/
 
-	<Pessoa,Conta> descarregarEmDisco(){
+	public  Object deserializar(String path) throws Exception {
+    FileInputStream inFile = new FileInputStream(path);
+    Object o;
+        try (ObjectInputStream d = new ObjectInputStream(inFile)) {
+            o = d.readObject();
+        }
+    return o;
+} 
 
-	}
+	public  void serializar(String path, Object obj) throws Exception {
+        FileOutputStream outFile = new FileOutputStream(path);
+        try (ObjectOutputStream s = new ObjectOutputStream(outFile)) {
+            s.writeObject(obj);
+        }
 
-	boolean carregarDoDisco(){
-
-
-	}
+}
 
 	abstract void create();
 	abstract Object read();
