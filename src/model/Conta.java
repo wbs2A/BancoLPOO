@@ -1,4 +1,4 @@
-package model;
+ package model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -8,17 +8,15 @@ import java.util.ArrayList;
  */
 
 public class Conta implements Serializable{
-	/**
-	 * 
-	 */
+	
 	private static final long serialVersionUID = 1L;
 	private float Saldo;
 	private String Senha;
 	private int Numero;
 	private int Agencia;
-	private String Tipo;
+	private Conta contaPadrao;
 	private Pessoa pessoa;
-	private ArrayList<Movimentacoes> movimentacoes = new ArrayList<Movimentacoes>();
+    private ArrayList<Movimentacoes> movimentacoes = new ArrayList<Movimentacoes>();
 			
 	/**
 	* @paramss agencia
@@ -190,6 +188,17 @@ public class Conta implements Serializable{
 	public void setMovimentacoes(ArrayList<Movimentacoes> movimentacoes) {
 		this.movimentacoes = movimentacoes;
 	}
+	
+	  /**
+	   * Metodo tostring de conta, ver as informacoes da conta.
+	   */
+	   @Override
+	   public String toString(){
+	     return "Nome:"+this.getPessoa().getNome() + "Numero: "+ this.Numero +
+	         "\nAgencia: " + this.Agencia +
+	         
+	    }
+	    
 	
 	
 }
