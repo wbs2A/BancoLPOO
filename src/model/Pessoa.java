@@ -28,7 +28,7 @@ public class Pessoa implements Serializable{
 		this.setSenha(senha);
 		this.setCpf(cpf);
 		this.setDtNasci(data);
-		this.setContas(new ArrayList<Conta>());
+		this.contas=new ArrayList<Conta>();
 		this.setSexo(sexo);
 		this.setEmail(email);
 		this.setTelefone(telefone);
