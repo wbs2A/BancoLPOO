@@ -40,13 +40,13 @@ public class TelaAtualizaDadosPessoa {
 					System.out.println("\t\t\t\t**************************************");
 					System.out.println("\t\t\t\t*   0. Voltar                        *");
 					System.out.println("\t\t\t\t**************************************");
-					opcao = ExecoesDeEntrada.trataEntradaOpcao();
+					opcao = TratamentodeEntradas.trataEntradaOpcao();
 
 					switch (MenuAtualizaDados.menuOpcao(opcao)) {
 					case ATUALIZARNOME:
 						System.out.println();
 						System.out.println("\t\t\t\tNome atual: " + pessoa.getNome());
-						PessoaDAO.atualizaNomePessoa(pessoa, ExecoesDeEntrada.trataEntradaNome());
+						PessoaDAO.atualizaNomePessoa(pessoa, TratamentodeEntradas.trataEntradaNome());
 						System.out.println();
 						System.out.println("\t\t\t\t[Nome atualizado com sucesso]");
 						System.out.println();
@@ -55,7 +55,7 @@ public class TelaAtualizaDadosPessoa {
 					case ATUALIZARCPF:
 						System.out.println();
 						System.out.println("\t\t\t\tCPF atual: " + pessoa.getCpf());
-						PessoaDAO.atualizaCpfPessoa(pessoa, ExecoesDeEntrada.trataEntradaCpf());
+						PessoaDAO.atualizaCpfPessoa(pessoa, TratamentodeEntradas.trataEntradaCpf());
 						System.out.println();
 						System.out.println("\t\t\t\t[CPF atualizado com sucesso]");
 						System.out.println();
@@ -64,7 +64,7 @@ public class TelaAtualizaDadosPessoa {
 					case ATUALIZARDATANASC:
 						System.out.println();
 						System.out.println("\t\t\t\tData de Nascimento atual: " + pessoa.getDtNasc());
-						PessoaDAO.atualizaDtNascPessoa(pessoa, ExecoesDeEntrada.trataEntradaDtNasc());
+						PessoaDAO.atualizaDtNascPessoa(pessoa, TratamentodeEntradas.trataEntradaDtNasc());
 						System.out.println();
 						System.out.println("\t\t\t\t[Data de Nascimento atualizada com sucesso]");
 						System.out.println();
@@ -73,7 +73,7 @@ public class TelaAtualizaDadosPessoa {
 					case ATUALIZARSEXO:
 						System.out.println();
 						System.out.println("\t\t\t\tSexo atual: " + pessoa.getSexo());
-						PessoaDAO.atualizaSexoPessoa(pessoa, ExecoesDeEntrada.trataEntradaSexo());
+						PessoaDAO.atualizaSexoPessoa(pessoa, TratamentodeEntradas.trataEntradaSexo());
 						System.out.println();
 						System.out.println("\t\t\t\t[Sexo atualizado com sucesso]");
 						System.out.println();
