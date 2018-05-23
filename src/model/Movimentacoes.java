@@ -1,9 +1,11 @@
 package model;
 
 import java.io.Serializable;
-
-/*
-*
+/**
+ * @author Allison
+ * @author Valdenize
+ * @author Helmuth
+ *Classe que representa as movimentacoes do Banco
 */
 
 public class Movimentacoes implements Serializable {
@@ -11,48 +13,59 @@ public class Movimentacoes implements Serializable {
 	private float valorOperacao;
 	private boolean aconteceu;
 	
-
-	public Movimentacoes(String nome, float valor){
+	/**
+	 * @param nome
+	 * @param valor
+	 * @param aconteceu
+	 */
+	public Movimentacoes(String nome, float valor, boolean aconteceu){
 		this.setNomeOperacao(nome);
 		this.setValorOperacao(valor);
+		this.setAconteceu(aconteceu);
 	}
 
 	/**
-	 * @return the nomeOperacao
+	 * Método que retorna o nome da operação
+	 * @return String
 	 */
 	public String getNomeOperacao() {
 		return nomeOperacao;
 	}
 
 	/**
-	 * @param nomeOperacao the nomeOperacao to set
+	 * Método que é inserido o nome da operação
+	 * @param nomeOperacao
 	 */
 	public void setNomeOperacao(String nomeOperacao) {
 		this.nomeOperacao = nomeOperacao;
 	}
 
 	/**
-	 * @return the valorOperacao
+	 * Método que retorna o valor da operação
+	 * @return float
 	 */
 	public float getValorOperacao() {
 		return valorOperacao;
 	}
 
 	/**
-	 * @param valorOperacao the valorOperacao to set
+	 * Método que insere o valor da operação
+	 * @param valorOperacao
 	 */
 	public void setValorOperacao(float valorOperacao) {
 		this.valorOperacao = valorOperacao;
 	}
 	/**
-	 * @return the aconteceu
+	 * Método que retorna se aconteceu ou não
+	 * @return boolean
 	 */
 	public boolean isAconteceu() {
 		return aconteceu;
 	}
 
 	/**
-	 * @param aconteceu the aconteceu to set
+	 * Método que insere um valor booleano
+	 * @param aconteceu
 	 */
 	public void setAconteceu(boolean aconteceu) {
 		this.aconteceu = aconteceu;
