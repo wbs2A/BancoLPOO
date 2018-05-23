@@ -4,8 +4,20 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+
+/**
+ * Classe responsável por tratar todas as entradas de dados na view. 
+ * 
+ * @author michael_douglas
+ *
+ */
 public class TratamentodeEntradas {
 
+	/**
+	 * Este metodo trata a entrada data de nascimento e retorna essa data no formato dd/MM/yyyy 
+	 * @return Date
+	 */
+	
     public static Date trataEntradaDtNasc() {
         SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
         Date data = null;
@@ -27,7 +39,13 @@ public class TratamentodeEntradas {
         }
         return data;
     }
-
+    
+    
+    /**
+     * Este metodo e responsavel por verificar se uma string contem caracteres do tipo char 
+     * @return String
+     */
+    
     public static String trataEntradaNome() {
         String nome;
         boolean valido = false;
@@ -53,6 +71,10 @@ public class TratamentodeEntradas {
         return nome = null;
     }
 
+    /**
+     * Este metodo e responsavel por verificar se na string a somente um char "m" ou "f" 
+     * @return String
+     */
     public static String trataEntradaSexo() {
         String sexo;
         boolean valido = false;
@@ -75,6 +97,11 @@ public class TratamentodeEntradas {
         return sexo = null;
     }
 
+    /**
+     * Este metodo e responsavel por validar se a string contém 11 digitos numericos. 
+     * @return String
+     */
+    
     public static String trataEntradaCpf() {
         String cpf;
         boolean valido = false;
@@ -102,6 +129,11 @@ public class TratamentodeEntradas {
         }
         return cpf = null;
     }
+    
+    /**
+     * Este metodo e responsavel por verificar se na String contém apenas digitos numericos
+     * @return int
+     */
 
     public static int trataEntradaOpcao() {
         String numero;
@@ -121,6 +153,10 @@ public class TratamentodeEntradas {
         return num;
     }
 
+    /**
+     * Este metodo e responsavel por verificar se na String contém apenas valores inteiros
+     * @return int
+     */
     public static int trataEntradaNumeroConta() {
         String numero;
         int num = 0;
@@ -139,6 +175,10 @@ public class TratamentodeEntradas {
         return num;
     }
 
+    /**
+     * Este metodo e responsavel por verificar se na string contém apenas valores reais
+     * @return float
+     */
     public static float trataEntradaSaldoConta() {
         String numero;
         float num = 0;
@@ -156,7 +196,11 @@ public class TratamentodeEntradas {
         }
         return num;
     }
-
+    
+    /**
+     * Este metodo e responsavel por verificar se na String a somente digitos inteiros
+     * @return int
+     */
     public static int trataEntradaSenhaConta() {
         String numero;
         int num = 0;
@@ -175,6 +219,10 @@ public class TratamentodeEntradas {
         return num;
     }
 
+    /**
+     * Este metodo e responsavel por verificar se um numero de telefone e valido
+     * @return String
+     */
     public static String trataEntradaTelefone() {
         String telefone;
         boolean valido = false;
@@ -195,6 +243,10 @@ public class TratamentodeEntradas {
         return telefone = null;
     }
 
+    /**
+     * Este metodo e responsavel por validar um email
+     * @return String
+     */
     public static String trataEntradaEmail() {
         String email;
         boolean valido = false;
