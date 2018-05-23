@@ -7,7 +7,7 @@ import model.Conta;
 import model.Pessoa;
 import view.ClearConsole;
 import view.EntradaDeDados;
-import view.ExecoesDeEntrada;
+import view.TratamentodeEntradas;
 import view.telaspessoa.MenuExcluirConta;
 
 public class TelaExcluiConta {
@@ -38,7 +38,7 @@ public class TelaExcluiConta {
                     System.out.println("\t\t\t\tDeseja realmente excluir uma conta bancaria?");
                     System.out.println("\t\t\tAo excluir, seus dados serÃ£o perdidos permanentemente");
                     System.out.println("\t \t\t\t**************************************");
-                    System.out.println("\t\t\t\t*   " + MenuExcluiConta.NAO.opcao + ".Não    *");
+                    System.out.println("\t\t\t\t*   " + MenuExcluiConta.NAO.opcao + ".Nï¿½o    *");
                     System.out.println("\t \t\t\t**************************************");
                     System.out.println("\t\t\t\t*   " + MenuExcluiConta.SIM.opcao + ".Sim    *");
                     System.out.println("\t \t\t\t**************************************");

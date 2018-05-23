@@ -7,7 +7,7 @@ import controller.ContaDAO;
 import controller.Transacao;
 import model.Conta;
 import view.ClearConsole;
-import view.ExecoesDeEntrada;
+import view.TratamentodeEntradas;
 
 public class TelaTransacaoTransferencia {
 
@@ -43,7 +43,7 @@ public class TelaTransacaoTransferencia {
                     case TRANSFERIRDACONTAPADRAO:
                         break;
 
-                    case TRANSFERIRDEUTRACONTA:
+                    case TRANSFERIRDEOUTRACONTA:
                         System.out.println();
                         System.out.printf("\t\t\t\tInforme o numero da conta destino: ");
                         System.out.println();
@@ -53,7 +53,7 @@ public class TelaTransacaoTransferencia {
                             System.out.println();
                             System.out.println("\t\t\t\tInforme a conta remetente");
                             System.out.println();
-                            contaRemetente = ContaDAO.consultaConta(TratamentodeEntradas.trataEntradaNumeroConta(), ExecoesDeEntrada.trataEntradaSenhaConta());
+                            contaRemetente = ContaDAO.consultaConta(TratamentodeEntradas.trataEntradaNumeroConta(), TratamentodeEntradas.trataEntradaSenhaConta());
 
                             if (contaRemetente != null) {
                                 if (contaRemetente == contaDestino) {

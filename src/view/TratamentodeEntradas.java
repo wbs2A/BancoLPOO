@@ -1,8 +1,8 @@
 package view;
 
-import java.util.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class TratamentodeEntradas {
 
@@ -180,7 +180,7 @@ public class TratamentodeEntradas {
         boolean valido = false;
         while (!valido) {
             try {
-                telefone = EntradaDeDados.lerTelefone();
+                telefone = EntradaDeDados.lerTelefoneCelular();
                 if (telefone.matches("\\(\\d{2}\\)\\d{4,5}-\\d{4}")) {
                     valido = true;
                 } else {

@@ -2,7 +2,7 @@ package view.telasconta;
 
 import controller.ContaDAO;
 import model.Conta;
-import view.ExecoesDeEntrada;
+import view.TratamentodeEntradas;
 
 public class TelaExtratoConta {
 

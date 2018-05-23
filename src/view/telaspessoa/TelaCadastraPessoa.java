@@ -2,7 +2,7 @@ package view.telaspessoa;
 
 import controller.PessoaDAO;
 import view.EntradaDeDados;
-import view.ExecoesDeEntrada;
+import view.TratamentodeEntradas;
 
 public class TelaCadastraPessoa {
 

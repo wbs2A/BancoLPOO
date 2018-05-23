@@ -1,7 +1,7 @@
 package view.telasconta;
 
 import view.ClearConsole;
-import view.ExecoesDeEntrada;
+import view.TratamentodeEntradas;
 
 public class TelaGerenciaConta {
 
