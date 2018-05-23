@@ -7,7 +7,7 @@ import controller.ContaDAO;
 import controller.Transacao;
 import model.Conta;
 import view.ClearConsole;
-import view.ExecoesDeEntrada;
+import view.TratamentodeEntradas;
 
 public class TelaTransacaoDeposito {
 
@@ -47,10 +47,10 @@ public class TelaTransacaoDeposito {
                         System.out.println();
                         System.out.printf("\t\t\t\tInforme o numero da conta para deposito: ");
                         System.out.println();
-                        conta = ContaDAO.consultaConta(ExecoesDeEntrada.trataEntradaNumeroConta());
+                        conta = ContaDAO.consultaConta(TratamentodeEntradas.trataEntradaNumeroConta());
 
                         if (conta != null) {
-                            valor = ExecoesDeEntrada.trataEntradaSaldoConta();
+                            valor = TratamentodeEntradas.trataEntradaSaldoConta();
                             Transacao.realizarTransacao(new Date(), conta, "Deposito em Conta", valor, Banco.DEPOSITR);
                             //Banco.deposito(conta, valor);
                             //System.out.println();

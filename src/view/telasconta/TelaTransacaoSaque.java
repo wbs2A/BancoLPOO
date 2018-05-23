@@ -7,7 +7,7 @@ import controller.ContaDAO;
 import controller.Transacao;
 import model.Conta;
 import view.ClearConsole;
-import view.ExecoesDeEntrada;
+import view.TratamentodeEntradas;
 
 public class TelaTransacaoSaque {
 

@@ -4,7 +4,10 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
- * 
+ * @author Allison
+ * @author Valdenize
+ * @author Helmuth
+ * Classe Conta
  */
 
 public class Conta implements Serializable{
@@ -14,14 +17,14 @@ public class Conta implements Serializable{
 	private String Senha;
 	private int Numero;
 	private int Agencia;
-	private Conta contaPadrao;
 	private Pessoa pessoa;
     private ArrayList<Movimentacoes> movimentacoes = new ArrayList<Movimentacoes>();
 			
 	/**
-	* @paramss agencia
-	* @param numero s
-	* @param tipo
+	* @param agencia
+	* @param numero
+	* @param saldo
+	* @param senha
 	* @param pessoa
 	*
 	*/
@@ -34,145 +37,96 @@ public class Conta implements Serializable{
 	}
 	
 	/**
-	 * @param valor
-	 * @return boolean
-	 *
-	 */
-	public boolean sacar(int valor){
-		if (this.Emprestar(valor)) {
-			this.setSaldo(this.getSaldo()-valor);
-			return true;
-			}
-		
-			return false;
-		
-	}
-	/**
-	 * @param valor
-	 * @return boolean
-	 *
-	 */
-
-
-	public boolean depositar(int valor){
-		if (valor > 0) {
-			this.setSaldo(this.getSaldo()+valor);
-			return true;
-			
-		}
-			return false;
-	}
-	/**
-	 * @param valor
-	 * @return boolean
-	 *
-	 */
-	public boolean transferir(int valor, Conta DepositarNela){
-		if (this.Emprestar(valor)) {
-
-			if(DepositarNela.depositar(valor)){
-				this.sacar(valor);
-				return true;
-			}else{
-				return false;
-			}				
-		}else{
-			return false;
-		}
-	}
-	/**
-	 * @param valor
-	 * @return boolean
-	 *
-	 */
-	public boolean Emprestar(int valor){
-		if (valor > 0 && this.getSaldo() >= valor) {
-			return true;
-			}
-		
-			return false;
-		
-	}
-
-	/**
-	 * @return the pessoa
+	 * Metodo que retorna a pessoa
+	 * @return Pessoa
 	 */
 	public Pessoa getPessoa() {
 		return pessoa;
 	}
 
 	/**
-	 * @param pessoa the pessoa to set
+	 * Metodo que insere a pessoa
+	 * @param pessoa 
 	 */
 	public void setPessoa(Pessoa pessoa) {
 		this.pessoa = pessoa;
 	}
 	
 	/**
-	 * @return the agencia
+	 * Metodo que retorna a agencia
+	 * @return int
 	 */
 	public int getAgencia() {
 		return Agencia;
 	}
 
 	/**
-	 * @param agencia the agencia to set
+	 * Metodo que insere o numero da agencia
+	 * @param agencia
 	 */
 	public void setAgencia(int agencia) {
 		this.Agencia = agencia;
 	}
 
 	/**
-	 * @return the numero
+	 * Metodo que retorna o numero da Conta
+	 * @return int
 	 */
 	public int getNumero() {
 		return Numero;
 	}
 
 	/**
-	 * @param numero the numero to set
+	 * Metodo que insere o numero da conta
+	 * @param numero
 	 */
 	public void setNumero(int numero) {
 		this.Numero = numero;
 	}
 
 	/**
-	 * @return the senha
+	 * Metodo que retorna a senha
+	 * @return String
 	 */
 	public String getSenha() {
 		return Senha;
 	}
 
 	/**
-	 * @param senha the senha to set
+	 * Metodo que insere a senha
+	 * @param senha
 	 */
 	public void setSenha(String senha) {
 		this.Senha = senha;
 	}
 
 	/**
-	 * @return the saldo
+	 * Metodo que retorna o saldo
+	 * @return float
 	 */
 	public float getSaldo() {
 		return Saldo;
 	}
 
 	/**
-	 * @param saldo the saldo to set
+	 * Metodo que insere o valor do saldo
+	 * @param saldo
 	 */
 	public void setSaldo(float saldo) {
 		this.Saldo = saldo;
 	}	
 
 	/**
-	 * @return the movimentacoes
+	 * Metodo que lista as movimentacoes
+	 * @return Movimentacoes
 	 */
 	public ArrayList<Movimentacoes> getMovimentacoes() {
 		return movimentacoes;
 	}
 
 	/**
-	 * @param movimentacoes the movimentacoes to set
+	 * Metodo que insere as movimentacoes
+	 * @param movimentacoes
 	 */
 	public void setMovimentacoes(ArrayList<Movimentacoes> movimentacoes) {
 		this.movimentacoes = movimentacoes;
@@ -180,6 +134,7 @@ public class Conta implements Serializable{
 	
 	  /**
 	   * Metodo tostring de conta, ver as informacoes da conta.
+	   * @return String
 	   */
 	   @Override
 	   public String toString(){

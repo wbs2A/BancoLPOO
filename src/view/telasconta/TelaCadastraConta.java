@@ -5,7 +5,7 @@ import controller.Login;
 import model.Conta;
 import model.Pessoa;
 import view.EntradaDeDados;
-import view.ExecoesDeEntrada;
+import view.TratamentodeEntradas;
 
 public class TelaCadastraConta {
 

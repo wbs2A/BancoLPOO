@@ -5,7 +5,7 @@ import controller.SessaoConta;
 import model.Pessoa;
 import view.ClearConsole;
 import view.EntradaDeDados;
-import view.ExecoesDeEntrada;
+import view.TratamentodeEntradas;
 
 public class TelaAtualizaDadosPessoa {
 

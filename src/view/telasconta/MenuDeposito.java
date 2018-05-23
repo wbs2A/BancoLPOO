@@ -6,7 +6,7 @@ public enum MenuDeposito {
 	int opcao;
 	
 	MenuDeposito(int op) {
-		 this.opcap = op;
+		 this.opcao = op;
 	}
 	
 	public static MenuDeposito menuOpcao(int opcao) {

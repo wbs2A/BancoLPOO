@@ -1,7 +1,7 @@
 package view.telaspessoa;
 
 import view.ClearConsole;
-import view.ExecoesDeEntrada;
+import view.TratamentodeEntradas;
 
 public class TelaGerenciaPessoa {
 
