@@ -9,7 +9,7 @@ import model.Pessoa;
  * @author Controller
  */
 
-class ContaDAO extends DAO{
+public class ContaDAO extends DAO{
     public static void carregarContas() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
@@ -19,7 +19,7 @@ class ContaDAO extends DAO{
     }
  
 	private static ArrayList<Conta> arrayConta  = new ArrayList<Conta>();
-	Random gerador = new Random();
+	static Random gerador = new Random();
 	
 	 /*
 	 * Metodo le int numero da conta
@@ -83,7 +83,7 @@ class ContaDAO extends DAO{
 	 * @return objeto
 	 */
 	public static void delete(Conta conta){
-		this.arrayConta.remove(conta);
+		arrayConta.remove(conta);
 	}
 
 
@@ -93,9 +93,9 @@ class ContaDAO extends DAO{
 	 * @return boolean
 	 *
 	 */
-	public boolean sacar(int valor){
-		if (this.Emprestar(valor)) {
-			this.setSaldo(this.getSaldo()-valor);
+	public static boolean sacar(Conta conta, int valor){
+		if (Emprestar(conta, valor)) {
+			conta.setSaldo(conta.getSaldo()-valor);
 			return true;
 		}
 		return false;
@@ -106,9 +106,21 @@ class ContaDAO extends DAO{
 	 * @param valor
 	 * @return boolean
 	 */
-	public boolean depositar(int valor){
+	public static boolean depositar(Conta conta, int valor){
 		if (valor > 0){
-			this.setSaldo(this.getSaldo() + valor);
+			conta.setSaldo(conta.getSaldo() + valor);
+			return true;
+		}
+		return false;
+	}
+	
+	/*
+	 * Metodo empresta um valor
+	 * @param valor
+	 * @return boolean
+	 */
+	public static boolean Emprestar(Conta conta, int valor){
+		if (valor > 0 && conta.getSaldo() >= valor) {
 			return true;
 		}
 		return false;
@@ -119,11 +131,11 @@ class ContaDAO extends DAO{
 	 * @param valor
 	 * @return boolean
 	 */
-	public boolean transferir(int valor, Conta DepositarNela){
-		if (this.Emprestar(valor)){
+	public static boolean transferir(int valor, Conta DepositarNela, Conta RetirarDela){
+		if (Emprestar(RetirarDela, valor)){
 
-			if(DepositarNela.depositar(valor)){
-				this.sacar(valor);
+			if(depositar(DepositarNela, valor)){
+			   sacar(RetirarDela, valor);
 				return true;
 			}else{
 				return false;
@@ -133,18 +145,7 @@ class ContaDAO extends DAO{
 		}
 	}
 
-	/*
-	 * Metodo empresta um valor
-	 * @param valor
-	 * @return boolean
-	 */
-	public boolean Emprestar(int valor){
-		if (valor > 0 && this.getSaldo() >= valor) {
-			return true;
-		}
-		return false;
-	}
-
+	
     @Override
     Object read() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -159,4 +160,10 @@ class ContaDAO extends DAO{
     void delete() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+	@Override
+	Object create() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }	

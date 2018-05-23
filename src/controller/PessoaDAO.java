@@ -21,7 +21,7 @@ public class PessoaDAO extends DAO{
     }
 
     @Override
-    void create() {
+    Object create() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
