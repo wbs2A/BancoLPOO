@@ -23,7 +23,22 @@ public class Pessoa implements Serializable{
 	private String Telefone;
 	private ArrayList<Conta> contas;
 	
+<<<<<<< HEAD
+	/**
+	 * @param nome
+	 * @param senha
+	 * @param cpf
+	 * @param data
+	 * @param sexo
+	 * @param telefone
+	 * @param funcoe
+	 * @param email
+	 */
+	
+	public Pessoa(String nome,String senha, String cpf, Date data, String sexo, String telefone, String funcao, String email){
+=======
 	public Pessoa(String nome,String senha, String cpf, Date data, String sexo, String telefone, String email){
+>>>>>>> 2aa3fb0505b9e4512119c507ec34df8498ba34d7
 		this.setNome(nome);
 		this.setSenha(senha);
 		this.setCpf(cpf);
@@ -36,52 +51,76 @@ public class Pessoa implements Serializable{
 	}
 
 	/**
-	 * @return the nome
+	 * Método que retorna o nome da pessoa
+	 * @return String
 	 */
 	public String getNome() {
 		return Nome;
 	}
 	
 	/**
-	 * @param nome the nome to set
+	 * Método que insere o nome da Pessoa
+	 * @param nome
 	 */
 	public void setNome(String nome) {
 		this.Nome = nome;
 	}
 	
 	/**
-	 * @param email the set
+	 * Método que retorna o email da pessoa
+	 * @return String
 	 */
 	
 	public String getEmail(){
 		return Email;	
 	}
 	/**
-	 * email the email set
+	 * Método que insere o email
+	 * @param email
 	 */
 	public void setEmail(String email){
 		this.Email = email;
 	}
 	
 	/**
-	 * @return the telefone
+	 * Método que retorna o telefone
+	 * @return String
 	 */
 	public String getTelefone(){
 		 return Telefone;
 		 
 	}
 	/**
-	 * telefone the telefone to set
-
+	 * Método que insere o telefone
+	 * @param telefone
 	 */
 	
 	public void setTelefone(String telefone){
 		this.Telefone = telefone;
 	
 	}
-
+<<<<<<< HEAD
+	
 	/**
-	 * @return the senha
+	 * Método que retorna a funcao/cargo
+	 * @return String
+	 */
+	public String getFuncao(){
+	  return Funcao;
+	}
+	/**
+	 * Método que insere a funcao
+	 * @param funcao
+	 */
+	public void setFuncao(String funcao){
+		this.Funcao = funcao;
+	}
+=======
+
+>>>>>>> 2aa3fb0505b9e4512119c507ec34df8498ba34d7
+	/**
+	 * Método que retorna a senha
+	 * @return String
 	 */
 	
 	public String getSenha() {
@@ -89,70 +128,79 @@ public class Pessoa implements Serializable{
 	}
 
 	/**
-	 * @param senha the senha to set
+	 * Método que insere a senha
+	 * @param senha
 	 */
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
 
 	/**
-	 * @return the dtNasci
+	 * Método que retorna a data de nascimento
+	 * @return Date
 	 */
 	public Date getDtNasci() {
 		return dtNasci;
 	}
 
 	/**
-	 * @param dtNasci the dtNasci to set
+	 * Método que insere a data de nascimento
+	 * @param dtNasci
 	 */
 	public void setDtNasci(Date dtNasci) {
 		this.dtNasci = dtNasci;
 	}
 
 	/**
-	 * @return the sexo
+	 * Método que retorna o sexo da pessoa
+	 * @return String
 	 */
 	public String getSexo() {
 		return Sexo;
 	}
 
 	/**
-	 * @param sexo the sexo to set
+	 * Método que insere o sexo da pessoa
+	 * @param sexo
 	 */
 	public void setSexo(String sexo) {
 		this.Sexo = sexo;
 	}
 
 	/**
-	 * @return the cpf
+	 * Método que retorna o CPF
+	 * @return String
 	 */
 	public String getCpf() {
 		return Cpf;
 	}
 
 	/**
-	 * @param cpf the cpf to set
+	 * Método que insere o CPF
+	 * @param cpf
 	 */
 	public void setCpf(String cpf) {
 		this.Cpf = cpf;
 	}
 
 	/**
-	 * @return the contas
+	 * Método que retorna a lista de contas da pessoa
+	 * @return Conta
 	 */
 	public ArrayList<Conta> getContas() {
 		return contas;
 	}
 
 	/**
-	 * @param contas the contas to set
+	 * Método que insere conta
+	 * @param contas
 	 */
 	public void setContas(ArrayList<Conta> contas) {
 		this.contas = contas;
 	}
 	/**
-	* metodo que adiconar uma conta ao arraylist de pessoa.
-	*@param conta the contas to set 
+	* Método que adicona conta a pessoa.
+	*@param conta 
 	*/
 	public void addConta(Conta conta){
  	  	
@@ -161,7 +209,8 @@ public class Pessoa implements Serializable{
  		}
 	
 	  /**
-	   * Metodo toString classe pessoa 
+	   * Metodo toString classe pessoa
+	   * @return String
 	   */
 	
 	   @Override

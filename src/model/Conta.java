@@ -4,7 +4,10 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
- * 
+ * @author Allison
+ * @author Valdenize
+ * @author Helmuth
+ * Classe Conta que conterá os métodos Getters e Settters, construtor e os atributos da Conta
  */
 
 public class Conta implements Serializable{
@@ -20,7 +23,7 @@ public class Conta implements Serializable{
 			
 	/**
 	* @paramss agencia
-	* @param numero s
+	* @param numero
 	* @param tipo
 	* @param pessoa
 	*
@@ -30,10 +33,14 @@ public class Conta implements Serializable{
 		this.setSaldo(saldo);
 		this.setPessoa(pessoa);
 		this.setNumero(numero);
+<<<<<<< HEAD
+=======
 		this.setSenha(senha);
+>>>>>>> 2aa3fb0505b9e4512119c507ec34df8498ba34d7
 	}
 	
 	/**
+	 * Método que realiza o saque da conta
 	 * @param valor
 	 * @return boolean
 	 *
@@ -48,7 +55,8 @@ public class Conta implements Serializable{
 		
 	}
 	/**
-	 * @param valor
+	 * Método que realiza o depósito na Conta.
+	 * * @param valor
 	 * @return boolean
 	 *
 	 */
@@ -62,7 +70,9 @@ public class Conta implements Serializable{
 		}
 			return false;
 	}
+
 	/**
+	 * Método que realiza a transferência de um valor da conta para outra conta.
 	 * @param valor
 	 * @return boolean
 	 *
@@ -81,6 +91,7 @@ public class Conta implements Serializable{
 		}
 	}
 	/**
+	 * Método que realiza a verificação de que o saldo é maior que o valor inserido.
 	 * @param valor
 	 * @return boolean
 	 *
@@ -95,84 +106,96 @@ public class Conta implements Serializable{
 	}
 
 	/**
-	 * @return the pessoa
+	 * Método que retorna a pessoa
+	 * @return Pessoa
 	 */
 	public Pessoa getPessoa() {
 		return pessoa;
 	}
 
 	/**
-	 * @param pessoa the pessoa to set
+	 * Método que insere a pessoa
+	 * @param pessoa 
 	 */
 	public void setPessoa(Pessoa pessoa) {
 		this.pessoa = pessoa;
 	}
 	
 	/**
-	 * @return the agencia
+	 * Método que retorna a agência
+	 * @return int
 	 */
 	public int getAgencia() {
 		return Agencia;
 	}
 
 	/**
-	 * @param agencia the agencia to set
+	 * Método que insere o numero da agência
+	 * @param agencia
 	 */
 	public void setAgencia(int agencia) {
 		this.Agencia = agencia;
 	}
 
 	/**
-	 * @return the numero
+	 * Método que retorna o número da Conta
+	 * @return int
 	 */
 	public int getNumero() {
 		return Numero;
 	}
 
 	/**
-	 * @param numero the numero to set
+	 * Método que insere o número da conta
+	 * @param numero
 	 */
 	public void setNumero(int numero) {
 		this.Numero = numero;
 	}
 
 	/**
-	 * @return the senha
+	 * Método que retorna a senha
+	 * @return String
 	 */
 	public String getSenha() {
 		return Senha;
 	}
 
 	/**
-	 * @param senha the senha to set
+	 * Método que insere a senha
+	 * @param senha
 	 */
 	public void setSenha(String senha) {
 		this.Senha = senha;
 	}
 
 	/**
-	 * @return the saldo
+	 * Método que retorna o saldo
+	 * @return float
 	 */
 	public float getSaldo() {
 		return Saldo;
 	}
 
 	/**
-	 * @param saldo the saldo to set
+	 * Método que insere o valor do saldo
+	 * @param saldo
 	 */
 	public void setSaldo(float saldo) {
 		this.Saldo = saldo;
 	}	
 
 	/**
-	 * @return the movimentacoes
+	 * Método que lista as movimentações
+	 * @return Movimentacoes
 	 */
 	public ArrayList<Movimentacoes> getMovimentacoes() {
 		return movimentacoes;
 	}
 
 	/**
-	 * @param movimentacoes the movimentacoes to set
+	 * Método que insere as movimentações
+	 * @param movimentacoes
 	 */
 	public void setMovimentacoes(ArrayList<Movimentacoes> movimentacoes) {
 		this.movimentacoes = movimentacoes;
@@ -180,6 +203,7 @@ public class Conta implements Serializable{
 	
 	  /**
 	   * Metodo tostring de conta, ver as informacoes da conta.
+	   * @return String
 	   */
 	   @Override
 	   public String toString(){
