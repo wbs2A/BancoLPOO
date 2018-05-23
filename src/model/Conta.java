@@ -33,10 +33,7 @@ public class Conta implements Serializable{
 		this.setSaldo(saldo);
 		this.setPessoa(pessoa);
 		this.setNumero(numero);
-<<<<<<< HEAD
-=======
 		this.setSenha(senha);
->>>>>>> 2aa3fb0505b9e4512119c507ec34df8498ba34d7
 	}
 	
 	/**

@@ -23,7 +23,6 @@ public class Pessoa implements Serializable{
 	private String Telefone;
 	private ArrayList<Conta> contas;
 	
-<<<<<<< HEAD
 	/**
 	 * @param nome
 	 * @param senha
@@ -36,9 +35,7 @@ public class Pessoa implements Serializable{
 	 */
 	
 	public Pessoa(String nome,String senha, String cpf, Date data, String sexo, String telefone, String funcao, String email){
-=======
 	public Pessoa(String nome,String senha, String cpf, Date data, String sexo, String telefone, String email){
->>>>>>> 2aa3fb0505b9e4512119c507ec34df8498ba34d7
 		this.setNome(nome);
 		this.setSenha(senha);
 		this.setCpf(cpf);

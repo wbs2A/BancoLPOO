@@ -11,16 +11,12 @@ public class Movimentacoes implements Serializable {
 	private float valorOperacao;
 	private boolean aconteceu;
 	
-
-<<<<<<< HEAD
 	/**
 	 * @param nome
 	 * @param valor
 	 */
 	public Movimentacoes(String nome, float valor){
-=======
 	public Movimentacoes(String nome, float valor, boolean aconteceu){
->>>>>>> 2aa3fb0505b9e4512119c507ec34df8498ba34d7
 		this.setNomeOperacao(nome);
 		this.setValorOperacao(valor);
 		this.setAconteceu(aconteceu);
