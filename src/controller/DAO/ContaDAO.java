@@ -7,60 +7,60 @@ import java.util.ArrayList;
 
 public class contaDAO{
  
-    private ArrayList<Conta> arrayConta  = new ArrayList<Conta>();
-    Scanner ler = new Scanner(System.in);
-    private static int qntContas = 0;
+	private ArrayList<Conta> arrayConta  = new ArrayList<Conta>();
+	Scanner ler = new Scanner(System.in);
+	private static int qntContas = 0;
 
-     /**
-     * Metodo le int numero da conta
+	 /**
+	 * Metodo le int numero da conta
 	 * @return int
 	 */
-    public static int lerN_Conta(){
-        System.out.print("\nInsira o numero da conta: ");
-        return scan.nextInt();
-    }
+	public static int lerN_Conta(){
+		System.out.print("\nInsira o numero da conta: ");
+		return scan.nextInt();
+	}
 
-     /**
-     * Metodo le int numero da agencia da conta
+	 /**
+	 * Metodo le int numero da agencia da conta
 	 * @return int
 	 */
-    public static int lerAgencia(){
-        System.out.print("\nInsira o numero da agencia : ");
-        return scan.nextInt();
-    }
+	public static int lerAgencia(){
+		System.out.print("\nInsira o numero da agencia : ");
+		return scan.nextInt();
+	}
 
-    /**
-    * Metodo le double saldo da conta
+	/**
+	* Metodo le double saldo da conta
 	 * @return double
 	 */
-    public static double lerSaldo(){
-        System.out.print("\nInsira o saldo da conta: ");
-        return scan.nextDouble();
-    }
-    
-     /**
-     * Metodo instancia objeto do tipo conta (cria)
+	public static double lerSaldo(){
+		System.out.print("\nInsira o saldo da conta: ");
+		return scan.nextDouble();
+	}
+	
+	 /**
+	 * Metodo instancia objeto do tipo conta (cria)
 	 * @param objeto
 	 * @return objeto
 	 */
 
-    public static Conta criarConta(Pessoa pessoa, Conta conta){
-  			
-        Conta conta = new Conta(lerN_Conta(), lerAgencia(), lerSaldo(), pessoa);
-        
-        this.arrayConta.add(conta);
-        contaDAO.qntContas++;           
-        return conta;
-    }
+	public static Conta criarConta(Pessoa pessoa, Conta conta){
+			
+		Conta conta = new Conta(lerN_Conta(), lerAgencia(), lerSaldo(), pessoa);
+		
+		this.arrayConta.add(conta);
+		contaDAO.qntContas++;           
+		return conta;
+	}
 
-    /**
-     * Metodo adiciona um objeto ja instanciado
+	/**
+	 * Metodo adiciona um objeto ja instanciado
 	 * @param objeto
 	 * @return objeto
 	 */
- 	public Conta addConta(Conta conta){
-        this.arrayConta.add(conta);
-        return conta;
+	public Conta addConta(Conta conta){
+		this.arrayConta.add(conta);
+		return conta;
 	}
 
 	 /**
@@ -77,38 +77,38 @@ public class contaDAO{
 	 * Metodo retorna array de Conta
 	 * @return objeto
 	 */
-    public ArrayList<Conta> getContas(){
-    	return arrayConta;
-    }
+	public ArrayList<Conta> getContas(){
+		return arrayConta;
+	}
 
-    /**
-     * Metodo buscar um objeto no array pelo numero da conta
+	/**
+	 * Metodo buscar um objeto no array pelo numero da conta
 	 * @param valor
 	 * @return objeto
 	 */
-    public Conta buscarConta(int num){
-    	Conta p = null;
-    	for(int i = 0; i < arrayConta.size(); i++){
-    		p = arrayConta.get(i);
-    		if(p.getNumero() == num){
-        		return p;
-        	}
-    	}
-        return null;
-    }
+	public Conta buscarConta(int num){
+		Conta p = null;
+		for(int i = 0; i < arrayConta.size(); i++){
+			p = arrayConta.get(i);
+			if(p.getNumero() == num){
+				return p;
+			}
+		}
+		return null;
+	}
 
-    /**
-     * Metodo exclui um objeto no array 
+	/**
+	 * Metodo exclui um objeto no array 
 	 * @param objeto
 	 * @return objeto
 	 */
-    public void excluirConta(Conta conta){
-        this.arrayConta.remove(conta);
-    }
+	public void excluirConta(Conta conta){
+		this.arrayConta.remove(conta);
+	}
 
 
-    /**
-     * Metodo sacar um valor
+	/**
+	 * Metodo sacar um valor
 	 * @param valor
 	 * @return boolean
 	 *
@@ -121,12 +121,12 @@ public class contaDAO{
 		return false;
 	}
 	
-    /**
-     * Metodo deposita um valor
+	/**
+	 * Metodo deposita um valor
 	 * @param valor
 	 * @return boolean
 	 */
-    public boolean depositar(int valor){
+	public boolean depositar(int valor){
 		if (valor > 0){
 			this.setSaldo(this.getSaldo() + valor);
 			return true;
