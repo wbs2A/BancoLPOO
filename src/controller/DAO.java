@@ -1,4 +1,6 @@
-abstract class DAO{
+package controller;
+
+public abstract class DAO{
 	
 
 	/**

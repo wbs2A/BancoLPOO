@@ -3,28 +3,37 @@ package controller;
 import model.Pessoa;
 import java.util.ArrayList;
 import java.IOException;
-import DAO.PessoaDAO;
+import PessoaDAO;
 /**
 * 
 **/
-class Controller{
-	private Pessoa sessao = null;
+public class Controller{
+
+    public static void getInstance(Pessoa pessoa) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public static Pessoa getPessoa() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    private Pessoa sessao = null;
     private static ArrayList<Pessoa> pessoas = new ArrayList<Pessoa>();
-    private PessoaDAO dao = new PessoaDAO();
-	public static void criarPessoa(String nome, Date dtNasc, String sexo, String cpf, String senha){
-		//Cria pessoa
-		dao.criar(nome,dtNasc,sexo,cpf,senha);
-	}
+    private PessoaDAO daoPessoa = new PessoaDAO();
+    public static void criarPessoa(String nome, Date dtNasc, String sexo, String cpf, String senha){
+	//Cria pessoa
+	Pessoa p = daoPessoa.criar(nome,dtNasc,sexo,cpf,senha);
+        this.pessoas.add(p);
+    }
 
 	//Sessão
 	public static Pessoa getPessoa(String cpf, String senha){
-		return dao.get(cpf,senha);
+	     return daoPessoa.get(cpf,senha);
 	}
 
-	private static boolean validaLogin(String cpf, String senha) throws IOException{
-		//Atribui uma pessoa à sessão
+	public static boolean validaLogin(String cpf, String senha) throws IOException{
+	//Atribui uma pessoa à sessão
 //----
-		pessoa = pessoas.get(cpf);
+	Pessoa pessoa = pessoas.get(cpf);
 
 //------
 

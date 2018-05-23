@@ -2,8 +2,7 @@ package view.comum;
 
 import controller.ContaDAO;
 import controller.PessoaDAO;
-import controller.SessaoConta;
-import view.ClearConsole;
+import controller.Controller;
 import view.TratamentodeEntradas;
 import view.telasconta.TelaGerenciaConta;
 import view.telaspessoa.TelaGerenciaPessoa;
@@ -16,7 +15,6 @@ public class TelaGerenciamentoContaPessoa {
 
 		do {
 			try {
-				new ClearConsole();
 				System.out.println("\t\t\t*******************************************************");
 				System.out.println("\t\t\t*\t           CPAN BANCO CENTER                  *");
 				System.out.println("\t\t\t****************tradutor***************************************");
@@ -24,7 +22,7 @@ public class TelaGerenciamentoContaPessoa {
 				System.out.println("\t \t\t\t**************************************");
 				System.out.println("\t\t\t\t*                HOME                *");
 				System.out.println("\t\t\t\t**************************************");
-				System.out.println("\t\t\t\tUsuario: " + SessaoConta.getPessoa().getNome());
+				System.out.println("\t\t\t\tUsuario: " + Controller.getPessoa().getNome());
 				System.out.println("\t\t\t\t**************************************");
 				System.out.println("\t\t\t\t\n\t\t\t\t");
 				System.out.println("\t\t\t\t**************************************");

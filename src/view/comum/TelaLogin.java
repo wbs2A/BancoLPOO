@@ -1,8 +1,7 @@
 package view.comum;
 
-import controller.Login;
+import controller.Controller;
 import controller.PessoaDAO;
-import controller.SessaoConta;
 import model.Pessoa;
 import view.ClearConsole;
 import view.EntradaDeDados;
@@ -25,9 +24,9 @@ public class TelaLogin {
 			System.out.println("\t\t\t\t*                 LOGIN                *");
 			System.out.println("\t\t\t\t****************************************");
 			System.out.println("\t\t\t\t\n\t\t\t\t");
-			pessoa = Login.validaLogin(TratamentodeEntradas.trataEntradaCpf(), EntradaDeDados.lerSenha());
+			pessoa = Controller.validaLogin(TratamentodeEntradas.trataEntradaCpf(), EntradaDeDados.lerSenha());
 			if (pessoa != null) {
-				SessaoConta.getInstance(pessoa);
+				Controller.getInstance(pessoa);
 				TelaGerenciamentoContaPessoa.menuOpcoes();
 			} else {
 				System.out.println();
