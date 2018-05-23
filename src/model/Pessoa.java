@@ -1,8 +1,10 @@
 package model;
 
 import java.io.Serializable;
-
 /**
+ * @author Allison
+ * @author Valdenize
+ * @author Helmuth
  * Esta classe é uma abstração de um possível usuário do banco.
  */
 
@@ -10,9 +12,6 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class Pessoa implements Serializable{
-	/**
-	 * 
-	 */
 	private transient static final long serialVersionUID = 1L;
 	private String Nome;
 	private String senha;
@@ -30,11 +29,9 @@ public class Pessoa implements Serializable{
 	 * @param data
 	 * @param sexo
 	 * @param telefone
-	 * @param funcoe
 	 * @param email
 	 */
 	
-	public Pessoa(String nome,String senha, String cpf, Date data, String sexo, String telefone, String funcao, String email){
 	public Pessoa(String nome,String senha, String cpf, Date data, String sexo, String telefone, String email){
 		this.setNome(nome);
 		this.setSenha(senha);
@@ -96,25 +93,6 @@ public class Pessoa implements Serializable{
 		this.Telefone = telefone;
 	
 	}
-<<<<<<< HEAD
-	
-	/**
-	 * Método que retorna a funcao/cargo
-	 * @return String
-	 */
-	public String getFuncao(){
-	  return Funcao;
-	}
-	/**
-	 * Método que insere a funcao
-	 * @param funcao
-	 */
-	public void setFuncao(String funcao){
-		this.Funcao = funcao;
-	}
-=======
-
->>>>>>> 2aa3fb0505b9e4512119c507ec34df8498ba34d7
 	/**
 	 * Método que retorna a senha
 	 * @return String

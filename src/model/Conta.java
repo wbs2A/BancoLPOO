@@ -24,7 +24,8 @@ public class Conta implements Serializable{
 	/**
 	* @paramss agencia
 	* @param numero
-	* @param tipo
+	* @param saldo
+	* @param senha
 	* @param pessoa
 	*
 	*/
@@ -36,72 +37,6 @@ public class Conta implements Serializable{
 		this.setSenha(senha);
 	}
 	
-	/**
-	 * Método que realiza o saque da conta
-	 * @param valor
-	 * @return boolean
-	 *
-	 */
-	public boolean sacar(int valor){
-		if (this.Emprestar(valor)) {
-			this.setSaldo(this.getSaldo()-valor);
-			return true;
-			}
-		
-			return false;
-		
-	}
-	/**
-	 * Método que realiza o depósito na Conta.
-	 * * @param valor
-	 * @return boolean
-	 *
-	 */
-
-
-	public boolean depositar(int valor){
-		if (valor > 0) {
-			this.setSaldo(this.getSaldo()+valor);
-			return true;
-			
-		}
-			return false;
-	}
-
-	/**
-	 * Método que realiza a transferência de um valor da conta para outra conta.
-	 * @param valor
-	 * @return boolean
-	 *
-	 */
-	public boolean transferir(int valor, Conta DepositarNela){
-		if (this.Emprestar(valor)) {
-
-			if(DepositarNela.depositar(valor)){
-				this.sacar(valor);
-				return true;
-			}else{
-				return false;
-			}				
-		}else{
-			return false;
-		}
-	}
-	/**
-	 * Método que realiza a verificação de que o saldo é maior que o valor inserido.
-	 * @param valor
-	 * @return boolean
-	 *
-	 */
-	public boolean Emprestar(int valor){
-		if (valor > 0 && this.getSaldo() >= valor) {
-			return true;
-			}
-		
-			return false;
-		
-	}
-
 	/**
 	 * Método que retorna a pessoa
 	 * @return Pessoa

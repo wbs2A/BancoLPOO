@@ -1,9 +1,11 @@
 package model;
 
 import java.io.Serializable;
-
 /**
-*Classe que representa as movimentacoes do Banco
+ * @author Allison
+ * @author Valdenize
+ * @author Helmuth
+ *Classe que representa as movimentacoes do Banco
 */
 
 public class Movimentacoes implements Serializable {
@@ -16,7 +18,6 @@ public class Movimentacoes implements Serializable {
 	 * @param valor
 	 */
 	public Movimentacoes(String nome, float valor){
-	public Movimentacoes(String nome, float valor, boolean aconteceu){
 		this.setNomeOperacao(nome);
 		this.setValorOperacao(valor);
 		this.setAconteceu(aconteceu);
