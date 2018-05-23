@@ -16,8 +16,9 @@ public class Movimentacoes implements Serializable {
 	/**
 	 * @param nome
 	 * @param valor
+	 * @param aconteceu
 	 */
-	public Movimentacoes(String nome, float valor){
+	public Movimentacoes(String nome, float valor, boolean aconteceu){
 		this.setNomeOperacao(nome);
 		this.setValorOperacao(valor);
 		this.setAconteceu(aconteceu);
