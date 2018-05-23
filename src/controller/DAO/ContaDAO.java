@@ -106,6 +106,21 @@ public class contaDAO{
         this.arrayConta.remove(conta);
     }
 
+
+    /**
+     * Metodo sacar um valor
+	 * @param valor
+	 * @return boolean
+	 *
+	 */
+	public boolean sacar(int valor){
+		if (this.Emprestar(valor)) {
+			this.setSaldo(this.getSaldo()-valor);
+			return true;
+		}
+		return false;
+	}
+	
     /**
      * Metodo deposita um valor
 	 * @param valor
