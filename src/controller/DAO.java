@@ -35,7 +35,7 @@ public  void serializar(String path, Object obj) throws Exception
 
 }
 
-	abstract void create();
+	abstract Object create();
 	abstract Object read();
 	abstract void update();
 	abstract void delete();

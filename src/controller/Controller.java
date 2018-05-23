@@ -22,7 +22,7 @@ public class Controller{
     public static void criarPessoa(String nome, Date dtNasc, String sexo, String cpf, String senha){
 	//Cria pessoa
 	Pessoa p = daoPessoa.criar(nome,dtNasc,sexo,cpf,senha);
-        this.pessoas.add(p);
+        Controller.pessoas.add(p);
     }
 
 	//Sessão

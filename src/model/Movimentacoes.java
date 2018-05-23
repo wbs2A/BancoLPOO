@@ -9,6 +9,10 @@ import java.io.Serializable;
 */
 
 public class Movimentacoes implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String nomeOperacao;
 	private float valorOperacao;
 	private boolean aconteceu;
@@ -25,7 +29,7 @@ public class Movimentacoes implements Serializable {
 	}
 
 	/**
-	 * Método que retorna o nome da operação
+	 * Metodo que retorna o nome da operacao
 	 * @return String
 	 */
 	public String getNomeOperacao() {
@@ -33,7 +37,7 @@ public class Movimentacoes implements Serializable {
 	}
 
 	/**
-	 * Método que é inserido o nome da operação
+	 * Metodo que insere o nome da operacao
 	 * @param nomeOperacao
 	 */
 	public void setNomeOperacao(String nomeOperacao) {
@@ -41,7 +45,7 @@ public class Movimentacoes implements Serializable {
 	}
 
 	/**
-	 * Método que retorna o valor da operação
+	 * Metodo que retorna o valor da operacao
 	 * @return float
 	 */
 	public float getValorOperacao() {
@@ -49,14 +53,14 @@ public class Movimentacoes implements Serializable {
 	}
 
 	/**
-	 * Método que insere o valor da operação
+	 * Metodo que insere o valor da operacao
 	 * @param valorOperacao
 	 */
 	public void setValorOperacao(float valorOperacao) {
 		this.valorOperacao = valorOperacao;
 	}
 	/**
-	 * Método que retorna se aconteceu ou não
+	 * Metodo que retorna se aconteceu ou nao
 	 * @return boolean
 	 */
 	public boolean isAconteceu() {
@@ -64,7 +68,7 @@ public class Movimentacoes implements Serializable {
 	}
 
 	/**
-	 * Método que insere um valor booleano
+	 * Metodo que insere um valor booleano
 	 * @param aconteceu
 	 */
 	public void setAconteceu(boolean aconteceu) {
