@@ -5,7 +5,7 @@ import java.io.Serializable;
  * @author Allison
  * @author Valdenize
  * @author Helmuth
- * Esta classe é uma abstração de um possível usuário do banco.
+ * Esta classe e uma abstracao de um possivel usuario do banco.
  */
 
 import java.util.ArrayList;
@@ -45,7 +45,7 @@ public class Pessoa implements Serializable{
 	}
 
 	/**
-	 * Método que retorna o nome da pessoa
+	 * Metodo que retorna o nome da pessoa
 	 * @return String
 	 */
 	public String getNome() {
@@ -53,7 +53,7 @@ public class Pessoa implements Serializable{
 	}
 	
 	/**
-	 * Método que insere o nome da Pessoa
+	 * Metodo que insere o nome da Pessoa
 	 * @param nome
 	 */
 	public void setNome(String nome) {
@@ -61,7 +61,7 @@ public class Pessoa implements Serializable{
 	}
 	
 	/**
-	 * Método que retorna o email da pessoa
+	 * Metodo que retorna o email da pessoa
 	 * @return String
 	 */
 	
@@ -69,7 +69,7 @@ public class Pessoa implements Serializable{
 		return Email;	
 	}
 	/**
-	 * Método que insere o email
+	 * Metodo que insere o email
 	 * @param email
 	 */
 	public void setEmail(String email){
@@ -77,7 +77,7 @@ public class Pessoa implements Serializable{
 	}
 	
 	/**
-	 * Método que retorna o telefone
+	 * Metodo que retorna o telefone
 	 * @return String
 	 */
 	public String getTelefone(){
@@ -85,7 +85,7 @@ public class Pessoa implements Serializable{
 		 
 	}
 	/**
-	 * Método que insere o telefone
+	 * Metodo que insere o telefone
 	 * @param telefone
 	 */
 	
@@ -94,7 +94,7 @@ public class Pessoa implements Serializable{
 	
 	}
 	/**
-	 * Método que retorna a senha
+	 * Metodo que retorna a senha
 	 * @return String
 	 */
 	
@@ -103,7 +103,7 @@ public class Pessoa implements Serializable{
 	}
 
 	/**
-	 * Método que insere a senha
+	 * Metodo que insere a senha
 	 * @param senha
 	 */
 	public void setSenha(String senha) {
@@ -111,7 +111,7 @@ public class Pessoa implements Serializable{
 	}
 
 	/**
-	 * Método que retorna a data de nascimento
+	 * Metodo que retorna a data de nascimento
 	 * @return Date
 	 */
 	public Date getDtNasci() {
@@ -119,7 +119,7 @@ public class Pessoa implements Serializable{
 	}
 
 	/**
-	 * Método que insere a data de nascimento
+	 * Metodo que insere a data de nascimento
 	 * @param dtNasci
 	 */
 	public void setDtNasci(Date dtNasci) {
@@ -127,7 +127,7 @@ public class Pessoa implements Serializable{
 	}
 
 	/**
-	 * Método que retorna o sexo da pessoa
+	 * Metodo que retorna o sexo da pessoa
 	 * @return String
 	 */
 	public String getSexo() {
@@ -135,7 +135,7 @@ public class Pessoa implements Serializable{
 	}
 
 	/**
-	 * Método que insere o sexo da pessoa
+	 * Metodo que insere o sexo da pessoa
 	 * @param sexo
 	 */
 	public void setSexo(String sexo) {
@@ -143,7 +143,7 @@ public class Pessoa implements Serializable{
 	}
 
 	/**
-	 * Método que retorna o CPF
+	 * Metodo que retorna o CPF
 	 * @return String
 	 */
 	public String getCpf() {
@@ -151,7 +151,7 @@ public class Pessoa implements Serializable{
 	}
 
 	/**
-	 * Método que insere o CPF
+	 * Metodo que insere o CPF
 	 * @param cpf
 	 */
 	public void setCpf(String cpf) {
@@ -159,7 +159,7 @@ public class Pessoa implements Serializable{
 	}
 
 	/**
-	 * Método que retorna a lista de contas da pessoa
+	 * Metodo que retorna a lista de contas da pessoa
 	 * @return Conta
 	 */
 	public ArrayList<Conta> getContas() {
@@ -167,14 +167,14 @@ public class Pessoa implements Serializable{
 	}
 
 	/**
-	 * Método que insere conta
+	 * Metodo que insere conta
 	 * @param contas
 	 */
 	public void setContas(ArrayList<Conta> contas) {
 		this.contas = contas;
 	}
 	/**
-	* Método que adicona conta a pessoa.
+	* Metodo que adicona conta a pessoa.
 	*@param conta 
 	*/
 	public void addConta(Conta conta){

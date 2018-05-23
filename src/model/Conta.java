@@ -7,7 +7,7 @@ import java.util.ArrayList;
  * @author Allison
  * @author Valdenize
  * @author Helmuth
- * Classe Conta que conterá os métodos Getters e Settters, construtor e os atributos da Conta
+ * Classe Conta
  */
 
 public class Conta implements Serializable{
@@ -17,12 +17,11 @@ public class Conta implements Serializable{
 	private String Senha;
 	private int Numero;
 	private int Agencia;
-	private Conta contaPadrao;
 	private Pessoa pessoa;
     private ArrayList<Movimentacoes> movimentacoes = new ArrayList<Movimentacoes>();
 			
 	/**
-	* @paramss agencia
+	* @param agencia
 	* @param numero
 	* @param saldo
 	* @param senha
@@ -38,7 +37,7 @@ public class Conta implements Serializable{
 	}
 	
 	/**
-	 * Método que retorna a pessoa
+	 * Metodo que retorna a pessoa
 	 * @return Pessoa
 	 */
 	public Pessoa getPessoa() {
@@ -46,7 +45,7 @@ public class Conta implements Serializable{
 	}
 
 	/**
-	 * Método que insere a pessoa
+	 * Metodo que insere a pessoa
 	 * @param pessoa 
 	 */
 	public void setPessoa(Pessoa pessoa) {
@@ -54,7 +53,7 @@ public class Conta implements Serializable{
 	}
 	
 	/**
-	 * Método que retorna a agência
+	 * Metodo que retorna a agencia
 	 * @return int
 	 */
 	public int getAgencia() {
@@ -62,7 +61,7 @@ public class Conta implements Serializable{
 	}
 
 	/**
-	 * Método que insere o numero da agência
+	 * Metodo que insere o numero da agencia
 	 * @param agencia
 	 */
 	public void setAgencia(int agencia) {
@@ -70,7 +69,7 @@ public class Conta implements Serializable{
 	}
 
 	/**
-	 * Método que retorna o número da Conta
+	 * Metodo que retorna o numero da Conta
 	 * @return int
 	 */
 	public int getNumero() {
@@ -78,7 +77,7 @@ public class Conta implements Serializable{
 	}
 
 	/**
-	 * Método que insere o número da conta
+	 * Metodo que insere o numero da conta
 	 * @param numero
 	 */
 	public void setNumero(int numero) {
@@ -86,7 +85,7 @@ public class Conta implements Serializable{
 	}
 
 	/**
-	 * Método que retorna a senha
+	 * Metodo que retorna a senha
 	 * @return String
 	 */
 	public String getSenha() {
@@ -94,7 +93,7 @@ public class Conta implements Serializable{
 	}
 
 	/**
-	 * Método que insere a senha
+	 * Metodo que insere a senha
 	 * @param senha
 	 */
 	public void setSenha(String senha) {
@@ -102,7 +101,7 @@ public class Conta implements Serializable{
 	}
 
 	/**
-	 * Método que retorna o saldo
+	 * Metodo que retorna o saldo
 	 * @return float
 	 */
 	public float getSaldo() {
@@ -110,7 +109,7 @@ public class Conta implements Serializable{
 	}
 
 	/**
-	 * Método que insere o valor do saldo
+	 * Metodo que insere o valor do saldo
 	 * @param saldo
 	 */
 	public void setSaldo(float saldo) {
@@ -118,7 +117,7 @@ public class Conta implements Serializable{
 	}	
 
 	/**
-	 * Método que lista as movimentações
+	 * Metodo que lista as movimentacoes
 	 * @return Movimentacoes
 	 */
 	public ArrayList<Movimentacoes> getMovimentacoes() {
@@ -126,7 +125,7 @@ public class Conta implements Serializable{
 	}
 
 	/**
-	 * Método que insere as movimentações
+	 * Metodo que insere as movimentacoes
 	 * @param movimentacoes
 	 */
 	public void setMovimentacoes(ArrayList<Movimentacoes> movimentacoes) {
