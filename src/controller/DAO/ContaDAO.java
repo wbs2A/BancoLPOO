@@ -1,76 +1,45 @@
-import java.util.Scanner;
 import java.util.ArrayList;
+import java.util.Random;
 
 /**
  * @author Controller
  */
 
-public class contaDAO{
+public class contaDAO extends DAO{
  
 	private ArrayList<Conta> arrayConta  = new ArrayList<Conta>();
-	Scanner ler = new Scanner(System.in);
-	private static int qntContas = 0;
-
+	Random gerador = new Random();
+	
 	 /**
 	 * Metodo le int numero da conta
 	 * @return int
 	 */
-	public static int lerN_Conta(){
-		System.out.print("\nInsira o numero da conta: ");
-		return scan.nextInt();
+	public static int num(){
+		return gerador.nextInt();
 	}
 
 	 /**
-	 * Metodo le int numero da agencia da conta
-	 * @return int
-	 */
-	public static int lerAgencia(){
-		System.out.print("\nInsira o numero da agencia : ");
-		return scan.nextInt();
-	}
-
-	/**
-	* Metodo le double saldo da conta
-	 * @return double
-	 */
-	public static double lerSaldo(){
-		System.out.print("\nInsira o saldo da conta: ");
-		return scan.nextDouble();
-	}
-	
-	 /**
-	 * Metodo instancia objeto do tipo conta (cria)
+	 * Metodo instancia objeto do tipo conta (cria) e adiciona o objeto conta no array de contas em pessoa
+	 * @param int agencia fixa
+	 * @param string senha
+	 * @param double saldo
 	 * @param objeto
 	 * @return objeto
 	 */
-
-	public static Conta criarConta(Pessoa pessoa, Conta conta){
-			
-		Conta conta = new Conta(lerN_Conta(), lerAgencia(), lerSaldo(), pessoa);
-		
+	public static Conta create(Int agencia = 14, String senha, Double saldo = 0, Pessoa pessoa){
+		Conta conta = new Conta(agencia, num(), saldo, senha, pessoa);
 		this.arrayConta.add(conta);
-		contaDAO.qntContas++;           
-		return conta;
-	}
-
-	/**
-	 * Metodo adiciona um objeto ja instanciado
-	 * @param objeto
-	 * @return objeto
-	 */
-	public Conta addConta(Conta conta){
-		this.arrayConta.add(conta);
+		pessoa.getContas().add(conta);
 		return conta;
 	}
 
 	 /**
-	 * Metodo altera um objeto do tipo conta
+	 * Metodo atualiza senha
 	 * @param objeto
-	 * @return objeto
+	 * @param senha
 	 */
-	public Conta setConta(Conta conta) {
-		this.arrayConta.merge(conta);
-		return conta;
+	public static void update(Conta conta, String senha) {
+		conta.setSenha(senha);
 	}
 
 	/**
@@ -86,12 +55,12 @@ public class contaDAO{
 	 * @param valor
 	 * @return objeto
 	 */
-	public Conta buscarConta(int num){
-		Conta p = null;
+	public static Conta search(int num){
+		Conta conta = null;
 		for(int i = 0; i < arrayConta.size(); i++){
-			p = arrayConta.get(i);
-			if(p.getNumero() == num){
-				return p;
+			conta = arrayConta.get(i);
+			if(conta.getNumero() == num){
+				return conta;
 			}
 		}
 		return null;
@@ -102,7 +71,7 @@ public class contaDAO{
 	 * @param objeto
 	 * @return objeto
 	 */
-	public void excluirConta(Conta conta){
+	public static void delete(Conta conta){
 		this.arrayConta.remove(conta);
 	}
 
