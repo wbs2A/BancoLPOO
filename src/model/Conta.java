@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class Conta implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
-	private float Saldo;
+	private double Saldo;
 	private String Senha;
 	private int Numero;
 	private int Agencia;
@@ -28,7 +28,7 @@ public class Conta implements Serializable{
 	* @param pessoa
 	*
 	*/
-	public Conta( int agencia, int numero, float saldo, String senha, Pessoa pessoa){
+	public Conta( int agencia, int numero, double saldo, String senha, Pessoa pessoa){
 		this.setAgencia(agencia);
 		this.setSaldo(saldo);
 		this.setPessoa(pessoa);
@@ -102,9 +102,9 @@ public class Conta implements Serializable{
 
 	/**
 	 * Metodo que retorna o saldo
-	 * @return float
+	 * @return double
 	 */
-	public float getSaldo() {
+	public double getSaldo() {
 		return Saldo;
 	}
 
@@ -112,7 +112,7 @@ public class Conta implements Serializable{
 	 * Metodo que insere o valor do saldo
 	 * @param saldo
 	 */
-	public void setSaldo(float saldo) {
+	public void setSaldo(double saldo) {
 		this.Saldo = saldo;
 	}	
 
