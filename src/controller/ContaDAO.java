@@ -69,7 +69,7 @@ public class ContaDAO extends DAO{
 	 * @param valor
 	 * @return objeto
 	 */
-	public static Conta search(int num) throws ContaInexistente{
+	public static Conta read(int num) throws ContaInexistente{
 		Conta conta = null;
 		for(int i = 0; i < arrayConta.size(); i++){
 			conta = arrayConta.get(i);
@@ -90,7 +90,7 @@ public class ContaDAO extends DAO{
 	}
 
 	public static void delete(int num) throws ContaInexistente{
-		Conta conta = search(num);
+		Conta conta = read(num);
 		del(conta);
 	}
 
