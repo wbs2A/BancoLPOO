@@ -32,6 +32,8 @@ public class TelaGerenciaConta {
                 System.out.println("\t\t\t\t**************************************");
                 System.out.println("\t\t\t\t*   " + MenuConta.CONSULTARCONTA.opcao + ".Consultar Conta(s) em seu Nome *");
                 System.out.println("\t\t\t\t**************************************");
+                System.out.println("\t\t\t\t*   " + MenuConta.DEFINIRCONTAPADRAO.opcao + ".Definir Conta Padrao                     *");
+                System.out.println("\t\t\t\t**************************************");
                 System.out.println("\t\t\t\t*   " + MenuConta.SAIR.opcao + ".Voltar                           *");
                 System.out.println("\t\t\t\t**************************************");
                 opcao = TratamentodeEntradas.trataEntradaOpcao();
@@ -56,7 +58,9 @@ public class TelaGerenciaConta {
                     case CONSULTARCONTA:
                         TelaConsultaConta.consultaConta();
                         break;
-
+                    case DEFINIRCONTAPADRAO:
+                        TelaDefineContaPadrao.contaPadrao();
+                        break;
                     case SAIR:
                         sair = true;
                         break;
