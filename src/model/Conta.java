@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
- * 
+ * classe que implementa serializacao.
  */
 
 public class Conta implements Serializable{
@@ -17,14 +17,16 @@ public class Conta implements Serializable{
 	private Conta contaPadrao;
 	private Pessoa pessoa;
     private ArrayList<Movimentacoes> movimentacoes = new ArrayList<Movimentacoes>();
-			
+		
 	/**
-	* @paramss agencia
-	* @param numero s
-	* @param tipo
-	* @param pessoa
-	*
-	*/
+	 * 
+	 * @param saldo - recebe o valor do saldo da conta.
+	 * @param senha - senha única para cada conta.
+	 * @param numero - número da conta.
+	 * @param pessoa - recebe a pessoa que contém tal conta.
+	 * @param agencia - numero da instituicao, que a conta pertence;
+	 * @param Movimentacoes - recebe as movimentacoes(operacoes), que serao realizadas na conta.
+	 */
 	public Conta( int agencia, int numero, Pessoa pessoa){
 		this.setAgencia(agencia);
 		this.setSaldo(0);
@@ -86,6 +88,7 @@ public class Conta implements Serializable{
 	 *
 	 */
 	public boolean Emprestar(int valor){
+		
 		if (valor > 0 && this.getSaldo() >= valor) {
 			return true;
 			}
