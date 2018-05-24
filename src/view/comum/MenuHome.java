@@ -1,7 +1,7 @@
 package view.comum;
 
 /**
- * Classe responsavel por disponibilizar as opcoes do Enum MenuInicial
+ * Classe responsavel por disponibilizar as opcoes do Enum MenuHome
  *
  * @author Michael Douglas
  * @author Joao Gabriel
