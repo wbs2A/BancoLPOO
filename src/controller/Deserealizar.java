@@ -1,4 +1,4 @@
-package controle;
+package controller;
 
 import java.io.FileInputStream;
 import java.io.ObjectInputStream;

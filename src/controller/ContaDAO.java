@@ -77,7 +77,7 @@ public class ContaDAO extends DAO{
 				return conta;
 			}
 		}
-		throw new ContaInexistente("Conta não existe");
+		throw new ContaInexistente("Conta nï¿½o existe");
 	}
 	
 	/*
@@ -151,25 +151,4 @@ public class ContaDAO extends DAO{
 		}
 	}
 
-	
-    @Override
-    Object read() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    void update() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    void delete() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-	@Override
-	Object create() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 }	

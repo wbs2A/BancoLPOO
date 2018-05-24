@@ -7,8 +7,7 @@ import java.io.ObjectOutputStream;
 
 public abstract class DAO{
 	
-
-	/**
+/*
  * Metodo para deserializar
  * 
  */
@@ -39,9 +38,4 @@ public  void serializar(String path, Object obj) throws Exception
 	}
 
 }
-
-	abstract Object create();
-	abstract Object read();
-	abstract void update();
-	abstract void delete();
 }

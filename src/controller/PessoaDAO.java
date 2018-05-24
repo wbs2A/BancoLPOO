@@ -1,5 +1,7 @@
 package controller;
 
+import java.util.ArrayList;
+import java.util.Date;
 import model.Pessoa;
 
 public class PessoaDAO extends DAO{
@@ -21,7 +23,7 @@ public class PessoaDAO extends DAO{
     }
 
 
-    private static ArrayList<pessoa> arrayPessoa  = new ArrayList<pessoa>();
+    private static ArrayList<Pessoa> arrayPessoa  = new ArrayList<Pessoa>();
 
 
      /* Metodo instancia objeto do tipo pessoa (criando uma pessoa) e adiciona o objeto pessoa no array de pessoas
@@ -33,7 +35,6 @@ public class PessoaDAO extends DAO{
      *@param String sexo genero seja ele qual for
      *@return pessoa
      */
-    @Override
     public static Object create(String nome,String senha, String cpf, Date data, String sexo, String telefone, String email){
         Pessoa pessoa = new Pessoa(nome, senha, cpf, data, sexo, telefone, email);
         arrayPessoa.add(pessoa);
@@ -44,7 +45,6 @@ public class PessoaDAO extends DAO{
     *@author José Sandonas
     *@return pessoa especificada ou nulo caso nao encontrada  
     */
-    @Override
     public static Pessoa read(String cpf){
         for(Pessoa pessoa:arrayPessoa){
             if(pessoa.getCpf().equals(cpf)){
@@ -58,26 +58,25 @@ public class PessoaDAO extends DAO{
     *@author José Sandonas
     *@return pessoa especificada ou nulo caso nao encontrada  
     */
-    @Override
     public void update(int operacao, Pessoa pessoa, Object info){
         switch (operacao) {
             case 1:
-                pessoa.setNome(info);
+                pessoa.setNome((String)info);
                 break;
             case 2:
-                pessoa.setSenha(info);
+                pessoa.setSenha((String)info);
                 break;
             case 3:
-                pessoa.setDtNasci(info);
+                pessoa.setDtNasci((Date) info);
                 break;
             case 4:
-                pessoa.setSexo(sexo);
+                pessoa.setSexo((String) info);
                 break;
             case 5:
-                pessoa.setTelefone(telefone);
+                pessoa.setTelefone((String) info);
                 break;
             case 6:
-                pessoa.setEmail(email);
+                pessoa.setEmail((String) info);
                 break;
         }
     
@@ -94,7 +93,6 @@ public class PessoaDAO extends DAO{
     *@param String cpf
     *@author José Sandonas
     */
-    @Override
     public static void delete(String cpf){
         Pessoa p = read(cpf);
         delete(p);

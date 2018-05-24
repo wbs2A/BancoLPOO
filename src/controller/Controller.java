@@ -2,8 +2,7 @@ package controller;
 
 import model.Pessoa;
 import java.util.ArrayList;
-import java.IOException;
-import PessoaDAO;
+import java.util.Date;
 /**
 * 
 **/
@@ -21,7 +20,7 @@ public class Controller{
     private PessoaDAO daoPessoa = new PessoaDAO();
     public static void criarPessoa(String nome, Date dtNasc, String sexo, String cpf, String senha){
 	//Cria pessoa
-	Pessoa p = daoPessoa.criar(nome,dtNasc,sexo,cpf,senha);
+	Pessoa p = daoPessoa.create(nome,dtNasc,sexo,cpf,senha);
         Controller.pessoas.add(p);
     }
 
@@ -57,10 +56,18 @@ public class Controller{
 	public static void atualizaCpfPessoa(Pessoa pessoa, String cpf){
 
 	}
-	public static void atualizaDtNascPessoa(Pessoa pessoa, Date dtNasc);
-	public static void atualizaSexoPessoa(Pessoa pessoa, String sexo);
-	public static void atualizaSenhaPessoa(Pessoa pessoa, String senha);
+	public static void atualizaDtNascPessoa(Pessoa pessoa, Date dtNasc){
+            
+        }
+	public static void atualizaSexoPessoa(Pessoa pessoa, String sexo){
+            
+        }
+	public static void atualizaSenhaPessoa(Pessoa pessoa, String senha){
+            
+        }
 
-	public static void removerPessoa(Pessoa pessoa);
+	public static void removerPessoa(Pessoa pessoa){
+            
+        }
 
 }
