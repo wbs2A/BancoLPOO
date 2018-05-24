@@ -18,7 +18,7 @@ public class Pessoa implements Serializable{
 	private Date dtNasci;
 	private String Sexo;
 	private Conta contaPadrao;
-    private String Cpf;
+	private String Cpf;
 	private String Email;
 	private String Telefone;
 	private ArrayList<Conta> contas;
@@ -39,6 +39,7 @@ public class Pessoa implements Serializable{
 		this.setCpf(cpf);
 		this.setDtNasci(data);
 		this.contas=new ArrayList<Conta>();
+		this.contaPadrao = null;
 		this.setSexo(sexo);
 		this.setEmail(email);
 		this.setTelefone(telefone);
@@ -185,22 +186,16 @@ public class Pessoa implements Serializable{
  		}
 	
 	/**
-
 	 * Metodo que retorna a contaPadrao da pessoa
-
 	 * @return Conta
-
 	 */
-	public ArrayList<Conta> getContas() {
-		return contas;
+	public Conta getContas() {
+		return contaPadrao;
 	}
 
 	/**
-
 	 * Metodo que insere a contaPadrao em pessoa
-
 	 * @param conta
-
 	 */
 	public void setContaPadrao(Conta conta) {
 		this.contaPadrao = conta;
