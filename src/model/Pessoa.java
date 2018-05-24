@@ -189,7 +189,7 @@ public class Pessoa implements Serializable{
 	 * Metodo que retorna a contaPadrao da pessoa
 	 * @return Conta
 	 */
-	public Conta getContas() {
+	public Conta getContaPadrao() {
 		return contaPadrao;
 	}
 
