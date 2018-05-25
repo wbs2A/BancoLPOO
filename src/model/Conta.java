@@ -19,15 +19,17 @@ public class Conta implements Serializable{
 	private int Agencia;
 	private Pessoa pessoa;
     private ArrayList<Movimentacoes> movimentacoes = new ArrayList<Movimentacoes>();
-			
+	
 	/**
-	* @param agencia
-	* @param numero
-	* @param saldo
-	* @param senha
-	* @param pessoa
-	*
-	*/
+	 * 
+	 * @param saldo - recebe o valor do saldo da conta.
+	 * @param senha - senha única para cada conta.
+	 * @param numero - número da conta.
+	 * @param pessoa - recebe a pessoa que contém tal conta.
+	 * @param agencia - numero da instituicao, que a conta pertence;
+	 * @param Movimentacoes - recebe as movimentacoes(operacoes), que serao realizadas na conta.
+	 */
+
 	public Conta( int agencia, int numero, double saldo, String senha, Pessoa pessoa){
 		this.setAgencia(agencia);
 		this.setSaldo(saldo);
