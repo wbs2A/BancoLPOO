@@ -18,18 +18,20 @@ public class Pessoa implements Serializable{
 	private Date dtNasci;
 	private String Sexo;
 	private Conta contaPadrao;
-	private String Cpf;
+	private String Cpf;			
 	private String Email;
 	private String Telefone;
 	private ArrayList<Conta> contas;
 	
 	/**
-	 * @param nome
-	 * @param senha
-	 * @param cpf
-	 * @param data
-	 * @param sexo
-	 * @param telefone
+     *@param contaPadrao - determina contaPadrao para realizar as atividades.
+	 * @param nome - recebe  o nome da pessoa
+	 * @param senha - senha para cadastro
+	 * @param cpf - cpf pessoal para identificar
+	 * @param data - data de nascimento pessoa.
+     * @param ArrayList<Conta> - array list armazenar as contas de cada pessoa.
+	 * @param sexo  
+	 * @param telefone 
 	 * @param email
 	 */
 	
@@ -201,7 +203,7 @@ public class Pessoa implements Serializable{
 		this.contaPadrao = conta;
 	}
 	  /**
-	   * Metodo toString classe pessoa
+	   * Metodo toString, retorna as informacoes contidas nos atributos da classe.
 	   * @return String
 	   */
 	
