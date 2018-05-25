@@ -7,8 +7,22 @@ import view.ClearConsole;
 import view.EntradaDeDados;
 import view.TratamentodeEntradas;
 
+/**
+ * Classe responsavel por disponibilizar a tela  com as opcaoes de atualizacao de dados de pessoa
+ *
+ * @author Michael Douglas
+ * @author Joao Gabriel
+ * @author Joao Victor
+ * @author Adler Cavalcante
+ */
+
 public class TelaAtualizaDadosPessoa {
 
+	/**
+	 * Metodo para impressao da tela atulizarcadastro e receber os dados do  usuario
+	 */
+	
+	
 	public static void formularioAtualizaCadastro() {
 		int opcao;
 		boolean sair = false;

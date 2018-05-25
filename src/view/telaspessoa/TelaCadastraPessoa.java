@@ -4,7 +4,20 @@ import controller.PessoaDAO;
 import view.EntradaDeDados;
 import view.TratamentodeEntradas;
 
+/**
+ * Classe responsavel por disponibilizar a informacao do status do cadastro do cpf
+ *
+ * @author Michael Douglas
+ * @author Joao Gabriel
+ * @author Joao Victor
+ * @author Adler Cavalcante
+ */
 public class TelaCadastraPessoa {
+	
+
+    /**
+     * Metodo para a comparacao e  impressao do status de cadastro do cpf
+     */
 
     public static void formularioCadastroPessoa() {
         String cpf;

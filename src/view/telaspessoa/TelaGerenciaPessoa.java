@@ -3,9 +3,23 @@ package view.telaspessoa;
 import view.ClearConsole;
 import view.TratamentodeEntradas;
 
+/**
+ * Classe responsavel por disponibilizar a tela que ira oferecer as opcoes atulizar dados e excluir conta
+ *
+ * @author Michael Douglas
+ * @author Joao Gabriel
+ * @author Joao Victor
+ * @author Adler Cavalcante
+ */
+
 public class TelaGerenciaPessoa {
 <<<<<<< HEAD
-	
+
+
+/**
+ * Metodo para impressao da tela para gerenciar dados de cadastro e receber a opcao que o usuario escolher 
+ */
+
 	public static void menuGerenciaPessoas(){
 		int opcao;
 		boolean sair = false;
@@ -23,11 +37,11 @@ public class TelaGerenciaPessoa {
 				System.out.println("\t \t\t\t**************************************");
 				System.out.println("\t\t\t\t\n\t\t\t\t");
 				System.out.println("\t\t\t\t**************************************");
-				System.out.println("\t\t\t\t*   "+MenuPessoa.ATUALIZARDADOS.opcao+". Atualizar Dados de Cadastro   *");
+				System.out.println("\t\t\t\t*   "+MenuPessoa.ATUALIZARDADOS.opcao+". Atualizar Dados de Cadastro *");
 				System.out.println("\t\t\t\t**************************************");
-				System.out.println("\t\t\t\t*   "+MenuPessoa.EXLUCIRPESSOA.opcao". Excluir Conta                 *");
+				System.out.println("\t\t\t\t*   "+MenuPessoa.EXLUCIRPESSOA.opcao". Excluir Conta *");
 				System.out.println("\t\t\t\t**************************************");
-				System.out.println("\t\t\t\t*   "+MenuPessoa.SAIR+". Voltar                          *");
+				System.out.println("\t\t\t\t*   "+MenuPessoa.SAIR+". Voltar      *");
 				System.out.println("\t\t\t\t**************************************");
 		        opcao = ExecoesDeEntrada.trataEntradaOpcao();
 		        
@@ -71,11 +85,11 @@ public class TelaGerenciaPessoa {
                 System.out.println("\t \t\t\t**************************************");
                 System.out.println("\t\t\t\t\n\t\t\t\t");
                 System.out.println("\t\t\t\t**************************************");
-                System.out.println("\t\t\t\t*   1. Atualizar Dados de Cadastro   *");
-                System.out.println("\t\t\t\t**************************************");
-                System.out.println("\t\t\t\t*   2. Excluir Conta                 *");
-                System.out.println("\t\t\t\t**************************************");
-                System.out.println("\t\t\t\t*   0. Voltar                          *");
+				System.out.println("\t\t\t\t* "+MenuPessoa.ATUALIZARDADOS.opcao+". Atualizar Dados de Cadastro *");
+				System.out.println("\t\t\t\t**************************************");
+				System.out.println("\t\t\t\t* "+MenuPessoa.EXLUCIRPESSOA.opcao". Excluir Conta *");
+				System.out.println("\t\t\t\t**************************************");
+				System.out.println("\t\t\t\t*   "+MenuPessoa.SAIR+". Voltar      *");
                 System.out.println("\t\t\t\t**************************************");
                 opcao = TratamentodeEntradas.trataEntradaOpcao();
 

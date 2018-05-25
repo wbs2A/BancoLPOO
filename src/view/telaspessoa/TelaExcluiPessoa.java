@@ -8,9 +8,22 @@ import view.ClearConsole;
 import view.EntradaDeDados;
 import view.TratamentodeEntradas;
 
+
+/**
+ * Classe responsavel por disponibilizar a tela que ira oferecer as opcaoes de exclusao de conta 
+ *
+ * @author Michael Douglas
+ * @author Joao Gabriel
+ * @author Joao Victor
+ * @author Adler Cavalcante
+ */
+
+
 public class TelaExcluiPessoa {
 <<<<<<< HEAD
-	
+/**
+ * Metodo para impressao da tela excluirconta e receber a opcao escolhida pelo usuario
+ */
 	public static void menuExcluirPessoa() {
 		int opcao;
 		boolean sair = false;
@@ -38,9 +51,9 @@ public class TelaExcluiPessoa {
 					System.out.println("\t\t\t  Todas as suas Contas Bancarias também serão perdidas");
 					System.out.println();
 					System.out.println("\t \t\t\t**************************************");
-					System.out.println("\t\t\t\t*               ("+MenuExcluirConta.NAO.opcao+")Não                *");
+					System.out.println("\t\t\t\t*    ("+MenuExcluirConta.NAO.opcao+")Não                *");
 					System.out.println("\t\t\t\t**************************************");
-					System.out.println("\t\t\t\t*               ("+MenuExcluirConta.SIM.opcao+")Sim                *");
+					System.out.println("\t\t\t\t*    ("+MenuExcluirConta.SIM.opcao+")Sim                *");
 					System.out.println("\t\t\t\t**************************************");
 					System.out.println("\t\t\t\t\n\t\t\t\t");
 					opcao = ExecoesDeEntrada.trataEntradaOpcao();
@@ -104,9 +117,9 @@ public class TelaExcluiPessoa {
                     System.out.println("\t\t\t  Todas as suas Contas Bancarias também serão perdidas");
                     System.out.println();
                     System.out.println("\t \t\t\t**************************************");
-                    System.out.println("\t\t\t\t*               (1)Não                *");
+        			System.out.println("\t\t\t\t*   ("+MenuExcluirConta.NAO.opcao+")Não                *");
                     System.out.println("\t\t\t\t**************************************");
-                    System.out.println("\t\t\t\t*               (2)Sim                *");
+                    System.out.println("\t\t\t\t*   ("+MenuExcluirConta.SIM.opcao+")Sim                *");
                     System.out.println("\t\t\t\t**************************************");
                     System.out.println("\t\t\t\t\n\t\t\t\t");
                     opcao = TratamentodeEntradas.trataEntradaOpcao();
