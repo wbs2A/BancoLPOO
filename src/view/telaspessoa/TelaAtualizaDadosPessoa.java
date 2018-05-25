@@ -28,17 +28,17 @@ public class TelaAtualizaDadosPessoa {
 					System.out.println("\t \t\t\t**************************************");
 					System.out.println("\t\t\t\t\n\t\t\t\t");
 					System.out.println("\t\t\t\t**************************************");
-					System.out.println("\t\t\t\t*   1. Atualizar Nome                *");
+					System.out.println("\t\t\t\t*  "+MenuAtualizaDados.ATUALIZARNOME.opcao+". Atualizar Nome                *");
 					System.out.println("\t\t\t\t**************************************");
-					System.out.println("\t\t\t\t*   2. Atualizar CPF                 *");
+					System.out.println("\t\t\t\t*  "+MenuAtualizaDados.ATUALIZARCPF.opcao+ ". Atualizar CPF                 *");
 					System.out.println("\t\t\t\t**************************************");
-					System.out.println("\t\t\t\t*   3. Atualizar Data de Nascimento  *");
+					System.out.println("\t\t\t\t*  "+MenuAtualizaDados.ATUALIZARDATANASC.opcao+". Atualizar Data de Nascimento  *");
 					System.out.println("\t\t\t\t**************************************");
-					System.out.println("\t\t\t\t*   4. Atualizar Sexo                *");
+					System.out.println("\t\t\t\t*   "+MenuAtualizaDados.ATUALIZARSEXO.opcao+". Atualizar Sexo                *");
 					System.out.println("\t\t\t\t**************************************");
-					System.out.println("\t\t\t\t*   5. Atualizar Senha de Login      *");
+					System.out.println("\t\t\t\t*   "+MenuAtualizaDados.ATUALIZARSENHA.opcao+". Atualizar Senha de Login      *");
 					System.out.println("\t\t\t\t**************************************");
-					System.out.println("\t\t\t\t*   0. Voltar                        *");
+					System.out.println("\t\t\t\t*   "+MenuAtualizaDados.SAIR.opcao+". Voltar                        *");
 					System.out.println("\t\t\t\t**************************************");
 					opcao = TratamentodeEntradas.trataEntradaOpcao();
 
