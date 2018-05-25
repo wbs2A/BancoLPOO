@@ -3,6 +3,7 @@ package controller;
 import java.util.ArrayList;
 import java.util.Date;
 import model.Pessoa;
+import exceptions.SenhaIncorreta;
 
 public class PessoaDAO extends DAO{
     
@@ -17,11 +18,6 @@ public class PessoaDAO extends DAO{
     public static Object getPessoa() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
-    Pessoa get(String cpf, String senha) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
 
     private static ArrayList<Pessoa> arrayPessoa  = new ArrayList<Pessoa>();
 
@@ -58,7 +54,7 @@ public class PessoaDAO extends DAO{
     *@author José Sandonas
     *@return pessoa especificada ou nulo caso nao encontrada  
     */
-    public void update(int operacao, Pessoa pessoa, Object info){
+    public static void update(int operacao, Pessoa pessoa, Object info){
         switch (operacao) {
             case 1:
                 pessoa.setNome((String)info);
@@ -78,6 +74,9 @@ public class PessoaDAO extends DAO{
             case 6:
                 pessoa.setEmail((String) info);
                 break;
+            case 7:
+                pessoa.setCpf((String) info);
+                break;
         }
     
     }
@@ -96,6 +95,15 @@ public class PessoaDAO extends DAO{
     public static void delete(String cpf){
         Pessoa p = read(cpf);
         delete(p);
+    }
+    
+    public static Pessoa get(String cpf, String senha) throws SenhaIncorreta{
+    	Pessoa p = PessoaDAO.read(cpf);
+    	if(p.getCpf().equals(senha)){
+    		return p;
+    	}else{
+    		throw new SenhaIncorreta("Senha incorreta");
+    	}
     }
 
 
