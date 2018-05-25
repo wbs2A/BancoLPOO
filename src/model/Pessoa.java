@@ -177,15 +177,6 @@ public class Pessoa implements Serializable{
 	public void setContas(ArrayList<Conta> contas) {
 		this.contas = contas;
 	}
-	/**
-	* Metodo que adicona conta a pessoa.
-	*@param conta 
-	*/
-	public void addConta(Conta conta){
- 	  	
- 		this.contas.add(conta);
- 			
- 		}
 	
 	/**
 	 * Metodo que retorna a contaPadrao da pessoa
