@@ -1,15 +1,28 @@
 package view.comum;
 
-import controller.Controller;
+import controller.Login;
 import controller.PessoaDAO;
+import controller.SessaoConta;
 import model.Pessoa;
 import view.ClearConsole;
 import view.EntradaDeDados;
 import view.TratamentodeEntradas;
 
+/**
+ * A classe TelaLogin e responsavel por disponibilizar a tela onde o usuario ira
+ * logar no sistema.
+ * 
+ * @author michael_douglas
+ *
+ */
 public class TelaLogin {
 	static Pessoa pessoa;
 
+	/**
+	 * O Metodo menuLogin() e responsavel por mostrar a tela onde o usuario ira
+	 * logar no sistema. Para logar, sera necessario que ele forneca seu cpf e a
+	 * senha de usuario.
+	 */
 	public static void menuLogin() {
 		PessoaDAO.carregarPessoas();
 
@@ -24,9 +37,9 @@ public class TelaLogin {
 			System.out.println("\t\t\t\t*                 LOGIN                *");
 			System.out.println("\t\t\t\t****************************************");
 			System.out.println("\t\t\t\t\n\t\t\t\t");
-			pessoa = Controller.validaLogin(TratamentodeEntradas.trataEntradaCpf(), EntradaDeDados.lerSenha());
+			pessoa = Login.validaLogin(TratamentodeEntradas.trataEntradaCpf(), EntradaDeDados.lerSenha());
 			if (pessoa != null) {
-				Controller.getInstance(pessoa);
+				SessaoConta.getInstance(pessoa);
 				TelaGerenciamentoContaPessoa.menuOpcoes();
 			} else {
 				System.out.println();
