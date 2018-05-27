@@ -1,8 +1,8 @@
 package view.comum;
 
 import controller.ContaDAO;
+import controller.Controller;
 import controller.PessoaDAO;
-import controller.SessaoConta;
 import view.TratamentodeEntradas;
 import view.telasconta.TelaGerenciaConta;
 import view.telaspessoa.TelaGerenciaPessoa;
@@ -30,12 +30,12 @@ public class TelaGerenciamentoContaPessoa {
 			try {
 				System.out.println("\t\t\t*******************************************************");
 				System.out.println("\t\t\t*\t           CPAN BANCO CENTER                  *");
-				System.out.println("\t\t\t****************tradutor***************************************");
+				System.out.println("\t\t\t*******************************************************");
 				System.out.println("\t\t\t\t\n\t\t\t\t");
 				System.out.println("\t \t\t\t**************************************");
 				System.out.println("\t\t\t\t*                HOME                *");
 				System.out.println("\t\t\t\t**************************************");
-				System.out.println("\t\t\t\tUsuario: " + SessaoConta.getPessoa().getNome());
+				//System.out.println("\t\t\t\tUsuario: " + Controller.getPessoa().getNome());
 				System.out.println("\t\t\t\t**************************************");
 				System.out.println("\t\t\t\t\n\t\t\t\t");
 				System.out.println("\t\t\t\t**************************************");
@@ -49,7 +49,7 @@ public class TelaGerenciamentoContaPessoa {
 
 				switch (MenuHome.menuOpcao(opcao)) {
 				case GERENCIARCONTA:
-					ContaDAO.carregarContas();
+					//ContaDAO.carregarContas();
 					TelaGerenciaConta.menuGerenciaContas();
 					break;
 
@@ -58,8 +58,8 @@ public class TelaGerenciamentoContaPessoa {
 					break;
 
 				case SAIR:
-					ContaDAO.salvarContas();
-					PessoaDAO.salvarPessoas();
+					//ContaDAO.salvarContas();
+					//PessoaDAO.salvarPessoas();
 					sair = true;
 					break;
 				}
