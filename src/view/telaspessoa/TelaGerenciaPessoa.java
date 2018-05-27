@@ -37,11 +37,11 @@ public class TelaGerenciaPessoa {
 				System.out.println("\t\t\t\t**************************************");
 				System.out.println("\t\t\t\t*   "+MenuPessoa.ATUALIZARDADOS.opcao+". Atualizar Dados de Cadastro *");
 				System.out.println("\t\t\t\t**************************************");
-				System.out.println("\t\t\t\t*   "+MenuPessoa.EXLUCIRPESSOA.opcao". Excluir Conta *");
+				System.out.println("\t\t\t\t*   "+MenuPessoa.EXLUCIRPESSOA.opcao+". Excluir Conta *");
 				System.out.println("\t\t\t\t**************************************");
 				System.out.println("\t\t\t\t*   "+MenuPessoa.SAIR+". Voltar      *");
 				System.out.println("\t\t\t\t**************************************");
-		        opcao = ExecoesDeEntrada.trataEntradaOpcao();
+		        opcao = TratamentodeEntradas.trataEntradaOpcao();
 		        
 		        switch(MenuPessoa.menuOpcao(opcao)){
 		        	case ATUALIZARDADOS:
