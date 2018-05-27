@@ -30,7 +30,7 @@ public class TelaExcluiPessoa {
 		
 		System.out.println();
 		System.out.println("\t\t\t\t          Confirme sua Identidade                ");
-		pessoa = Login.validaLogin(ExecoesDeEntrada.trataEntradaCpf(), EntradaDeDados.lerSenha());
+		pessoa = Login.validaLogin(TratamentodeEntradas.trataEntradaCpf(), EntradaDeDados.lerSenha());
 		
 		if(pessoa != null) {
 			do {
@@ -55,7 +55,7 @@ public class TelaExcluiPessoa {
 					System.out.println("\t\t\t\t*    ("+MenuExcluirConta.SIM.opcao+")Sim                *");
 					System.out.println("\t\t\t\t**************************************");
 					System.out.println("\t\t\t\t\n\t\t\t\t");
-					opcao = ExecoesDeEntrada.trataEntradaOpcao();
+					opcao = TratamentodeEntradas.trataEntradaOpcao();
 					
 					switch(MenuExcluirConta.menuConfirma(opcao)) {
 						case NAO:
