@@ -2,13 +2,25 @@ package view.comum;
 
 import controller.ContaDAO;
 import controller.PessoaDAO;
-import controller.Controller;
+import controller.SessaoConta;
 import view.TratamentodeEntradas;
 import view.telasconta.TelaGerenciaConta;
 import view.telaspessoa.TelaGerenciaPessoa;
 
+/**
+ * A classe TelaGerenciamentoContaPessoa e responsavel por disponibilizar a
+ * visualizacao do menu relacionado as opcoes de gerenciamneto de pessoa e
+ * conta.
+ * 
+ * @author michael_douglas
+ *
+ */
 public class TelaGerenciamentoContaPessoa {
 
+	/**
+	 * Metodo menuOpcoes e responsavel por mostrar as opcoes na qual o usuario
+	 * deseja escolher. Estas podem ser para gerenciar a conta, pessoa ou sair do sistema.
+	 */
 	public static void menuOpcoes() {
 		int opcao;
 		boolean sair = false;
@@ -22,7 +34,7 @@ public class TelaGerenciamentoContaPessoa {
 				System.out.println("\t \t\t\t**************************************");
 				System.out.println("\t\t\t\t*                HOME                *");
 				System.out.println("\t\t\t\t**************************************");
-				System.out.println("\t\t\t\tUsuario: " + Controller.getPessoa().getNome());
+				System.out.println("\t\t\t\tUsuario: " + SessaoConta.getPessoa().getNome());
 				System.out.println("\t\t\t\t**************************************");
 				System.out.println("\t\t\t\t\n\t\t\t\t");
 				System.out.println("\t\t\t\t**************************************");
@@ -43,7 +55,7 @@ public class TelaGerenciamentoContaPessoa {
 				case GERENCIARPESSOA:
 					TelaGerenciaPessoa.menuGerenciaPessoas();
 					break;
-					
+
 				case SAIR:
 					ContaDAO.salvarContas();
 					PessoaDAO.salvarPessoas();
