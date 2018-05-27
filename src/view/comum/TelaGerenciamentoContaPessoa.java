@@ -19,7 +19,8 @@ public class TelaGerenciamentoContaPessoa {
 
 	/**
 	 * Metodo menuOpcoes e responsavel por mostrar as opcoes na qual o usuario
-	 * deseja escolher. Estas podem ser para gerenciar a conta, pessoa ou sair do sistema.
+	 * deseja escolher. Estas podem ser para gerenciar a conta, pessoa ou sair do
+	 * sistema.
 	 */
 	public static void menuOpcoes() {
 		int opcao;
