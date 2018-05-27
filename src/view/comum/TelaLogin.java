@@ -1,8 +1,9 @@
 package view.comum;
 
-import controller.Login;
-import controller.PessoaDAO;
-import controller.SessaoConta;
+import java.io.IOException;
+
+import controller.Controller;
+import exceptions.SenhaIncorreta;
 import model.Pessoa;
 import view.ClearConsole;
 import view.EntradaDeDados;
@@ -17,14 +18,14 @@ import view.TratamentodeEntradas;
  */
 public class TelaLogin {
 	static Pessoa pessoa;
+	static boolean valido;
 
 	/**
 	 * O Metodo menuLogin() e responsavel por mostrar a tela onde o usuario ira
 	 * logar no sistema. Para logar, sera necessario que ele forneca seu cpf e a
 	 * senha de usuario.
 	 */
-	public static void menuLogin() {
-		PessoaDAO.carregarPessoas();
+	public static void menuLogin() throws SenhaIncorreta {
 
 		do {
 			ClearConsole.clearConsole();
@@ -37,11 +38,12 @@ public class TelaLogin {
 			System.out.println("\t\t\t\t*                 LOGIN                *");
 			System.out.println("\t\t\t\t****************************************");
 			System.out.println("\t\t\t\t\n\t\t\t\t");
-			pessoa = Login.validaLogin(TratamentodeEntradas.trataEntradaCpf(), EntradaDeDados.lerSenha());
-			if (pessoa != null) {
-				SessaoConta.getInstance(pessoa);
-				TelaGerenciamentoContaPessoa.menuOpcoes();
-			} else {
+			try {
+				valido = Controller.validaLogin(TratamentodeEntradas.trataEntradaCpf(), EntradaDeDados.lerSenha());
+				if (valido) {
+					TelaGerenciamentoContaPessoa.menuOpcoes();
+				}
+			} catch (IOException ex) {
 				System.out.println();
 				System.out.println("\t\t\t\t[Usuario e/ou Senha Incorreto(s)]");
 				System.out.println();
