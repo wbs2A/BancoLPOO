@@ -3,7 +3,20 @@ package view.comum;
 import view.TratamentodeEntradas;
 import view.telaspessoa.TelaCadastraPessoa;
 
+/**
+ * A classe TelaInicial e responsavel por disponibilizar a visualizacao do menu
+ * relacionado as opcoes na qual o usuario pode fazer antes de entrar no sistema
+ * 
+ * @author michael_douglas
+ *
+ */
 public class TelaInicial {
+
+	/**
+	 * Metodo telaInicial() e responsavel por mostrar as opcoes na qual o usuario
+	 * deseja escolher. Estas podem ser para logar no sistema, fazer o cadastro de
+	 * conta de usuario ou sair.
+	 */
 	public static void telaInicial() {
 		int opcao;
 		boolean sair = false;
