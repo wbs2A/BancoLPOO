@@ -80,7 +80,7 @@ public class TelaGerenciaConta {
 					TelaConsultaConta.consultaConta();
 					break;
 				case DEFINIRCONTAPADRAO:
-					TelaDefineContaPadrao.contaPadrao();
+					TelaDefineContaPadrao.menuDefineContaPadrao();
 					break;
 				case SAIR:
 					sair = true;
