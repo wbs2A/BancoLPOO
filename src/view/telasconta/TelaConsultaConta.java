@@ -2,7 +2,7 @@ package view.telasconta;
 
 import java.util.ArrayList;
 
-import controller.SessaoConta;
+import controller.Controller;
 import model.Conta;
 import model.Pessoa;
 
@@ -36,7 +36,7 @@ public class TelaConsultaConta {
 		System.out.println("\t\t\t\t****************************************");
 		System.out.println("\t\t\t\t ");
 		System.out.println();
-		pessoa = SessaoConta.getPessoa();
+		pessoa = Controller.getPessoa();
 		contas = pessoa.getContas();
 
 		if (contas != null) {
