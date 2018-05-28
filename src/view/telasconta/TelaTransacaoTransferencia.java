@@ -1,6 +1,7 @@
 package view.telasconta;
 
 import controller.ContaDAO;
+import controller.Controller;
 import model.Conta;
 import view.ClearConsole;
 import view.TratamentodeEntradas;
@@ -60,6 +61,32 @@ public class TelaTransacaoTransferencia {
 
 				switch (MenuTransferencia.menuOpcao(opcao)) {
 				case TRANSFERIRDACONTAPADRAO:
+					contaRemetente = Controller.getPessoa().getContaPadrao();
+					if (contaRemetente != null) {
+						System.out.println();
+						System.out.printf("\t\t\t\tInforme o numero da conta destino: ");
+						System.out.println();
+						contaDestino = ContaDAO.read(TratamentodeEntradas.trataEntradaNumeroConta());
+						if (contaDestino != null) {
+							if (contaRemetente == contaDestino) {
+								System.out.println();
+								System.out.println("\t\t\t\t[Não é possivel fazer transferencias entre contas iguais]");
+								System.out.println();
+							} else {
+								valor = TratamentodeEntradas.trataEntradaSaldoConta();
+								ContaDAO.transferir(valor, contaDestino, contaRemetente);
+								System.out.println();
+							}
+						} else {
+							System.out.println();
+							System.out.println("\t\t\t\t[Conta destino não encontrada]");
+							System.out.println();
+						}
+					} else {
+						System.out.println();
+						System.out.println("\t\t\t\t[Voce nao possui nenhuma conta padrao definida]");
+						System.out.println();
+					}
 					break;
 
 				case TRANSFERIRDEOUTRACONTA:
