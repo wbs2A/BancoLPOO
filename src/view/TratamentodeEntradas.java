@@ -3,6 +3,8 @@ package view;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Classe responsável por tratar todas as entradas de dados na view.
@@ -54,20 +56,25 @@ public class TratamentodeEntradas {
 
 		while (!valido) {
 			nome = EntradaDeDados.lerNome();
-			for (int i = 0; i < nome.length(); i++) {
-				if (!Character.isAlphabetic((nome.charAt(i)))) {
+			if (nome.equals("")) {
+				System.out.println();
+				System.out.println("\t\t\t\t[O campo nome nao pode ficar em branco]");
+				System.out.println();
+				valido = false;
+			} else {
+				Pattern pattern = Pattern.compile("[0-9]");
+				Matcher matcher = pattern.matcher(nome);
+				if (matcher.find()) {
+					System.out.println();
+					System.out.println("\t\t\t\t[O campo nome nao deve conter numeros]");
+					System.out.println();
 					valido = false;
-					break;
 				} else {
 					valido = true;
 				}
 			}
 			if (valido == true) {
 				return nome;
-			} else {
-				System.out.println();
-				System.out.println("\t\t\t\t[Formato de Nome Invalido]");
-				System.out.println();
 			}
 		}
 		return nome = null;
