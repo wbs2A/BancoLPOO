@@ -1,6 +1,7 @@
 package view.telasconta;
 
 import controller.ContaDAO;
+import controller.Controller;
 import model.Conta;
 import view.ClearConsole;
 import view.TratamentodeEntradas;
@@ -56,6 +57,11 @@ public class TelaTransacaoSaque {
 
 				switch (MenuSaque.menuOpcao(opcao)) {
 				case SACARCONTAPADRAO:
+					conta = Controller.getPessoa().getContaPadrao();
+					if (conta != null) {
+						valor = TratamentodeEntradas.trataEntradaSaldoConta();
+						ContaDAO.sacar(conta, valor);
+					}
 					break;
 
 				case SACAROUTRACONTA:
