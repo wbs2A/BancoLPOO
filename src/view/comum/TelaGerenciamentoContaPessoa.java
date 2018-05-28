@@ -1,8 +1,5 @@
 package view.comum;
 
-import controller.ContaDAO;
-import controller.Controller;
-import controller.PessoaDAO;
 import view.TratamentodeEntradas;
 import view.telasconta.TelaGerenciaConta;
 import view.telaspessoa.TelaGerenciaPessoa;
