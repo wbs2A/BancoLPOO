@@ -1,7 +1,7 @@
 package view.telaspessoa;
 
+import controller.Controller;
 import controller.PessoaDAO;
-import controller.SessaoConta;
 import model.Pessoa;
 import view.ClearConsole;
 import view.EntradaDeDados;
@@ -27,7 +27,7 @@ public class TelaAtualizaDadosPessoa {
 		int opcao;
 		boolean sair = false;
 		Pessoa pessoa;
-		pessoa = SessaoConta.getPessoa();
+		pessoa = Controller.getPessoa();
 		
 			do {
 				try {
@@ -52,6 +52,10 @@ public class TelaAtualizaDadosPessoa {
 					System.out.println("\t\t\t\t**************************************");
 					System.out.println("\t\t\t\t*   "+MenuAtualizaDados.ATUALIZARSENHA.opcao+". Atualizar Senha de Login      *");
 					System.out.println("\t\t\t\t**************************************");
+					System.out.println("\t\t\t\t*   "+MenuAtualizaDados.ATUALIZARTELEFONE.opcao+". Atualizar Celular      *");
+					System.out.println("\t\t\t\t**************************************");
+					System.out.println("\t\t\t\t*   "+MenuAtualizaDados.ATUALIZAREMAIL.opcao+". Atualizar E-mail      *");
+					System.out.println("\t\t\t\t**************************************");
 					System.out.println("\t\t\t\t*   "+MenuAtualizaDados.SAIR.opcao+". Voltar                        *");
 					System.out.println("\t\t\t\t**************************************");
 					opcao = TratamentodeEntradas.trataEntradaOpcao();
@@ -60,7 +64,7 @@ public class TelaAtualizaDadosPessoa {
 					case ATUALIZARNOME:
 						System.out.println();
 						System.out.println("\t\t\t\tNome atual: " + pessoa.getNome());
-						PessoaDAO.atualizaNomePessoa(pessoa, TratamentodeEntradas.trataEntradaNome());
+						PessoaDAO.update(1, pessoa, TratamentodeEntradas.trataEntradaNome());
 						System.out.println();
 						System.out.println("\t\t\t\t[Nome atualizado com sucesso]");
 						System.out.println();
@@ -69,7 +73,7 @@ public class TelaAtualizaDadosPessoa {
 					case ATUALIZARCPF:
 						System.out.println();
 						System.out.println("\t\t\t\tCPF atual: " + pessoa.getCpf());
-						PessoaDAO.atualizaCpfPessoa(pessoa, TratamentodeEntradas.trataEntradaCpf());
+						PessoaDAO.update(7, pessoa, TratamentodeEntradas.trataEntradaCpf());
 						System.out.println();
 						System.out.println("\t\t\t\t[CPF atualizado com sucesso]");
 						System.out.println();
@@ -77,8 +81,8 @@ public class TelaAtualizaDadosPessoa {
 
 					case ATUALIZARDATANASC:
 						System.out.println();
-						System.out.println("\t\t\t\tData de Nascimento atual: " + pessoa.getDtNasc());
-						PessoaDAO.atualizaDtNascPessoa(pessoa, TratamentodeEntradas.trataEntradaDtNasc());
+						System.out.println("\t\t\t\tData de Nascimento atual: " + pessoa.getDtNasci());
+						PessoaDAO.update(3, pessoa, TratamentodeEntradas.trataEntradaDtNasc());
 						System.out.println();
 						System.out.println("\t\t\t\t[Data de Nascimento atualizada com sucesso]");
 						System.out.println();
@@ -87,7 +91,7 @@ public class TelaAtualizaDadosPessoa {
 					case ATUALIZARSEXO:
 						System.out.println();
 						System.out.println("\t\t\t\tSexo atual: " + pessoa.getSexo());
-						PessoaDAO.atualizaSexoPessoa(pessoa, TratamentodeEntradas.trataEntradaSexo());
+						PessoaDAO.update(4, pessoa, TratamentodeEntradas.trataEntradaSexo());
 						System.out.println();
 						System.out.println("\t\t\t\t[Sexo atualizado com sucesso]");
 						System.out.println();
@@ -96,9 +100,27 @@ public class TelaAtualizaDadosPessoa {
 					case ATUALIZARSENHA:
 						System.out.println();
 						System.out.println("\t\t\t\tSenha de Login atual: " + pessoa.getSenha());
-						PessoaDAO.atualizaSenhaPessoa(pessoa, EntradaDeDados.lerSenha());
+						PessoaDAO.update(2, pessoa, EntradaDeDados.lerSenha());
 						System.out.println();
 						System.out.println("\t\t\t\t[Senha de Login atualizada com sucesso]");
+						System.out.println();
+						break;
+						
+					case ATUALIZARTELEFONE:
+						System.out.println();
+						System.out.println("\t\t\t\tTelefone atual: " + pessoa.getTelefone());
+						PessoaDAO.update(5, pessoa, EntradaDeDados.lerTelefoneCelular());
+						System.out.println();
+						System.out.println("\t\t\t\t[Telefone atualizado com sucesso]");
+						System.out.println();
+						break;
+						
+					case ATUALIZAREMAIL:
+						System.out.println();
+						System.out.println("\t\t\t\tE-mail atual: " + pessoa.getEmail());
+						PessoaDAO.update(6, pessoa, EntradaDeDados.lerEmail());
+						System.out.println();
+						System.out.println("\t\t\t\t[E-mail atualizado com sucesso]");
 						System.out.println();
 						break;
 
