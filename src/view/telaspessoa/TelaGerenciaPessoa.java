@@ -39,7 +39,7 @@ public class TelaGerenciaPessoa {
 				System.out.println("\t\t\t\t**************************************");
 				System.out.println("\t\t\t\t*   "+MenuPessoa.EXLUCIRPESSOA.opcao+". Excluir Conta *");
 				System.out.println("\t\t\t\t**************************************");
-				System.out.println("\t\t\t\t*   "+MenuPessoa.SAIR+". Voltar      *");
+				System.out.println("\t\t\t\t*   "+MenuPessoa.SAIR.opcao+". Voltar      *");
 				System.out.println("\t\t\t\t**************************************");
 		        opcao = TratamentodeEntradas.trataEntradaOpcao();
 		        
