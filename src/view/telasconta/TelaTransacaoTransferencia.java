@@ -1,10 +1,6 @@
 package view.telasconta;
 
-import java.util.Date;
-
-import controller.Banco;
 import controller.ContaDAO;
-import controller.Transacao;
 import model.Conta;
 import view.ClearConsole;
 import view.TratamentodeEntradas;
@@ -70,28 +66,22 @@ public class TelaTransacaoTransferencia {
 					System.out.println();
 					System.out.printf("\t\t\t\tInforme o numero da conta destino: ");
 					System.out.println();
-					contaDestino = ContaDAO.consultaConta(TratamentodeEntradas.trataEntradaNumeroConta());
+					contaDestino = ContaDAO.read(TratamentodeEntradas.trataEntradaNumeroConta());
 
 					if (contaDestino != null) {
 						System.out.println();
 						System.out.println("\t\t\t\tInforme a conta remetente");
 						System.out.println();
-						contaRemetente = ContaDAO.consultaConta(TratamentodeEntradas.trataEntradaNumeroConta(),
-								TratamentodeEntradas.trataEntradaSenhaConta());
+						contaRemetente = ContaDAO.read(TratamentodeEntradas.trataEntradaNumeroConta());
 
 						if (contaRemetente != null) {
 							if (contaRemetente == contaDestino) {
 								System.out.println();
-								System.out
-										.println("\t\t\t\t[Não é possivel fazer transferencias entre contas iguais]");
+								System.out.println("\t\t\t\t[Não é possivel fazer transferencias entre contas iguais]");
 								System.out.println();
 							} else {
 								valor = TratamentodeEntradas.trataEntradaSaldoConta();
-								Transacao.realizarTransacaoTrans(new Date(), contaRemetente, contaDestino,
-										"Transferencia", valor, Banco.TRANSFERIR);
-								// Banco.transferencia(contaRemetente, contaDestino, valor);
-								// System.out.println();
-								// System.out.println("\t\t\t\t[Transferencia realizada com sucesso]");
+								ContaDAO.transferir(valor, contaDestino, contaRemetente);
 								System.out.println();
 							}
 						} else {
