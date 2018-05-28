@@ -254,7 +254,7 @@ public class TratamentodeEntradas {
 		while (!valido) {
 			try {
 				telefone = EntradaDeDados.lerTelefoneCelular();
-				if (telefone.matches("\\(\\d{2}\\)\\d{4,5}-\\d{4}")) {
+				if (telefone.matches("\\(\\d{2}\\)\\d{4,5}-\\d{4}") || telefone.matches("\\d{4,5}-\\d{4}")) {
 					valido = true;
 				} else {
 					throw new Exception();
