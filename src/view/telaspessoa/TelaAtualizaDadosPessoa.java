@@ -27,7 +27,7 @@ public class TelaAtualizaDadosPessoa {
 		int opcao;
 		boolean sair = false;
 		Pessoa pessoa;
-		pessoa = Controller.getPessoa();
+		pessoa = Controller.getSessao();
 		
 			do {
 				try {
