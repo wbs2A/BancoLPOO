@@ -1,10 +1,11 @@
 package view.telasconta;
 
+import java.io.IOException;
+
 import controller.ContaDAO;
-import controller.Login;
+import controller.Controller;
 import controller.PessoaDAO;
 import model.Conta;
-import model.Pessoa;
 import view.ClearConsole;
 import view.EntradaDeDados;
 import view.TratamentodeEntradas;
@@ -33,67 +34,66 @@ public class TelaExcluiConta {
 	public static void menuExcluirConta() {
 		int opcao;
 		boolean sair = false;
-		Pessoa pessoa;
 		Conta conta;
 
 		System.out.println();
 		System.out.println("\t\t\t\t        Confirme sua Identidade            ");
 		System.out.println();
-		pessoa = Login.validaLogin(TratamentodeEntradas.trataEntradaCpf(), EntradaDeDados.lerSenha());
 
-		if (pessoa != null) {
-			do {
-				try {
-					new ClearConsole();
-					System.out.println();
-					System.out.println("\t\t\t*******************************************************");
-					System.out.println("\t\t\t*\t           CPAN BANCO CENTER                  *");
-					System.out.println("\t\t\t*******************************************************");
-					System.out.println("\t\t\t\t\n\t\t\t\t");
-					System.out.println("\t \t\t\t**************************************");
-					System.out.println("\t\t\t\t*            EXCLUIR CONTA            *");
-					System.out.println("\t \t\t\t**************************************");
-					System.out.println("\t\t\t\tDeseja realmente excluir uma conta bancaria?");
-					System.out.println("\t\t\tAo excluir, seus dados serão perdidos permanentemente");
-					System.out.println("\t \t\t\t**************************************");
-					System.out.println("\t\t\t\t*   " + MenuExcluiConta.NAO.opcao + ".N�o    *");
-					System.out.println("\t \t\t\t**************************************");
-					System.out.println("\t\t\t\t*   " + MenuExcluiConta.SIM.opcao + ".Sim    *");
-					System.out.println("\t \t\t\t**************************************");
-					System.out.println("\t\t\t\t\n\t\t\t\t");
-					opcao = TratamentodeEntradas.trataEntradaOpcao();
+		try {
+			if (Controller.validaLogin(TratamentodeEntradas.trataEntradaCpf(), EntradaDeDados.lerSenha())) {
+				do {
+					try {
+						new ClearConsole();
+						System.out.println();
+						System.out.println("\t\t\t*******************************************************");
+						System.out.println("\t\t\t*\t           CPAN BANCO CENTER                  *");
+						System.out.println("\t\t\t*******************************************************");
+						System.out.println("\t\t\t\t\n\t\t\t\t");
+						System.out.println("\t \t\t\t**************************************");
+						System.out.println("\t\t\t\t*            EXCLUIR CONTA            *");
+						System.out.println("\t \t\t\t**************************************");
+						System.out.println("\t\t\t\tDeseja realmente excluir uma conta bancaria?");
+						System.out.println("\t\t\tAo excluir, seus dados serão perdidos permanentemente");
+						System.out.println("\t \t\t\t**************************************");
+						System.out.println("\t\t\t\t*   " + MenuExcluiConta.NAO.opcao + ".N�o    *");
+						System.out.println("\t \t\t\t**************************************");
+						System.out.println("\t\t\t\t*   " + MenuExcluiConta.SIM.opcao + ".Sim    *");
+						System.out.println("\t \t\t\t**************************************");
+						System.out.println("\t\t\t\t\n\t\t\t\t");
+						opcao = TratamentodeEntradas.trataEntradaOpcao();
 
-					switch (MenuExcluirConta.menuConfirma(opcao)) {
-					case NAO:
-						sair = true;
-						break;
+						switch (MenuExcluirConta.menuConfirma(opcao)) {
+						case NAO:
+							sair = true;
+							break;
 
-					case SIM:
-						conta = ContaDAO.consultaConta(TratamentodeEntradas.trataEntradaNumeroConta(),
-								TratamentodeEntradas.trataEntradaSenhaConta());
-						if (conta != null) {
-							ContaDAO.removerConta(conta, pessoa);
-							ContaDAO.salvarContas();
-							PessoaDAO.salvarPessoas();
-							System.out.println();
-							System.out.println("[\t\t\t\t[Conta removida com sucesso]");
-							System.out.println();
-						} else {
-							System.out.println();
-							System.out.println("\t\t\t\t[Conta nao encontrada]");
-							System.out.println();
+						case SIM:
+							conta = ContaDAO.read(TratamentodeEntradas.trataEntradaNumeroConta());
+							if (conta != null) {
+								ContaDAO.delete(TratamentodeEntradas.trataEntradaNumeroConta());
+								ContaDAO.salvarContas();
+								PessoaDAO.salvarPessoas();
+								System.out.println();
+								System.out.println("[\t\t\t\t[Conta removida com sucesso]");
+								System.out.println();
+							} else {
+								System.out.println();
+								System.out.println("\t\t\t\t[Conta nao encontrada]");
+								System.out.println();
+							}
+							break;
+
 						}
-						break;
 
+					} catch (Exception e) {
+						System.out.println();
+						System.out.println("\t\t\t\tOpcao Invalida!");
+						System.out.println();
 					}
-
-				} catch (Exception e) {
-					System.out.println();
-					System.out.println("\t\t\t\tOpcao Invalida!");
-					System.out.println();
-				}
-			} while (!sair);
-		} else {
+				} while (!sair);
+			}
+		} catch (IOException ex) {
 			System.out.println();
 			System.out.println("\t\t\t\t[Usuario e/ou senha incorreto(s)]");
 			System.out.println();
