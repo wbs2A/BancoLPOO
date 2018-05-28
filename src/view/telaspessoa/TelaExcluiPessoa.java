@@ -1,6 +1,5 @@
 package view.telaspessoa;
 
-import controller.ContaDAO;
 import controller.Controller;
 import controller.PessoaDAO;
 import view.ClearConsole;
@@ -61,9 +60,9 @@ public class TelaExcluiPessoa {
 							break;
 
 						case SIM:
-							PessoaDAO.delete(Controller.getPessoa());
-							PessoaDAO.salvarPessoas();
-							ContaDAO.salvarContas();
+							PessoaDAO.delete(Controller.getSessao());
+							//PessoaDAO.salvarPessoas();
+							//ContaDAO.salvarContas();
 							System.out.println();
 							System.out.println("\t\t\t\t[Conta Excluida com sucesso]");
 							System.out.println();
