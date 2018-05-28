@@ -1,10 +1,6 @@
 package view.telasconta;
 
-import java.util.Date;
-
-import controller.Banco;
 import controller.ContaDAO;
-import controller.Transacao;
 import model.Conta;
 import view.ClearConsole;
 import view.TratamentodeEntradas;
@@ -66,15 +62,11 @@ public class TelaTransacaoSaque {
 					System.out.println();
 					System.out.println("\t\t\t\tInforme o numero da conta para saque: ");
 					System.out.println();
-					conta = ContaDAO.consultaConta(TratamentodeEntradas.trataEntradaNumeroConta(),
-							TratamentodeEntradas.trataEntradaSenhaConta());
+					conta = ContaDAO.read(TratamentodeEntradas.trataEntradaNumeroConta());
 
 					if (conta != null) {
 						valor = TratamentodeEntradas.trataEntradaSaldoConta();
-						Transacao.realizarTransacao(new Date(), conta, "Saque de Conta", valor, Banco.SACAR);
-						// Banco.saque(conta, valor);
-						// System.out.println();
-						// System.out.println("\t\t\t\t[Saque realizado com sucesso]");
+						ContaDAO.sacar(conta, valor);
 						System.out.println();
 					} else {
 						System.out.println();
