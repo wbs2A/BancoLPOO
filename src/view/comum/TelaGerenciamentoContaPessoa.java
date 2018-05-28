@@ -1,5 +1,6 @@
 package view.comum;
 
+import controller.Controller;
 import view.TratamentodeEntradas;
 import view.telasconta.TelaGerenciaConta;
 import view.telaspessoa.TelaGerenciaPessoa;
@@ -32,7 +33,7 @@ public class TelaGerenciamentoContaPessoa {
 				System.out.println("\t \t\t\t**************************************");
 				System.out.println("\t\t\t\t*                HOME                *");
 				System.out.println("\t\t\t\t**************************************");
-				//System.out.println("\t\t\t\tUsuario: " + Controller.getPessoa().getNome());
+				System.out.println("\t\t\t\tUsuario: " + Controller.getSessao().getNome());
 				System.out.println("\t\t\t\t**************************************");
 				System.out.println("\t\t\t\t\n\t\t\t\t");
 				System.out.println("\t\t\t\t**************************************");
