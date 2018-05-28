@@ -1,6 +1,7 @@
 package view.telasconta;
 
 import controller.ContaDAO;
+import controller.Controller;
 import model.Conta;
 import view.ClearConsole;
 import view.TratamentodeEntradas;
@@ -59,6 +60,11 @@ public class TelaTransacaoDeposito {
 
 				switch (MenuDeposito.menuOpcao(opcao)) {
 				case DEPOSITARCONTAPADRAO:
+					conta = Controller.getPessoa().getContaPadrao();
+					if (conta != null) {
+						valor = TratamentodeEntradas.trataEntradaSaldoConta();
+						ContaDAO.depositar(conta, valor);
+					}
 					break;
 
 				case DEPOSITAROUTRACONTA:
