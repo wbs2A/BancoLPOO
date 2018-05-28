@@ -1,10 +1,6 @@
 package view.telasconta;
 
-import java.util.Date;
-
-import controller.Banco;
 import controller.ContaDAO;
-import controller.Transacao;
 import model.Conta;
 import view.ClearConsole;
 import view.TratamentodeEntradas;
@@ -63,25 +59,18 @@ public class TelaTransacaoDeposito {
 
 				switch (MenuDeposito.menuOpcao(opcao)) {
 				case DEPOSITARCONTAPADRAO:
-
 					break;
 
 				case DEPOSITAROUTRACONTA:
 					System.out.println();
 					System.out.printf("\t\t\t\tInforme o numero da conta para deposito: ");
 					System.out.println();
-					conta = ContaDAO.consultaConta(TratamentodeEntradas.trataEntradaNumeroConta());
+					conta = ContaDAO.read(TratamentodeEntradas.trataEntradaNumeroConta());
 
 					if (conta != null) {
 						valor = TratamentodeEntradas.trataEntradaSaldoConta();
-						Transacao.realizarTransacao(new Date(), conta, "Deposito em Conta", valor, Banco.DEPOSITR);
-						// Banco.deposito(conta, valor);
-						// System.out.println();
-						// System.out.println("\t\t\t\t[Deposito realizado com sucesso]");
-						// System.out.println();
+						ContaDAO.depositar(conta, valor);
 					} else {
-						// System.out.println();
-						// System.out.println("\t\t\t\t[Conta não encontrada]");
 						System.out.println();
 					}
 
