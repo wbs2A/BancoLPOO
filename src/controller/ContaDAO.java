@@ -100,7 +100,7 @@ public class ContaDAO extends DAO{
 	 * @return boolean
 	 *
 	 */
-	public static boolean sacar(Conta conta, int valor) throws SaldoNegativo{
+	public static boolean sacar(Conta conta, double valor) throws SaldoNegativo{
 		if (Emprestar(conta, valor)){
 			conta.setSaldo(conta.getSaldo()-valor);
 			return true;
@@ -113,7 +113,7 @@ public class ContaDAO extends DAO{
 	 * @param valor
 	 * @return boolean
 	 */
-	public static boolean depositar(Conta conta, int valor){
+	public static boolean depositar(Conta conta, double valor){
 		if (valor > 0){
 			conta.setSaldo(conta.getSaldo() + valor);
 			return true;
@@ -126,7 +126,7 @@ public class ContaDAO extends DAO{
 	 * @param valor
 	 * @return boolean
 	 */
-	public static boolean Emprestar(Conta conta, int valor) throws SaldoNegativo{
+	public static boolean Emprestar(Conta conta, double valor) throws SaldoNegativo{
 		if (valor > 0 && conta.getSaldo() >= valor) {
 			return true;
 		}
@@ -138,7 +138,7 @@ public class ContaDAO extends DAO{
 	 * @param valor
 	 * @return boolean
 	 */
-	public static boolean transferir(int valor, Conta DepositarNela, Conta RetirarDela) throws SaldoNegativo{
+	public static boolean transferir(double valor, Conta DepositarNela, Conta RetirarDela) throws SaldoNegativo{
 		if (Emprestar(RetirarDela, valor)){
 			if(depositar(DepositarNela, valor)){
 			   sacar(RetirarDela, valor);
