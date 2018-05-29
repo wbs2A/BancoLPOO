@@ -14,11 +14,12 @@ import exceptions.SaldoNegativo;
 public class ContaDAO extends DAO{
 	
     public static void carregarContas() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Object obj = ContaDAO.carregar(arrayConta.getClass().getName());
+        arrayConta = ContaDAO.castTo(obj);
     }
 
     public static void salvarContas() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        ContaDAO.descarregar(arrayConta);
     }
  
 	private static ArrayList<Conta> arrayConta  = new ArrayList<Conta>();
