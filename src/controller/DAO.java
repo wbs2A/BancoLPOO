@@ -101,6 +101,18 @@ abstract class DAO{
             return false;
         }
     }
+    
+    /*
+    * Metodo utilizado para converter o objeto lido do arquivo
+    *  num dos tipos utilizados no sistema.
+    * @author: Wesley B.
+    * @param: Objeto a alterar-se com o cast.
+    * @return: Objeto no tipo solicitado.
+    */
+    @SuppressWarnings("unchecked")
+    public static <T> T castTo(Object obj) {
+        return (T) obj;
+    }
 
     
 }
