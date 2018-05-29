@@ -7,13 +7,15 @@ import exceptions.SenhaIncorreta;
 
 public class PessoaDAO extends DAO{
     
-    public static void salvarPessoas() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public static void carregarPessoas() {
+        Object obj = ContaDAO.carregar(arrayPessoa.getClass().getName());
+        arrayPessoa = PessoaDAO.castTo(obj);
     }
 
-    public static void carregarPessoas() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public static void salvarPessoas() {
+        PessoaDAO.descarregar(arrayPessoa);
     }
+ 
 
     public static Object getPessoa() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
