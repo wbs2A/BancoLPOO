@@ -6,6 +6,7 @@ import model.Conta;
 import model.Pessoa;
 import exceptions.ContaInexistente;
 import exceptions.SaldoNegativo;
+import exceptions.SenhaIncorreta;
 
 /*
  * @author Controller
@@ -42,7 +43,7 @@ public class ContaDAO extends DAO{
 	 * @return objeto
 	 */
 	public static Object create(int agencia, String senha, double saldo, Pessoa pessoa ){
-		Conta conta = new Conta(14, ContaDAO.num(), (float) saldo, senha, pessoa);
+		Conta conta = new Conta(agencia, ContaDAO.num(), 0, senha, pessoa);
 		arrayConta.add(conta);
 		pessoa.getContas().add(conta);
 		return conta;
@@ -70,6 +71,15 @@ public class ContaDAO extends DAO{
 	 * @param valor
 	 * @return objeto
 	 */
+	public static Conta read(int num, String senha) throws ContaInexistente, SenhaIncorreta{
+		Conta conta = ContaDAO.read(num);
+    	if(conta.getSenha().equals(senha)){
+    		return conta;
+    	}else{
+    		throw new SenhaIncorreta("Senha incorreta");
+    	}
+	}
+	
 	public static Conta read(int num) throws ContaInexistente{
 		Conta conta = null;
 		for(int i = 0; i < arrayConta.size(); i++){

@@ -4,10 +4,12 @@ import model.Pessoa;
 import java.util.ArrayList;
 import java.util.Date;
 
+import exceptions.SaldoNegativo;
 import exceptions.SenhaIncorreta;
 
 import java.io.IOException;
 import model.Conta;
+import model.Movimentacoes;
 /*
  * Classe que representa o controller
  	principal da aplicação, contendo métodos que são comuns às classes do sistema
@@ -92,7 +94,6 @@ public class Controller{
 				setSessao(p);
 				return true;
 			}else{
-				throw new SenhaIncorreta("");
 				return false;
 			}
 		}else
@@ -147,17 +148,34 @@ public class Controller{
 		PessoaDAO.update(7, pessoa, cpf);
     }
 
-    public static void realizarTransacao(Date date, Conta conta, String saque_de_Conta, float valor, int i) {
-    	if(ContaDAO.sacar(conta,valor)){
+    public static void realizarTransacao(Date date, Conta conta, String saque_de_Conta, float valor, int i) throws SaldoNegativo {
+    	if(ContaDAO.sacar(conta, valor)){
 	        Movimentacoes movimentacaoMovimentada = new Movimentacoes(saque_de_Conta,valor,true);
-	        contaRemetente.getMovimentacoes().add(movimentacaoMovimentada);
+	        conta.getMovimentacoes().add(movimentacaoMovimentada);
     	}
     }
 
-    public static void realizarTransacao(Date date, Conta contaRemetente, Conta contaDestino, String transferencia, float valor, int i) {
-        if(ContaDAO.transferir(valor,contaDestinatario,contaRemetente)){
+    public static void realizarTransacao(Date date, Conta contaRemetente, Conta contaDestino, String transferencia, float valor, int i) throws SaldoNegativo {
+        if(ContaDAO.transferir(valor, contaDestino,contaRemetente)){
 	        Movimentacoes movimentacaoMovimentada = new Movimentacoes(transferencia,valor,true);
 	        contaRemetente.getMovimentacoes().add(movimentacaoMovimentada);
         }
     }
+
+    public static void realizarTransacao1(Date date, Conta conta, String deposito_de_Conta, float valor, int i) throws SaldoNegativo {
+    	if(ContaDAO.depositar(conta, valor)){
+	        Movimentacoes movimentacaoMovimentada = new Movimentacoes(deposito_de_Conta,valor,true);
+	        conta.getMovimentacoes().add(movimentacaoMovimentada);
+    	}
+    }
+
+	public static Pessoa getInstSessao() {
+		return instSessao;
+	}
+
+
+
+	public static void setInstSessao(Pessoa instSessao) {
+		Controller.instSessao = instSessao;
+	}
 }
