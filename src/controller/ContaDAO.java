@@ -42,8 +42,8 @@ public class ContaDAO extends DAO{
 	 * @param objeto
 	 * @return objeto
 	 */
-	public static Object create(int agencia, String senha, double saldo, Pessoa pessoa ){
-		Conta conta = new Conta(agencia, ContaDAO.num(), 0, senha, pessoa);
+	public static Object create(String senha, double saldo, Pessoa pessoa ){
+		Conta conta = new Conta(1400, ContaDAO.num(), 0, senha, pessoa);
 		arrayConta.add(conta);
 		pessoa.getContas().add(conta);
 		return conta;
@@ -100,8 +100,8 @@ public class ContaDAO extends DAO{
 		arrayConta.remove(conta);
 	}
 
-	public static void delete(int num) throws ContaInexistente{
-		Conta conta = read(num);
+	public static void delete(int num, String senha) throws ContaInexistente, SenhaIncorreta{
+		Conta conta = read(num, senha);
 		del(conta);
 	}
 
