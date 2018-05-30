@@ -19,10 +19,10 @@ public class Movimentacoes implements Serializable {
 	private Conta destino;
 	private String nomeOperacao;
 	private String descricao;
-	private float valorOperacao;
+	private double valorOperacao;
 	private int numero_operacao;
-	private float saldo_anteior;
-	private float saldo_atual;
+	private double saldo_anteior;
+	private double saldo_atual;
 
 	
 	
@@ -33,7 +33,7 @@ public class Movimentacoes implements Serializable {
 	 * @param valor
 	 * @param numero_operacao
 	 */
-	public Movimentacoes(Date date,Conta conta, String descricao, float valor, int numero_operacao){
+	public Movimentacoes(Date date,Conta conta, String descricao, double valor, int numero_operacao){
 		this.setDate(date);
 		this.setConta(conta);
 		this.setNomeOperacao(numero_operacao);
@@ -52,7 +52,7 @@ public class Movimentacoes implements Serializable {
 	 * @param valor
 	 * @param numero_operacao
 	 */
-	public Movimentacoes(Date date,Conta conta,Conta destino, String descricao, float valor, int numero_operacao){
+	public Movimentacoes(Date date,Conta conta,Conta destino, String descricao, double valor, int numero_operacao){
 		this.setDate(date);
 		this.setConta(conta);
 		this.setDestino(destino);
@@ -91,7 +91,7 @@ public class Movimentacoes implements Serializable {
 	 * Metodo que retorna o valor da operacao
 	 * @return float
 	 */
-	public float getValorOperacao() {
+	public double getValorOperacao() {
 		return valorOperacao;
 	}
 
@@ -99,7 +99,7 @@ public class Movimentacoes implements Serializable {
 	 * Metodo que insere o valor da operacao
 	 * @param valorOperacao
 	 */
-	public void setValorOperacao(float valorOperacao) {
+	public void setValorOperacao(double valorOperacao) {
 		this.valorOperacao = valorOperacao;
 	}
 
@@ -171,7 +171,7 @@ public class Movimentacoes implements Serializable {
 	 * Metodo que retorna o saldo anterior a operacao
 	 * @return the saldo_anteior
 	 */
-	public float getSaldo_anteior() {
+	public double getSaldo_anteior() {
 		return saldo_anteior;
 	}
 
@@ -179,7 +179,7 @@ public class Movimentacoes implements Serializable {
 	 * Metodo que insere o saldo anterior a uma operacao
 	 * @param saldo_anteior the saldo_anteior to set
 	 */
-	public void setSaldo_anteior(float saldo_anteior) {
+	public void setSaldo_anteior(double saldo_anteior) {
 		this.saldo_anteior = saldo_anteior;
 	}
 
@@ -222,7 +222,7 @@ public class Movimentacoes implements Serializable {
      * Metodo que retorna o saldo apos a realizacao da operacao
 	 * @return the saldo_atual
 	 */
-	public float getSaldo_atual() {
+	public double getSaldo_atual() {
 		return saldo_atual;
 	}
 
@@ -230,7 +230,7 @@ public class Movimentacoes implements Serializable {
 	 * Metodo que insere o saldo da conta apos uma operacao
 	 * @param saldo_atual the saldo_atual to set
 	 */
-	public void setSaldo_atual(float saldo_atual) {
+	public void setSaldo_atual(double saldo_atual) {
 		this.saldo_atual = saldo_atual;
 	}
 	
