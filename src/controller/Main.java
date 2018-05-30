@@ -1,6 +1,6 @@
 package controller;
 
-import view.comum.TelaInicial
+import view.comum.TelaInicial;
 
 public class Main{
 
