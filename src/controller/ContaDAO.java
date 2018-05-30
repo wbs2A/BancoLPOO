@@ -94,16 +94,12 @@ public class ContaDAO extends DAO{
 	/*
 	 * Metodo exclui um objeto no array 
 	 * @param objeto
-	 * @return objeto
 	 */
-	private static void del(Conta conta){
+	public static void delete(Conta conta, Pessoa pessoa){
 		arrayConta.remove(conta);
+		pessoa.getContas().remove(conta);
 	}
 
-	public static void delete(int num, String senha) throws ContaInexistente, SenhaIncorreta{
-		Conta conta = read(num, senha);
-		del(conta);
-	}
 
 	/*
 	 * Metodo sacar um valor
