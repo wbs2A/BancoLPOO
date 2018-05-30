@@ -2,8 +2,6 @@ package view.telasconta;
 
 import controller.Controller;
 import controller.ContaDAO;
-import exceptions.SenhaIncorreta;
-import java.io.IOException;
 import model.Conta;
 import view.EntradaDeDados;
 import view.TratamentodeEntradas;
@@ -54,15 +52,15 @@ public class TelaCadastraConta {
 					System.out.println("\t\t\t\tSenha: " + conta.getSenha());
 					System.out.println();
 				}
-			} catch (IOException | SenhaIncorreta ex) {
+			} catch (Exception e) {
 				System.out.println();
 				System.out.println("\t\t\t\t[Usuario e/ou Senha Incorreto(s)]");
 				System.out.println();
 				System.out.println("\t\t\t\tDeseja Continuar (1)Sim (2)Nao.");
 			}
-			op = TratamentodeEntradas.trataEntradaOpcao(); 
-			
-			if (op != 1 || op!= 2) {
+			op = TratamentodeEntradas.trataEntradaOpcao();
+
+			if (op != 1 || op != 2) {
 				System.out.println();
 				System.out.println("\t\t\t\tOpcao Invalida!");
 				System.out.println();
