@@ -61,7 +61,7 @@ public class TelaTransacaoTransferencia {
 
 				switch (MenuTransferencia.menuOpcao(opcao)) {
 				case TRANSFERIRDACONTAPADRAO:
-					contaRemetente = Controller.getPessoa().getContaPadrao();
+					contaRemetente = Controller.getSessao().getContaPadrao();
 					if (contaRemetente != null) {
 						System.out.println();
 						System.out.printf("\t\t\t\tInforme o numero da conta destino: ");
