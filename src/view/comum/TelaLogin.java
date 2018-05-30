@@ -23,7 +23,7 @@ public class TelaLogin {
 	 * senha de usuario.
 	 */
 	public static void menuLogin() {
-
+		int op;
 		do {
 			try {
 				ClearConsole.clearConsole();
@@ -36,7 +36,7 @@ public class TelaLogin {
 				System.out.println("\t\t\t\t*                 LOGIN                *");
 				System.out.println("\t\t\t\t****************************************");
 				System.out.println("\t\t\t\t\n\t\t\t\t");
-				
+
 				valido = Controller.validaLogin(TratamentodeEntradas.trataEntradaCpf(), EntradaDeDados.lerSenha());
 				if (valido) {
 					TelaGerenciamentoContaPessoa.menuOpcoes();
@@ -47,6 +47,14 @@ public class TelaLogin {
 				System.out.println();
 				System.out.println("\t\t\t\tDeseja Continuar (1)Sim (2)Nao.");
 			}
-		} while (TratamentodeEntradas.trataEntradaOpcao() != 2);
+
+			op = TratamentodeEntradas.trataEntradaOpcao();
+			if (op != 1 || op != 2) {
+				System.out.println();
+				System.out.println("\t\t\t\tOpcao Invalida!");
+				System.out.println();
+			}
+
+		} while (op != 2);
 	}
 }
