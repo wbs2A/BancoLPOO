@@ -1,7 +1,9 @@
 package view.telasconta;
 
-import controller.ContaDAO;
 import controller.Controller;
+import controller.ContaDAO;
+import exceptions.SenhaIncorreta;
+import java.io.IOException;
 import model.Conta;
 import view.EntradaDeDados;
 import view.TratamentodeEntradas;
@@ -27,44 +29,33 @@ public class TelaCadastraConta {
 	 * 
 	 */
 	public static void formularioCadastroConta() {
-		float saldo;
-		Conta conta;
-
-		System.out.println();
-		System.out.println("\t\t\t*******************************************************");
-		System.out.println("\t\t\t*\t           CPAN BANCO CENTER                  *");
-		System.out.println("\t\t\t*******************************************************");
-		System.out.println("\t\t\t\t\n\t\t\t\t");
-		System.out.println("\t\t\t\t****************************************");
-		System.out.println("\t\t\t\t*      CADASTRO DE CONTA BANCARIA      *");
-		System.out.println("\t\t\t\t****************************************");
-		System.out.println("\t\t\t\t");
-		System.out.println();
-		System.out.println("\t\t\t\t        Confirme sua Identidade         ");
-
 		try {
-			if (Controller.validaLogin(TratamentodeEntradas.trataEntradaCpf(), EntradaDeDados.lerSenha())) {
-				saldo = TratamentodeEntradas.trataEntradaSaldoConta();
-				if (saldo > 0) {
-					conta = (Conta) ContaDAO.create(EntradaDeDados.lerSenhaConta(), saldo, Controller.getPessoa());
-					System.out.println();
-					System.out.println("\t\t\t\t[Conta Criada com Sucesso]");
-					System.out.println();
-					System.out.println(conta);
-					System.out.println("\t\t\t\tSenha: " + conta.getSenha());
-					System.out.println();
-				} else {
-					System.out.println();
-					System.out.println("\t\t\t\t[Saldo Invalido]");
-					System.out.println();
-				}
-			}
+			Conta conta;
+			System.out.println();
+			System.out.println("\t\t\t*******************************************************");
+			System.out.println("\t\t\t*\t           CPAN BANCO CENTER                  *");
+			System.out.println("\t\t\t*******************************************************");
+			System.out.println("\t\t\t\t\n\t\t\t\t");
+			System.out.println("\t\t\t\t****************************************");
+			System.out.println("\t\t\t\t*      CADASTRO DE CONTA BANCARIA      *");
+			System.out.println("\t\t\t\t****************************************");
+			System.out.println("\t\t\t\t");
 
-		} catch (Exception e) {
+			System.out.println();
+			System.out.println("\t\t\t\t        Confirme sua Identidade         ");
+			if (Controller.validaLogin(TratamentodeEntradas.trataEntradaCpf(), EntradaDeDados.lerSenha())) {
+				conta = (Conta) ContaDAO.create(EntradaDeDados.lerSenhaConta(), Controller.getSessao());
+				System.out.println();
+				System.out.println("\t\t\t\t[Conta Criada com Sucesso]");
+				System.out.println();
+				System.out.println(conta);
+				System.out.println("\t\t\t\tSenha: " + conta.getSenha());
+				System.out.println();
+			}
+		} catch (IOException | SenhaIncorreta ex) {
 			System.out.println();
 			System.out.println("\t\t\t\t[Usuario e/ou senha incorreto(s)]");
 			System.out.println();
 		}
-
 	}
 }
