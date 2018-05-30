@@ -1,11 +1,7 @@
 package view.telasconta;
 
-import java.io.IOException;
-
 import controller.ContaDAO;
 import controller.Controller;
-import exceptions.ContaInexistente;
-import exceptions.SenhaIncorreta;
 import model.Conta;
 import view.ClearConsole;
 import view.EntradaDeDados;
@@ -70,25 +66,25 @@ public class TelaExcluiConta {
 						System.out.println();
 						if (Controller.validaLogin(TratamentodeEntradas.trataEntradaCpf(), EntradaDeDados.lerSenha())) {
 							try {
-							conta = ContaDAO.read(TratamentodeEntradas.trataEntradaNumeroConta(),
-									EntradaDeDados.lerSenhaConta());
-							if (conta != null) {
-								ContaDAO.delete(conta, Controller.getSessao());
-								// ContaDAO.salvarContas();
-								// PessoaDAO.salvarPessoas();
-								System.out.println();
-								System.out.println("[\t\t\t\t[Conta removida com sucesso]");
-								System.out.println();
-							}
+								conta = ContaDAO.read(TratamentodeEntradas.trataEntradaNumeroConta(),
+										EntradaDeDados.lerSenhaConta());
+								if (conta != null) {
+									ContaDAO.delete(conta, Controller.getSessao());
+									// ContaDAO.salvarContas();
+									// PessoaDAO.salvarPessoas();
+									System.out.println();
+									System.out.println("[\t\t\t\t[Conta removida com sucesso]");
+									System.out.println();
+								}
 
-							}catch(ContaInexistente ex) {
+							} catch (Exception ex) {
 								System.out.println();
 								System.out.println("\t\t\t\t[Conta nao encontrada]");
 								System.out.println();
 							}
 						}
 
-					} catch (IOException | SenhaIncorreta ex) {
+					} catch (Exception ex) {
 						System.out.println();
 						System.out.println("\t\t\t\t[Usuario e/ou senha incorreto(s)]");
 						System.out.println();
