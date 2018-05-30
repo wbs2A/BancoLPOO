@@ -29,33 +29,44 @@ public class TelaCadastraConta {
 	 * 
 	 */
 	public static void formularioCadastroConta() {
-		try {
-			Conta conta;
-			System.out.println();
-			System.out.println("\t\t\t*******************************************************");
-			System.out.println("\t\t\t*\t           CPAN BANCO CENTER                  *");
-			System.out.println("\t\t\t*******************************************************");
-			System.out.println("\t\t\t\t\n\t\t\t\t");
-			System.out.println("\t\t\t\t****************************************");
-			System.out.println("\t\t\t\t*      CADASTRO DE CONTA BANCARIA      *");
-			System.out.println("\t\t\t\t****************************************");
-			System.out.println("\t\t\t\t");
+		int op;
+		do {
+			try {
+				Conta conta;
+				System.out.println();
+				System.out.println("\t\t\t*******************************************************");
+				System.out.println("\t\t\t*\t           CPAN BANCO CENTER                  *");
+				System.out.println("\t\t\t*******************************************************");
+				System.out.println("\t\t\t\t\n\t\t\t\t");
+				System.out.println("\t\t\t\t****************************************");
+				System.out.println("\t\t\t\t*      CADASTRO DE CONTA BANCARIA      *");
+				System.out.println("\t\t\t\t****************************************");
+				System.out.println("\t\t\t\t");
 
-			System.out.println();
-			System.out.println("\t\t\t\t        Confirme sua Identidade         ");
-			if (Controller.validaLogin(TratamentodeEntradas.trataEntradaCpf(), EntradaDeDados.lerSenha())) {
-				conta = (Conta) ContaDAO.create(EntradaDeDados.lerSenhaConta(), Controller.getSessao());
 				System.out.println();
-				System.out.println("\t\t\t\t[Conta Criada com Sucesso]");
+				System.out.println("\t\t\t\t        Confirme sua Identidade         ");
+				if (Controller.validaLogin(TratamentodeEntradas.trataEntradaCpf(), EntradaDeDados.lerSenha())) {
+					conta = (Conta) ContaDAO.create(EntradaDeDados.lerSenhaConta(), Controller.getSessao());
+					System.out.println();
+					System.out.println("\t\t\t\t[Conta Criada com Sucesso]");
+					System.out.println();
+					System.out.println(conta);
+					System.out.println("\t\t\t\tSenha: " + conta.getSenha());
+					System.out.println();
+				}
+			} catch (IOException | SenhaIncorreta ex) {
 				System.out.println();
-				System.out.println(conta);
-				System.out.println("\t\t\t\tSenha: " + conta.getSenha());
+				System.out.println("\t\t\t\t[Usuario e/ou Senha Incorreto(s)]");
+				System.out.println();
+				System.out.println("\t\t\t\tDeseja Continuar (1)Sim (2)Nao.");
+			}
+			op = TratamentodeEntradas.trataEntradaOpcao(); 
+			
+			if (op != 1 || op!= 2) {
+				System.out.println();
+				System.out.println("\t\t\t\tOpcao Invalida!");
 				System.out.println();
 			}
-		} catch (IOException | SenhaIncorreta ex) {
-			System.out.println();
-			System.out.println("\t\t\t\t[Usuario e/ou senha incorreto(s)]");
-			System.out.println();
-		}
+		} while (op != 2);
 	}
 }
