@@ -57,7 +57,7 @@ public class TelaTransacaoSaque {
 
 				switch (MenuSaque.menuOpcao(opcao)) {
 				case SACARCONTAPADRAO:
-					conta = Controller.getPessoa().getContaPadrao();
+					conta = Controller.getSessao().getContaPadrao();
 					if (conta != null) {
 						valor = TratamentodeEntradas.trataEntradaSaldoConta();
 						ContaDAO.sacar(conta, valor);
