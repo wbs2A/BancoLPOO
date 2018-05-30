@@ -148,23 +148,23 @@ public class Controller{
 		PessoaDAO.update(7, pessoa, cpf);
     }
 
-    public static void realizarTransacao(Date date, Conta conta, String saque_de_Conta, float valor, int num_operacao) throws SaldoNegativo {
+    public static void realizarTransacao(Date date, Conta conta, String descricao, float valor, int num_operacao) throws SaldoNegativo {
     	if(ContaDAO.sacar(conta, valor)){
-	        Movimentacoes movimentacaoMovimentada = new Movimentacoes(date, conta, saque_de_Conta, valor, num_operacao);
+	        Movimentacoes movimentacaoMovimentada = new Movimentacoes(date, conta, descricao, valor, num_operacao);
 	        conta.getMovimentacoes().add(movimentacaoMovimentada);
     	}
     }
 
-    public static void realizarTransacao(Date date, Conta contaRemetente, Conta contaDestino, String transferencia, float valor, int num_operacao) throws SaldoNegativo {
+    public static void realizarTransacao(Date date, Conta contaRemetente, Conta contaDestino, String descricao, float valor, int num_operacao) throws SaldoNegativo {
         if(ContaDAO.transferir(valor, contaDestino,contaRemetente)){
-	        Movimentacoes movimentacaoMovimentada = new Movimentacoes(data, contaDestino, contaRemetente, transferencia, valor, num_operacao);
+	        Movimentacoes movimentacaoMovimentada = new Movimentacoes(data, contaDestino, contaRemetente, descricao, valor, num_operacao);
 	        contaRemetente.getMovimentacoes().add(movimentacaoMovimentada);
         }
     }
 
-    public static void realizarTransacao1(Date date, Conta conta, String deposito_de_Conta, float valor, int num_operacao) throws SaldoNegativo {
+    public static void realizarTransacao1(Date date, Conta conta, String descricao, float valor, int num_operacao) throws SaldoNegativo {
     	if(ContaDAO.depositar(conta, valor)){
-	        Movimentacoes movimentacaoMovimentada = new Movimentacoes(date, conta, deposito_de_Conta, valor, num_operacao);
+	        Movimentacoes movimentacaoMovimentada = new Movimentacoes(date, conta, descricao, valor, num_operacao);
 	        conta.getMovimentacoes().add(movimentacaoMovimentada);
     	}
     }
