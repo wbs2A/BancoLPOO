@@ -2,8 +2,10 @@ package view.telasconta;
 
 import controller.ContaDAO;
 import controller.Controller;
+import exceptions.ContaInexistente;
 import model.Conta;
 import view.ClearConsole;
+import view.EntradaDeDados;
 import view.TratamentodeEntradas;
 
 /**
@@ -49,19 +51,20 @@ public class TelaDefineContaPadrao {
 
 				switch (MenuDefineContaPadrao.menuOpcao(opcao)) {
 				case SIM:
-					conta = ContaDAO.read(TratamentodeEntradas.trataEntradaNumeroConta());
-					if (conta != null) {
-						Controller.getPessoa().setContaPadrao(conta);
-						System.out.println();
-						System.out.println("[\t\t\t\t[Conta padrao definida com sucesso]");
-						System.out.println();
-					} else {
+					try {
+						conta = ContaDAO.read(TratamentodeEntradas.trataEntradaNumeroConta(),
+								EntradaDeDados.lerSenhaConta());
+						if (conta != null) {
+							Controller.getSessao().setContaPadrao(conta);
+							System.out.println();
+							System.out.println("[\t\t\t\t[Conta padrao definida com sucesso]");
+							System.out.println();
+						}
+					} catch (ContaInexistente ex) {
 						System.out.println();
 						System.out.println("\t\t\t\t[Conta nao encontrada]");
 						System.out.println();
 					}
-					break;
-
 				case NAO:
 					sair = true;
 					break;
