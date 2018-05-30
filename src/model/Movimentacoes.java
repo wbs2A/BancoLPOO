@@ -89,7 +89,7 @@ public class Movimentacoes implements Serializable {
 
 	/**
 	 * Metodo que retorna o valor da operacao
-	 * @return float
+	 * @return double
 	 */
 	public double getValorOperacao() {
 		return valorOperacao;
