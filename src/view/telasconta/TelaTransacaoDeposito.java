@@ -64,22 +64,28 @@ public class TelaTransacaoDeposito {
 					if (conta != null) {
 						valor = TratamentodeEntradas.trataEntradaSaldoConta();
 						ContaDAO.depositar(conta, valor);
+					}else {
+						System.out.println();
+						System.out.println("\t\t\t\t[Voce nao possui uma conta padrao definida]");
+						System.out.println();
 					}
 					break;
 
 				case DEPOSITAROUTRACONTA:
-					System.out.println();
-					System.out.printf("\t\t\t\tInforme o numero da conta para deposito: ");
-					System.out.println();
-					conta = ContaDAO.read(TratamentodeEntradas.trataEntradaNumeroConta());
-
-					if (conta != null) {
-						valor = TratamentodeEntradas.trataEntradaSaldoConta();
-						ContaDAO.depositar(conta, valor);
-					} else {
+					try {
+						System.out.println();
+						System.out.printf("\t\t\t\tInforme o numero da conta para deposito: ");
+						System.out.println();
+						conta = ContaDAO.read(TratamentodeEntradas.trataEntradaNumeroConta());
+						if (conta != null) {
+							valor = TratamentodeEntradas.trataEntradaSaldoConta();
+							ContaDAO.depositar(conta, valor);
+						}
+					} catch (Exception ex) {
+						System.out.println();
+						System.out.println("\t\t\t\t[Conta não Encontrada]");
 						System.out.println();
 					}
-
 					break;
 
 				case SAIR:
