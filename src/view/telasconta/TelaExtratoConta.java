@@ -2,7 +2,9 @@ package view.telasconta;
 
 import controller.ContaDAO;
 import exceptions.ContaInexistente;
+import exceptions.SenhaIncorreta;
 import model.Conta;
+import view.EntradaDeDados;
 import view.TratamentodeEntradas;
 
 /**
@@ -22,9 +24,10 @@ public class TelaExtratoConta {
 	 * seja identificada como sendo do usuario ou se alguma informacao da
 	 * verificacao estiver errada, uma mensagem de Conta nao encontrada ou Usuario
 	 * e/ou senha incorretos sera emitida.
-	 * @throws ContaInexistente 
+	 * 
+	 * @throws ContaInexistente
 	 */
-	public static void extratoConta() throws ContaInexistente {
+	public static void extratoConta() {
 		Conta conta;
 		System.out.println();
 		System.out.println("\t\t\t*******************************************************");
@@ -35,16 +38,19 @@ public class TelaExtratoConta {
 		System.out.println("\t\t\t\t*   EXTRATO DE CONTA(S) BANCARIA(S)    *");
 		System.out.println("\t\t\t\t****************************************");
 		System.out.println("\t\t\t\t ");
-		conta = ContaDAO.read(TratamentodeEntradas.trataEntradaNumeroConta());
-		
-		if (conta != null) {
-			System.out.println();
-			System.out.println(conta.getMovimentacoes());
-			System.out.println();
-		} else {
+
+		try {
+			conta = ContaDAO.read(TratamentodeEntradas.trataEntradaNumeroConta(), EntradaDeDados.lerSenhaConta());
+			if (conta != null) {
+				System.out.println();
+				System.out.println(conta.getMovimentacoes());
+				System.out.println();
+			}
+		} catch (ContaInexistente | SenhaIncorreta ex) {
 			System.out.println();
 			System.out.println("\t\t\t\t[Conta nao encontrada]");
 			System.out.println();
 		}
+
 	}
 }
