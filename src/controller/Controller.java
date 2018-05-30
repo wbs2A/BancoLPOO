@@ -90,7 +90,7 @@ public class Controller{
 	
 		Pessoa p = Controller.getPessoa(cpf, senha);
  		if(p != null){
-	 		if(senha.equalsIgnoreCase(p.getSenha())){
+	 		if(p.getSenha().equals(senha)){
 				setSessao(p);
 				return true;
 			}else{

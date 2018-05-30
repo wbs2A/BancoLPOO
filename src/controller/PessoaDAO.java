@@ -101,7 +101,7 @@ public class PessoaDAO extends DAO{
     
     public static Pessoa get(String cpf, String senha) throws SenhaIncorreta{
     	Pessoa p = PessoaDAO.read(cpf);
-    	if(p.getCpf().equals(senha)){
+    	if(p.getSenha().equals(senha)){
     		return p;
     	}else{
     		throw new SenhaIncorreta("Senha incorreta");
