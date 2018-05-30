@@ -4,6 +4,7 @@ import controller.ContaDAO;
 import controller.Controller;
 import model.Conta;
 import view.ClearConsole;
+import view.EntradaDeDados;
 import view.TratamentodeEntradas;
 
 /**
@@ -66,18 +67,21 @@ public class TelaTransacaoTransferencia {
 						System.out.println();
 						System.out.printf("\t\t\t\tInforme o numero da conta destino: ");
 						System.out.println();
-						contaDestino = ContaDAO.read(TratamentodeEntradas.trataEntradaNumeroConta());
-						if (contaDestino != null) {
-							if (contaRemetente == contaDestino) {
-								System.out.println();
-								System.out.println("\t\t\t\t[Não é possivel fazer transferencias entre contas iguais]");
-								System.out.println();
-							} else {
-								valor = TratamentodeEntradas.trataEntradaSaldoConta();
-								ContaDAO.transferir(valor, contaDestino, contaRemetente);
-								System.out.println();
+						try {
+							contaDestino = ContaDAO.read(TratamentodeEntradas.trataEntradaNumeroConta());
+							if (contaDestino != null) {
+								if (contaRemetente == contaDestino) {
+									System.out.println();
+									System.out.println(
+											"\t\t\t\t[Não é possivel fazer transferencias entre contas iguais]");
+									System.out.println();
+								} else {
+									valor = TratamentodeEntradas.trataEntradaSaldoConta();
+									ContaDAO.transferir(valor, contaDestino, contaRemetente);
+									System.out.println();
+								}
 							}
-						} else {
+						} catch (Exception ex) {
 							System.out.println();
 							System.out.println("\t\t\t\t[Conta destino não encontrada]");
 							System.out.println();
@@ -93,30 +97,37 @@ public class TelaTransacaoTransferencia {
 					System.out.println();
 					System.out.printf("\t\t\t\tInforme o numero da conta destino: ");
 					System.out.println();
-					contaDestino = ContaDAO.read(TratamentodeEntradas.trataEntradaNumeroConta());
 
-					if (contaDestino != null) {
-						System.out.println();
-						System.out.println("\t\t\t\tInforme a conta remetente");
-						System.out.println();
-						contaRemetente = ContaDAO.read(TratamentodeEntradas.trataEntradaNumeroConta());
+					try {
+						contaDestino = ContaDAO.read(TratamentodeEntradas.trataEntradaNumeroConta());
+						if (contaDestino != null) {
+							System.out.println();
+							System.out.println("\t\t\t\tInforme a conta remetente");
+							System.out.println();
 
-						if (contaRemetente != null) {
-							if (contaRemetente == contaDestino) {
+							try {
+								contaRemetente = ContaDAO.read(TratamentodeEntradas.trataEntradaNumeroConta(),
+										EntradaDeDados.lerSenhaConta());
+								if (contaRemetente != null) {
+									if (contaRemetente == contaDestino) {
+										System.out.println();
+										System.out.println(
+												"\t\t\t\t[Não é possivel fazer transferencias entre contas iguais]");
+										System.out.println();
+									} else {
+										valor = TratamentodeEntradas.trataEntradaSaldoConta();
+										ContaDAO.transferir(valor, contaDestino, contaRemetente);
+										System.out.println();
+									}
+								}
+							} catch (Exception ex) {
 								System.out.println();
-								System.out.println("\t\t\t\t[Não é possivel fazer transferencias entre contas iguais]");
-								System.out.println();
-							} else {
-								valor = TratamentodeEntradas.trataEntradaSaldoConta();
-								ContaDAO.transferir(valor, contaDestino, contaRemetente);
+								System.out.println("\t\t\t\t[Conta remetente não encontrada]");
 								System.out.println();
 							}
-						} else {
-							System.out.println();
-							System.out.println("\t\t\t\t[Conta remetente não encontrada]");
-							System.out.println();
 						}
-					} else {
+
+					} catch (Exception ex) {
 						System.out.println();
 						System.out.println("\t\t\t\t[Conta destino não encontrada]");
 						System.out.println();
