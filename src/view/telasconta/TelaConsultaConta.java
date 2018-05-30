@@ -36,7 +36,7 @@ public class TelaConsultaConta {
 		System.out.println("\t\t\t\t****************************************");
 		System.out.println("\t\t\t\t ");
 		System.out.println();
-		pessoa = Controller.getPessoa();
+		pessoa = Controller.getSessao();
 		contas = pessoa.getContas();
 
 		if (contas != null) {
