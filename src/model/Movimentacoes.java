@@ -1,6 +1,7 @@
-package model;
+package bank.model;
 
 import java.io.Serializable;
+import java.util.Date;
 /**
  * @author Allison
  * @author Valdenize
@@ -13,21 +14,57 @@ public class Movimentacoes implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	private Date date;
+	private Conta conta;
+	private Conta destino;
 	private String nomeOperacao;
+	private String descricao;
 	private float valorOperacao;
-	private boolean aconteceu;
+	private int numero_operacao;
+	private float saldo_anteior;
+	private float saldo_atual;
+
+	
 	
 	/**
-	 * @param nome
+	 * @param date
+	 * @param conta
+	 * @param descricao
 	 * @param valor
-	 * @param aconteceu
+	 * @param numero_operacao
 	 */
-	public Movimentacoes(String nome, float valor, boolean aconteceu){
-		this.setNomeOperacao(nome);
+	public Movimentacoes(Date date,Conta conta, String descricao, float valor, int numero_operacao){
+		this.setDate(date);
+		this.setConta(conta);
+		this.setNomeOperacao(numero_operacao);
+		this.setDescricao(descricao);
 		this.setValorOperacao(valor);
-		this.setAconteceu(aconteceu);
+		this.setNumero_operacao(numero_operacao);
+		this.setSaldo_anteior(conta.getSaldo()-valor);
+		this.setSaldo_atual(conta.getSaldo());
 	}
 
+	/**
+	 * @param date
+	 * @param destino
+	 * @param conta
+	 * @param descricao
+	 * @param valor
+	 * @param numero_operacao
+	 */
+	public Movimentacoes(Date date,Conta conta,Conta destino, String descricao, float valor, int numero_operacao){
+		this.setDate(date);
+		this.setConta(conta);
+		this.setDestino(destino);
+		this.setNomeOperacao(numero_operacao);
+		this.setDescricao(descricao);
+		this.setValorOperacao(valor);
+		this.setNumero_operacao(numero_operacao);
+		this.setSaldo_anteior(conta.getSaldo()-valor);
+		this.setSaldo_atual(conta.getSaldo());
+	}
+	
+	
 	/**
 	 * Metodo que retorna o nome da operacao
 	 * @return String
@@ -37,11 +74,17 @@ public class Movimentacoes implements Serializable {
 	}
 
 	/**
-	 * Metodo que insere o nome da operacao
-	 * @param nomeOperacao
+	 * Metodo que insere o nome da operacao a partir do numero
+	 * @param numero_operacao
 	 */
-	public void setNomeOperacao(String nomeOperacao) {
-		this.nomeOperacao = nomeOperacao;
+	public void setNomeOperacao(int numero_operacao) {
+		if(numero_operacao == 1){
+			this.nomeOperacao="Saque";
+		}else if(numero_operacao == 2){
+			this.nomeOperacao="Deposito";
+		}else if(numero_operacao == 3){
+			this.nomeOperacao ="Transferencia";
+		}
 	}
 
 	/**
@@ -59,19 +102,137 @@ public class Movimentacoes implements Serializable {
 	public void setValorOperacao(float valorOperacao) {
 		this.valorOperacao = valorOperacao;
 	}
+
 	/**
-	 * Metodo que retorna se aconteceu ou nao
-	 * @return boolean
+	 * Metodo que retorna a data da operacao
+	 * @return  date
 	 */
-	public boolean isAconteceu() {
-		return aconteceu;
+	public Date getDate() {
+		return date;
 	}
 
 	/**
-	 * Metodo que insere um valor booleano
-	 * @param aconteceu
+	 * Metodo que insere a data da operacao
+	 * @param date the date to set
 	 */
-	public void setAconteceu(boolean aconteceu) {
-		this.aconteceu = aconteceu;
+	public void setDate(Date date) {
+		this.date = date;
 	}
+
+	/**
+	 * Metodo que retorna a conta em que ocorreu a operacao
+	 * @return conta
+	 */
+	public Conta getConta() {
+		return conta;
+	}
+
+	/**
+	 * Metodo que insere a conta que ocorreu a operacao
+	 * @param conta the conta to set
+	 */
+	public void setConta(Conta conta) {
+		this.conta = conta;
+	}
+
+	/**
+	 * Metodo que retorna a conta que foi destinatario da operacao transferencia
+	 * @return the destino
+	 */
+	public Conta getDestino() {
+		return destino;
+	}
+
+	/**
+	 * Metodo que insere a conta destino de uma operacao transferencia
+	 * @param destino the destino to set
+	 */
+	public void setDestino(Conta destino) {
+		this.destino = destino;
+	}
+
+	/**
+	 * Metodo que retorna o numero que representa a operacao
+	 * @return the numero_operacao
+	 */
+	public int getNumero_operacao() {
+		return numero_operacao;
+	}
+
+	/**
+	 * Metodo que insere o numero que representa a operacao
+	 * @param numero_operacao the numero_operacao to set
+	 */
+	public void setNumero_operacao(int numero_operacao) {
+		this.numero_operacao = numero_operacao;
+	}
+
+	/**
+	 * Metodo que retorna o saldo anterior a operacao
+	 * @return the saldo_anteior
+	 */
+	public float getSaldo_anteior() {
+		return saldo_anteior;
+	}
+
+	/**
+	 * Metodo que insere o saldo anterior a uma operacao
+	 * @param saldo_anteior the saldo_anteior to set
+	 */
+	public void setSaldo_anteior(float saldo_anteior) {
+		this.saldo_anteior = saldo_anteior;
+	}
+
+	/**
+	 * Metodo que retorna a descricao da operacao realizada
+	 * @return the descricao
+	 */
+	public String getDescricao() {
+		return descricao;
+	}
+
+	/**
+	 * Metodo que insere a descricao da operacao
+	 * @param descricao the descricao to set
+	 */
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
+
+	/**
+     * Metodo toString, retorna algumas das informacoes contidas 
+     * nos atributos da classe e outras das classes Pessoa e Conta 
+     * para simplificar as informações de Movimentacao ao usuário.
+     * @return String
+     */
+	@Override
+	public String toString() {
+		return "Data: "+ this.getDate()+
+				"\nNome: "+this.getConta().getPessoa().getNome()+
+				"\nAgencia: "+ this.getConta().getAgencia()+
+				"\nNumero: "+ this.getConta().getNumero()+
+				"\nSaldo anterior: "+this.getSaldo_anteior()+
+				"\nDescricao: "+this.getDescricao()+
+				"\nValor: "+this.getValorOperacao() +
+				"\nOperacao: "+this.getNomeOperacao()+
+				"\nSaldo atual: "+this.getSaldo_atual();
+	}
+
+	/**
+     * Metodo que retorna o saldo apos a realizacao da operacao
+	 * @return the saldo_atual
+	 */
+	public float getSaldo_atual() {
+		return saldo_atual;
+	}
+
+	/**
+	 * Metodo que insere o saldo da conta apos uma operacao
+	 * @param saldo_atual the saldo_atual to set
+	 */
+	public void setSaldo_atual(float saldo_atual) {
+		this.saldo_atual = saldo_atual;
+	}
+	
 }
+
