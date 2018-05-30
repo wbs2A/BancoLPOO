@@ -2,7 +2,6 @@ package view.telasconta;
 
 import controller.ContaDAO;
 import controller.Controller;
-import exceptions.ContaInexistente;
 import model.Conta;
 import view.ClearConsole;
 import view.EntradaDeDados;
@@ -60,7 +59,7 @@ public class TelaDefineContaPadrao {
 							System.out.println("[\t\t\t\t[Conta padrao definida com sucesso]");
 							System.out.println();
 						}
-					} catch (ContaInexistente ex) {
+					} catch (Exception ex) {
 						System.out.println();
 						System.out.println("\t\t\t\t[Conta nao encontrada]");
 						System.out.println();
