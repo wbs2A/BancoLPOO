@@ -4,6 +4,7 @@ import controller.ContaDAO;
 import controller.Controller;
 import model.Conta;
 import view.ClearConsole;
+import view.EntradaDeDados;
 import view.TratamentodeEntradas;
 
 /**
@@ -61,25 +62,29 @@ public class TelaTransacaoSaque {
 					if (conta != null) {
 						valor = TratamentodeEntradas.trataEntradaSaldoConta();
 						ContaDAO.sacar(conta, valor);
+					} else {
+						System.out.println();
+						System.out.println("\t\t\t\t[Voce nao possui uma conta padrao definida]");
+						System.out.println();
 					}
 					break;
 
 				case SACAROUTRACONTA:
-					System.out.println();
-					System.out.println("\t\t\t\tInforme o numero da conta para saque: ");
-					System.out.println();
-					conta = ContaDAO.read(TratamentodeEntradas.trataEntradaNumeroConta());
-
-					if (conta != null) {
-						valor = TratamentodeEntradas.trataEntradaSaldoConta();
-						ContaDAO.sacar(conta, valor);
+					try {
 						System.out.println();
-					} else {
+						System.out.println("\t\t\t\tInforme o numero da conta para saque: ");
+						System.out.println();
+						conta = ContaDAO.read(TratamentodeEntradas.trataEntradaNumeroConta(), EntradaDeDados.lerSenhaConta());
+						if (conta != null) {
+							valor = TratamentodeEntradas.trataEntradaSaldoConta();
+							ContaDAO.sacar(conta, valor);
+							System.out.println();
+						}
+					} catch (Exception ex) {
 						System.out.println();
 						System.out.println("\t\t\t\t[Conta não Encontrada]");
 						System.out.println();
 					}
-
 					break;
 
 				case SAIR:
