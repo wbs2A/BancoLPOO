@@ -1,9 +1,6 @@
 package view.comum;
 
-import java.io.IOException;
-
 import controller.Controller;
-import exceptions.SenhaIncorreta;
 import model.Pessoa;
 import view.ClearConsole;
 import view.EntradaDeDados;
@@ -25,25 +22,26 @@ public class TelaLogin {
 	 * logar no sistema. Para logar, sera necessario que ele forneca seu cpf e a
 	 * senha de usuario.
 	 */
-	public static void menuLogin() throws SenhaIncorreta {
+	public static void menuLogin() {
 
 		do {
-			ClearConsole.clearConsole();
-			System.out.println();
-			System.out.println("\t\t\t*******************************************************");
-			System.out.println("\t\t\t*\t           CPAN BANCO CENTER                  *");
-			System.out.println("\t\t\t*******************************************************");
-			System.out.println("\t\t\t\t\n\t\t\t\t");
-			System.out.println("\t\t\t\t****************************************");
-			System.out.println("\t\t\t\t*                 LOGIN                *");
-			System.out.println("\t\t\t\t****************************************");
-			System.out.println("\t\t\t\t\n\t\t\t\t");
 			try {
+				ClearConsole.clearConsole();
+				System.out.println();
+				System.out.println("\t\t\t*******************************************************");
+				System.out.println("\t\t\t*\t           CPAN BANCO CENTER                  *");
+				System.out.println("\t\t\t*******************************************************");
+				System.out.println("\t\t\t\t\n\t\t\t\t");
+				System.out.println("\t\t\t\t****************************************");
+				System.out.println("\t\t\t\t*                 LOGIN                *");
+				System.out.println("\t\t\t\t****************************************");
+				System.out.println("\t\t\t\t\n\t\t\t\t");
+				
 				valido = Controller.validaLogin(TratamentodeEntradas.trataEntradaCpf(), EntradaDeDados.lerSenha());
 				if (valido) {
 					TelaGerenciamentoContaPessoa.menuOpcoes();
 				}
-			} catch (IOException ex) {
+			} catch (Exception e) {
 				System.out.println();
 				System.out.println("\t\t\t\t[Usuario e/ou Senha Incorreto(s)]");
 				System.out.println();
