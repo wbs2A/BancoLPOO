@@ -1,4 +1,4 @@
-package controller;
+package banco;
 
 import view.comum.TelaInicial;
 
