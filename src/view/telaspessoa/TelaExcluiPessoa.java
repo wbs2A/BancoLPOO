@@ -1,7 +1,6 @@
 package view.telaspessoa;
 
 import controller.Controller;
-import controller.PessoaDAO;
 import view.ClearConsole;
 import view.EntradaDeDados;
 import view.TratamentodeEntradas;
@@ -60,7 +59,7 @@ public class TelaExcluiPessoa {
 							break;
 
 						case SIM:
-							PessoaDAO.delete(Controller.getSessao());
+							Controller.removerPessoa(Controller.getSessao());
 							//PessoaDAO.salvarPessoas();
 							//ContaDAO.salvarContas();
 							System.out.println();
