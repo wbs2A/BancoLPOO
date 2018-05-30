@@ -2,7 +2,6 @@ package view.telasconta;
 
 import controller.ContaDAO;
 import exceptions.ContaInexistente;
-import exceptions.SenhaIncorreta;
 import model.Conta;
 import view.EntradaDeDados;
 import view.TratamentodeEntradas;
@@ -46,7 +45,7 @@ public class TelaExtratoConta {
 				System.out.println(conta.getMovimentacoes());
 				System.out.println();
 			}
-		} catch (ContaInexistente | SenhaIncorreta ex) {
+		} catch (Exception ex) {
 			System.out.println();
 			System.out.println("\t\t\t\t[Conta nao encontrada]");
 			System.out.println();
