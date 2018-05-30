@@ -60,7 +60,7 @@ public class TelaTransacaoDeposito {
 
 				switch (MenuDeposito.menuOpcao(opcao)) {
 				case DEPOSITARCONTAPADRAO:
-					conta = Controller.getPessoa().getContaPadrao();
+					conta = Controller.getSessao().getContaPadrao();
 					if (conta != null) {
 						valor = TratamentodeEntradas.trataEntradaSaldoConta();
 						ContaDAO.depositar(conta, valor);
