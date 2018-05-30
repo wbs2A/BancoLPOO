@@ -42,7 +42,7 @@ public class ContaDAO extends DAO{
 	 * @param objeto
 	 * @return objeto
 	 */
-	public static Object create(String senha, double saldo, Pessoa pessoa ){
+	public static Object create(String senha, Pessoa pessoa ){
 		Conta conta = new Conta(1400, ContaDAO.num(), 0, senha, pessoa);
 		arrayConta.add(conta);
 		pessoa.getContas().add(conta);
