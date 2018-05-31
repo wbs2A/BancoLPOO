@@ -1,8 +1,6 @@
 package view.telaspessoa;
 
-import controller.ContaDAO;
 import controller.Controller;
-import controller.PessoaDAO;
 import view.ClearConsole;
 import view.EntradaDeDados;
 import view.TratamentodeEntradas;
