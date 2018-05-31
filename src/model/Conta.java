@@ -140,9 +140,9 @@ public class Conta implements Serializable{
 	   */
 	   @Override
 	   public String toString(){
-	     return "\nNome:"+this.getPessoa().getNome() + 
-	    		"\nNumero: "+ this.Numero +
-	    		"\nAgencia: " + this.Agencia;
+	     return "\n\t\t\t\tNome:"+this.getPessoa().getNome() + 
+	    		"\n\t\t\t\tNumero: "+ this.Numero +
+	    		"\n\t\t\t\tAgencia: " + this.Agencia;
 	         
 	    }
 	    
