@@ -51,6 +51,7 @@ public class TelaCadastraConta {
 					System.out.println(conta);
 					System.out.println("\t\t\t\tSenha: " + conta.getSenha());
 					System.out.println();
+					ContaDAO.salvarContas();
 				}
 			} catch (Exception e) {
 				System.out.println();
