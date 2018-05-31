@@ -1,7 +1,7 @@
 package view.telasconta;
 
 /**
- * Classe responsável por disponiblizar as opcoes do Enum MenuExtratoConta
+ * Classe responsavel por disponiblizar as opcoes do Enum MenuExtratoConta
  *
  * @author Joao Gabriel
  * @author Michael Douglas
