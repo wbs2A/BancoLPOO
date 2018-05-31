@@ -10,7 +10,7 @@ package view.telasconta;
  */
 public enum MenuConta {
 	REALIZARTRANSACAO(1), EXIBIREXTRATO(2), CADASTRARCONTA(3), EXCLUIRCONTA(4), CONSULTARCONTA(5), DEFINIRCONTAPADRAO(
-			6), ATUALIZARSENHACONTA(7), SAIR(0);
+			6), ATUALIZARSENHACONTA(7), VERDADOSPESSOA(8), SAIR(0);
 
 	int opcao;
 
@@ -44,6 +44,8 @@ public enum MenuConta {
 			return MenuConta.DEFINIRCONTAPADRAO;
 		} else if (opcao == 7) {
 			return MenuConta.ATUALIZARSENHACONTA;
+		} else if (opcao == 8) {
+			return MenuConta.VERDADOSPESSOA;
 		} else if (opcao == 0) {
 			return MenuConta.SAIR;
 		}
