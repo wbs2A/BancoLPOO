@@ -59,7 +59,7 @@ public class TelaGerenciaPessoa {
 					break;
 
 				case VERDADOSPESSOA:
-					TelaConsultaDadosPessoa.menuConsultaDadosPessoa();
+					TelaConsultaDadosPessoa.menuConsultadoDadosPessoa();
 					break;
 
 				case SAIR:
