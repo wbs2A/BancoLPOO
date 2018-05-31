@@ -2,6 +2,7 @@ package view.telasconta;
 
 import controller.ContaDAO;
 import controller.Controller;
+import controller.PessoaDAO;
 import model.Conta;
 import view.ClearConsole;
 import view.EntradaDeDados;
@@ -70,11 +71,11 @@ public class TelaExcluiConta {
 										EntradaDeDados.lerSenhaConta());
 								if (conta != null) {
 									ContaDAO.delete(conta, Controller.getSessao());
-									// ContaDAO.salvarContas();
-									// PessoaDAO.salvarPessoas();
 									System.out.println();
 									System.out.println("[\t\t\t\t[Conta removida com sucesso]");
 									System.out.println();
+									ContaDAO.salvarContas();
+									PessoaDAO.salvarPessoas();
 								}
 
 							} catch (Exception ex) {
