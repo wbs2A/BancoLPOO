@@ -62,6 +62,8 @@ public class TelaTransacaoSaque {
 					if (conta != null) {
 						valor = TratamentodeEntradas.trataEntradaSaldoConta();
 						ContaDAO.sacar(conta, valor);
+						System.out.println();
+						ContaDAO.salvarContas();
 					} else {
 						System.out.println();
 						System.out.println("\t\t\t\t[Voce nao possui uma conta padrao definida]");

@@ -79,6 +79,7 @@ public class TelaTransacaoTransferencia {
 									valor = TratamentodeEntradas.trataEntradaSaldoConta();
 									ContaDAO.transferir(valor, contaDestino, contaRemetente);
 									System.out.println();
+									ContaDAO.salvarContas();
 								}
 							}
 						} catch (Exception ex) {
@@ -118,6 +119,7 @@ public class TelaTransacaoTransferencia {
 										valor = TratamentodeEntradas.trataEntradaSaldoConta();
 										ContaDAO.transferir(valor, contaDestino, contaRemetente);
 										System.out.println();
+										ContaDAO.salvarContas();
 									}
 								}
 							} catch (Exception ex) {
