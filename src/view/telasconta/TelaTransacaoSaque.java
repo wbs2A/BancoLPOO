@@ -79,6 +79,7 @@ public class TelaTransacaoSaque {
 							valor = TratamentodeEntradas.trataEntradaSaldoConta();
 							ContaDAO.sacar(conta, valor);
 							System.out.println();
+							ContaDAO.salvarContas();
 						}
 					} catch (Exception ex) {
 						System.out.println();
