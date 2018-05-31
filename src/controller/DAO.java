@@ -12,7 +12,7 @@ import java.util.logging.Logger;
 
 import java.io.File;
 
-abstract class DAO{
+abstract class DAO<T>{
     
     /*
     * Metodo para Deserializar um objeto dado seu tipo como parâmetro.
@@ -113,6 +113,4 @@ abstract class DAO{
     public static <T> T castTo(Object obj) {
         return (T) obj;
     }
-
-    
 }

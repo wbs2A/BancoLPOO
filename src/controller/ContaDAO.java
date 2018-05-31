@@ -8,11 +8,7 @@ import exceptions.ContaInexistente;
 import exceptions.SaldoNegativo;
 import exceptions.SenhaIncorreta;
 
-/*
- * @author Controller
- */
-
-public class ContaDAO extends DAO{
+public class ContaDAO extends DAO<Object>{
 	
     public static void carregarContas() {
         Object obj = ContaDAO.carregar(arrayConta.getClass().getName());
@@ -27,6 +23,7 @@ public class ContaDAO extends DAO{
 	static Random gerador = new Random();
 	
 	 /*
+	 * @author Nathaly
 	 * Metodo le int numero da conta
 	 * @return int
 	 */
@@ -35,11 +32,10 @@ public class ContaDAO extends DAO{
 	}
 
 	 /*
+	 * @author Nathaly
 	 * Metodo instancia objeto do tipo conta (cria) e adiciona o objeto conta no array de contas em pessoa
-	 * @param int agencia fixa
 	 * @param string senha
-	 * @param double saldo
-	 * @param objeto
+	 * @param objeto pessoa
 	 * @return objeto
 	 */
 	public static Object create(String senha, Pessoa pessoa ){
@@ -50,8 +46,9 @@ public class ContaDAO extends DAO{
 	}
 
 	 /*
+	 * @author Nathaly
 	 * Metodo atualiza senha
-	 * @param objeto
+	 * @param objeto conta
 	 * @param senha
 	 */
 	public static void update(Conta conta, String senha) {
@@ -59,17 +56,19 @@ public class ContaDAO extends DAO{
 	}
 
 	/*
+	 * @author Nathaly
 	 * Metodo retorna array de Conta
-	 * @return objeto
+	 * @return array tipo conta de contas
 	 */
 	public ArrayList<Conta> getContas(){
 		return arrayConta;
 	}
 
 	/*
-	 * Metodo buscar um objeto no array pelo numero da conta
-	 * @param valor
-	 * @return objeto
+	 * @author Nathaly
+	 * Metodo buscar mas so se a senha estiver correta
+	 * @param int numero conta, senha string
+	 * @return objeto conta
 	 */
 	public static Conta read(int num, String senha) throws ContaInexistente, SenhaIncorreta{
 		Conta conta = ContaDAO.read(num);
@@ -79,7 +78,12 @@ public class ContaDAO extends DAO{
     		throw new SenhaIncorreta("Senha incorreta");
     	}
 	}
-	
+	/*
+	 * @author Nathaly
+	 * Metodo buscar um objeto no array pelo numero da conta
+	 * @param int
+	 * @return objeto conta
+	 */
 	public static Conta read(int num) throws ContaInexistente{
 		Conta conta = null;
 		for(int i = 0; i < arrayConta.size(); i++){
@@ -88,11 +92,12 @@ public class ContaDAO extends DAO{
 				return conta;
 			}
 		}
-		throw new ContaInexistente("Conta n�o existe");
+		throw new ContaInexistente("Conta nao existe");
 	}
 	
 	/*
-	 * Metodo exclui um objeto no array 
+	 * @author Nathaly
+	 * Metodo exclui um objeto no array conta
 	 * @param objeto
 	 */
 	public static void delete(Conta conta, Pessoa pessoa){
@@ -102,10 +107,10 @@ public class ContaDAO extends DAO{
 
 
 	/*
+	 * @author Nathaly
 	 * Metodo sacar um valor
-	 * @param valor
+	 * @param objeto, valor
 	 * @return boolean
-	 *
 	 */
 	public static boolean sacar(Conta conta, double valor) throws SaldoNegativo{
 		if (Emprestar(conta, valor)){
@@ -116,6 +121,7 @@ public class ContaDAO extends DAO{
 	}
 	
 	/*
+	 * @author Nathaly
 	 * Metodo deposita um valor
 	 * @param valor
 	 * @return boolean
@@ -129,8 +135,9 @@ public class ContaDAO extends DAO{
 	}
 	
 	/*
-	 * Metodo empresta um valor
-	 * @param valor
+	 * @author Nathaly
+	 * Metodo verifica se tem excecoes para entao realizar uma operacao
+	 * @param objeto, valor
 	 * @return boolean
 	 */
 	public static boolean Emprestar(Conta conta, double valor) throws SaldoNegativo{
@@ -141,8 +148,9 @@ public class ContaDAO extends DAO{
 	}
 	
 	/*
+	 * @author Nathaly
 	 * Metodo transfere um valor
-	 * @param valor
+	 * @param valor, objeto 
 	 * @return boolean
 	 */
 	public static boolean transferir(double valor, Conta DepositarNela, Conta RetirarDela) throws SaldoNegativo{
