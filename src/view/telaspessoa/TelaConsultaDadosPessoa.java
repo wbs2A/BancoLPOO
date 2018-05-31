@@ -7,8 +7,25 @@ import view.ClearConsole;
 import view.EntradaDeDados;
 import view.TratamentodeEntradas;
 
-public class TelaConsultaDadosPessoa {
+/**
+ * A Classe TelaConsultaDadosPessoa e responsavel por mostrar todas as
+ * informacoes pessoais referentes a uma determinada pessoa.
+ *
+ * @author Adler Cavalcante
+ * @author Michael Douglas
+ * @author Joao Gabriel
+ * @author Joao Victor
+ * 
+ */
 
+public class TelaConsultaDadosPessoa {
+	/**
+	 * O metodo menuConsultaDadosPessoa e responsavel por disponibilizar a
+	 * visualizacao dos dados pessoais de uma pessoa, utilizando de uma validacao de
+	 * login para evitar a visualizacao de dados pessoais de outras pessoas,
+	 * emitindo um aviso de erro caso alguma informacao inserida na verificacao seja
+	 * invalida.
+	 */
 	public static void menuConsultadoDadosPessoa() {
 
 		new ClearConsole();
