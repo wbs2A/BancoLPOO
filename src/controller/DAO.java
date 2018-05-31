@@ -29,7 +29,7 @@ abstract class DAO<T>{
         try {
             fis = new FileInputStream(PATH);
             ObjectInputStream ois = new ObjectInputStream(fis);
-            obj = ois.readObject();
+            obj = (Object) ois.readObject();
             ois.close();
             fis.close();
             return obj;
