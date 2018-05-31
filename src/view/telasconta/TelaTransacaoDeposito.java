@@ -80,6 +80,7 @@ public class TelaTransacaoDeposito {
 						if (conta != null) {
 							valor = TratamentodeEntradas.trataEntradaSaldoConta();
 							ContaDAO.depositar(conta, valor);
+							ContaDAO.salvarContas();
 						}
 					} catch (Exception ex) {
 						System.out.println();
