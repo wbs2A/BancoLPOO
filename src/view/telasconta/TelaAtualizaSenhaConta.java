@@ -6,8 +6,31 @@ import model.Conta;
 import view.ClearConsole;
 import view.TratamentodeEntradas;
 
+/**
+ * A classe TelaAtualizaSenhaConta e responsavel por disponibilizar o menu que
+ * mostra quais acoes devem ser tomadas para atualizar a senha de uma conta
+ * padrao ou uma outra conta, utilizando de metodos contidos em outras classes
+ * do controller, model e view, para acessar as informacoes necessarias das
+ * contas.
+ * 
+ * @author Adler_Moraes
+ * @author Michael Douglas
+ * @author Joao Gabriel
+ * @author Joao Victor
+ *
+ */
 public class TelaAtualizaSenhaConta {
-
+	/**
+	 * O metodo menuAtualizaSenhaConta permite que o usuario escolha se ele deseja
+	 * alterar a senha de sua conta padrao, ou de uma outra conta que ele possua,
+	 * caso uma conta padrao seja escolhida, suas respectivas informacaoes serao
+	 * imprimidas sem a necessidade da inserção de dados adicionais, tendo a senha
+	 * atualiza por fim. Já que se a opcao de uma outra conta for escolhida, o
+	 * usuario deve informar o numero da conta, e o mesmo processo sera feito. Nos
+	 * dois casos havera uma verificacao para ver se uma conta padrao existe ou se o
+	 * numero da conta informada bate com alguma pertecente a pessoa, em caso
+	 * negativo, uma mensagem de erro sera emitida.
+	 */
 	public static void menuAtualizaSenhaConta() {
 		int opcao;
 		boolean sair = false;
@@ -61,7 +84,7 @@ public class TelaAtualizaSenhaConta {
 						conta = ContaDAO.read(TratamentodeEntradas.trataEntradaNumeroConta());
 						if (conta != null) {
 							conta.toString();
-							
+
 							conta.update(conta, TratamentodeEntradas.trataEntradaSenhaConta());
 						}
 					} catch (Exception ex) {
