@@ -7,9 +7,12 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * Classe responsável por tratar todas as entradas de dados na view.
+ * Classe responsavel por tratar todas as entradas de dados na view.
  * 
- * @author michael_douglas
+ * @author Adler_Moraes
+ * @author Michael Douglas
+ * @author Joao Gabriel
+ * @author Joao Victor
  *
  */
 public class TratamentodeEntradas {
@@ -109,7 +112,7 @@ public class TratamentodeEntradas {
 	}
 
 	/**
-	 * Este metodo e responsavel por validar se a string contém 11 digitos
+	 * Este metodo e responsavel por validar se a string contem 11 digitos
 	 * numericos.
 	 * 
 	 * @return String
@@ -147,7 +150,7 @@ public class TratamentodeEntradas {
 	}
 
 	/**
-	 * Este metodo e responsavel por verificar se na String contém apenas digitos
+	 * Este metodo e responsavel por verificar se na String contem apenas digitos
 	 * numericos
 	 * 
 	 * @return int
@@ -164,7 +167,7 @@ public class TratamentodeEntradas {
 				valido = true;
 			} catch (Exception e) {
 				System.out.println();
-				System.out.println("\t\t\t\t[Só é válido numeros inteiros!]");
+				System.out.println("\t\t\t\t[Sao validos apenas numeros inteiros!]");
 				System.out.println();
 			}
 		}
@@ -172,7 +175,7 @@ public class TratamentodeEntradas {
 	}
 
 	/**
-	 * Este metodo e responsavel por verificar se na String contém apenas valores
+	 * Este metodo e responsavel por verificar se na String contem apenas valores
 	 * inteiros
 	 * 
 	 * @return int
@@ -188,7 +191,7 @@ public class TratamentodeEntradas {
 				valido = true;
 			} catch (Exception e) {
 				System.out.println();
-				System.out.println("\t\t\t\t[Só é válido numeros inteiros!]");
+				System.out.println("\t\t\t\t[Sao validos apenas numeros inteiros!]");
 				System.out.println();
 			}
 		}
@@ -212,7 +215,7 @@ public class TratamentodeEntradas {
 				valido = true;
 			} catch (Exception e) {
 				System.out.println();
-				System.out.println("\t\t\t\t[Só é válido valores reais]");
+				System.out.println("\t\t\t\t[Sao validos apenas valores reais]");
 				System.out.println();
 			}
 		}
@@ -236,7 +239,7 @@ public class TratamentodeEntradas {
 				valido = true;
 			} catch (Exception e) {
 				System.out.println();
-				System.out.println("\t\t\t\t[Só é válido numeros inteiros]");
+				System.out.println("\t\t\t\t[Sao validos apenas numeros inteiros]");
 				System.out.println();
 			}
 		}
