@@ -203,12 +203,12 @@ public class Pessoa implements Serializable{
 	
 	   @Override
 	   public String toString(){
-	     return "Nome: "+ this.getNome() +
-	         "\nCpf: " + this.getCpf() +
-	         "\nSexo: " + this.getSexo() +
-	         "\nData: " + this.getDtNasci() +
-	           "\nTelefone: " + this.getTelefone() +
-	           "\nEmail: " + this.getEmail();
+	     return "\n\t\t\t\tNome: "+ this.getNome() +
+	         "\n\t\t\t\tCpf: " + this.getCpf() +
+	         "\n\t\t\t\tSexo: " + this.getSexo() +
+	         "\n\t\t\t\tData: " + this.getDtNasci() +
+	           "\n\t\t\t\tTelefone: " + this.getTelefone() +
+	           "\n\t\t\t\tEmail: " + this.getEmail();
 	   }
 	    
 
