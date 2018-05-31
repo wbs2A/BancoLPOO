@@ -95,6 +95,8 @@ public class TelaAtualizaSenhaConta {
 							System.out.println();
 							System.out.println("\t\t\t\t[Senha atualizada com sucesso]");
 							System.out.println();
+							ContaDAO.salvarContas();
+							
 						}
 					} catch (Exception ex) {
 						System.out.println();
