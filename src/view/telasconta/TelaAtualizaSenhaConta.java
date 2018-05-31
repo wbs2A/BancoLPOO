@@ -25,8 +25,8 @@ public class TelaAtualizaSenhaConta {
 	 * O metodo menuAtualizaSenhaConta permite que o usuario escolha se ele deseja
 	 * alterar a senha de sua conta padrao, ou de uma outra conta que ele possua,
 	 * caso uma conta padrao seja escolhida, suas respectivas informacaoes serao
-	 * imprimidas sem a necessidade da inser��o de dados adicionais, tendo a senha
-	 * atualiza por fim. J� que se a opcao de uma outra conta for escolhida, o
+	 * imprimidas sem a necessidade da insercao de dados adicionais, tendo a senha
+	 * atualiza por fim. Ja que se a opcao de uma outra conta for escolhida, o
 	 * usuario deve informar o numero da conta, e o mesmo processo sera feito. Nos
 	 * dois casos havera uma verificacao para ver se uma conta padrao existe ou se o
 	 * numero da conta informada bate com alguma pertecente a pessoa, em caso
