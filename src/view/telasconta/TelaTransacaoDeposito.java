@@ -64,6 +64,7 @@ public class TelaTransacaoDeposito {
 					if (conta != null) {
 						valor = TratamentodeEntradas.trataEntradaSaldoConta();
 						ContaDAO.depositar(conta, valor);
+						ContaDAO.salvarContas();
 					}else {
 						System.out.println();
 						System.out.println("\t\t\t\t[Voce nao possui uma conta padrao definida]");
