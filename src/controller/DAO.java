@@ -11,15 +11,20 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import java.io.File;
+/*
+ * Classe que representa os processo de serializacao e deserializacao de objetos.
+ * @author: Nathaly.
+ * @author: Wesley B.
+ */
 
 abstract class DAO<T>{
     
     /*
-    * Metodo para Deserializar um objeto dado seu tipo como parâmetro.
+    * Metodo para Deserializar um objeto dado seu tipo como parametro.
     *  Ele carrega o objeto encontrado no arquivo do FileInputStream e
-    *  e registra as exceções no Logger da classe.
+    *  e registra as excecoes no Logger da classe.
     * @author: Wesley B.
-    * @param: Tipo do objeto, que nomeará o arquivo.
+    * @param: Tipo do objeto, que nomeara o arquivo.
     * @return: Objeto a ser convertido para a classe correta.
     */
     public static Object carregar(String type){
@@ -48,12 +53,12 @@ abstract class DAO<T>{
     }
 
     /*
-    * Metodo para garantir o caminho e a criação de um arquivo binário,
-    *  cujo nome é o tipo do objeto a ser serializado. Este metodo per-
-    *  mite que a aplicação persista classes em mais de uma plataforma.
-    *  As exceções são tratadas pelas classes que a utilizam.
+    * Metodo para garantir o caminho e a criacao de um arquivo binario,
+    *  cujo nome e o tipo do objeto a ser serializado. Este metodo per-
+    *  mite que a aplicacao persista classes em mais de uma plataforma.
+    *  As excecies sao tratadas pelas classes que a utilizam.
     * @author: Wesley B.
-    * @param: Tipo do objeto, que nomeará o arquivo.
+    * @param: Tipo do objeto, que nomeara o arquivo.
     * @return: Caminho concatenado com o nome do arquivo a ser utilizado.
     */
     public static String ensuresPath(String type){
@@ -79,12 +84,12 @@ abstract class DAO<T>{
     }
 
     /*
-    * Metodo para Serializar um objeto dado como parâmetro.
+    * Metodo para Serializar um objeto dado como parametro.
     *  Ele descarrega o objeto no arquivo criado com o
-    *  FileInputStream e registra as exceções no Logger da classe.
+    *  FileInputStream e registra as excecoes no Logger da classe.
     * @author: Wesley B.
     * @param: Objeto a ser serializado.
-    * @return: Booleano informando o resultado da operação.
+    * @return: Booleano informando o resultado da operacao.
     */
 
     public static boolean descarregar(Object obj){

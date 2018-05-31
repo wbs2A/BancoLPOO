@@ -8,6 +8,12 @@ import exceptions.ContaInexistente;
 import exceptions.SaldoNegativo;
 import exceptions.SenhaIncorreta;
 
+/*
+ * Classe que representa as operacoes CRUDs da ContaDAO e operacoes de alguma transacao requisitada.
+ * @author: Nathaly.
+ * @author: Wesley B.
+ */
+
 public class ContaDAO extends DAO<Object>{
 	
     public static void carregarContas() {

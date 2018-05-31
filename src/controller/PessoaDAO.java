@@ -5,6 +5,11 @@ import java.util.Date;
 import model.Pessoa;
 import exceptions.SenhaIncorreta;
 
+/*
+ * Classe que representa as operacoes CRUDs da PessoaDAO e operacoes de atualizacao de cadastro.
+ * @author: Jose Sandonas
+ */
+
 public class PessoaDAO extends DAO<Object>{
     
     public static void carregarPessoas() {
@@ -44,7 +49,7 @@ public class PessoaDAO extends DAO<Object>{
     }
 
     /* Metodo que realiza a busca de uma pessoa recebendo como parametro o seu CPF
-    *@author José Sandonas
+    *@author Jose Sandonas
     *@return pessoa especificada ou nulo caso nao encontrada  
     */
     public static Pessoa read(String cpf){
@@ -55,9 +60,9 @@ public class PessoaDAO extends DAO<Object>{
         }
         return null;
     }
-    /* Metodo que realiza a alteração das informacoes de uma pessoa recebendo como parametro o numero que especifica 
-    qual dado que sera alterado, pessoa do tipo Pessoa, obejto info que seria a informação que sera alterada 
-    *@author José Sandonas
+    /* Metodo que realiza a alteracao das informacoes de uma pessoa recebendo como parametro o numero que especifica 
+    qual dado que sera alterado, pessoa do tipo Pessoa, obejto info que seria a informacao que sera alterada 
+    *@author Jose Sandonas
     *@return pessoa especificada ou nulo caso nao encontrada  
     */
     public static void update(int operacao, Pessoa pessoa, Object info){
@@ -88,7 +93,7 @@ public class PessoaDAO extends DAO<Object>{
     }
     /*Metodo que executa  a remocao interna que remove a pessoa contida dentro do arraypessoa
     *@param pessoa
-    *@author José Sandonas
+    *@author Jose Sandonas
     */
     private static void delete(Pessoa pessoa){
         arrayPessoa.remove(pessoa);
@@ -96,7 +101,7 @@ public class PessoaDAO extends DAO<Object>{
 
     /*Metodo que executa  a remocao externa que recebe o cpf e remove a pessoa
     *@param String cpf
-    *@author José Sandonas
+    *@author Jose Sandonas
     */
     public static void delete(String cpf){
         Pessoa p = read(cpf);

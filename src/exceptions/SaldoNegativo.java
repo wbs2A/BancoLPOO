@@ -1,8 +1,9 @@
 package exceptions;
 
 	/**
-	 * Classe de exceção se conta saldo é negativo para qualquer operação
-	 * @author Controller 
+	 * Classe de excecao se conta saldo eh negativo para qualquer operacao
+	 * @author Nathaly
+	 * @author: Wesley B.
 	 */
 
 public class SaldoNegativo extends Exception{

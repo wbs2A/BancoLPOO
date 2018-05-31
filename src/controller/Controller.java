@@ -12,9 +12,9 @@ import model.Conta;
 import model.Movimentacoes;
 /*
  * Classe que representa o controller
- 	principal da aplicação, contendo métodos que são comuns às classes do sistema
- 	ou conectando método com os respectivos DAOs.
- * @author: Náthaly.
+ 	principal da aplicacao, contendo metodos que sao comuns nas classes do sistema
+ 	ou conectando metodo com os respectivos DAOs.
+ * @author: Nathaly.
  * @author: Wesley B.
  */
 public class Controller{
@@ -22,16 +22,16 @@ public class Controller{
     private static ArrayList<Pessoa> pessoas = new ArrayList<Pessoa>();
 
 	/*
-	 * Variável que armazena a pessoa que está a usar o sistema.
+	 * Variavel que armazena a pessoa que estao a usar o sistema.
 	 * @author: Wesley B.
 	 */
     private static Pessoa instSessao;
     
 
     /*
-	 * Método que retorna a pessoa da sessão.
+	 * Metodo que retorna a pessoa da sessao.
 	 * @author: Wesley B.
-	 * @return: Pessoa da sessão
+	 * @return: Pessoa da sessao
 	 */
 	public static Pessoa getSessao() {
 		return sessao;
@@ -40,26 +40,26 @@ public class Controller{
 
 
     /*
-	 * Método que defina a pessoa da sessão.
+	 * Metodo que defina a pessoa da sessao.
 	 * @author: Wesley B.
-	 * @param: Pessoa da sessão
+	 * @param: Pessoa da sessao
 	 */    
 	public static void setSessao(Pessoa sessao) {
 		Controller.sessao = sessao;
 	}
 
     /*
-	 * Método que recebe os dados de uma pessoa a
+	 * Metodo que recebe os dados de uma pessoa a
 	   ser criada no sistema.
 	 * @author: Wesley B.
 	 * @param: nome: String que representa o nome
 	    pessoa a ser criada
 	 * @param: senha: Senha de acesso
-	 * @param: cpf: Cadastro único
+	 * @param: cpf: Cadastro unico
 	 * @param: data: Data de nascimento
-	 * @param: sexo: Gênero
-	 * @param: telefone: Número de telefone
-	 * @param: email: Endereço eletrônico da pessoa
+	 * @param: sexo: Genero
+	 * @param: telefone: Numero de telefone
+	 * @param: email: Endereco eletrinico da pessoa
 	 */
     public static void criarPessoa(String nome, String senha, String cpf, Date data, String sexo, String telefone, String email){
 	Pessoa p = (Pessoa) PessoaDAO.create(nome, senha, cpf, data, sexo, telefone, email);
@@ -67,10 +67,10 @@ public class Controller{
     }
 
 	/*
-	 * Método que conecta a solicitação de uma pessoa
+	 * Metodo que conecta a solicitacao de uma pessoa
 	   da view com o DAO.
 	 * @author: Wesley B.
-	 * @param: cpf: Cadastro único
+	 * @param: cpf: Cadastro unico
 	 * @param: senha: Senha de acesso ao sistema.
 	 * @return Pessoa solicitada.
 	 */
@@ -79,14 +79,14 @@ public class Controller{
 	}
 
 	/*
-	 * Método que valida o acesso de uma pessoa ao sistema.
+	 * Metodo que valida o acesso de uma pessoa ao sistema.
 	 * @author: Wesley B.
-	 * @param: cpf: Cadastro único
+	 * @param: cpf: Cadastro unico
 	 * @param: senha: Senha de acesso ao sistema.
-	 * @return Um booleano indicando se a solicitação é válida ou não
+	 * @return Um booleano indicando se a solicitacao e valida ou nao
 	 */
 	public static boolean validaLogin(String cpf, String senha) throws IOException,SenhaIncorreta{
-	//Atribui uma pessoa à sessão
+	//Atribui uma pessoa a� sessao
 	
 		Pessoa p = Controller.getPessoa(cpf, senha);
  		if(p != null){
@@ -102,8 +102,8 @@ public class Controller{
 
 
 	/*
-	 * Método que conecta a solicitação de uma pessoa
-	   da view com o DAO ao remover alguém do sistema
+	 * Metodo que conecta a solicitao de uma pessoa
+	   da view com o DAO ao remover alguem do sistema
 	 * @author: Wesley B.
 	 * @param: Pessoa a ser removida.
 	 */
@@ -112,14 +112,14 @@ public class Controller{
 	}
 
 	/*
-	* Este conjunto de métodos com prefixo "atualiza" referem-se
-	* aos métodos chamados pela view para atualizar um determi--
+	* Este conjunto de metodos com prefixo "atualiza" referem-se
+	* aos metodos chamados pela view para atualizar um determi--
 	* nado campo de uma pessoa utilizando o factory de atuali---
-	* zações da classe PessoaDAO, passando o parâmetro correto
-	* que indica a atualização a ser feita.
+	* zacoes da classe PessoaDAO, passando o parametro correto
+	* que indica a atualizacao a ser feita.
 	* @author: Wesley B.
 	* @param: pessoa: Pessoa a ser atualizada
-	* @param: campo: String contendo o valor do campo homônimo a
+	* @param: campo: String contendo o valor do campo homonimo a
 	  ser atualizado 
 	*/
 	public static void atualizaNomePessoa(Pessoa pessoa, String nome){
@@ -150,6 +150,7 @@ public class Controller{
 	
 	/*
 	 * @author Nathaly
+	 * @author: Wesley B.
 	 * 3 Metodos que realizam as transacoes e armazena no extrato apenas se a transacao ocorrer
 	 * @param Data trnasacao, objeto conta, descricao, valor, numero da operacao deseja realizar
 	 */
