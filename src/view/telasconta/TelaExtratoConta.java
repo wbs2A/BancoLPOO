@@ -2,9 +2,7 @@ package view.telasconta;
 
 import controller.ContaDAO;
 import controller.Controller;
-import exceptions.ContaInexistente;
 import model.Conta;
-import view.ClearConsole;
 import model.Movimentacoes;
 import view.EntradaDeDados;
 import view.TratamentodeEntradas;
@@ -24,10 +22,10 @@ public class TelaExtratoConta {
     /**
      * O metodo extratoConta ira retornar para o usuario o extrato da conta que
      * ele deseja, pois ele possui mais de uma conta dentro do banco. A primeira
-     * opção é o extrato da conta padrão, caso não tenha será retornado uma
-     * mensagem o informando. A segunda opção é o extrato de outra conta,onde o
-     * usuário insere o número e a senha da conta e o programa retorna o extrato
-     * desta conta, caso não ache o usuário é informado.
+     * opï¿½ï¿½o ï¿½ o extrato da conta padrï¿½o, caso nï¿½o tenha serï¿½ retornado uma
+     * mensagem o informando. A segunda opï¿½ï¿½o ï¿½ o extrato de outra conta,onde o
+     * usuï¿½rio insere o nï¿½mero e a senha da conta e o programa retorna o extrato
+     * desta conta, caso nï¿½o ache o usuï¿½rio ï¿½ informado.
      */
     public static void extratoConta() {
         int opcao;
