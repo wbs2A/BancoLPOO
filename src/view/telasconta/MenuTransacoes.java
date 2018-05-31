@@ -1,7 +1,7 @@
 package view.telasconta;
 
 /**
- * Classe responsável por disponibilizar as opcoes do Enum MenuTransacoes
+ * Classe responsavel por disponibilizar as opcoes do Enum MenuTransacoes
  *
  * @author Michael Douglas
  * @author Joao Gabriel
