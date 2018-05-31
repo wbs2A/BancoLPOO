@@ -4,6 +4,7 @@ import controller.ContaDAO;
 import controller.Controller;
 import model.Conta;
 import view.ClearConsole;
+import view.EntradaDeDados;
 import view.TratamentodeEntradas;
 
 /**
@@ -35,7 +36,6 @@ public class TelaAtualizaSenhaConta {
 		int opcao;
 		boolean sair = false;
 		Conta conta;
-		float valor;
 
 		do {
 			try {
@@ -46,7 +46,7 @@ public class TelaAtualizaSenhaConta {
 				System.out.println("\t\t\t*******************************************************");
 				System.out.println("\t\t\t\t\n\t\t\t\t");
 				System.out.println("\t \t\t\t**************************************");
-				System.out.println("\t\t\t\t*           Atualiza Senha Conta      *");
+				System.out.println("\t\t\t\t*     ATUALIZA SENHA CONTA BANCARIA   *");
 				System.out.println("\t \t\t\t**************************************");
 				System.out.println("\t\t\t\t\n\t\t\t\t");
 				System.out.println("\t \t\t\t**************************************");
@@ -65,9 +65,13 @@ public class TelaAtualizaSenhaConta {
 
 					conta = Controller.getSessao().getContaPadrao();
 					if (conta != null) {
-						conta.toString();
+						System.out.println(conta.toString());
+						System.out.println("\t\t\t\tSenha atual: " + conta.getSenha());
 
-						conta.update(conta, TratamentodeEntradas.trataEntradaSenhaConta());
+						ContaDAO.update(conta, EntradaDeDados.lerSenhaConta());
+						System.out.println();
+						System.out.println("\t\t\t\t[Senha atualizada com sucesso]");
+						System.out.println();
 					} else {
 						System.out.println();
 						System.out.println("\t\t\t\t[Voce nao possui uma conta padrao definida]");
@@ -83,9 +87,13 @@ public class TelaAtualizaSenhaConta {
 						System.out.println();
 						conta = ContaDAO.read(TratamentodeEntradas.trataEntradaNumeroConta());
 						if (conta != null) {
-							conta.toString();
+							System.out.println(conta.toString());
+							System.out.println("\t\t\t\tSenha atual: " + conta.getSenha());
 
-							conta.update(conta, TratamentodeEntradas.trataEntradaSenhaConta());
+							ContaDAO.update(conta, EntradaDeDados.lerSenhaConta());
+							System.out.println();
+							System.out.println("\t\t\t\t[Senha atualizada com sucesso]");
+							System.out.println();
 						}
 					} catch (Exception ex) {
 						System.out.println();
