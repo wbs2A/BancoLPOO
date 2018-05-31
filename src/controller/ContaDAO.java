@@ -28,7 +28,7 @@ public class ContaDAO extends DAO<Object>{
 	 * @return int
 	 */
 	public static int num(){
-		return gerador.nextInt();
+		return 100000 +(gerador.nextInt(90000));
 	}
 
 	 /*

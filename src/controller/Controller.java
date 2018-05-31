@@ -150,15 +150,6 @@ public class Controller{
 	
 	/*
 	 * @author Nathaly
-	 * Metodo realiza atualizacao senha
-	 * @param objeto, senha string
-	 */
-	public static void atualizasenha(Conta conta, String senha){
-		ContaDAO.update(conta, senha);
-	}
-	
-	/*
-	 * @author Nathaly
 	 * 3 Metodos que realizam as transacoes e armazena no extrato apenas se a transacao ocorrer
 	 * @param Data trnasacao, objeto conta, descricao, valor, numero da operacao deseja realizar
 	 */
