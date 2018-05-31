@@ -9,7 +9,11 @@ public class PessoaDAO extends DAO<Object>{
     
     public static void carregarPessoas() {
         Object obj = ContaDAO.carregar(arrayPessoa.getClass().getName());
-        arrayPessoa = PessoaDAO.castTo(obj);
+        if(obj == null){
+        	PessoaDAO.descarregar(arrayPessoa);
+        }else{
+        	arrayPessoa = PessoaDAO.castTo(obj);
+        }
     }
 
     public static void salvarPessoas() {

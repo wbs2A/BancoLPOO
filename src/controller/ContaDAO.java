@@ -12,7 +12,11 @@ public class ContaDAO extends DAO<Object>{
 	
     public static void carregarContas() {
         Object obj = ContaDAO.carregar(arrayConta.getClass().getName());
-        arrayConta = ContaDAO.castTo(obj);
+        if(obj == null){
+        	ContaDAO.descarregar(arrayConta);
+        }else{
+        	arrayConta = ContaDAO.castTo(obj);
+        }
     }
 
     public static void salvarContas() {

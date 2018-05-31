@@ -26,20 +26,25 @@ abstract class DAO<T>{
         String PATH = DAO.ensuresPath(type);
         FileInputStream fis;
         Object obj = null;
-        try {
-            fis = new FileInputStream(PATH);
-            ObjectInputStream ois = new ObjectInputStream(fis);
-            obj = (Object) ois.readObject();
-            ois.close();
-            fis.close();
-            return obj;
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(DAO.class.getName()).log(Level.SEVERE, null, ex);
-            return null;
-        } catch (ClassNotFoundException | IOException ex) {
-            Logger.getLogger(DAO.class.getName()).log(Level.SEVERE, null, ex);
-            return null;
+        if(PATH != null){
+	        try {
+	            fis = new FileInputStream(PATH);
+	            ObjectInputStream ois = new ObjectInputStream(fis);
+	            obj = (Object)ois.readObject();
+	            ois.close();
+	            fis.close();
+	            return obj;
+	        } catch (FileNotFoundException ex) {
+	            Logger.getLogger(DAO.class.getName()).log(Level.SEVERE, null, ex);
+	            return null;
+	        } catch (ClassNotFoundException | IOException ex) {
+	            Logger.getLogger(DAO.class.getName()).log(Level.SEVERE, null, ex);
+	            return null;
+	        }
+        }else{
+        	descarregar(obj);
         }
+		return obj;
     }
 
     /*
