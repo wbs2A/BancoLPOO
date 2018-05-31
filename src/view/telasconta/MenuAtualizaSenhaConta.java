@@ -9,7 +9,7 @@ package view.telasconta;
  * @author Joao Victor
  * @author Adler Cavalcante
  */
-public enum MenuAtualizaSenha {
+public enum MenuAtualizaSenhaConta {
 	ATUALIZARSENHACONTAPADRAO(1), ATUALIZARSENHAOUTRACONTA(2), SAIR(0);
 
 	int opcao;
@@ -18,7 +18,7 @@ public enum MenuAtualizaSenha {
 	 *
 	 * @param op
 	 */
-	MenuAtualizaSenha(int op) {
+	MenuAtualizaSenhaConta(int op) {
 		this.opcao = op;
 	}
 
@@ -29,13 +29,13 @@ public enum MenuAtualizaSenha {
 	 *            int - Valor da opcao escolhida
 	 * @return enum opcao - Opcao com o nome correspondente
 	 */
-	public static MenuAtualizaSenha menuOpcao(int opcao) {
+	public static MenuAtualizaSenhaConta menuOpcao(int opcao) {
 		if (opcao == 1) {
-			return MenuAtualizaSenha.ATUALIZARSENHACONTAPADRAO;
+			return MenuAtualizaSenhaConta.ATUALIZARSENHACONTAPADRAO;
 		} else if (opcao == 2) {
-			return MenuAtualizaSenha.ATUALIZARSENHAOUTRACONTA;
+			return MenuAtualizaSenhaConta.ATUALIZARSENHAOUTRACONTA;
 		} else if (opcao == 0) {
-			return MenuAtualizaSenha.SAIR;
+			return MenuAtualizaSenhaConta.SAIR;
 		}
 		return null;
 	}
