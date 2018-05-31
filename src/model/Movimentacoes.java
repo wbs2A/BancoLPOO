@@ -2,6 +2,7 @@ package model;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.text.SimpleDateFormat;
 /**
  * @author Allison
  * @author Valdenize
@@ -23,7 +24,8 @@ public class Movimentacoes implements Serializable {
 	private int numero_operacao;
 	private double saldo_anteior;
 	private double saldo_atual;
-
+        
+    private SimpleDateFormat sdf = new SimpleDateFormat("dd-M-yyyy");
 	
 	
 	/**
@@ -89,7 +91,7 @@ public class Movimentacoes implements Serializable {
 
 	/**
 	 * Metodo que retorna o valor da operacao
-	 * @return float
+	 * @return double
 	 */
 	public double getValorOperacao() {
 		return valorOperacao;
@@ -107,8 +109,8 @@ public class Movimentacoes implements Serializable {
 	 * Metodo que retorna a data da operacao
 	 * @return  date
 	 */
-	public Date getDate() {
-		return date;
+	public String getDate() {
+		return this.sdf.format(date);
 	}
 
 	/**

@@ -2,6 +2,7 @@ package view.telasconta;
 
 import controller.ContaDAO;
 import controller.Controller;
+import controller.PessoaDAO;
 import model.Conta;
 import view.ClearConsole;
 import view.EntradaDeDados;
@@ -58,6 +59,7 @@ public class TelaDefineContaPadrao {
 							System.out.println();
 							System.out.println("[\t\t\t\t[Conta padrao definida com sucesso]");
 							System.out.println();
+							PessoaDAO.salvarPessoas();
 						}
 					} catch (Exception ex) {
 						System.out.println();

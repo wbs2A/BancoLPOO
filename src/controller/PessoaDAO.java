@@ -5,11 +5,15 @@ import java.util.Date;
 import model.Pessoa;
 import exceptions.SenhaIncorreta;
 
-public class PessoaDAO extends DAO{
+public class PessoaDAO extends DAO<Object>{
     
     public static void carregarPessoas() {
         Object obj = ContaDAO.carregar(arrayPessoa.getClass().getName());
-        arrayPessoa = PessoaDAO.castTo(obj);
+        if(obj == null){
+        	PessoaDAO.descarregar(arrayPessoa);
+        }else{
+        	arrayPessoa = PessoaDAO.castTo(obj);
+        }
     }
 
     public static void salvarPessoas() {
@@ -25,7 +29,7 @@ public class PessoaDAO extends DAO{
 
 
      /* Metodo instancia objeto do tipo pessoa (criando uma pessoa) e adiciona o objeto pessoa no array de pessoas
-     *@author José Sandonas
+     *@author Jose Sandonas
      *@param String nome que representa o nome da pessoa
      *@param String senha que representa a senha de cadastro
      *@param String cpf que representa o cadastro

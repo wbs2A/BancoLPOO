@@ -147,23 +147,26 @@ public class Controller{
 	public static void atualizaCpfPessoa(Pessoa pessoa, String cpf){
 		PessoaDAO.update(7, pessoa, cpf);
     }
-
+	
+	/*
+	 * @author Nathaly
+	 * 3 Metodos que realizam as transacoes e armazena no extrato apenas se a transacao ocorrer
+	 * @param Data trnasacao, objeto conta, descricao, valor, numero da operacao deseja realizar
+	 */
     public static void realizarTransacao(Date date, Conta conta, String descricao, float valor, int num_operacao) throws SaldoNegativo {
-    	if(ContaDAO.sacar(conta, valor)){
+    	if(ContaDAO.sacar(conta, valor) == true){
 	        Movimentacoes movimentacaoMovimentada = new Movimentacoes(date, conta, descricao, valor, num_operacao);
 	        conta.getMovimentacoes().add(movimentacaoMovimentada);
     	}
     }
-
     public static void realizarTransacao(Date date, Conta contaRemetente, Conta contaDestino, String descricao, float valor, int num_operacao) throws SaldoNegativo {
-        if(ContaDAO.transferir(valor, contaDestino,contaRemetente)){
-	        Movimentacoes movimentacaoMovimentada = new Movimentacoes(data, contaDestino, contaRemetente, descricao, valor, num_operacao);
+        if(ContaDAO.transferir(valor, contaDestino,contaRemetente)== true){
+	        Movimentacoes movimentacaoMovimentada = new Movimentacoes(date, contaDestino, contaRemetente, descricao, valor, num_operacao);
 	        contaRemetente.getMovimentacoes().add(movimentacaoMovimentada);
         }
     }
-
     public static void realizarTransacao1(Date date, Conta conta, String descricao, float valor, int num_operacao) throws SaldoNegativo {
-    	if(ContaDAO.depositar(conta, valor)){
+    	if(ContaDAO.depositar(conta, valor) == true){
 	        Movimentacoes movimentacaoMovimentada = new Movimentacoes(date, conta, descricao, valor, num_operacao);
 	        conta.getMovimentacoes().add(movimentacaoMovimentada);
     	}
@@ -172,7 +175,6 @@ public class Controller{
 	public static Pessoa getInstSessao() {
 		return instSessao;
 	}
-
 
 	public static void setInstSessao(Pessoa instSessao) {
 		Controller.instSessao = instSessao;

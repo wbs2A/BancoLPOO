@@ -12,7 +12,7 @@ import java.util.logging.Logger;
 
 import java.io.File;
 
-abstract class DAO{
+abstract class DAO<T>{
     
     /*
     * Metodo para Deserializar um objeto dado seu tipo como parâmetro.
@@ -26,20 +26,25 @@ abstract class DAO{
         String PATH = DAO.ensuresPath(type);
         FileInputStream fis;
         Object obj = null;
-        try {
-            fis = new FileInputStream(PATH);
-            ObjectInputStream ois = new ObjectInputStream(fis);
-            obj = ois.readObject();
-            ois.close();
-            fis.close();
-            return obj;
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(DAO.class.getName()).log(Level.SEVERE, null, ex);
-            return null;
-        } catch (ClassNotFoundException | IOException ex) {
-            Logger.getLogger(DAO.class.getName()).log(Level.SEVERE, null, ex);
-            return null;
+        if(PATH != null){
+	        try {
+	            fis = new FileInputStream(PATH);
+	            ObjectInputStream ois = new ObjectInputStream(fis);
+	            obj = (Object)ois.readObject();
+	            ois.close();
+	            fis.close();
+	            return obj;
+	        } catch (FileNotFoundException ex) {
+	            Logger.getLogger(DAO.class.getName()).log(Level.SEVERE, null, ex);
+	            return null;
+	        } catch (ClassNotFoundException | IOException ex) {
+	            Logger.getLogger(DAO.class.getName()).log(Level.SEVERE, null, ex);
+	            return null;
+	        }
+        }else{
+        	descarregar(obj);
         }
+		return obj;
     }
 
     /*
@@ -113,6 +118,4 @@ abstract class DAO{
     public static <T> T castTo(Object obj) {
         return (T) obj;
     }
-
-    
 }

@@ -1,6 +1,7 @@
 package model;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 /**
  * @author Allison
  * @author Valdenize
@@ -22,6 +23,8 @@ public class Pessoa implements Serializable{
 	private String Email;
 	private String Telefone;
 	private ArrayList<Conta> contas;
+	
+        private SimpleDateFormat sdf = new SimpleDateFormat("dd-M-yyyy");
 	
 	/**
      *@param contaPadrao - determina contaPadrao para realizar as atividades.
@@ -118,8 +121,8 @@ public class Pessoa implements Serializable{
 	 * Metodo que retorna a data de nascimento
 	 * @return Date
 	 */
-	public Date getDtNasci() {
-		return dtNasci;
+	public String getDtNasci() {
+		return this.sdf.format(dtNasci);
 	}
 
 	/**
@@ -200,12 +203,12 @@ public class Pessoa implements Serializable{
 	
 	   @Override
 	   public String toString(){
-	     return "Nome: "+ this.Nome +
-	         "\nCpf: " + this.Cpf +
-	         "\nSexo: " + this.Sexo +
-	         "\nData: " + this.dtNasci +
-	           "\nTelefone: " + this.Telefone +
-	           "\nEmail: " + this.Email;
+	     return "Nome: "+ this.getNome() +
+	         "\nCpf: " + this.getCpf() +
+	         "\nSexo: " + this.getSexo() +
+	         "\nData: " + this.getDtNasci() +
+	           "\nTelefone: " + this.getTelefone() +
+	           "\nEmail: " + this.getEmail();
 	   }
 	    
 
