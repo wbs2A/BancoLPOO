@@ -57,15 +57,17 @@ public class TelaCadastraConta {
 				System.out.println();
 				System.out.println("\t\t\t\t[Usuario e/ou Senha Incorreto(s)]");
 				System.out.println();
-				System.out.println("\t\t\t\tDeseja Continuar (1)Sim (2)Nao.");
 			}
+			System.out.println("\t\t\t\tDeseja criar outra conta? (1)Sim (2)Nao.");
 			op = TratamentodeEntradas.trataEntradaOpcao();
-
-			if (op != 1 || op != 2) {
+			
+			while(op !=1 && op!=2) {
 				System.out.println();
 				System.out.println("\t\t\t\tOpcao Invalida!");
 				System.out.println();
+				op = TratamentodeEntradas.trataEntradaOpcao();
 			}
+
 		} while (op != 2);
 	}
 }
