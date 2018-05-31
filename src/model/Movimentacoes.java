@@ -25,7 +25,7 @@ public class Movimentacoes implements Serializable {
 	private double saldo_anteior;
 	private double saldo_atual;
         
-        private SimpleDateFormat sdf = new SimpleDateFormat("dd-M-yyyy");
+    private SimpleDateFormat sdf = new SimpleDateFormat("dd-M-yyyy");
 	
 	
 	/**
