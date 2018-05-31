@@ -1,6 +1,7 @@
 package view.telaspessoa;
 
 import controller.Controller;
+import controller.PessoaDAO;
 import model.Pessoa;
 import view.ClearConsole;
 import view.EntradaDeDados;
@@ -67,6 +68,7 @@ public class TelaAtualizaDadosPessoa {
 						System.out.println();
 						System.out.println("\t\t\t\t[Nome atualizado com sucesso]");
 						System.out.println();
+						PessoaDAO.salvarPessoas();
 						break;
 
 					case ATUALIZARCPF:
@@ -76,6 +78,7 @@ public class TelaAtualizaDadosPessoa {
 						System.out.println();
 						System.out.println("\t\t\t\t[CPF atualizado com sucesso]");
 						System.out.println();
+						PessoaDAO.salvarPessoas();
 						break;
 
 					case ATUALIZARDATANASC:
@@ -85,6 +88,7 @@ public class TelaAtualizaDadosPessoa {
 						System.out.println();
 						System.out.println("\t\t\t\t[Data de Nascimento atualizada com sucesso]");
 						System.out.println();
+						PessoaDAO.salvarPessoas();
 						break;
 
 					case ATUALIZARSEXO:
@@ -94,6 +98,7 @@ public class TelaAtualizaDadosPessoa {
 						System.out.println();
 						System.out.println("\t\t\t\t[Sexo atualizado com sucesso]");
 						System.out.println();
+						PessoaDAO.salvarPessoas();
 						break;
 
 					case ATUALIZARSENHA:
@@ -103,6 +108,7 @@ public class TelaAtualizaDadosPessoa {
 						System.out.println();
 						System.out.println("\t\t\t\t[Senha de Login atualizada com sucesso]");
 						System.out.println();
+						PessoaDAO.salvarPessoas();
 						break;
 						
 					case ATUALIZARTELEFONE:
@@ -112,6 +118,7 @@ public class TelaAtualizaDadosPessoa {
 						System.out.println();
 						System.out.println("\t\t\t\t[Telefone atualizado com sucesso]");
 						System.out.println();
+						PessoaDAO.salvarPessoas();
 						break;
 						
 					case ATUALIZAREMAIL:
@@ -121,6 +128,7 @@ public class TelaAtualizaDadosPessoa {
 						System.out.println();
 						System.out.println("\t\t\t\t[E-mail atualizado com sucesso]");
 						System.out.println();
+						PessoaDAO.salvarPessoas();
 						break;
 
 					case SAIR:
