@@ -41,6 +41,7 @@ public class TelaCadastraPessoa {
 			System.out.println();
 			System.out.println("\t\t\t\t[Cadastro feito com sucesso]");
 			System.out.println();
+			PessoaDAO.salvarPessoas();
 		} else {
 			System.out.println();
 			System.out.println("\t\t\t\t[CPF não esta disponivel]");
