@@ -2,6 +2,7 @@ package view.telasconta;
 
 import controller.ContaDAO;
 import controller.Controller;
+import controller.PessoaDAO;
 import model.Conta;
 import view.ClearConsole;
 import view.EntradaDeDados;
@@ -73,6 +74,7 @@ public class TelaAtualizaSenhaConta {
 						System.out.println("\t\t\t\t[Senha atualizada com sucesso]");
 						System.out.println();
 						ContaDAO.salvarContas();
+						PessoaDAO.salvarPessoas();
 					} else {
 						System.out.println();
 						System.out.println("\t\t\t\t[Voce nao possui uma conta padrao definida]");
@@ -96,7 +98,7 @@ public class TelaAtualizaSenhaConta {
 							System.out.println("\t\t\t\t[Senha atualizada com sucesso]");
 							System.out.println();
 							ContaDAO.salvarContas();
-							
+							PessoaDAO.salvarPessoas();
 						}
 					} catch (Exception ex) {
 						System.out.println();
