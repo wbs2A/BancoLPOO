@@ -2,7 +2,6 @@ package view.telasconta;
 
 import controller.ContaDAO;
 import controller.Controller;
-import controller.PessoaDAO;
 import model.Conta;
 import view.ClearConsole;
 import view.EntradaDeDados;
@@ -48,7 +47,7 @@ public class TelaExcluiConta {
 				System.out.println("\t\t\t\tDeseja realmente excluir uma conta bancaria?");
 				System.out.println("\t\t\tAo excluir, seus dados serão perdidos permanentemente");
 				System.out.println("\t \t\t\t**************************************");
-				System.out.println("\t\t\t\t*   " + MenuExcluiConta.NAO.opcao + ".N�o    *");
+				System.out.println("\t\t\t\t*   " + MenuExcluiConta.NAO.opcao + ".Nao    *");
 				System.out.println("\t \t\t\t**************************************");
 				System.out.println("\t\t\t\t*   " + MenuExcluiConta.SIM.opcao + ".Sim    *");
 				System.out.println("\t \t\t\t**************************************");
@@ -78,8 +77,8 @@ public class TelaExcluiConta {
 									System.out.println();
 									System.out.println("[\t\t\t\t[Conta removida com sucesso]");
 									System.out.println();
-									ContaDAO.salvarContas();
-									PessoaDAO.salvarPessoas();
+									//ContaDAO.salvarContas();
+									//PessoaDAO.salvarPessoas();
 								}
 							} catch (Exception ex) {
 								System.out.println();
