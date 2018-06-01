@@ -42,8 +42,9 @@ public class Movimentacoes implements Serializable {
 		this.setDescricao(descricao);
 		this.setValorOperacao(valor);
 		this.setNumero_operacao(numero_operacao);
-		this.setSaldo_anteior(conta.getSaldo()-valor);
 		this.setSaldo_atual(conta.getSaldo());
+		this.setSaldo_anteior(numero_operacao);
+
 	}
 
 	/**
@@ -62,8 +63,8 @@ public class Movimentacoes implements Serializable {
 		this.setDescricao(descricao);
 		this.setValorOperacao(valor);
 		this.setNumero_operacao(numero_operacao);
-		this.setSaldo_anteior(conta.getSaldo()-valor);
 		this.setSaldo_atual(conta.getSaldo());
+		this.setSaldo_anteior(numero_operacao);
 	}
 	
 	
@@ -88,7 +89,7 @@ public class Movimentacoes implements Serializable {
 			this.nomeOperacao ="Transferencia";
 		}
 	}
-
+	
 	/**
 	 * Metodo que retorna o valor da operacao
 	 * @return double
@@ -181,8 +182,14 @@ public class Movimentacoes implements Serializable {
 	 * Metodo que insere o saldo anterior a uma operacao
 	 * @param saldo_anteior the saldo_anteior to set
 	 */
-	public void setSaldo_anteior(double saldo_anteior) {
-		this.saldo_anteior = saldo_anteior;
+	public void setSaldo_anteior(int numero_operacao) {
+		if(numero_operacao == 1){
+			this.saldo_anteior = this.getSaldo_atual()+this.getValorOperacao();
+     	}else if(numero_operacao == 2){
+			this.saldo_anteior = this.getSaldo_atual()-this.getValorOperacao();
+		}else if(numero_operacao == 3){
+			this.saldo_anteior = this.getSaldo_atual()+this.getValorOperacao();
+		}
 	}
 
 	/**
