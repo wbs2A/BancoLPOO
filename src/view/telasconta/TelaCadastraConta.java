@@ -1,11 +1,11 @@
 package view.telasconta;
 
 import controller.Controller;
-
 import java.io.IOException;
 
 import controller.ContaDAO;
 import model.Conta;
+import model.Pessoa;
 import view.EntradaDeDados;
 import view.TratamentodeEntradas;
 
@@ -44,7 +44,8 @@ public class TelaCadastraConta {
 
 			System.out.println();
 			System.out.println("\t\t\t\t        Confirme sua Identidade         ");
-			if (Controller.validaLogin(TratamentodeEntradas.trataEntradaCpf(), EntradaDeDados.lerSenha())) {
+			Pessoa pessoaAtual = Controller.getSessao();
+			if (pessoaAtual == Controller.getPessoa(TratamentodeEntradas.trataEntradaCpf(), EntradaDeDados.lerSenha())) {
 				conta = (Conta) ContaDAO.create(EntradaDeDados.lerSenhaConta(), Controller.getSessao());
 				System.out.println();
 				System.out.println("\t\t\t\t[Conta Criada com Sucesso]");
@@ -55,7 +56,11 @@ public class TelaCadastraConta {
 				System.out.println();
 				//ContaDAO.salvarContas();
 				System.out.println("\t\t\t\tPressione Enter para continuar...");
-				System.in.read();
+				System.in.read();	
+			}else {
+				System.out.println();
+				System.out.println("\t\t\t\t[Usuario e/ou Senha Incorreto(s)]");
+				System.out.println();
 			}
 		} catch (Exception e) {
 			System.out.println();

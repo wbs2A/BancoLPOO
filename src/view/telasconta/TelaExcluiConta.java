@@ -3,6 +3,7 @@ package view.telasconta;
 import controller.ContaDAO;
 import controller.Controller;
 import model.Conta;
+import model.Pessoa;
 import view.ClearConsole;
 import view.EntradaDeDados;
 import view.TratamentodeEntradas;
@@ -71,15 +72,19 @@ public class TelaExcluiConta {
 							System.out.println("\t\t\t\t        Confirme sua Identidade            ");
 							System.out.println();
 							try {
-								if (Controller.validaLogin(TratamentodeEntradas.trataEntradaCpf(),
-										EntradaDeDados.lerSenha())) {
+								Pessoa pessoaAtual = Controller.getSessao();
+								if (pessoaAtual == Controller.getPessoa(TratamentodeEntradas.trataEntradaCpf(), EntradaDeDados.lerSenha())) {
 									ContaDAO.delete(conta, Controller.getSessao());
 									System.out.println();
 									System.out.println("[\t\t\t\t[Conta removida com sucesso]");
 									System.out.println();
 									//ContaDAO.salvarContas();
 									//PessoaDAO.salvarPessoas();
-								}
+								}else {
+									System.out.println();
+									System.out.println("\t\t\t\t[Usuario e/ou Senha Incorreto(s)]");
+									System.out.println();
+								}	
 							} catch (Exception ex) {
 								System.out.println();
 								System.out.println("\t\t\t\t[Usuario e/ou senha incorreto(s)]");
