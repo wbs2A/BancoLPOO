@@ -259,6 +259,7 @@ public class TratamentodeEntradas {
 				telefone = EntradaDeDados.lerTelefoneCelular();
 				if (telefone.matches("\\(\\d{2}\\)\\d{4,5}-\\d{4}") || telefone.matches("\\d{4,5}-\\d{4}")) {
 					valido = true;
+					return telefone;
 				} else {
 					throw new Exception();
 				}
@@ -284,6 +285,7 @@ public class TratamentodeEntradas {
 				email = EntradaDeDados.lerEmail();
 				if (email.matches("^[\\w-]+(\\.[\\w-]+)*@([\\w-]+\\.)+[a-zA-Z]{2,7}$")) {
 					valido = true;
+					return email;
 				} else {
 					throw new Exception();
 				}
