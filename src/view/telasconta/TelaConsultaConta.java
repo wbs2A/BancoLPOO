@@ -16,6 +16,8 @@ import model.Pessoa;
  *
  */
 public class TelaConsultaConta {
+	private static ArrayList<Conta> contas;
+
 	/**
 	 * O metodo consultaConta e responsavel por mostrar as informacoes de todas as
 	 * contas de uma pessoa, caso exista alguma conta registrada no banco, se nao,
@@ -23,9 +25,9 @@ public class TelaConsultaConta {
 	 * emitida.
 	 */
 	public static void consultaConta() {
-		ArrayList<Conta> contas = new ArrayList<Conta>();
 		Pessoa pessoa;
-
+		contas = new ArrayList<Conta>();
+		
 		System.out.println();
 		System.out.println("\t\t\t*******************************************************");
 		System.out.println("\t\t\t*\t           CPAN BANCO CENTER                  *");
@@ -39,15 +41,15 @@ public class TelaConsultaConta {
 		pessoa = Controller.getSessao();
 		contas = pessoa.getContas();
 
-		if (contas != null) {
+		if (contas.isEmpty()) {
+			System.out.println();
+			System.out.println("\t\t\t\t[Voce nao possui nenhuma conta bancaria]");
+			System.out.println();
+		} else{
 			for (Conta contaspessoa : contas) {
 				System.out.println(contaspessoa);
 				System.out.println();
 			}
-		} else {
-			System.out.println();
-			System.out.println("\t\t\t\t[Voce nao possui nenhuma conta bancaria]");
-			System.out.println();
 		}
 
 	}
