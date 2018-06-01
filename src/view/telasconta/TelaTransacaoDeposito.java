@@ -65,10 +65,24 @@ public class TelaTransacaoDeposito {
 				case DEPOSITARCONTAPADRAO:
 					conta = Controller.getSessao().getContaPadrao();
 					if (conta != null) {
-						valor = TratamentodeEntradas.trataEntradaSaldoConta();
-						ContaDAO.depositar(conta, valor);
-						ContaDAO.salvarContas();
-					}else {
+						valor = TratamentodeEntradas.trataValorTransacao();
+						if (valor > 0) {
+							try {
+								Controller.realizarTransacao1(new Date(), conta, EntradaDeDados.lerDescricaoTransacao(),
+										valor, 2);
+								System.out.println();
+								System.out.println("\t\t\t\t[Deposito realizado com sucesso]");
+								System.out.println();
+								ContaDAO.salvarContas();
+							} catch (Exception e) {
+
+							}
+						} else {
+							System.out.println();
+							System.out.println("\t\t\t\t[Valor invalido para deposito]");
+							System.out.println();
+						}
+					} else {
 						System.out.println();
 						System.out.println("\t\t\t\t[Voce nao possui uma conta padrao definida]");
 						System.out.println();
@@ -83,17 +97,18 @@ public class TelaTransacaoDeposito {
 						conta = ContaDAO.read(TratamentodeEntradas.trataEntradaNumeroConta());
 						if (conta != null) {
 							valor = TratamentodeEntradas.trataValorTransacao();
-							if(valor > 0) {
+							if (valor > 0) {
 								try {
-									Controller.realizarTransacao1(new Date(), conta, EntradaDeDados.lerDescricaoTransacao(), valor, 2);
+									Controller.realizarTransacao1(new Date(), conta,
+											EntradaDeDados.lerDescricaoTransacao(), valor, 2);
 									System.out.println();
 									System.out.println("\t\t\t\t[Deposito realizado com sucesso]");
 									System.out.println();
 									ContaDAO.salvarContas();
-								}catch(Exception e) {
-									
+								} catch (Exception e) {
+
 								}
-							}else {
+							} else {
 								System.out.println();
 								System.out.println("\t\t\t\t[Valor invalido para deposito]");
 								System.out.println();
