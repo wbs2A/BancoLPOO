@@ -83,4 +83,10 @@ public class EntradaDeDados {
 		System.out.print("\t\t\t\tValor: ");
 		return scanner.nextLine();
 	}
+	
+	public static String lerDescricaoTransacao() {
+		System.out.println();
+		System.out.print("\t\t\t\tDescricao (Opcional): ");
+		return scanner.nextLine();
+	}
 }
