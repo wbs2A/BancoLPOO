@@ -295,4 +295,26 @@ public class TratamentodeEntradas {
 		}
 		return email = null;
 	}
+	
+	/**
+	 * Este metodo e responsavel por validar se um valor contem somente valores reais
+	 * @return float 
+	 */
+	public static float trataValorTransacao() {
+		String valor;
+		float num = 0;
+		boolean valido = false;
+		while (!valido) {
+			try {
+				valor = EntradaDeDados.lerValorTransacao();
+				num = Float.parseFloat(valor);
+				valido = true;
+			} catch (Exception e) {
+				System.out.println();
+				System.out.println("\t\t\t\t[Sao validos apenas valores reais]");
+				System.out.println();
+			}
+		}
+		return num;
+	}
 }
