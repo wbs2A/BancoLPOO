@@ -1,5 +1,7 @@
 package view.telasconta;
 
+import java.util.Date;
+
 import controller.ContaDAO;
 import controller.Controller;
 import model.Conta;
@@ -73,13 +75,38 @@ public class TelaTransacaoTransferencia {
 								if (contaRemetente == contaDestino) {
 									System.out.println();
 									System.out.println(
-											"\t\t\t\t[Não é possivel fazer transferencias entre contas iguais]");
+											"\t\t\t\t[Nao e possivel fazer transferencias entre contas iguais]");
 									System.out.println();
 								} else {
-									valor = TratamentodeEntradas.trataEntradaSaldoConta();
-									ContaDAO.transferir(valor, contaDestino, contaRemetente);
-									System.out.println();
-									ContaDAO.salvarContas();
+									valor = TratamentodeEntradas.trataValorTransacao();
+									if (valor > 0) {
+										System.out.println();
+										System.out.println("\t\t\t\t        Confirme a Senha da Conta            ");
+										System.out.println();
+										if (EntradaDeDados.lerSenhaConta().equals(contaRemetente.getSenha())) {
+											try {
+												Controller.realizarTransacao(new Date(), contaRemetente, contaDestino,
+														EntradaDeDados.lerDescricaoTransacao(), valor, 3);
+												System.out.println();
+												System.out.println("\t\t\t\t[Transferencia realizado com sucesso]");
+												System.out.println();
+												ContaDAO.salvarContas();
+											} catch (Exception e) {
+												System.out.println();
+												System.out.println("\t\t\t\t[Saldo insuficiente para transferencia]");
+												System.out.println();
+											}
+										} else {
+											System.out.println();
+											System.out.println("\t\t\t\t[Senha invalida]");
+											System.out.println();
+										}
+
+									} else {
+										System.out.println();
+										System.out.println("\t\t\t\t[Valor invalido para transferencia]");
+										System.out.println();
+									}
 								}
 							}
 						} catch (Exception ex) {
@@ -116,10 +143,25 @@ public class TelaTransacaoTransferencia {
 												"\t\t\t\t[Não é possivel fazer transferencias entre contas iguais]");
 										System.out.println();
 									} else {
-										valor = TratamentodeEntradas.trataEntradaSaldoConta();
-										ContaDAO.transferir(valor, contaDestino, contaRemetente);
-										System.out.println();
-										ContaDAO.salvarContas();
+										valor = TratamentodeEntradas.trataValorTransacao();
+										if (valor > 0) {
+											try {
+												Controller.realizarTransacao(new Date(), contaRemetente, contaDestino,
+														EntradaDeDados.lerDescricaoTransacao(), valor, 3);
+												System.out.println();
+												System.out.println("\t\t\t\t[Transferencia realizado com sucesso]");
+												System.out.println();
+												ContaDAO.salvarContas();
+											} catch (Exception e) {
+												System.out.println();
+												System.out.println("\t\t\t\t[Saldo insuficiente para transferencia]");
+												System.out.println();
+											}
+										} else {
+											System.out.println();
+											System.out.println("\t\t\t\t[Valor invalido para transferencia]");
+											System.out.println();
+										}
 									}
 								}
 							} catch (Exception ex) {
