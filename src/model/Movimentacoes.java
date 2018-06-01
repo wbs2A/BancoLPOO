@@ -180,7 +180,7 @@ public class Movimentacoes implements Serializable {
 
 	/**
 	 * Metodo que insere o saldo anterior a uma operacao
-	 * @param saldo_anteior the saldo_anteior to set
+	 * @param numero_operacao determinar o saldo_anteior
 	 */
 	public void setSaldo_anteior(int numero_operacao) {
 		if(numero_operacao == 1){
