@@ -1,5 +1,7 @@
 package view.telasconta;
 
+import java.util.Date;
+
 import controller.ContaDAO;
 import controller.Controller;
 import model.Conta;
@@ -60,10 +62,34 @@ public class TelaTransacaoSaque {
 				case SACARCONTAPADRAO:
 					conta = Controller.getSessao().getContaPadrao();
 					if (conta != null) {
-						valor = TratamentodeEntradas.trataEntradaSaldoConta();
-						ContaDAO.sacar(conta, valor);
-						System.out.println();
-						ContaDAO.salvarContas();
+						valor = TratamentodeEntradas.trataValorTransacao();
+						if (valor > 0) {
+							System.out.println();
+							System.out.println("\t\t\t\t        Confirme a Senha da Conta            ");
+							System.out.println();
+							if (EntradaDeDados.lerSenhaConta().equals(conta.getSenha())) {
+								try {
+									Controller.realizarTransacao(new Date(), conta,
+											EntradaDeDados.lerDescricaoTransacao(), valor, 1);
+									System.out.println();
+									System.out.println("\t\t\t\t[Saque realizado com sucesso]");
+									System.out.println();
+									ContaDAO.salvarContas();
+								} catch (Exception e) {
+									System.out.println();
+									System.out.println("\t\t\t\t[Saldo insuficiente para saque]");
+									System.out.println();
+								}
+							} else {
+								System.out.println();
+								System.out.println("\t\t\t\t[Senha invalida]");
+								System.out.println();
+							}
+						} else {
+							System.out.println();
+							System.out.println("\t\t\t\t[Valor invalido para saque]");
+							System.out.println();
+						}
 					} else {
 						System.out.println();
 						System.out.println("\t\t\t\t[Voce nao possui uma conta padrao definida]");
@@ -74,14 +100,30 @@ public class TelaTransacaoSaque {
 				case SACAROUTRACONTA:
 					try {
 						System.out.println();
-						System.out.println("\t\t\t\tInforme o numero da conta para saque: ");
+						System.out.println("\t\t\t\tInforme o numero e a senha da conta para saque: ");
 						System.out.println();
-						conta = ContaDAO.read(TratamentodeEntradas.trataEntradaNumeroConta(), EntradaDeDados.lerSenhaConta());
+						conta = ContaDAO.read(TratamentodeEntradas.trataEntradaNumeroConta(),
+								EntradaDeDados.lerSenhaConta());
 						if (conta != null) {
-							valor = TratamentodeEntradas.trataEntradaSaldoConta();
-							ContaDAO.sacar(conta, valor);
-							System.out.println();
-							ContaDAO.salvarContas();
+							valor = TratamentodeEntradas.trataValorTransacao();
+							if (valor > 0) {
+								try {
+									Controller.realizarTransacao(new Date(), conta,
+											EntradaDeDados.lerDescricaoTransacao(), valor, 1);
+									System.out.println();
+									System.out.println("\t\t\t\t[Saque realizado com sucesso]");
+									System.out.println();
+									ContaDAO.salvarContas();
+								} catch (Exception e) {
+									System.out.println();
+									System.out.println("\t\t\t\t[Saldo insuficiente para saque]");
+									System.out.println();
+								}
+							} else {
+								System.out.println();
+								System.out.println("\t\t\t\t[Valor invalido para saque]");
+								System.out.println();
+							}
 						}
 					} catch (Exception ex) {
 						System.out.println();
