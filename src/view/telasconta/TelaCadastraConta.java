@@ -1,13 +1,11 @@
 package view.telasconta;
 
-import controller.Controller;
 import java.io.IOException;
 
 import controller.ContaDAO;
+import controller.Controller;
 import model.Conta;
-import model.Pessoa;
 import view.EntradaDeDados;
-import view.TratamentodeEntradas;
 
 /**
  * A classe TelaCadastraConta e responsavel por disponibilizar a visualizacao do
@@ -30,42 +28,37 @@ public class TelaCadastraConta {
 	 * 
 	 */
 	public static void formularioCadastroConta() throws IOException {
-		try {
-			Conta conta;
-			System.out.println();
-			System.out.println("\t\t\t*******************************************************");
-			System.out.println("\t\t\t*\t           CPAN BANCO CENTER                  *");
-			System.out.println("\t\t\t*******************************************************");
-			System.out.println("\t\t\t\t\n\t\t\t\t");
-			System.out.println("\t\t\t\t****************************************");
-			System.out.println("\t\t\t\t*      CADASTRO DE CONTA BANCARIA      *");
-			System.out.println("\t\t\t\t****************************************");
-			System.out.println("\t\t\t\t");
+		Conta conta;
+		System.out.println();
+		System.out.println("\t\t\t*******************************************************");
+		System.out.println("\t\t\t*\t           CPAN BANCO CENTER                  *");
+		System.out.println("\t\t\t*******************************************************");
+		System.out.println("\t\t\t\t\n\t\t\t\t");
+		System.out.println("\t\t\t\t****************************************");
+		System.out.println("\t\t\t\t*      CADASTRO DE CONTA BANCARIA      *");
+		System.out.println("\t\t\t\t****************************************");
+		System.out.println("\t\t\t\t");
 
+		System.out.println();
+		System.out.println("\t\t\t\t        Confirme sua Senha de Login        ");
+		if (Controller.getSessao().getSenha().equals(EntradaDeDados.lerSenha())) {
 			System.out.println();
-			System.out.println("\t\t\t\t        Confirme sua Identidade         ");
-			Pessoa pessoaAtual = Controller.getSessao();
-			if (pessoaAtual == Controller.getPessoa(TratamentodeEntradas.trataEntradaCpf(), EntradaDeDados.lerSenha())) {
-				conta = (Conta) ContaDAO.create(EntradaDeDados.lerSenhaConta(), Controller.getSessao());
-				System.out.println();
-				System.out.println("\t\t\t\t[Conta Criada com Sucesso]");
-				System.out.println();
-				System.out.println(conta);
-				System.out.println("\t\t\t\tSenha: " + conta.getSenha());
-				System.out.println("\t\t\t\tSaldo: " + conta.getSaldo());
-				System.out.println();
-				//ContaDAO.salvarContas();
-				System.out.println("\t\t\t\tPressione Enter para continuar...");
-				System.in.read();	
-			}else {
-				System.out.println();
-				System.out.println("\t\t\t\t[Usuario e/ou Senha Incorreto(s)]");
-				System.out.println();
-			}
-		} catch (Exception e) {
+			conta = (Conta) ContaDAO.create(EntradaDeDados.lerSenhaConta(), Controller.getSessao());
 			System.out.println();
-			System.out.println("\t\t\t\t[Usuario e/ou Senha Incorreto(s)]");
+			System.out.println("\t\t\t\t[Conta Criada com Sucesso]");
+			System.out.println();
+			System.out.println(conta);
+			System.out.println("\t\t\t\tSenha: " + conta.getSenha());
+			System.out.println("\t\t\t\tSaldo: " + conta.getSaldo());
+			System.out.println();
+			// ContaDAO.salvarContas();
+			System.out.println("\t\t\t\tPressione Enter para continuar...");
+			System.in.read();
+		} else {
+			System.out.println();
+			System.out.println("\t\t\t\t[Senha Incorreta]");
 			System.out.println();
 		}
+
 	}
 }
