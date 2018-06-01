@@ -3,6 +3,7 @@ package view.telaspessoa;
 import controller.ContaDAO;
 import controller.Controller;
 import controller.PessoaDAO;
+import model.Pessoa;
 import view.ClearConsole;
 import view.EntradaDeDados;
 import view.TratamentodeEntradas;
@@ -30,7 +31,9 @@ public class TelaExcluiPessoa {
 		System.out.println("\t\t\t\t          Confirme sua Identidade                ");
 
 		try {
-			if (Controller.validaLogin(TratamentodeEntradas.trataEntradaCpf(), EntradaDeDados.lerSenha())) {
+			Pessoa pessoaAtual = Controller.getSessao();
+			if (pessoaAtual == Controller.getPessoa(TratamentodeEntradas.trataEntradaCpf(),
+					EntradaDeDados.lerSenha())) {
 				do {
 					try {
 						new ClearConsole();
@@ -79,6 +82,10 @@ public class TelaExcluiPessoa {
 						System.out.println();
 					}
 				} while (!sair);
+			} else {
+				System.out.println();
+				System.out.println("\t\t\t\t[Usuario e/ou Senha Incorreto(s)]");
+				System.out.println();
 			}
 		} catch (Exception e) {
 			System.out.println();
