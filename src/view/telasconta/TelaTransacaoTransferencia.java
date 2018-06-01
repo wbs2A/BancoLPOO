@@ -67,6 +67,12 @@ public class TelaTransacaoTransferencia {
 					contaRemetente = Controller.getSessao().getContaPadrao();
 					if (contaRemetente != null) {
 						System.out.println();
+						System.out.println();
+						System.out.println("\t\t\t\tConta padrao definida: ");
+						System.out.println(contaRemetente);
+						System.out.println();
+						System.out.println();
+						System.out.println();
 						System.out.printf("\t\t\t\tInforme o numero da conta destino: ");
 						System.out.println();
 						try {

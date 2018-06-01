@@ -62,6 +62,12 @@ public class TelaTransacaoSaque {
 				case SACARCONTAPADRAO:
 					conta = Controller.getSessao().getContaPadrao();
 					if (conta != null) {
+						System.out.println();
+						System.out.println();
+						System.out.println("\t\t\t\tConta padrao definida: ");
+						System.out.println(conta);
+						System.out.println();
+						System.out.println();
 						valor = TratamentodeEntradas.trataValorTransacao();
 						if (valor > 0) {
 							System.out.println();
