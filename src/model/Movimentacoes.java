@@ -185,7 +185,7 @@ public class Movimentacoes implements Serializable {
 	public void setSaldo_anteior(int numero_operacao) {
 		if(numero_operacao == 1){
 			this.saldo_anteior = this.getSaldo_atual()+this.getValorOperacao();
-     	}else if(numero_operacao == 2){
+        }else if(numero_operacao == 2){
 			this.saldo_anteior = this.getSaldo_atual()-this.getValorOperacao();
 		}else if(numero_operacao == 3){
 			this.saldo_anteior = this.getSaldo_atual()+this.getValorOperacao();
