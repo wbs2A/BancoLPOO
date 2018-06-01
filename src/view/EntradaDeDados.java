@@ -68,13 +68,19 @@ public class EntradaDeDados {
 
 	public static String lerTelefoneCelular() {
 		System.out.println();
-		System.out.printf("\t\t\t\tDigite o Numero do seu Celular DDDxxxx-xxxx: ");
+		System.out.printf("\t\t\t\tNumero do seu Celular DDDxxxx-xxxx: ");
 		return scanner.nextLine();
 	}
 
 	public static String lerEmail() {
 		System.out.println();
-		System.out.print("\t\t\t\tDigite seu E-mail: ");
+		System.out.print("\t\t\t\tE-mail: ");
+		return scanner.nextLine();
+	}
+	
+	public static String lerValorTransacao() {
+		System.out.println();
+		System.out.print("\t\t\t\tValor: ");
 		return scanner.nextLine();
 	}
 }
