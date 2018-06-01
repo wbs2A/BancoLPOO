@@ -43,7 +43,6 @@ public class TelaLogin {
 			System.out.println();
 			System.out.println("\t\t\t\t[Usuario e/ou Senha Incorreto(s)]");
 			System.out.println();
-			System.out.println("\t\t\t\tDeseja Continuar (1)Sim (2)Nao.");
 		}
 
 	}
