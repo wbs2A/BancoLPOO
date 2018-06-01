@@ -66,15 +66,32 @@ public class TelaAtualizaSenhaConta {
 
 					conta = Controller.getSessao().getContaPadrao();
 					if (conta != null) {
-						System.out.println(conta.toString());
-						System.out.println("\t\t\t\tSenha atual: " + conta.getSenha());
+						System.out.println();
+						System.out.println();
+						System.out.println("\t\t\t\tConta padrao definida: ");
+						System.out.println(conta);
 
-						ContaDAO.update(conta, EntradaDeDados.lerSenhaConta());
 						System.out.println();
-						System.out.println("\t\t\t\t[Senha atualizada com sucesso]");
+						System.out.println("\t\t\t\t       Confirme a senha atual da conta       ");
 						System.out.println();
-						ContaDAO.salvarContas();
-						PessoaDAO.salvarPessoas();
+
+						if (conta.getSenha().equals(EntradaDeDados.lerSenhaConta())) {
+
+							System.out.println("\t\t\t\tSenha atual: " + conta.getSenha());
+							System.out.println();
+							System.out.println();
+
+							ContaDAO.update(conta, EntradaDeDados.lerSenhaConta());
+							System.out.println();
+							System.out.println("\t\t\t\t[Senha atualizada com sucesso]");
+							System.out.println();
+							ContaDAO.salvarContas();
+							PessoaDAO.salvarPessoas();
+						} else {
+							System.out.println();
+							System.out.println("\t\t\t\t[Senha Incorreta]");
+							System.out.println();
+						}
 					} else {
 						System.out.println();
 						System.out.println("\t\t\t\t[Voce nao possui uma conta padrao definida]");
@@ -90,15 +107,24 @@ public class TelaAtualizaSenhaConta {
 						System.out.println();
 						conta = ContaDAO.read(TratamentodeEntradas.trataEntradaNumeroConta());
 						if (conta != null) {
-							System.out.println(conta.toString());
-							System.out.println("\t\t\t\tSenha atual: " + conta.getSenha());
+							if (conta.getPessoa() == Controller.getSessao()) {
+								System.out.println();
+								System.out.println();
+								System.out.println("\t\t\t\tDados da conta: ");
+								System.out.println(conta);
+								System.out.println("\t\t\t\tSenha atual: " + conta.getSenha());
 
-							ContaDAO.update(conta, EntradaDeDados.lerSenhaConta());
-							System.out.println();
-							System.out.println("\t\t\t\t[Senha atualizada com sucesso]");
-							System.out.println();
-							ContaDAO.salvarContas();
-							PessoaDAO.salvarPessoas();
+								ContaDAO.update(conta, EntradaDeDados.lerSenhaConta());
+								System.out.println();
+								System.out.println("\t\t\t\t[Senha atualizada com sucesso]");
+								System.out.println();
+								ContaDAO.salvarContas();
+								PessoaDAO.salvarPessoas();
+							} else {
+								System.out.println();
+								System.out.println("\t\t\t\t[Conta nao encontrada]");
+								System.out.println();
+							}
 						}
 					} catch (Exception ex) {
 						System.out.println();

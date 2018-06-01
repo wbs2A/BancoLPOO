@@ -67,23 +67,30 @@ public class TelaExcluiConta {
 						conta = ContaDAO.read(TratamentodeEntradas.trataEntradaNumeroConta(),
 								EntradaDeDados.lerSenhaConta());
 						if (conta != null) {
-							System.out.println();
-							System.out.println("\t\t\t\t        Confirme sua Senha de Login        ");
-							System.out.println();
+							if (conta.getPessoa() == Controller.getSessao()) {
+								System.out.println();
+								System.out.println("\t\t\t\t        Confirme sua Senha de Login        ");
+								System.out.println();
 
-							if (Controller.getSessao().getSenha().equals(EntradaDeDados.lerSenha())) {
-								System.out.println();
-								ContaDAO.delete(conta, Controller.getSessao());
-								System.out.println();
-								System.out.println("[\t\t\t\t[Conta removida com sucesso]");
-								System.out.println();
-								// ContaDAO.salvarContas();
-								// PessoaDAO.salvarPessoas();
+								if (Controller.getSessao().getSenha().equals(EntradaDeDados.lerSenha())) {
+									System.out.println();
+									ContaDAO.delete(conta, Controller.getSessao());
+									System.out.println();
+									System.out.println("[\t\t\t\t[Conta removida com sucesso]");
+									System.out.println();
+									// ContaDAO.salvarContas();
+									// PessoaDAO.salvarPessoas();
+								} else {
+									System.out.println();
+									System.out.println("\t\t\t\t[Senha Incorreta]");
+									System.out.println();
+								}
 							} else {
 								System.out.println();
-								System.out.println("\t\t\t\t[Senha Incorreta]");
+								System.out.println("\t\t\t\t[Conta nao encontrada]");
 								System.out.println();
 							}
+
 						}
 					} catch (Exception ex) {
 						System.out.println();

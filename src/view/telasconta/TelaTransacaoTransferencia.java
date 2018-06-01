@@ -146,40 +146,49 @@ public class TelaTransacaoTransferencia {
 									if (contaRemetente == contaDestino) {
 										System.out.println();
 										System.out.println(
-												"\t\t\t\t[Não é possivel fazer transferencias entre contas iguais]");
+												"\t\t\t\t[Nao é possivel fazer transferencias entre contas iguais]");
 										System.out.println();
 									} else {
-										valor = TratamentodeEntradas.trataValorTransacao();
-										if (valor > 0) {
-											try {
-												Controller.realizarTransacao(new Date(), contaRemetente, contaDestino,
-														EntradaDeDados.lerDescricaoTransacao(), valor, 3);
+										if (contaRemetente.getPessoa() == Controller.getSessao()) {
+											valor = TratamentodeEntradas.trataValorTransacao();
+											if (valor > 0) {
+												try {
+													Controller.realizarTransacao(new Date(), contaRemetente,
+															contaDestino, EntradaDeDados.lerDescricaoTransacao(), valor,
+															3);
+													System.out.println();
+													System.out.println("\t\t\t\t[Transferencia realizado com sucesso]");
+													System.out.println();
+													ContaDAO.salvarContas();
+												} catch (Exception e) {
+													System.out.println();
+													System.out
+															.println("\t\t\t\t[Saldo insuficiente para transferencia]");
+													System.out.println();
+												}
+											} else {
 												System.out.println();
-												System.out.println("\t\t\t\t[Transferencia realizado com sucesso]");
-												System.out.println();
-												ContaDAO.salvarContas();
-											} catch (Exception e) {
-												System.out.println();
-												System.out.println("\t\t\t\t[Saldo insuficiente para transferencia]");
+												System.out.println("\t\t\t\t[Valor invalido para transferencia]");
 												System.out.println();
 											}
 										} else {
 											System.out.println();
-											System.out.println("\t\t\t\t[Valor invalido para transferencia]");
+											System.out.println("\t\t\t\t[Conta remetente nao encontrada]");
 											System.out.println();
 										}
+
 									}
 								}
 							} catch (Exception ex) {
 								System.out.println();
-								System.out.println("\t\t\t\t[Conta remetente não encontrada]");
+								System.out.println("\t\t\t\t[Conta remetente nao encontrada]");
 								System.out.println();
 							}
 						}
 
 					} catch (Exception ex) {
 						System.out.println();
-						System.out.println("\t\t\t\t[Conta destino não encontrada]");
+						System.out.println("\t\t\t\t[Conta destino nao encontrada]");
 						System.out.println();
 					}
 
