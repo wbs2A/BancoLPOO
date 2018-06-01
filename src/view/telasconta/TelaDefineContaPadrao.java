@@ -55,11 +55,17 @@ public class TelaDefineContaPadrao {
 						conta = ContaDAO.read(TratamentodeEntradas.trataEntradaNumeroConta(),
 								EntradaDeDados.lerSenhaConta());
 						if (conta != null) {
-							Controller.getSessao().setContaPadrao(conta);
-							System.out.println();
-							System.out.println("[\t\t\t\t[Conta padrao definida com sucesso]");
-							System.out.println();
-							PessoaDAO.salvarPessoas();
+							if (conta.getPessoa() == Controller.getSessao()) {
+								Controller.getSessao().setContaPadrao(conta);
+								System.out.println();
+								System.out.println("[\t\t\t\t[Conta padrao definida com sucesso]");
+								System.out.println();
+								PessoaDAO.salvarPessoas();
+							} else {
+								System.out.println();
+								System.out.println("\t\t\t\t[Conta nao encontrada]");
+								System.out.println();
+							}
 						}
 					} catch (Exception ex) {
 						System.out.println();
