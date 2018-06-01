@@ -1,9 +1,12 @@
 package view.telasconta;
 
+import java.util.Date;
+
 import controller.ContaDAO;
 import controller.Controller;
 import model.Conta;
 import view.ClearConsole;
+import view.EntradaDeDados;
 import view.TratamentodeEntradas;
 
 /**
@@ -79,9 +82,22 @@ public class TelaTransacaoDeposito {
 						System.out.println();
 						conta = ContaDAO.read(TratamentodeEntradas.trataEntradaNumeroConta());
 						if (conta != null) {
-							valor = TratamentodeEntradas.trataEntradaSaldoConta();
-							ContaDAO.depositar(conta, valor);
-							ContaDAO.salvarContas();
+							valor = TratamentodeEntradas.trataValorTransacao();
+							if(valor > 0) {
+								try {
+									Controller.realizarTransacao1(new Date(), conta, EntradaDeDados.lerDescricaoTransacao(), valor, 2);
+									System.out.println();
+									System.out.println("\t\t\t\t[Deposito realizado com sucesso]");
+									System.out.println();
+									ContaDAO.salvarContas();
+								}catch(Exception e) {
+									
+								}
+							}else {
+								System.out.println();
+								System.out.println("\t\t\t\t[Valor invalido para deposito]");
+								System.out.println();
+							}
 						}
 					} catch (Exception ex) {
 						System.out.println();
