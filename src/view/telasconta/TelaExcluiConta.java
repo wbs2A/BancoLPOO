@@ -61,15 +61,19 @@ public class TelaExcluiConta {
 					break;
 
 				case SIM:
+					System.out.println();
+					System.out.printf("\t\t\t\tInforme o numero e a senha da conta que dejesa excluir: ");
+					System.out.println();
 					try {
-						System.out.println();
-						System.out.println("\t\t\t\t        Confirme sua Identidade            ");
-						System.out.println();
-						if (Controller.validaLogin(TratamentodeEntradas.trataEntradaCpf(), EntradaDeDados.lerSenha())) {
+						conta = ContaDAO.read(TratamentodeEntradas.trataEntradaNumeroConta(),
+								EntradaDeDados.lerSenhaConta());
+						if (conta != null) {
+							System.out.println();
+							System.out.println("\t\t\t\t        Confirme sua Identidade            ");
+							System.out.println();
 							try {
-								conta = ContaDAO.read(TratamentodeEntradas.trataEntradaNumeroConta(),
-										EntradaDeDados.lerSenhaConta());
-								if (conta != null) {
+								if (Controller.validaLogin(TratamentodeEntradas.trataEntradaCpf(),
+										EntradaDeDados.lerSenha())) {
 									ContaDAO.delete(conta, Controller.getSessao());
 									System.out.println();
 									System.out.println("[\t\t\t\t[Conta removida com sucesso]");
@@ -77,17 +81,17 @@ public class TelaExcluiConta {
 									ContaDAO.salvarContas();
 									PessoaDAO.salvarPessoas();
 								}
-
 							} catch (Exception ex) {
 								System.out.println();
-								System.out.println("\t\t\t\t[Conta nao encontrada]");
+								System.out.println("\t\t\t\t[Usuario e/ou senha incorreto(s)]");
 								System.out.println();
 							}
+
 						}
 
 					} catch (Exception ex) {
 						System.out.println();
-						System.out.println("\t\t\t\t[Usuario e/ou senha incorreto(s)]");
+						System.out.println("\t\t\t\t[Conta nao encontrada]");
 						System.out.println();
 					}
 
