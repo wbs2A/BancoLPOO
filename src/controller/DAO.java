@@ -32,9 +32,7 @@ abstract class DAO<T>{
         FileInputStream fis;
         Object obj = null;
         if(PATH != null){
-	        try {
-	            fis = new FileInputStream(PATH);
-	            ObjectInputStream ois = new ObjectInputStream(fis);
+	        try(ObjectInputStream ois = new ObjectInputStream(fis = new FileInputStream(PATH))){
 	            obj = (Object)ois.readObject();
 	            ois.close();
 	            fis.close();
@@ -56,7 +54,7 @@ abstract class DAO<T>{
     * Metodo para garantir o caminho e a criacao de um arquivo binario,
     *  cujo nome e o tipo do objeto a ser serializado. Este metodo per-
     *  mite que a aplicacao persista classes em mais de uma plataforma.
-    *  As excecies sao tratadas pelas classes que a utilizam.
+    *  As excecoes sao tratadas pelas classes que a utilizam.
     * @author: Wesley B.
     * @param: Tipo do objeto, que nomeara o arquivo.
     * @return: Caminho concatenado com o nome do arquivo a ser utilizado.
@@ -66,20 +64,35 @@ abstract class DAO<T>{
         String home = System.getProperty("user.home");
         boolean directoryExists;
         System.out.println(type);
-        if(System.getProperty("os.name").toLowerCase().contains("windows")){
-            File f = new File(home + "\\BancoLPOO\\app\\");
-            directoryExists = f.exists();
-            if(!directoryExists)
-                f.mkdirs();
-            resourcePath = home + "\\BancoLPOO\\app\\"+type+".dat";
-        }else{
-            File f = new File(home + "/BancoLPOO/app/");
-            directoryExists = f.exists();
-            if(!directoryExists)
-                f.mkdirs();
-            resourcePath = home + "/BancoLPOO/app/"+type+".dat";
+        if(type == "Conta"){
+	        if(System.getProperty("os.name").toLowerCase().contains("windows")){
+	            File f = new File(home + "\\BancoLPOO\\app\\");
+	            directoryExists = f.exists();
+	            if(!directoryExists)
+	                f.mkdirs();
+	            resourcePath = home + "\\BancoLPOO\\app\\Conta.dat";
+	        }else{
+	            File f = new File(home + "/BancoLPOO/app/");
+	            directoryExists = f.exists();
+	            if(!directoryExists)
+	                f.mkdirs();
+	            resourcePath = home + "/BancoLPOO/app/Conta.dat";
+	        }
+        }else if(type == "Pessoa"){
+        	if(System.getProperty("os.name").toLowerCase().contains("windows")){
+	            File f = new File(home + "\\BancoLPOO\\app\\");
+	            directoryExists = f.exists();
+	            if(!directoryExists)
+	                f.mkdirs();
+	            resourcePath = home + "\\BancoLPOO\\app\\Pessoa.dat";
+	        }else{
+	            File f = new File(home + "/BancoLPOO/app/");
+	            directoryExists = f.exists();
+	            if(!directoryExists)
+	                f.mkdirs();
+	            resourcePath = home + "/BancoLPOO/app/Pessoa.dat";
+	        }
         }
-        
         return resourcePath;
     }
 
@@ -94,10 +107,8 @@ abstract class DAO<T>{
 
     public static boolean descarregar(Object obj){
         String PATH = DAO.ensuresPath(obj.getClass().getName());
-
-        try {
-            FileOutputStream fos = new FileOutputStream(PATH);
-            ObjectOutputStream oos = new ObjectOutputStream(fos);
+        FileOutputStream fos;
+        try (ObjectOutputStream oos = new ObjectOutputStream(fos = new FileOutputStream(PATH))){
             oos.writeObject(obj);
             oos.close();
             fos.close();

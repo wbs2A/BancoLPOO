@@ -37,8 +37,6 @@ public class Controller{
 		return sessao;
 	}
 
-
-
     /*
 	 * Metodo que defina a pessoa da sessao.
 	 * @author: Wesley B.
