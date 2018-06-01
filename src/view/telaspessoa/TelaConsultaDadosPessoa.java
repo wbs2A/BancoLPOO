@@ -1,10 +1,8 @@
 package view.telaspessoa;
 
 import controller.Controller;
-import model.Pessoa;
 import view.ClearConsole;
 import view.EntradaDeDados;
-import view.TratamentodeEntradas;
 
 /**
  * A Classe TelaConsultaDadosPessoa e responsavel por mostrar todas as
@@ -38,23 +36,20 @@ public class TelaConsultaDadosPessoa {
 		System.out.println("\t\t\t\t**************************************");
 		System.out.println("\t\t\t\t\n\t\t\t\t");
 		System.out.println();
-		System.out.println("\t\t\t\t          Confirme sua Identidade                ");
+		System.out.println();
+		System.out.println("\t\t\t\t        Confirme sua Senha de Login        ");
+		System.out.println();
 
-		try {
-			Pessoa pessoaAtual = Controller.getSessao();
-			if (pessoaAtual == Controller.getPessoa(TratamentodeEntradas.trataEntradaCpf(),
-					EntradaDeDados.lerSenha())) {
-				System.out.println(Controller.getSessao());
-
-			} else {
-				System.out.println();
-				System.out.println("\t\t\t\t[Usuario e/ou Senha Incorreto(s)]");
-				System.out.println();
-			}
-		} catch (Exception e) {
+		if (Controller.getSessao().getSenha().equals(EntradaDeDados.lerSenha())) {
 			System.out.println();
-			System.out.println("\t\t\t\t[Usuario e/ou Senha Incorreto(s)]");
+			System.out.println(Controller.getSessao());
+			System.out.println();
+
+		} else {
+			System.out.println();
+			System.out.println("\t\t\t\t[Senha Incorreta]");
 			System.out.println();
 		}
+
 	}
 }
