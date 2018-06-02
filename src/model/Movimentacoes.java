@@ -254,7 +254,7 @@ public class Movimentacoes implements Serializable {
 					"\n\t\t\t\tAgencia: "+ this.getConta().getAgencia()+
 					"\n\t\t\t\tNumero: "+ this.getConta().getNumero()+
 					"\n\t\t\t\tSaldo anterior: "+this.getSaldo_anteior()+
-					"\n\t\t\t\tValor: "+this.getValorOperacao() +
+					"\n\t\t\t\tValor da operacao: "+this.getValorOperacao() +
 					"\n\t\t\t\tOperacao: "+this.getNomeOperacao()+
 					"\n\t\t\t\tSaldo atual: "+this.getSaldo_atual();
 
@@ -266,7 +266,7 @@ public class Movimentacoes implements Serializable {
 						"\n\t\t\t\t\t\tCPF: "+this.getDestino().getPessoa().getCpf()+
 						"\n\t\t\t\t\t\tAgencia: "+ this.getDestino().getAgencia()+
 						"\n\t\t\t\t\t\tNumero: "+ this.getDestino().getNumero()+
-						"\n\t\t\t\t\t\tValor da transacao: "+this.getValorOperacao() +
+						"\n\t\t\t\t\t\tValor da operacao: "+this.getValorOperacao() +
 						"\n\t\t\t\t\t\tOperacao: "+this.getNomeOperacao()+
 						"\n\t\t\t\tDestinatario: "+
 						"\n\t\t\t\t\t\tNome: "+this.getConta().getPessoa().getNome()+
@@ -281,7 +281,7 @@ public class Movimentacoes implements Serializable {
 						"\n\t\t\t\t\t\tAgencia: "+ this.getConta().getAgencia()+
 						"\n\t\t\t\t\t\tNumero: "+ this.getConta().getNumero()+
 						"\n\t\t\t\t\t\tSaldo anterior: "+this.getSaldo_anteior()+
-						"\n\t\t\t\t\t\tValor da transacao: "+this.getValorOperacao() +
+						"\n\t\t\t\t\t\tValor da operacao: "+this.getValorOperacao() +
 						"\n\t\t\t\t\t\tOperacao: "+this.getNomeOperacao()+
 						"\n\t\t\t\t\t\tSaldo atual: "+this.getSaldo_atual()+
 						"\n\t\t\t\tDestinatario: "+
