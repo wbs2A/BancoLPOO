@@ -17,7 +17,7 @@ public class TelaGerenciaConta {
 	 * O metodo menuGerenciaContas funciona como uma tela para escolhas de acoes
 	 * relacionadas a contas, sao elas: realizar transacao, exibir extrato,
 	 * cadastrar uma nova conta, excluir uma conta existente, consultar as
-	 * informacoes das suas contas e uma opcao para sair. caso uma opcao invalida
+	 * informacoes das suas contas,ajuda e uma opcao para sair. caso uma opcao invalida
 	 * seja utilizada, uma mensagem de erro sera emitida.
 	 */
 
@@ -58,6 +58,8 @@ public class TelaGerenciaConta {
 				System.out.println("\t\t\t\t*   " + MenuConta.ATUALIZARSENHACONTA.opcao
 						+ ".Atualizar Senha da Conta                     *");
 				System.out.println("\t\t\t\t**************************************");
+                                System.out.println("\t\t\t\t*   " +MenuConta.AJUDA.opcao + ".Ajuda*");
+                                System.out.println("\t\t\t\t**************************************");
 				System.out.println("\t\t\t\t*   " + MenuConta.SAIR.opcao + ".Voltar                           *");
 				System.out.println("\t\t\t\t**************************************");
 				opcao = TratamentodeEntradas.trataEntradaOpcao();
@@ -88,6 +90,9 @@ public class TelaGerenciaConta {
 				case ATUALIZARSENHACONTA:
 					TelaAtualizaSenhaConta.menuAtualizaSenhaConta();
 					break;
+                                case AJUDA:
+                                    TelaAjudaConta.AjudaConta();
+                                    break;
 				case SAIR:
 					sair = true;
 					break;
