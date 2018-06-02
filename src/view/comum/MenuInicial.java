@@ -9,7 +9,7 @@ package view.comum;
  * @author Adler Cavalcante
  */
 public enum MenuInicial {
-    FAZERLOGIN(1), FAZERCADASTRO(2), SAIR(0);
+    FAZERLOGIN(1), FAZERCADASTRO(2), AJUDA(3), SAIR(0);
     int opcao;
 
     /**
@@ -31,6 +31,8 @@ public enum MenuInicial {
             return MenuInicial.FAZERLOGIN;
         } else if (opcao == 2) {
             return MenuInicial.FAZERCADASTRO;
+        } else if (opcao == 3) {
+            return MenuInicial.AJUDA;
         } else if (opcao == 0) {
             return MenuInicial.SAIR;
         }
