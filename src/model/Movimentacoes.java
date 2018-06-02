@@ -3,12 +3,13 @@ package model;
 import java.io.Serializable;
 import java.util.Date;
 import java.text.SimpleDateFormat;
+
 /**
  * @author Allison
  * @author Valdenize
  * @author Helmuth
  *Classe que representa as movimentacoes do Banco
-*/
+ */
 
 public class Movimentacoes implements Serializable {
 	/**
@@ -24,10 +25,11 @@ public class Movimentacoes implements Serializable {
 	private int numero_operacao;
 	private double saldo_anteior;
 	private double saldo_atual;
-        
-    private SimpleDateFormat sdf = new SimpleDateFormat("dd-M-yyyy");
-	
-	
+	private boolean isDestinatario;
+
+	private SimpleDateFormat sdf = new SimpleDateFormat("dd-M-yyyy");
+
+
 	/**
 	 * @param date
 	 * @param conta
@@ -65,9 +67,28 @@ public class Movimentacoes implements Serializable {
 		this.setNumero_operacao(numero_operacao);
 		this.setSaldo_atual(conta.getSaldo());
 		this.setSaldo_anteior(numero_operacao);
+		Movimentacoes destinatario = new Movimentacoes(destino,this);
+		destino.getMovimentacoes().add(destinatario);
 	}
-	
-	
+
+	/**
+	 * @param conta
+	 * @param movimentacao
+	 */
+	private Movimentacoes(Conta conta, Movimentacoes movimentacao){
+		this.setDate(movimentacao.getDateNaoFormatada());
+		this.setConta(conta);
+		this.setNomeOperacao(movimentacao.getNumero_operacao());
+		this.setDescricao(movimentacao.getDescricao());
+		this.setValorOperacao(movimentacao.getValorOperacao());
+		this.setNumero_operacao(movimentacao.getNumero_operacao());
+		this.setSaldo_atual(conta.getSaldo());
+		this.setSaldo_anteior(movimentacao.getNumero_operacao());
+		this.setDestino(movimentacao.getConta());
+		this.setDestinatario(true);
+	}
+
+
 	/**
 	 * Metodo que retorna o nome da operacao
 	 * @return String
@@ -89,7 +110,7 @@ public class Movimentacoes implements Serializable {
 			this.nomeOperacao ="Transferencia";
 		}
 	}
-	
+
 	/**
 	 * Metodo que retorna o valor da operacao
 	 * @return double
@@ -113,7 +134,13 @@ public class Movimentacoes implements Serializable {
 	public String getDate() {
 		return this.sdf.format(date);
 	}
-
+	/**
+	 * Metodo que retorna a data da operacao
+	 * @return  date
+	 */
+	public Date getDateNaoFormatada() {
+		return date;
+	}
 	/**
 	 * Metodo que insere a data da operacao
 	 * @param date the date to set
@@ -185,7 +212,7 @@ public class Movimentacoes implements Serializable {
 	public void setSaldo_anteior(int numero_operacao) {
 		if(numero_operacao == 1){
 			this.saldo_anteior = this.getSaldo_atual()+this.getValorOperacao();
-     	}else if(numero_operacao == 2){
+		}else if(numero_operacao == 2){
 			this.saldo_anteior = this.getSaldo_atual()-this.getValorOperacao();
 		}else if(numero_operacao == 3){
 			if(this.destino == null){
@@ -195,7 +222,7 @@ public class Movimentacoes implements Serializable {
 			}
 		}
 	}
-	
+
 
 	/**
 	 * Metodo que retorna a descricao da operacao realizada
@@ -214,26 +241,55 @@ public class Movimentacoes implements Serializable {
 	}
 
 	/**
-     * Metodo toString, retorna algumas das informacoes contidas 
-     * nos atributos da classe e outras das classes Pessoa e Conta 
-     * para simplificar as informações de Movimentacao ao usuário.
-     * @return String
-     */
+	 * Metodo toString, retorna algumas das informacoes contidas 
+	 * nos atributos da classe e outras das classes Pessoa e Conta 
+	 * para simplificar as informações de Movimentacao ao usuário.
+	 * @return String
+	 */
 	@Override
 	public String toString() {
-		return "\n\t\t\t\tData: "+ this.getDate()+
-				"\n\t\t\t\tNome: "+this.getConta().getPessoa().getNome()+
-				"\n\t\t\t\tAgencia: "+ this.getConta().getAgencia()+
-				"\n\t\t\t\tNumero: "+ this.getConta().getNumero()+
-				"\n\t\t\t\tSaldo anterior: "+this.getSaldo_anteior()+
-				"\n\t\t\t\tDescricao: "+this.getDescricao()+
-				"\n\t\t\t\tValor: "+this.getValorOperacao() +
-				"\n\t\t\t\tOperacao: "+this.getNomeOperacao()+
-				"\n\t\t\t\tSaldo atual: "+this.getSaldo_atual();
+		if(this.getNumero_operacao() == 1 || this.getNumero_operacao() == 2){
+			return "\n\t\t\t\tData: "+ this.getDate()+
+					"\n\t\t\t\tNome: "+this.getConta().getPessoa().getNome()+
+					"\n\t\t\t\tAgencia: "+ this.getConta().getAgencia()+
+					"\n\t\t\t\tNumero: "+ this.getConta().getNumero()+
+					"\n\t\t\t\tSaldo anterior: "+this.getSaldo_anteior()+
+					"\n\t\t\t\tValor: "+this.getValorOperacao() +
+					"\n\t\t\t\tOperacao: "+this.getNomeOperacao()+
+					"\n\t\t\t\tSaldo atual: "+this.getSaldo_atual();
+
+		}else if(this.getNumero_operacao() == 3){
+			if(this.isDestinatario()){
+				return "\n\t\t\t\tData: "+ this.getDate()+
+						"\n\t\t\t\tCPF: "+this.getConta().getPessoa().getCpf()+
+						"\n\t\t\t\tAgencia: "+ this.getConta().getAgencia()+
+						"\n\t\t\t\tNumero: "+ this.getConta().getNumero()+
+						"\n\t\t\t\tSaldo anterior: "+this.getSaldo_anteior()+
+						"\n\t\t\t\tDescricao: "+this.getDescricao()+
+						"\n\t\t\t\tValor: "+this.getValorOperacao() +
+						"\n\t\t\t\tOperacao: "+this.getNomeOperacao()+
+						"\n\t\t\t\tSaldo atual: "+this.getSaldo_atual();
+			}else{
+				return "\n\t\t\t\tData: "+ this.getDate()+
+						"\n\t\t\t\tNome: "+this.getConta().getPessoa().getNome()+
+						"\n\t\t\t\tAgencia: "+ this.getConta().getAgencia()+
+						"\n\t\t\t\tNumero: "+ this.getConta().getNumero()+
+						"\n\t\t\t\tSaldo anterior: "+this.getSaldo_anteior()+
+						"\n\t\t\t\tSaldo atual: "+this.getSaldo_atual()+
+						"\n\t\t\t\tValor: "+this.getValorOperacao() +
+						"\n\t\t\t\tOperacao: "+this.getNomeOperacao()+
+						"\n\t\t\t\tDescricao: "+this.getDescricao()+
+						"\n\t\t\t\tDestinatario"+
+						"\n\t\t\t\t\t\tNome: "+this.getDestino().getPessoa().getNome()+
+						"\n\t\t\t\t\t\tAgencia: "+ this.getDestino().getAgencia()+
+						"\n\t\t\t\t\t\tNumero: "+ this.getDestino().getNumero();
+			}
+		}
+		return " ";
 	}
 
 	/**
-     * Metodo que retorna o saldo apos a realizacao da operacao
+	 * Metodo que retorna o saldo apos a realizacao da operacao
 	 * @return the saldo_atual
 	 */
 	public double getSaldo_atual() {
@@ -247,6 +303,22 @@ public class Movimentacoes implements Serializable {
 	public void setSaldo_atual(double saldo_atual) {
 		this.saldo_atual = saldo_atual;
 	}
-	
+
+	/**
+	 * Metodo que retorna se esta movimentacao pertence a um destinatario de transferencia 
+	 * @return the isDestinatario
+	 */
+	public boolean isDestinatario() {
+		return isDestinatario;
+	}
+
+	/**
+	 * Metodo que insere a marcacao para uma movimentacao de um destinatario
+	 * @param isDestinatario the isDestinatario to set
+	 */
+	public void setDestinatario(boolean isDestinatario) {
+		this.isDestinatario = isDestinatario;
+	}
+
 }
 
