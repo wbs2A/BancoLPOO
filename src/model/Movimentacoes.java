@@ -260,27 +260,33 @@ public class Movimentacoes implements Serializable {
 
 		}else if(this.getNumero_operacao() == 3){
 			if(this.isDestinatario()){
-				return "\n\t\t\t\tData: "+ this.getDate()+
-						"\n\t\t\t\tCPF: "+this.getConta().getPessoa().getCpf()+
-						"\n\t\t\t\tAgencia: "+ this.getConta().getAgencia()+
-						"\n\t\t\t\tNumero: "+ this.getConta().getNumero()+
-						"\n\t\t\t\tSaldo anterior: "+this.getSaldo_anteior()+
-						"\n\t\t\t\tDescricao: "+this.getDescricao()+
-						"\n\t\t\t\tValor: "+this.getValorOperacao() +
-						"\n\t\t\t\tOperacao: "+this.getNomeOperacao()+
-						"\n\t\t\t\tSaldo atual: "+this.getSaldo_atual();
+				return "\n\t\t\t\tData: "+ this.getDate()+					
+						"\n\t\t\t\tRemetente: "+
+						"\n\t\t\t\t\t\tNome: "+this.getDestino().getPessoa().getNome()+
+						"\n\t\t\t\t\t\tCPF: "+this.getDestino().getPessoa().getCpf()+
+						"\n\t\t\t\t\t\tAgencia: "+ this.getDestino().getAgencia()+
+						"\n\t\t\t\t\t\tNumero: "+ this.getDestino().getNumero()+
+						"\n\t\t\t\t\t\tValor da transacao: "+this.getValorOperacao() +
+						"\n\t\t\t\t\t\tOperacao: "+this.getNomeOperacao()+
+						"\n\t\t\t\tDestinatario: "+
+						"\n\t\t\t\t\t\tNome: "+this.getConta().getPessoa().getNome()+
+						"\n\t\t\t\t\t\tAgencia: "+ this.getConta().getAgencia()+
+						"\n\t\t\t\t\t\tNumero: "+ this.getConta().getNumero()+
+						"\n\t\t\t\t\t\tSaldo anterior: "+this.getSaldo_anteior()+
+						"\n\t\t\t\t\t\tSaldo atual: "+this.getSaldo_atual()+
 			}else{
 				return "\n\t\t\t\tData: "+ this.getDate()+
-						"\n\t\t\t\tNome: "+this.getConta().getPessoa().getNome()+
-						"\n\t\t\t\tAgencia: "+ this.getConta().getAgencia()+
-						"\n\t\t\t\tNumero: "+ this.getConta().getNumero()+
-						"\n\t\t\t\tSaldo anterior: "+this.getSaldo_anteior()+
-						"\n\t\t\t\tSaldo atual: "+this.getSaldo_atual()+
-						"\n\t\t\t\tValor: "+this.getValorOperacao() +
-						"\n\t\t\t\tOperacao: "+this.getNomeOperacao()+
-						"\n\t\t\t\tDescricao: "+this.getDescricao()+
-						"\n\t\t\t\tDestinatario"+
+						"\n\t\t\t\tRemetente: "+
+						"\n\t\t\t\t\t\tNome: "+this.getConta().getPessoa().getNome()+
+						"\n\t\t\t\t\t\tAgencia: "+ this.getConta().getAgencia()+
+						"\n\t\t\t\t\t\tNumero: "+ this.getConta().getNumero()+
+						"\n\t\t\t\t\t\tSaldo anterior: "+this.getSaldo_anteior()+
+						"\n\t\t\t\t\t\tValor da transacao: "+this.getValorOperacao() +
+						"\n\t\t\t\t\t\tOperacao: "+this.getNomeOperacao()+
+						"\n\t\t\t\t\t\tSaldo atual: "+this.getSaldo_atual()+
+						"\n\t\t\t\tDestinatario: "+
 						"\n\t\t\t\t\t\tNome: "+this.getDestino().getPessoa().getNome()+
+						"\n\t\t\t\t\t\tCPF: "+this.getDestino().getPessoa().getCpf()+
 						"\n\t\t\t\t\t\tAgencia: "+ this.getDestino().getAgencia()+
 						"\n\t\t\t\t\t\tNumero: "+ this.getDestino().getNumero();
 			}
