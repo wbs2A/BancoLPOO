@@ -72,11 +72,11 @@ public class TratamentodeEntradas {
 				System.out.println("\t\t\t\t[O campo nome nao pode ficar em branco]");
 				System.out.println();
 				valido = false;
-			} else if(nome.length() < 2){
+			} else if (nome.length() < 2) {
 				System.out.println();
 				System.out.println("\t\t\t\t[O campo nome deve conter no minimo 2 caracteres]");
 				System.out.println();
-			}else {
+			} else {
 				Pattern pattern = Pattern.compile("[0-9]");
 				Matcher matcher = pattern.matcher(nome);
 				if (matcher.find()) {
@@ -133,6 +133,8 @@ public class TratamentodeEntradas {
 	public static String trataEntradaCpf() {
 		String cpf;
 		boolean valido = false;
+		char dig10, dig11;
+		int sm, i, r, num, peso;
 
 		while (!valido) {
 			cpf = EntradaDeDados.lerCpf();
@@ -155,20 +157,45 @@ public class TratamentodeEntradas {
 				System.out.println();
 				valido = false;
 			} else {
-				for (int i = 0; i < cpf.length(); i++) {
-					if (!Character.isDigit(cpf.charAt(i))) {
-						valido = false;
-						break;
-					} else {
-						valido = true;
-					}
+				sm = 0;
+				peso = 10;
+				for (i = 0; i < 9; i++) {
+					num = (int) (cpf.charAt(i) - 48);
+					sm = sm + (num * peso);
+					peso = peso - 1;
 				}
-				if (valido == true) {
+				r = 11 - (sm % 11);
+				if ((r == 10) || (r == 11)) {
+					dig10 = '0';
+				} else {
+					dig10 = (char) (r + 48);
+				}
+				sm = 0;
+				peso = 11;
+				for (i = 0; i < 10; i++) {
+					num = (int) (cpf.charAt(i) - 48);
+					sm = sm + (num * peso);
+					peso = peso - 1;
+				}
+
+				r = 11 - (sm % 11);
+				if ((r == 10) || (r == 1)) {
+					dig11 = '0';
+				} else {
+					dig11 = (char) (r + 48);
+				}
+				if ((dig10 == cpf.charAt(9)) && (dig11 == cpf.charAt(10))) {
 					return cpf;
+				} else {
+					System.out.println();
+					System.out.println("\t\t\t\t[Formato de Cpf Invalido]");
+					System.out.println();
+					valido = false;
 				}
 			}
 		}
 		return cpf = null;
+
 	}
 
 	/**
