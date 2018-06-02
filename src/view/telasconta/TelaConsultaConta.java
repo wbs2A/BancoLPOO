@@ -48,6 +48,7 @@ public class TelaConsultaConta {
 		} else{
 			for (Conta contaspessoa : contas) {
 				System.out.println(contaspessoa);
+				System.out.println("\t\t\t\tSaldo atual: " + contaspessoa.getSaldo());
 				System.out.println();
 			}
 		}
