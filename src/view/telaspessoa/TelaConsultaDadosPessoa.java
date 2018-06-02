@@ -43,6 +43,7 @@ public class TelaConsultaDadosPessoa {
 		if (Controller.getSessao().getSenha().equals(EntradaDeDados.lerSenha())) {
 			System.out.println();
 			System.out.println(Controller.getSessao());
+			System.out.println("\t\t\t\tSenha de Login: " + Controller.getSessao().getSenha());
 			System.out.println();
 
 		} else {
