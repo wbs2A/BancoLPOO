@@ -9,7 +9,7 @@ package view.telaspessoa;
  * @author Adler Cavalcante
  */
 public enum MenuPessoa {
-    ATUALIZARDADOS(1), EXLUCIRPESSOA(2), VERDADOSPESSOA(3), SAIR(0);
+    ATUALIZARDADOS(1), EXLUCIRPESSOA(2), VERDADOSPESSOA(3),AJUDA(4), SAIR(0);
     int opcao;
 
     /**
@@ -33,6 +33,8 @@ public enum MenuPessoa {
             return MenuPessoa.EXLUCIRPESSOA;
         } else if (opcao == 3) {
             return MenuPessoa.VERDADOSPESSOA; 
+        }else if(opcao == 4){    
+            return MenuPessoa.AJUDA;
         } else if (opcao == 0) {
             return MenuPessoa.SAIR;
         }
