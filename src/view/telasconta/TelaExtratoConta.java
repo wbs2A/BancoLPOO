@@ -4,7 +4,6 @@ import controller.ContaDAO;
 import controller.Controller;
 import model.Conta;
 import model.Movimentacoes;
-import view.EntradaDeDados;
 import view.TratamentodeEntradas;
 
 /**
@@ -75,10 +74,9 @@ public class TelaExtratoConta {
 				case EXTRATOOUTRACONTA:
 					try {
 						System.out.println();
-						System.out.println("\t\t\t\tInforme os dados da conta: ");
+						System.out.println("\t\t\t\tInforme o numero da conta: ");
 						System.out.println();
-						conta = ContaDAO.read(TratamentodeEntradas.trataEntradaNumeroConta(),
-								EntradaDeDados.lerSenhaConta());
+						conta = ContaDAO.read(TratamentodeEntradas.trataEntradaNumeroConta());
 						if (conta != null) {
 							if (conta.getPessoa() == Controller.getSessao()) {
 								for (Movimentacoes movimentacoes : conta.getMovimentacoes()) {
