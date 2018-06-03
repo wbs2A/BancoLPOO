@@ -36,15 +36,15 @@ public class TelaDefineContaPadrao {
 				System.out.println("\t\t\t*******************************************************");
 				System.out.println("\t\t\t\t\n\t\t\t\t");
 				System.out.println("\t \t\t\t**************************************");
-				System.out.println("\t\t\t\t*    DEFINIR CONTA BANCARIA PADRAO    *");
+				System.out.println("\t\t\t\t*    DEFINIR CONTA BANCARIA PADRAO   *");
 				System.out.println("\t \t\t\t**************************************");
 				System.out.println("\t\t\t  Deseja realmente adicionar uma conta bancaria Padrao? ");
 				System.out.printf(
 						"\t\t\t\tCaso deseje, com ela sera possivel realizar \n \t\t\t\t   transacoes de maneira mais rapida.\n");
 				System.out.println("\t \t\t\t**************************************");
-				System.out.println("\t\t\t\t*   " + MenuDefineContaPadrao.SIM.opcao + ".Sim    *");
+				System.out.println("\t\t\t\t*   " + MenuDefineContaPadrao.SIM.opcao + ".Sim                            *");
 				System.out.println("\t \t\t\t**************************************");
-				System.out.println("\t\t\t\t*   " + MenuDefineContaPadrao.NAO.opcao + ".Nao    *");
+				System.out.println("\t\t\t\t*   " + MenuDefineContaPadrao.NAO.opcao + ".Nao                            *");
 				System.out.println("\t \t\t\t**************************************");
 				System.out.println("\t\t\t\t\n\t\t\t\t");
 				opcao = TratamentodeEntradas.trataEntradaOpcao();

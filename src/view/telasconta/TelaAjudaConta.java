@@ -23,7 +23,7 @@ public class TelaAjudaConta {
         System.out.println("\t\t\t*******************************************************");
         System.out.println("\t\t\t\t\n\t\t\t\t");
         System.out.println("\t \t\t\t**************************************");
-        System.out.println("\t\t\t\t*                 AJUDA          *");
+        System.out.println("\t\t\t\t*                 AJUDA              *");
         System.out.println("\t \t\t\t**************************************");
         System.out.println("\t\t\t\t\n\t\t\t\t");
         System.out.println("\t\t\t*******************************************************");

@@ -47,17 +47,17 @@ public class TelaAtualizaSenhaConta {
 				System.out.println("\t\t\t*******************************************************");
 				System.out.println("\t\t\t\t\n\t\t\t\t");
 				System.out.println("\t \t\t\t**************************************");
-				System.out.println("\t\t\t\t*     ATUALIZA SENHA CONTA BANCARIA   *");
+				System.out.println("\t\t\t\t*    ATUALIZA SENHA CONTA BANCARIA   *");
 				System.out.println("\t \t\t\t**************************************");
 				System.out.println("\t\t\t\t\n\t\t\t\t");
-				System.out.println("\t \t\t\t**************************************");
+				System.out.println("\t\t\t\t***************************************");
 				System.out.println("\t\t\t\t*   " + MenuAtualizaSenhaConta.ATUALIZARSENHACONTAPADRAO.opcao
-						+ ".Atualizar Senha da Conta Padrao    *");
+						+ ".Atualizar Senha da Conta Padrao *");
 				System.out.println("\t\t\t\t***************************************");
 				System.out.println("\t\t\t\t*   " + MenuAtualizaSenhaConta.ATUALIZARSENHAOUTRACONTA.opcao
-						+ ".Atualizar Senha de outra Conta    *");
+						+ ".Atualizar Senha de outra Conta  *");
 				System.out.println("\t\t\t\t***************************************");
-				System.out.println("\t\t\t\t*   " + MenuAtualizaSenhaConta.SAIR.opcao + ".Voltar    *");
+				System.out.println("\t\t\t\t*   " + MenuAtualizaSenhaConta.SAIR.opcao + ".Voltar                          *");
 				System.out.println("\t\t\t\t***************************************");
 				opcao = TratamentodeEntradas.trataEntradaOpcao();
 

@@ -39,16 +39,17 @@ public class TelaExtratoConta {
 				System.out.println("\t\t\t\t\n\t\t\t\t");
 				System.out.println("\t\t\t\t****************************************");
 				System.out.println("\t\t\t\t*   EXTRATO DE CONTA(S) BANCARIA(S)    *");
-				System.out.println("\t\t\t*******************************************************");
+				System.out.println("\t\t\t\t****************************************");
 				System.out.println("\t\t\t\t\n\t\t\t\t");
-				System.out.println(
-						"\t\t\t\t*   " + MenuExtratoConta.EXTRATOCONTAPADRAO.opcao + ".Ver Extrato da Conta Padrao*");
 				System.out.println("\t\t\t\t****************************************");
 				System.out.println(
-						"\t\t\t\t*   " + MenuExtratoConta.EXTRATOOUTRACONTA.opcao + ".Ver Extrato de Outra Conta*");
+						"\t\t\t\t*   " + MenuExtratoConta.EXTRATOCONTAPADRAO.opcao + ".Ver Extrato da Conta Padrao      *");
 				System.out.println("\t\t\t\t****************************************");
-				System.out.println("\t\t\t\t*   " + MenuExtratoConta.SAIR.opcao + ".Voltar*");
-				System.out.println("\t\t\t\t***************************************");
+				System.out.println(
+						"\t\t\t\t*   " + MenuExtratoConta.EXTRATOOUTRACONTA.opcao + ".Ver Extrato de Outra Conta       *");
+				System.out.println("\t\t\t\t****************************************");
+				System.out.println("\t\t\t\t*   " + MenuExtratoConta.SAIR.opcao + ".Voltar                           *");
+				System.out.println("\t\t\t\t****************************************");
 				opcao = TratamentodeEntradas.trataEntradaOpcao();
 
 				switch (MenuExtratoConta.menuOpcao(opcao)) {

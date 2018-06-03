@@ -34,20 +34,20 @@ public class TelaOpcoesTransacoes {
 				System.out.println("\t\t\t*******************************************************");
 				System.out.println("\t\t\t\t\n\t\t\t\t");
 				System.out.println("\t \t\t\t**************************************");
-				System.out.println("\t\t\t\t*             TRANSAÇÕES              *");
+				System.out.println("\t\t\t\t*             TRANSAÇÕES             *");
 				System.out.println("\t \t\t\t**************************************");
 				System.out.println("\t\t\t\t\n\t\t\t\t");
 				System.out.println("\t\t\t\t**************************************");
 				System.out.println(
-						"\t\t\t\t*   " + MenuTransacoes.REALIZARSAQUE.opcao + ".Realizar Saque                *");
+						"\t\t\t\t*   " + MenuTransacoes.REALIZARSAQUE.opcao + ".Realizar Saque                 *");
 				System.out.println("\t\t\t\t**************************************");
 				System.out.println(
-						"\t\t\t\t*   " + MenuTransacoes.REALIZARDEPOSITO.opcao + ".Realizar Deposito             *");
+						"\t\t\t\t*   " + MenuTransacoes.REALIZARDEPOSITO.opcao + ".Realizar Deposito              *");
 				System.out.println("\t\t\t\t**************************************");
 				System.out.println("\t\t\t\t*   " + MenuTransacoes.REALIZARTRANSFERENCIA.opcao
-						+ ".Realizar Transferencia        *");
+						+ ".Realizar Transferencia         *");
 				System.out.println("\t\t\t\t**************************************");
-				System.out.println("\t\t\t\t*   " + MenuTransacoes.SAIR.opcao + ".Voltar             *");
+				System.out.println("\t\t\t\t*   " + MenuTransacoes.SAIR.opcao + ".Voltar                         *");
 				System.out.println("\t\t\t\t**************************************");
 				opcao = TratamentodeEntradas.trataEntradaOpcao();
 
