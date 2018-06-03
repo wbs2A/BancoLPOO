@@ -61,8 +61,14 @@ public class TelaExtratoConta {
 						System.out.println(conta);
 						System.out.println();
 						System.out.println();
-						for (Movimentacoes movimentacoes : conta.getMovimentacoes()) {
-							System.out.println(movimentacoes);
+						if (conta.getMovimentacoes().isEmpty()) {
+							System.out.println();
+							System.out.println("\t\t\t\t[Voce ainda nao efetuou nenhuma transacao nesta conta]");
+							System.out.println();
+						} else {
+							for (Movimentacoes movimentacoes : conta.getMovimentacoes()) {
+								System.out.println(movimentacoes);
+							}
 						}
 					} else {
 						System.out.println();
@@ -79,8 +85,17 @@ public class TelaExtratoConta {
 						conta = ContaDAO.read(TratamentodeEntradas.trataEntradaNumeroConta());
 						if (conta != null) {
 							if (conta.getPessoa() == Controller.getSessao()) {
-								for (Movimentacoes movimentacoes : conta.getMovimentacoes()) {
-									System.out.println(movimentacoes);
+								System.out.println();
+								System.out.println(conta);
+								System.out.println();
+								if (conta.getMovimentacoes().isEmpty()) {
+									System.out.println();
+									System.out.println("\t\t\t\t[Voce ainda nao efetuou nenhuma transacao nesta conta]");
+									System.out.println();
+								} else {
+									for (Movimentacoes movimentacoes : conta.getMovimentacoes()) {
+										System.out.println(movimentacoes);
+									}
 								}
 							} else {
 								System.out.println();
