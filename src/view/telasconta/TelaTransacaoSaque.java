@@ -76,7 +76,7 @@ public class TelaTransacaoSaque {
 							if (EntradaDeDados.lerSenhaConta().equals(conta.getSenha())) {
 								try {
 									Controller.realizarTransacao(new Date(), conta,
-											EntradaDeDados.lerDescricaoTransacao(), valor, 1);
+											null, valor, 1);
 									System.out.println();
 									System.out.println("\t\t\t\t[Saque realizado com sucesso]");
 									System.out.println();
@@ -116,7 +116,7 @@ public class TelaTransacaoSaque {
 								if (valor > 0) {
 									try {
 										Controller.realizarTransacao(new Date(), conta,
-												EntradaDeDados.lerDescricaoTransacao(), valor, 1);
+												null, valor, 1);
 										System.out.println();
 										System.out.println("\t\t\t\t[Saque realizado com sucesso]");
 										System.out.println();

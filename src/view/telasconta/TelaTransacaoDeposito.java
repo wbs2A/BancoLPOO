@@ -6,7 +6,6 @@ import controller.ContaDAO;
 import controller.Controller;
 import model.Conta;
 import view.ClearConsole;
-import view.EntradaDeDados;
 import view.TratamentodeEntradas;
 
 /**
@@ -74,7 +73,7 @@ public class TelaTransacaoDeposito {
 						valor = TratamentodeEntradas.trataValorTransacao();
 						if (valor > 0) {
 							try {
-								Controller.realizarTransacao1(new Date(), conta, EntradaDeDados.lerDescricaoTransacao(),
+								Controller.realizarTransacao1(new Date(), conta, null,
 										valor, 2);
 								System.out.println();
 								System.out.println("\t\t\t\t[Deposito realizado com sucesso]");
@@ -106,7 +105,7 @@ public class TelaTransacaoDeposito {
 							if (valor > 0) {
 								try {
 									Controller.realizarTransacao1(new Date(), conta,
-											EntradaDeDados.lerDescricaoTransacao(), valor, 2);
+											null, valor, 2);
 									System.out.println();
 									System.out.println("\t\t\t\t[Deposito realizado com sucesso]");
 									System.out.println();
