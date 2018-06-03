@@ -1,6 +1,6 @@
 package view.comum;
 
-import comum.TelaAjudaInicial;
+import view.comum.TelaAjudaInicial;
 import view.TratamentodeEntradas;
 import view.telaspessoa.TelaCadastraPessoa;
 
