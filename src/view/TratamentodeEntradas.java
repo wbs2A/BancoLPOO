@@ -405,4 +405,49 @@ public class TratamentodeEntradas {
 		}
 		return num;
 	}
+
+	/**
+	 * Este metodo e responsavel por validar se a senha da conta bancaria contem 6 digitos, sem espaco e somente valores inteiros.
+	 * @return String
+	 */
+	public static String trataEntradaSenhaContaBancaria() {
+		String numero;
+		int num;
+		boolean valido = false;
+		while (!valido) {
+			numero = EntradaDeDados.lerSenhaConta();
+			if (numero.trim().isEmpty()) {
+				System.out.println();
+				System.out.println("\t\t\t\t[O campo senha da conta nao pode ficar em branco]");
+				System.out.println();
+				valido = false;
+			} else if (numero.length() < 6) {
+				System.out.println();
+				System.out.println("\t\t\t\t[O campo senha da conta deve conter no minimo 6 digitos]");
+				System.out.println();
+				valido = false;
+			} else {
+				Pattern pattern = Pattern.compile("\\s");
+				Matcher matcher = pattern.matcher(numero);
+				if (matcher.find()) {
+					System.out.println();
+					System.out.println("\t\t\t\t[O campo senha da conta nao pode conter espaco em branco]");
+					System.out.println();
+					valido = false;
+				} else {
+					try {
+						num = Integer.parseInt(numero);
+						valido = true;
+						return String.valueOf(num);
+					} catch (Exception e) {
+						System.out.println();
+						System.out.println("\t\t\t\t[Sao validos apenas numeros inteiros!]");
+						System.out.println();
+					}
+
+				}
+			}
+		}
+		return numero = null;
+	}
 }
