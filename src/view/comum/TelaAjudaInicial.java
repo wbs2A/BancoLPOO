@@ -1,4 +1,4 @@
-package comum;
+package view.comum;
 
 /**
  * Classe responsavel por disponiblizar uma tela de ajuda ao usuario, que mostra
