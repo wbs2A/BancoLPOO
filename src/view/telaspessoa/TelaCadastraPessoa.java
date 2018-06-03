@@ -2,7 +2,6 @@ package view.telaspessoa;
 
 import controller.Controller;
 import controller.PessoaDAO;
-import view.EntradaDeDados;
 import view.TratamentodeEntradas;
 
 /**
@@ -35,7 +34,7 @@ public class TelaCadastraPessoa {
 		cpf = TratamentodeEntradas.trataEntradaCpf();
 
 		if (PessoaDAO.read(cpf) == null) {
-			Controller.criarPessoa(TratamentodeEntradas.trataEntradaNome(), EntradaDeDados.lerSenha(), cpf,
+			Controller.criarPessoa(TratamentodeEntradas.trataEntradaNome(), TratamentodeEntradas.trataEntradaSenhaConta(), cpf,
 					TratamentodeEntradas.trataEntradaDtNasc(), TratamentodeEntradas.trataEntradaSexo(),
 					TratamentodeEntradas.trataEntradaTelefone(), TratamentodeEntradas.trataEntradaEmail());
 			System.out.println();
