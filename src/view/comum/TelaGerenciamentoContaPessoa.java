@@ -37,11 +37,11 @@ public class TelaGerenciamentoContaPessoa {
 				System.out.println("\t\t\t\t**************************************");
 				System.out.println("\t\t\t\t\n\t\t\t\t");
 				System.out.println("\t\t\t\t**************************************");
-				System.out.println("\t\t\t\t*" + MenuHome.GERENCIARCONTA.opcao + ". Gerenciar Conta(s)            *");
+				System.out.println("\t\t\t\t*" +    MenuHome.GERENCIARCONTA.opcao + ". Gerenciar Conta(s)               *");
 				System.out.println("\t\t\t\t**************************************");
-				System.out.println("\t\t\t\t*" + MenuHome.GERENCIARPESSOA.opcao + ". Gerenciar Pessoa              *");
+				System.out.println("\t\t\t\t*" +    MenuHome.GERENCIARPESSOA.opcao + ". Gerenciar Pessoa                 *");
 				System.out.println("\t\t\t\t**************************************");
-				System.out.println("\t\t\t\t*" + MenuHome.SAIR.opcao + ". Sair                          *");
+				System.out.println("\t\t\t\t*" +    MenuHome.SAIR.opcao + ". Sair                             *");
 				System.out.println("\t\t\t\t**************************************");
 				opcao = TratamentodeEntradas.trataEntradaOpcao();
 
