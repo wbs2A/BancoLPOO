@@ -54,7 +54,7 @@ public class EntradaDeDados {
 	 */
 	public static String lerCpf() {
 		System.out.println();
-		System.out.printf("\t\t\t\tCpf do Titular (Sem pontos): ");
+		System.out.printf("\t\t\t\tCpf do Titular: ");
 		return scanner.nextLine();
 	}
 
@@ -64,7 +64,7 @@ public class EntradaDeDados {
 	 */
 	public static String lerSenha() {
 		System.out.println();
-		System.out.printf("\t\t\t\tSenha de Login (No minimo 8 caracteres): ");
+		System.out.printf("\t\t\t\tSenha de Login: ");
 		return scanner.nextLine();
 	}
 
@@ -105,7 +105,7 @@ public class EntradaDeDados {
 	 */
 	public static String lerSenhaConta() {
 		System.out.println();
-		System.out.printf("\t\t\t\tSenha da Conta (No minimo 6 digitos): ");
+		System.out.printf("\t\t\t\tSenha da Conta: ");
 		return scanner.nextLine();
 	}
 
