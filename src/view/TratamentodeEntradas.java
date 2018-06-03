@@ -297,7 +297,7 @@ public class TratamentodeEntradas {
 				valido = false;
 			} else if (numero.length() < 8) {
 				System.out.println();
-				System.out.println("\t\t\t\t[O campo senha de login deve conter no minimo 8 digitos]");
+				System.out.println("\t\t\t\t[O campo senha de login deve conter no minimo 8 caracteres]");
 				System.out.println();
 				valido = false;
 			} else {
