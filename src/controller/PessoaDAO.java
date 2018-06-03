@@ -2,6 +2,7 @@ package controller;
 
 import java.util.ArrayList;
 import java.util.Date;
+
 import model.Pessoa;
 import exceptions.SenhaIncorreta;
 
@@ -13,7 +14,8 @@ import exceptions.SenhaIncorreta;
 public class PessoaDAO extends DAO<Object>{
     
     public static void carregarPessoas() {
-        Object obj = ContaDAO.carregar(arrayPessoa.getClass().getName());
+        Object obj = PessoaDAO.carregar("arrayPessoa");
+        System.out.println(obj);
         if(obj == null){
         	PessoaDAO.descarregar(arrayPessoa);
         }else{

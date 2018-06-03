@@ -15,9 +15,10 @@ import exceptions.SenhaIncorreta;
  */
 
 public class ContaDAO extends DAO<Object>{
-	
-    public static void carregarContas() {
-        Object obj = ContaDAO.carregar(arrayConta.getClass().getName());
+
+    public static void carregarContas(){
+    	Object obj = ContaDAO.carregar("arrayConta");
+    	System.out.println(obj);
         if(obj == null){
         	ContaDAO.descarregar(arrayConta);
         }else{
