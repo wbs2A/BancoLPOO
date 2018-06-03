@@ -32,10 +32,11 @@ abstract class DAO<T>{
         FileInputStream fis;
         Object obj = null;
         if(PATH != null){
-	        try(ObjectInputStream ois = new ObjectInputStream(fis = new FileInputStream(PATH))){
+	        try{
+	        	fis = new FileInputStream(PATH);	
+	        	ObjectInputStream ois = new ObjectInputStream(fis);
 	            obj = (Object)ois.readObject();
 	            ois.close();
-	            fis.close();
 	            return obj;
 	        } catch (FileNotFoundException ex) {
 	            Logger.getLogger(DAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -46,8 +47,8 @@ abstract class DAO<T>{
 	        }
         }else{
         	descarregar(obj);
+        	return obj;
         }
-		return obj;
     }
 
     /*
@@ -64,35 +65,19 @@ abstract class DAO<T>{
         String home = System.getProperty("user.home");
         boolean directoryExists;
         System.out.println(type);
-        if(type == "Conta"){
-	        if(System.getProperty("os.name").toLowerCase().contains("windows")){
-	            File f = new File(home + "\\BancoLPOO\\app\\");
-	            directoryExists = f.exists();
-	            if(!directoryExists)
-	                f.mkdirs();
-	            resourcePath = home + "\\BancoLPOO\\app\\Conta.dat";
+        if(System.getProperty("os.name").toLowerCase().contains("windows")){
+        	File f = new File(home + "\\BancoLPOO\\app\\");
+        	directoryExists = f.exists();
+        	if(!directoryExists)
+        		f.mkdirs();
+	            resourcePath = home + "\\BancoLPOO\\app\\"+type+".dat";
 	        }else{
 	            File f = new File(home + "/BancoLPOO/app/");
 	            directoryExists = f.exists();
 	            if(!directoryExists)
 	                f.mkdirs();
-	            resourcePath = home + "/BancoLPOO/app/Conta.dat";
+	            resourcePath = home + "/BancoLPOO/app/"+type+".dat";
 	        }
-        }else if(type == "Pessoa"){
-        	if(System.getProperty("os.name").toLowerCase().contains("windows")){
-	            File f = new File(home + "\\BancoLPOO\\app\\");
-	            directoryExists = f.exists();
-	            if(!directoryExists)
-	                f.mkdirs();
-	            resourcePath = home + "\\BancoLPOO\\app\\Pessoa.dat";
-	        }else{
-	            File f = new File(home + "/BancoLPOO/app/");
-	            directoryExists = f.exists();
-	            if(!directoryExists)
-	                f.mkdirs();
-	            resourcePath = home + "/BancoLPOO/app/Pessoa.dat";
-	        }
-        }
         return resourcePath;
     }
 
@@ -107,16 +92,13 @@ abstract class DAO<T>{
 
     public static boolean descarregar(Object obj){
         String PATH = DAO.ensuresPath(obj.getClass().getName());
-        FileOutputStream fos;
-        try (ObjectOutputStream oos = new ObjectOutputStream(fos = new FileOutputStream(PATH))){
+        try{
+        	FileOutputStream fos = new FileOutputStream(PATH);	
+        	ObjectOutputStream oos = new ObjectOutputStream(fos);
             oos.writeObject(obj);
             oos.close();
-            fos.close();
             return true;
             
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(DAO.class.getName()).log(Level.SEVERE, null, ex);
-            return false;
         } catch (IOException ex) {
             Logger.getLogger(DAO.class.getName()).log(Level.SEVERE, null, ex);
             return false;
