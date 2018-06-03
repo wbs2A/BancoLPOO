@@ -75,6 +75,9 @@ public class TelaExcluiConta {
 								if (Controller.getSessao().getSenha().equals(EntradaDeDados.lerSenha())) {
 									System.out.println();
 									ContaDAO.delete(conta, Controller.getSessao());
+									if (conta == Controller.getSessao().getContaPadrao()) {
+										Controller.getSessao().setContaPadrao(null);
+									}
 									System.out.println();
 									System.out.println("[\t\t\t\t[Conta removida com sucesso]");
 									System.out.println();
