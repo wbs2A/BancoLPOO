@@ -44,18 +44,18 @@ public class TelaAtualizaDadosPessoa {
 					System.out.println("\t\t\t*******************************************************");
 					System.out.println("\t\t\t\t\n\t\t\t\t");
 					System.out.println("\t \t\t\t**************************************");
-					System.out.println("\t\t\t\t*          ATUALIZAR CADASTRO         *");
+					System.out.println("\t\t\t\t*          ATUALIZAR CADASTRO        *");
 					System.out.println("\t \t\t\t**************************************");
 					System.out.println("\t\t\t\t\n\t\t\t\t");
 					System.out.println("\t\t\t\t**************************************");
 					System.out.println("\t\t\t\t*  " + MenuAtualizaDados.ATUALIZARNOME.opcao
-							+ ". Atualizar Nome                *");
+							+ ". Atualizar Nome                 *");
 					System.out.println("\t\t\t\t**************************************");
 					System.out.println(
-							"\t\t\t\t*  " + MenuAtualizaDados.ATUALIZARCPF.opcao + ". Atualizar CPF                 *");
+							"\t\t\t\t*  " + MenuAtualizaDados.ATUALIZARCPF.opcao + ". Atualizar CPF                  *");
 					System.out.println("\t\t\t\t**************************************");
 					System.out.println("\t\t\t\t*  " + MenuAtualizaDados.ATUALIZARDATANASC.opcao
-							+ ". Atualizar Data de Nascimento  *");
+							+ ". Atualizar Data de Nascimento   *");
 					System.out.println("\t\t\t\t**************************************");
 					System.out.println("\t\t\t\t*   " + MenuAtualizaDados.ATUALIZARSEXO.opcao
 							+ ". Atualizar Sexo                *");
@@ -64,10 +64,10 @@ public class TelaAtualizaDadosPessoa {
 							+ ". Atualizar Senha de Login      *");
 					System.out.println("\t\t\t\t**************************************");
 					System.out.println(
-							"\t\t\t\t*   " + MenuAtualizaDados.ATUALIZARTELEFONE.opcao + ". Atualizar Celular      *");
+							"\t\t\t\t*   " + MenuAtualizaDados.ATUALIZARTELEFONE.opcao + ". Atualizar Celular             *");
 					System.out.println("\t\t\t\t**************************************");
 					System.out.println(
-							"\t\t\t\t*   " + MenuAtualizaDados.ATUALIZAREMAIL.opcao + ". Atualizar E-mail      *");
+							"\t\t\t\t*   " + MenuAtualizaDados.ATUALIZAREMAIL.opcao + ". Atualizar E-mail              *");
 					System.out.println("\t\t\t\t**************************************");
 					System.out.println(
 							"\t\t\t\t*   " + MenuAtualizaDados.SAIR.opcao + ". Voltar                        *");

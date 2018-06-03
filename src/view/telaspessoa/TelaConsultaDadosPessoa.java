@@ -28,7 +28,7 @@ public class TelaConsultaDadosPessoa {
 		new ClearConsole();
 		System.out.println();
 		System.out.println("\t\t\t*******************************************************");
-		System.out.println("\t\t\t*\t           CPAN BANCO CENTER                       *");
+		System.out.println("\t\t\t*\t           CPAN BANCO CENTER                  *");
 		System.out.println("\t\t\t*******************************************************");
 		System.out.println("\t\t\t\t\n\t\t\t\t");
 		System.out.println("\t\t\t\t**************************************");

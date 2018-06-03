@@ -32,18 +32,19 @@ public class TelaGerenciaPessoa {
                 System.out.println("\t\t\t*******************************************************");
                 System.out.println("\t\t\t\t\n\t\t\t\t");
                 System.out.println("\t \t\t\t**************************************");
-                System.out.println("\t\t\t\t*    GERENCIAR DADOS DE CADASTRO      *");
+                System.out.println("\t\t\t\t*    GERENCIAR DADOS DE CADASTRO     *");
                 System.out.println("\t \t\t\t**************************************");
                 System.out.println("\t\t\t\t\n\t\t\t\t");
                 System.out.println("\t\t\t\t**************************************");
-                System.out.println("\t\t\t\t*   " + MenuPessoa.ATUALIZARDADOS.opcao + ". Atualizar Dados de Cadastro *");
+                System.out.println("\t\t\t\t*   " + MenuPessoa.ATUALIZARDADOS.opcao + ". Atualizar Dados de Cadastro   *");
                 System.out.println("\t\t\t\t**************************************");
-                System.out.println("\t\t\t\t*   " + MenuPessoa.EXLUCIRPESSOA.opcao + ". Excluir Conta *");
+                System.out.println("\t\t\t\t*   " + MenuPessoa.EXLUCIRPESSOA.opcao + ". Excluir Conta                 *");
                 System.out.println("\t\t\t\t**************************************");
-                System.out.println("\t\t\t\t*   " + MenuPessoa.VERDADOSPESSOA.opcao + ". Mostrar dados Cadastrados Pessoa *");
+                System.out.println("\t\t\t\t*   " + MenuPessoa.VERDADOSPESSOA.opcao + ". Mostrar dados Cadastrados     *");
                 System.out.println("\t\t\t\t**************************************");
-                System.out.println("\t\t\t\t*   " + MenuPessoa.AJUDA.opcao + ". Ajuda");
-                System.out.println("\t\t\t\t*   " + MenuPessoa.SAIR.opcao + ". Voltar      *");
+                System.out.println("\t\t\t\t*   " + MenuPessoa.AJUDA.opcao + ". Ajuda                         *");
+                System.out.println("\t\t\t\t**************************************");
+                System.out.println("\t\t\t\t*   " + MenuPessoa.SAIR.opcao + ". Voltar                        *");
                 System.out.println("\t\t\t\t**************************************");
 
                 opcao = TratamentodeEntradas.trataEntradaOpcao();
