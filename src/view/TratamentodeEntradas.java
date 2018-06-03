@@ -293,7 +293,7 @@ public class TratamentodeEntradas {
 				System.out.println();
 				valido = false;
 			} else {
-				valido = true;
+				return numero;
 			}
 			/*
 			 * try { numero = EntradaDeDados.lerSenhaConta(); num =
