@@ -39,7 +39,7 @@ public class TratamentodeEntradas {
 					success = true;
 					return data;
 
-				} else {
+				} else if (dataTexto.trim().isEmpty()) {
 					System.out.println();
 					System.out.println("\t\t\t\t[O campo data de nascimento nao pode ficar em branco]");
 					System.out.println();
@@ -67,7 +67,7 @@ public class TratamentodeEntradas {
 
 		while (!valido) {
 			nome = EntradaDeDados.lerNome();
-			if (nome.equals("")) {
+			if (nome.trim().isEmpty()) {
 				System.out.println();
 				System.out.println("\t\t\t\t[O campo nome nao pode ficar em branco]");
 				System.out.println();
@@ -77,13 +77,16 @@ public class TratamentodeEntradas {
 				System.out.println("\t\t\t\t[O campo nome deve conter no minimo 2 caracteres]");
 				System.out.println();
 			} else {
-				Pattern pattern = Pattern.compile("[0-9]");
+				Pattern pattern = Pattern.compile("[^a-z A-Z0-9]");
 				Matcher matcher = pattern.matcher(nome);
-				if (matcher.find()) {
+				Pattern pattern1 = Pattern.compile("[0-9]");
+				Matcher matcher1 = pattern1.matcher(nome);
+				if (matcher.find() || matcher1.find()) {
 					System.out.println();
-					System.out.println("\t\t\t\t[O campo nome nao deve conter numeros]");
+					System.out.println("\t\t\t\t[O campo nome nao deve conter numeros ou caracteres especiais]");
 					System.out.println();
 					valido = false;
+
 				} else {
 					valido = true;
 				}
@@ -113,6 +116,11 @@ public class TratamentodeEntradas {
 			} else if (sexo.length() < 2 && sexo.equals("f")) {
 				valido = true;
 				return "Feminino";
+			} else if (sexo.trim().isEmpty()) {
+				System.out.println();
+				System.out.println("\t\t\t\t[O campo sexo nao pode ficar em branco]");
+				System.out.println();
+				valido = false;
 			} else {
 				System.out.println();
 				System.out.println("\t\t\t\t[Por Favor, Digite somente a Primeira Letra]");
@@ -146,7 +154,7 @@ public class TratamentodeEntradas {
 				System.out.println();
 				System.out.println("\t\t\t\t[Formato de Cpf Invalido]");
 				System.out.println();
-			} else if (cpf.equals("")) {
+			} else if (cpf.trim().isEmpty()) {
 				System.out.println();
 				System.out.println("\t\t\t\t[O campo cpf nao pode ficar em branco]");
 				System.out.println();
@@ -282,18 +290,27 @@ public class TratamentodeEntradas {
 		boolean valido = false;
 		while (!valido) {
 			numero = EntradaDeDados.lerSenha();
-			if (numero.equals("")) {
+			if (numero.trim().isEmpty()) {
 				System.out.println();
 				System.out.println("\t\t\t\t[O campo senha de login nao pode ficar em branco]");
 				System.out.println();
 				valido = false;
-			} else if (numero.length() < 6) {
+			} else if (numero.length() < 8) {
 				System.out.println();
-				System.out.println("\t\t\t\t[O campo senha de login deve conter no minimo 6 digitos]");
+				System.out.println("\t\t\t\t[O campo senha de login deve conter no minimo 8 digitos]");
 				System.out.println();
 				valido = false;
 			} else {
-				return numero;
+				Pattern pattern = Pattern.compile("\\s");
+				Matcher matcher = pattern.matcher(numero);
+				if (matcher.find()) {
+					System.out.println();
+					System.out.println("\t\t\t\t[O campo senha de login nao pode conter espaco em branco]");
+					System.out.println();
+					valido = false;
+				} else {
+					return numero;
+				}
 			}
 			/*
 			 * try { numero = EntradaDeDados.lerSenhaConta(); num =
@@ -315,22 +332,22 @@ public class TratamentodeEntradas {
 		String telefone;
 		boolean valido = false;
 		while (!valido) {
-			try {
-				telefone = EntradaDeDados.lerTelefoneCelular();
-				if (!telefone.equals("")) {
-					if (telefone.matches("\\(\\d{2}\\)\\d{4,5}-\\d{4}") || telefone.matches("\\d{4,5}-\\d{4}")) {
-						valido = true;
-						return telefone;
-					}
+
+			telefone = EntradaDeDados.lerTelefoneCelular();
+			if (!telefone.equals("")) {
+				if (telefone.matches("\\(\\d{2}\\)\\d{4,5}-\\d{4}") || telefone.matches("\\d{4,5}-\\d{4}")) {
+					valido = true;
+					return telefone;
 				} else {
 					System.out.println();
-					System.out.println("\t\t\t\t[O campo telefone nao pode ficar em branco]");
+					System.out.println("\t\t\t\t[Formato de Telefone Incorreto]");
 					System.out.println();
 				}
-			} catch (Exception e) {
+			} else if (telefone.trim().isEmpty()) {
 				System.out.println();
-				System.out.println("\t\t\t\t[Formato de Telefone Incorreto]");
+				System.out.println("\t\t\t\t[O campo telefone nao pode ficar em branco]");
 				System.out.println();
+				valido = false;
 			}
 		}
 		return telefone = null;
@@ -345,22 +362,21 @@ public class TratamentodeEntradas {
 		String email;
 		boolean valido = false;
 		while (!valido) {
-			try {
-				email = EntradaDeDados.lerEmail();
-				if (!email.equals("")) {
-					if (email.matches("^[\\w-]+(\\.[\\w-]+)*@([\\w-]+\\.)+[a-zA-Z]{2,7}$")) {
-						valido = true;
-						return email;
-					}
+			email = EntradaDeDados.lerEmail();
+			if (!email.equals("")) {
+				if (email.matches("^[\\w-]+(\\.[\\w-]+)*@([\\w-]+\\.)+[a-zA-Z]{2,7}$")) {
+					valido = true;
+					return email;
 				} else {
 					System.out.println();
-					System.out.println("\t\t\t\t[O campo email nao pode ficar em branco]");
+					System.out.println("\t\t\t\t[Formato de E-mail Incorreto]");
 					System.out.println();
 				}
-			} catch (Exception e) {
+			} else if (email.trim().isEmpty()) {
 				System.out.println();
-				System.out.println("\t\t\t\t[Formato de E-mail Incorreto]");
+				System.out.println("\t\t\t\t[O campo email nao pode ficar em branco]");
 				System.out.println();
+				valido = false;
 			}
 		}
 		return email = null;
