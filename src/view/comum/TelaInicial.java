@@ -56,6 +56,7 @@ public class TelaInicial {
 					break;
 				case SAIR:
 					sair = true;
+					System.exit(0);
 					break;
 				}
 			} catch (Exception e) {
