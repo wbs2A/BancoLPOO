@@ -12,19 +12,20 @@ import exceptions.SenhaIncorreta;
  */
 
 public class PessoaDAO extends DAO<Object>{
-    
-    public static void carregarPessoas() {
-        Object obj = PessoaDAO.carregar("arrayPessoa");
-        System.out.println(obj);
-        if(obj == null){
-        	PessoaDAO.descarregar(arrayPessoa);
+	
+    @SuppressWarnings("unchecked")
+	public static void carregarPessoas(){
+		ArrayList<Pessoa> arrayCarregaPessoas = (ArrayList<Pessoa>) PessoaDAO.carregar(diretorioPessoa);
+        if(arrayCarregaPessoas != null){
+        	setArrayPessoa(arrayCarregaPessoas);
+        	PessoaDAO.castTo(arrayCarregaPessoas);
         }else{
-        	arrayPessoa = PessoaDAO.castTo(obj);
+        	PessoaDAO.descarregar(diretorioPessoa, getPessoas());
         }
     }
 
     public static void salvarPessoas() {
-        PessoaDAO.descarregar(arrayPessoa);
+        PessoaDAO.descarregar(diretorioPessoa, getPessoas());
     }
  
 
@@ -33,8 +34,16 @@ public class PessoaDAO extends DAO<Object>{
     }
 
     private static ArrayList<Pessoa> arrayPessoa  = new ArrayList<Pessoa>();
+    private static String diretorioPessoa = "Pessoa.dat";
 
-
+    public static ArrayList<Pessoa> getPessoas(){
+		return arrayPessoa;
+	}
+    
+    public static void setArrayPessoa(ArrayList<Pessoa> arrayPessoa){
+    	PessoaDAO.arrayPessoa = arrayPessoa;
+    }
+    
      /* Metodo instancia objeto do tipo pessoa (criando uma pessoa) e adiciona o objeto pessoa no array de pessoas
      *@author Jose Sandonas
      *@param String nome que representa o nome da pessoa

@@ -16,21 +16,23 @@ import exceptions.SenhaIncorreta;
 
 public class ContaDAO extends DAO<Object>{
 
-    public static void carregarContas(){
-    	Object obj = ContaDAO.carregar("arrayConta");
-    	System.out.println(obj);
-        if(obj == null){
-        	ContaDAO.descarregar(arrayConta);
+	@SuppressWarnings("unchecked")
+	public static void carregarContas(){
+		ArrayList<Conta> arrayCarregaContas = (ArrayList<Conta>) ContaDAO.carregar(diretorioConta);
+        if(arrayCarregaContas != null){
+        	setArrayConta(arrayCarregaContas);
+        	ContaDAO.castTo(arrayCarregaContas);
         }else{
-        	arrayConta = ContaDAO.castTo(obj);
+        	ContaDAO.descarregar(diretorioConta, getContas());
         }
     }
 
     public static void salvarContas() {
-        ContaDAO.descarregar(arrayConta);
+        ContaDAO.descarregar(diretorioConta, getContas());
     }
  
 	private static ArrayList<Conta> arrayConta  = new ArrayList<Conta>();
+	private static String diretorioConta = "Conta.dat";
 	static Random gerador = new Random();
 	
 	 /*
@@ -71,10 +73,14 @@ public class ContaDAO extends DAO<Object>{
 	 * Metodo retorna array de Conta
 	 * @return array tipo conta de contas
 	 */
-	public ArrayList<Conta> getContas(){
+	public static ArrayList<Conta> getContas(){
 		return arrayConta;
 	}
-
+	
+	public static void setArrayConta(ArrayList<Conta> arrayConta){
+    	ContaDAO.arrayConta = arrayConta;
+    }
+	
 	/*
 	 * @author Nathaly
 	 * Metodo buscar mas so se a senha estiver correta
