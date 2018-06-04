@@ -6,6 +6,7 @@ import controller.PessoaDAO;
 import view.ClearConsole;
 import view.EntradaDeDados;
 import view.TratamentodeEntradas;
+import view.comum.TelaInicial;
 
 /**
  * Classe responsavel por disponibilizar a tela que ira oferecer as opcaoes de
@@ -67,7 +68,7 @@ public class TelaExcluiPessoa {
 						System.out.println();
 						PessoaDAO.salvarPessoas();
 						ContaDAO.salvarContas();
-						System.exit(0);
+						TelaInicial.telaInicial();
 						sair = true;
 					} else {
 						System.out.println();
