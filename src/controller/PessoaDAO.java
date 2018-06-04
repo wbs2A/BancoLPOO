@@ -2,18 +2,30 @@ package controller;
 
 import java.util.ArrayList;
 import java.util.Date;
+
 import model.Pessoa;
 import exceptions.SenhaIncorreta;
 
-public class PessoaDAO extends DAO{
-    
-    public static void carregarPessoas() {
-        Object obj = ContaDAO.carregar(arrayPessoa.getClass().getName());
-        arrayPessoa = PessoaDAO.castTo(obj);
+/*
+ * Classe que representa as operacoes CRUDs da PessoaDAO e operacoes de atualizacao de cadastro.
+ * @author: Jose Sandonas
+ */
+
+public class PessoaDAO extends DAO<Object>{
+	
+    @SuppressWarnings("unchecked")
+	public static void carregarPessoas(){
+		ArrayList<Pessoa> arrayCarregaPessoas = (ArrayList<Pessoa>) PessoaDAO.carregar(diretorioPessoa);
+        if(arrayCarregaPessoas != null){
+        	setArrayPessoa(arrayCarregaPessoas);
+        	PessoaDAO.castTo(arrayCarregaPessoas);
+        }else{
+        	PessoaDAO.descarregar(diretorioPessoa, getPessoas());
+        }
     }
 
     public static void salvarPessoas() {
-        PessoaDAO.descarregar(arrayPessoa);
+        PessoaDAO.descarregar(diretorioPessoa, getPessoas());
     }
  
 
@@ -22,10 +34,18 @@ public class PessoaDAO extends DAO{
     }
 
     private static ArrayList<Pessoa> arrayPessoa  = new ArrayList<Pessoa>();
+    private static String diretorioPessoa = "Pessoa.dat";
 
-
+    public static ArrayList<Pessoa> getPessoas(){
+		return arrayPessoa;
+	}
+    
+    public static void setArrayPessoa(ArrayList<Pessoa> arrayPessoa){
+    	PessoaDAO.arrayPessoa = arrayPessoa;
+    }
+    
      /* Metodo instancia objeto do tipo pessoa (criando uma pessoa) e adiciona o objeto pessoa no array de pessoas
-     *@author José Sandonas
+     *@author Jose Sandonas
      *@param String nome que representa o nome da pessoa
      *@param String senha que representa a senha de cadastro
      *@param String cpf que representa o cadastro
@@ -40,7 +60,7 @@ public class PessoaDAO extends DAO{
     }
 
     /* Metodo que realiza a busca de uma pessoa recebendo como parametro o seu CPF
-    *@author José Sandonas
+    *@author Jose Sandonas
     *@return pessoa especificada ou nulo caso nao encontrada  
     */
     public static Pessoa read(String cpf){
@@ -51,9 +71,9 @@ public class PessoaDAO extends DAO{
         }
         return null;
     }
-    /* Metodo que realiza a alteração das informacoes de uma pessoa recebendo como parametro o numero que especifica 
-    qual dado que sera alterado, pessoa do tipo Pessoa, obejto info que seria a informação que sera alterada 
-    *@author José Sandonas
+    /* Metodo que realiza a alteracao das informacoes de uma pessoa recebendo como parametro o numero que especifica 
+    qual dado que sera alterado, pessoa do tipo Pessoa, obejto info que seria a informacao que sera alterada 
+    *@author Jose Sandonas
     *@return pessoa especificada ou nulo caso nao encontrada  
     */
     public static void update(int operacao, Pessoa pessoa, Object info){
@@ -84,7 +104,7 @@ public class PessoaDAO extends DAO{
     }
     /*Metodo que executa  a remocao interna que remove a pessoa contida dentro do arraypessoa
     *@param pessoa
-    *@author José Sandonas
+    *@author Jose Sandonas
     */
     private static void delete(Pessoa pessoa){
         arrayPessoa.remove(pessoa);
@@ -92,7 +112,7 @@ public class PessoaDAO extends DAO{
 
     /*Metodo que executa  a remocao externa que recebe o cpf e remove a pessoa
     *@param String cpf
-    *@author José Sandonas
+    *@author Jose Sandonas
     */
     public static void delete(String cpf){
         Pessoa p = read(cpf);
@@ -101,7 +121,7 @@ public class PessoaDAO extends DAO{
     
     public static Pessoa get(String cpf, String senha) throws SenhaIncorreta{
     	Pessoa p = PessoaDAO.read(cpf);
-    	if(p.getCpf().equals(senha)){
+    	if(p.getSenha().equals(senha)){
     		return p;
     	}else{
     		throw new SenhaIncorreta("Senha incorreta");

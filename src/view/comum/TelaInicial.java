@@ -1,5 +1,6 @@
 package view.comum;
 
+import view.comum.TelaAjudaInicial;
 import view.TratamentodeEntradas;
 import view.telaspessoa.TelaCadastraPessoa;
 
@@ -15,7 +16,7 @@ public class TelaInicial {
 	/**
 	 * Metodo telaInicial() e responsavel por mostrar as opcoes na qual o usuario
 	 * deseja escolher. Estas podem ser para logar no sistema, fazer o cadastro de
-	 * conta de usuario ou sair.
+	 * conta de usuario, ajuda ou sair.
 	 */
 	public static void telaInicial() {
 		int opcao;
@@ -33,7 +34,9 @@ public class TelaInicial {
 						.println("\t\t\t\t*               (" + MenuInicial.FAZERLOGIN.opcao + ")LOGIN               *");
 				System.out.println("\t\t\t\t****************************************");
 				System.out.println(
-						"\t\t\t\t*             (" + MenuInicial.FAZERCADASTRO.opcao + ")CADASTRE-SE           *");
+						"\t\t\t\t*            (" + MenuInicial.FAZERCADASTRO.opcao + ")CADASTRE-SE            *");
+				System.out.println("\t\t\t\t****************************************");
+				System.out.println("\t\t\t\t*                (" + MenuInicial.AJUDA.opcao + ")AJUDA              *");
 				System.out.println("\t\t\t\t****************************************");
 				System.out.println("\t\t\t\t*                (" + MenuInicial.SAIR.opcao + ")SAIR               *");
 				System.out.println("\t\t\t\t****************************************");
@@ -48,9 +51,12 @@ public class TelaInicial {
 				case FAZERCADASTRO:
 					TelaCadastraPessoa.formularioCadastroPessoa();
 					break;
-
+				case AJUDA:
+					TelaAjudaInicial.AjudaInicial();
+					break;
 				case SAIR:
 					sair = true;
+					System.exit(0);
 					break;
 				}
 			} catch (Exception e) {

@@ -1,9 +1,12 @@
 package view.telasconta;
 
+import java.util.Date;
+
 import controller.ContaDAO;
 import controller.Controller;
 import model.Conta;
 import view.ClearConsole;
+import view.EntradaDeDados;
 import view.TratamentodeEntradas;
 
 /**
@@ -43,43 +46,103 @@ public class TelaTransacaoSaque {
 				System.out.println("\t\t\t*******************************************************");
 				System.out.println("\t\t\t\t\n\t\t\t\t");
 				System.out.println("\t \t\t\t**************************************");
-				System.out.println("\t\t\t\t*                SAQUE                *");
+				System.out.println("\t\t\t\t*                SAQUE               *");
 				System.out.println("\t \t\t\t**************************************");
 				System.out.println("\t\t\t\t\n\t\t\t\t");
-				System.out.println("\t \t\t\t**************************************");
-				System.out.println("\t\t\t\t*   " + MenuSaque.SACARCONTAPADRAO.opcao + ".Sacar da Conta Padrao    *");
 				System.out.println("\t\t\t\t***************************************");
-				System.out.println("\t\t\t\t*   " + MenuSaque.SACAROUTRACONTA.opcao + ".Sacar de Outra Conta    *");
+				System.out.println("\t\t\t\t*   " + MenuSaque.SACARCONTAPADRAO.opcao + ".Sacar da Conta Padrao           *");
 				System.out.println("\t\t\t\t***************************************");
-				System.out.println("\t\t\t\t*   " + MenuSaque.SAIR.opcao + ".Voltar    *");
+				System.out.println("\t\t\t\t*   " + MenuSaque.SACAROUTRACONTA.opcao + ".Sacar de Outra Conta            *");
+				System.out.println("\t\t\t\t***************************************");
+				System.out.println("\t\t\t\t*   " + MenuSaque.SAIR.opcao + ".Voltar                          *");
 				System.out.println("\t\t\t\t***************************************");
 				opcao = TratamentodeEntradas.trataEntradaOpcao();
 
 				switch (MenuSaque.menuOpcao(opcao)) {
 				case SACARCONTAPADRAO:
-					conta = Controller.getPessoa().getContaPadrao();
+					conta = Controller.getSessao().getContaPadrao();
 					if (conta != null) {
-						valor = TratamentodeEntradas.trataEntradaSaldoConta();
-						ContaDAO.sacar(conta, valor);
+						System.out.println();
+						System.out.println();
+						System.out.println("\t\t\t\tConta padrao definida: ");
+						System.out.println(conta);
+						System.out.println();
+						System.out.println();
+						valor = TratamentodeEntradas.trataValorTransacao();
+						if (valor > 0) {
+							System.out.println();
+							System.out.println("\t\t\t\t        Confirme a Senha da Conta            ");
+							System.out.println();
+							if (EntradaDeDados.lerSenhaConta().equals(conta.getSenha())) {
+								try {
+									Controller.realizarTransacao(new Date(), conta,
+											null, valor, 1);
+									System.out.println();
+									System.out.println("\t\t\t\t[Saque realizado com sucesso]");
+									System.out.println();
+									ContaDAO.salvarContas();
+								} catch (Exception e) {
+									System.out.println();
+									System.out.println("\t\t\t\t[Saldo insuficiente para saque]");
+									System.out.println();
+								}
+							} else {
+								System.out.println();
+								System.out.println("\t\t\t\t[Senha invalida]");
+								System.out.println();
+							}
+						} else {
+							System.out.println();
+							System.out.println("\t\t\t\t[Valor invalido para saque]");
+							System.out.println();
+						}
+					} else {
+						System.out.println();
+						System.out.println("\t\t\t\t[Voce nao possui uma conta padrao definida]");
+						System.out.println();
 					}
 					break;
 
 				case SACAROUTRACONTA:
-					System.out.println();
-					System.out.println("\t\t\t\tInforme o numero da conta para saque: ");
-					System.out.println();
-					conta = ContaDAO.read(TratamentodeEntradas.trataEntradaNumeroConta());
-
-					if (conta != null) {
-						valor = TratamentodeEntradas.trataEntradaSaldoConta();
-						ContaDAO.sacar(conta, valor);
+					try {
 						System.out.println();
-					} else {
+						System.out.println("\t\t\t\tInforme o numero e a senha da conta para saque: ");
+						System.out.println();
+						conta = ContaDAO.read(TratamentodeEntradas.trataEntradaNumeroConta(),
+								EntradaDeDados.lerSenhaConta());
+						if (conta != null) {
+							if (conta.getPessoa() == Controller.getSessao()) {
+								valor = TratamentodeEntradas.trataValorTransacao();
+								if (valor > 0) {
+									try {
+										Controller.realizarTransacao(new Date(), conta,
+												null, valor, 1);
+										System.out.println();
+										System.out.println("\t\t\t\t[Saque realizado com sucesso]");
+										System.out.println();
+										ContaDAO.salvarContas();
+									} catch (Exception e) {
+										System.out.println();
+										System.out.println("\t\t\t\t[Saldo insuficiente para saque]");
+										System.out.println();
+									}
+								} else {
+									System.out.println();
+									System.out.println("\t\t\t\t[Valor invalido para saque]");
+									System.out.println();
+								}
+							} else {
+								System.out.println();
+								System.out.println("\t\t\t\t[Conta nao encontrada]");
+								System.out.println();
+							}
+
+						}
+					} catch (Exception ex) {
 						System.out.println();
 						System.out.println("\t\t\t\t[Conta não Encontrada]");
 						System.out.println();
 					}
-
 					break;
 
 				case SAIR:

@@ -6,51 +6,62 @@ import model.Conta;
 import model.Pessoa;
 import exceptions.ContaInexistente;
 import exceptions.SaldoNegativo;
+import exceptions.SenhaIncorreta;
 
 /*
- * @author Controller
+ * Classe que representa as operacoes CRUDs da ContaDAO e operacoes de alguma transacao requisitada.
+ * @author: Nathaly.
+ * @author: Wesley B.
  */
 
-public class ContaDAO extends DAO{
-	
-    public static void carregarContas() {
-        Object obj = ContaDAO.carregar(arrayConta.getClass().getName());
-        arrayConta = ContaDAO.castTo(obj);
+public class ContaDAO extends DAO<Object>{
+
+	@SuppressWarnings("unchecked")
+	public static void carregarContas(){
+		ArrayList<Conta> arrayCarregaContas = (ArrayList<Conta>) ContaDAO.carregar(diretorioConta);
+        if(arrayCarregaContas != null){
+        	setArrayConta(arrayCarregaContas);
+        	ContaDAO.castTo(arrayCarregaContas);
+        }else{
+        	ContaDAO.descarregar(diretorioConta, getContas());
+        }
     }
 
     public static void salvarContas() {
-        ContaDAO.descarregar(arrayConta);
+        ContaDAO.descarregar(diretorioConta, getContas());
     }
  
 	private static ArrayList<Conta> arrayConta  = new ArrayList<Conta>();
+	private static String diretorioConta = "Conta.dat";
 	static Random gerador = new Random();
 	
 	 /*
+	 * @author Nathaly
 	 * Metodo le int numero da conta
 	 * @return int
 	 */
 	public static int num(){
-		return gerador.nextInt();
+		return 100000 +(gerador.nextInt(90000));
 	}
 
 	 /*
+	 * @author Nathaly
 	 * Metodo instancia objeto do tipo conta (cria) e adiciona o objeto conta no array de contas em pessoa
-	 * @param int agencia fixa
 	 * @param string senha
-	 * @param double saldo
-	 * @param objeto
+	 * @param objeto pessoa
 	 * @return objeto
 	 */
-	public static Object create(int agencia, String senha, double saldo, Pessoa pessoa ){
-		Conta conta = new Conta(14, ContaDAO.num(), (float) saldo, senha, pessoa);
+	public static Object create(String senha, Pessoa pessoa ){
+		Conta conta = new Conta(1400, ContaDAO.num(), 0, senha, pessoa);
 		arrayConta.add(conta);
 		pessoa.getContas().add(conta);
 		return conta;
 	}
 
 	 /*
+	 * @author Nathaly
 	 * Metodo atualiza senha
-	 * @param objeto
+	 * @param objeto conta
 	 * @param senha
 	 */
 	public static void update(Conta conta, String senha) {
@@ -58,17 +69,37 @@ public class ContaDAO extends DAO{
 	}
 
 	/*
+	 * @author Nathaly
 	 * Metodo retorna array de Conta
-	 * @return objeto
+	 * @return array tipo conta de contas
 	 */
-	public ArrayList<Conta> getContas(){
+	public static ArrayList<Conta> getContas(){
 		return arrayConta;
 	}
-
+	
+	public static void setArrayConta(ArrayList<Conta> arrayConta){
+    	ContaDAO.arrayConta = arrayConta;
+    }
+	
 	/*
+	 * @author Nathaly
+	 * Metodo buscar mas so se a senha estiver correta
+	 * @param int numero conta, senha string
+	 * @return objeto conta
+	 */
+	public static Conta read(int num, String senha) throws ContaInexistente, SenhaIncorreta{
+		Conta conta = ContaDAO.read(num);
+    	if(conta.getSenha().equals(senha)){
+    		return conta;
+    	}else{
+    		throw new SenhaIncorreta("Senha incorreta");
+    	}
+	}
+	/*
+	 * @author Nathaly
 	 * Metodo buscar um objeto no array pelo numero da conta
-	 * @param valor
-	 * @return objeto
+	 * @param int
+	 * @return objeto conta
 	 */
 	public static Conta read(int num) throws ContaInexistente{
 		Conta conta = null;
@@ -78,28 +109,25 @@ public class ContaDAO extends DAO{
 				return conta;
 			}
 		}
-		throw new ContaInexistente("Conta n�o existe");
+		throw new ContaInexistente("Conta nao existe");
 	}
 	
 	/*
-	 * Metodo exclui um objeto no array 
+	 * @author Nathaly
+	 * Metodo exclui um objeto no array conta
 	 * @param objeto
-	 * @return objeto
 	 */
-	private static void del(Conta conta){
+	public static void delete(Conta conta, Pessoa pessoa){
 		arrayConta.remove(conta);
+		pessoa.getContas().remove(conta);
 	}
 
-	public static void delete(int num) throws ContaInexistente{
-		Conta conta = read(num);
-		del(conta);
-	}
 
 	/*
+	 * @author Nathaly
 	 * Metodo sacar um valor
-	 * @param valor
+	 * @param objeto, valor
 	 * @return boolean
-	 *
 	 */
 	public static boolean sacar(Conta conta, double valor) throws SaldoNegativo{
 		if (Emprestar(conta, valor)){
@@ -110,6 +138,7 @@ public class ContaDAO extends DAO{
 	}
 	
 	/*
+	 * @author Nathaly
 	 * Metodo deposita um valor
 	 * @param valor
 	 * @return boolean
@@ -123,8 +152,9 @@ public class ContaDAO extends DAO{
 	}
 	
 	/*
-	 * Metodo empresta um valor
-	 * @param valor
+	 * @author Nathaly
+	 * Metodo verifica se tem excecoes para entao realizar uma operacao
+	 * @param objeto, valor
 	 * @return boolean
 	 */
 	public static boolean Emprestar(Conta conta, double valor) throws SaldoNegativo{
@@ -135,8 +165,9 @@ public class ContaDAO extends DAO{
 	}
 	
 	/*
+	 * @author Nathaly
 	 * Metodo transfere um valor
-	 * @param valor
+	 * @param valor, objeto 
 	 * @return boolean
 	 */
 	public static boolean transferir(double valor, Conta DepositarNela, Conta RetirarDela) throws SaldoNegativo{

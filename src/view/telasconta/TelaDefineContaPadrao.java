@@ -2,8 +2,10 @@ package view.telasconta;
 
 import controller.ContaDAO;
 import controller.Controller;
+import controller.PessoaDAO;
 import model.Conta;
 import view.ClearConsole;
+import view.EntradaDeDados;
 import view.TratamentodeEntradas;
 
 /**
@@ -34,34 +36,42 @@ public class TelaDefineContaPadrao {
 				System.out.println("\t\t\t*******************************************************");
 				System.out.println("\t\t\t\t\n\t\t\t\t");
 				System.out.println("\t \t\t\t**************************************");
-				System.out.println("\t\t\t\t*    DEFINIR CONTA BANCARIA PADRAO    *");
+				System.out.println("\t\t\t\t*    DEFINIR CONTA BANCARIA PADRAO   *");
 				System.out.println("\t \t\t\t**************************************");
 				System.out.println("\t\t\t  Deseja realmente adicionar uma conta bancaria Padrao? ");
 				System.out.printf(
 						"\t\t\t\tCaso deseje, com ela sera possivel realizar \n \t\t\t\t   transacoes de maneira mais rapida.\n");
 				System.out.println("\t \t\t\t**************************************");
-				System.out.println("\t\t\t\t*   " + MenuDefineContaPadrao.SIM.opcao + ".Sim    *");
+				System.out.println("\t\t\t\t*   " + MenuDefineContaPadrao.SIM.opcao + ".Sim                            *");
 				System.out.println("\t \t\t\t**************************************");
-				System.out.println("\t\t\t\t*   " + MenuDefineContaPadrao.NAO.opcao + ".Nao    *");
+				System.out.println("\t\t\t\t*   " + MenuDefineContaPadrao.NAO.opcao + ".Nao                            *");
 				System.out.println("\t \t\t\t**************************************");
 				System.out.println("\t\t\t\t\n\t\t\t\t");
 				opcao = TratamentodeEntradas.trataEntradaOpcao();
 
 				switch (MenuDefineContaPadrao.menuOpcao(opcao)) {
 				case SIM:
-					conta = ContaDAO.read(TratamentodeEntradas.trataEntradaNumeroConta());
-					if (conta != null) {
-						Controller.getPessoa().setContaPadrao(conta);
-						System.out.println();
-						System.out.println("[\t\t\t\t[Conta padrao definida com sucesso]");
-						System.out.println();
-					} else {
+					try {
+						conta = ContaDAO.read(TratamentodeEntradas.trataEntradaNumeroConta(),
+								EntradaDeDados.lerSenhaConta());
+						if (conta != null) {
+							if (conta.getPessoa() == Controller.getSessao()) {
+								Controller.getSessao().setContaPadrao(conta);
+								System.out.println();
+								System.out.println("[\t\t\t\t[Conta padrao definida com sucesso]");
+								System.out.println();
+								PessoaDAO.salvarPessoas();
+							} else {
+								System.out.println();
+								System.out.println("\t\t\t\t[Conta nao encontrada]");
+								System.out.println();
+							}
+						}
+					} catch (Exception ex) {
 						System.out.println();
 						System.out.println("\t\t\t\t[Conta nao encontrada]");
 						System.out.println();
 					}
-					break;
-
 				case NAO:
 					sair = true;
 					break;

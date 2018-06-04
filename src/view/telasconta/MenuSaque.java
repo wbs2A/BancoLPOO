@@ -1,7 +1,7 @@
 package view.telasconta;
 
 /**
- * Classe responsável por disponibilizar as opcoes do Enum MenuSaque
+ * Classe responsavel por disponibilizar as opcoes do Enum MenuSaque
  *
  * @author Michael Douglas
  * @author Joao Gabriel

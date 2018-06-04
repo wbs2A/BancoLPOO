@@ -1,7 +1,7 @@
 package view.telaspessoa;
 
+import controller.Controller;
 import controller.PessoaDAO;
-import view.EntradaDeDados;
 import view.TratamentodeEntradas;
 
 /**
@@ -34,12 +34,13 @@ public class TelaCadastraPessoa {
 		cpf = TratamentodeEntradas.trataEntradaCpf();
 
 		if (PessoaDAO.read(cpf) == null) {
-			PessoaDAO.create(TratamentodeEntradas.trataEntradaNome(), EntradaDeDados.lerSenha(), cpf,
+			Controller.criarPessoa(TratamentodeEntradas.trataEntradaNome(), TratamentodeEntradas.trataEntradaSenhaConta(), cpf,
 					TratamentodeEntradas.trataEntradaDtNasc(), TratamentodeEntradas.trataEntradaSexo(),
 					TratamentodeEntradas.trataEntradaTelefone(), TratamentodeEntradas.trataEntradaEmail());
 			System.out.println();
 			System.out.println("\t\t\t\t[Cadastro feito com sucesso]");
 			System.out.println();
+			PessoaDAO.salvarPessoas();
 		} else {
 			System.out.println();
 			System.out.println("\t\t\t\t[CPF não esta disponivel]");

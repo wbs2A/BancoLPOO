@@ -1,5 +1,7 @@
 package view.telasconta;
 
+import java.util.Date;
+
 import controller.ContaDAO;
 import controller.Controller;
 import model.Conta;
@@ -44,42 +46,84 @@ public class TelaTransacaoDeposito {
 				System.out.println("\t\t\t*******************************************************");
 				System.out.println("\t\t\t\t\n\t\t\t\t");
 				System.out.println("\t \t\t\t**************************************");
-				System.out.println("\t\t\t\t*             DEPOSITO                *");
+				System.out.println("\t\t\t\t*             DEPOSITO               *");
 				System.out.println("\t \t\t\t**************************************");
 				System.out.println("\t\t\t\t\n\t\t\t\t");
-				System.out.println("\t \t\t\t**************************************");
-				System.out.println(
-						"\t\t\t\t*   " + MenuDeposito.DEPOSITARCONTAPADRAO.opcao + ".Depositar na Conta Padrao    *");
 				System.out.println("\t\t\t\t***************************************");
 				System.out.println(
-						"\t\t\t\t*   " + MenuDeposito.DEPOSITAROUTRACONTA.opcao + ".Depositar em outra Conta    *");
+						"\t\t\t\t*   " + MenuDeposito.DEPOSITARCONTAPADRAO.opcao + ".Depositar na Conta Padrao       *");
 				System.out.println("\t\t\t\t***************************************");
-				System.out.println("\t\t\t\t*   " + MenuDeposito.SAIR.opcao + ".Voltar    *");
+				System.out.println(
+						"\t\t\t\t*   " + MenuDeposito.DEPOSITAROUTRACONTA.opcao + ".Depositar em outra Conta        *");
+				System.out.println("\t\t\t\t***************************************");
+				System.out.println("\t\t\t\t*   " + MenuDeposito.SAIR.opcao + ".Voltar                          *");
 				System.out.println("\t\t\t\t***************************************");
 				opcao = TratamentodeEntradas.trataEntradaOpcao();
 
 				switch (MenuDeposito.menuOpcao(opcao)) {
 				case DEPOSITARCONTAPADRAO:
-					conta = Controller.getPessoa().getContaPadrao();
+					conta = Controller.getSessao().getContaPadrao();
 					if (conta != null) {
-						valor = TratamentodeEntradas.trataEntradaSaldoConta();
-						ContaDAO.depositar(conta, valor);
+						System.out.println();
+						System.out.println();
+						System.out.println("\t\t\t\tConta padrao definida: ");
+						System.out.println(conta);
+						System.out.println();
+						System.out.println();
+						valor = TratamentodeEntradas.trataValorTransacao();
+						if (valor > 0) {
+							try {
+								Controller.realizarTransacao1(new Date(), conta, null,
+										valor, 2);
+								System.out.println();
+								System.out.println("\t\t\t\t[Deposito realizado com sucesso]");
+								System.out.println();
+								ContaDAO.salvarContas();
+							} catch (Exception e) {
+
+							}
+						} else {
+							System.out.println();
+							System.out.println("\t\t\t\t[Valor invalido para deposito]");
+							System.out.println();
+						}
+					} else {
+						System.out.println();
+						System.out.println("\t\t\t\t[Voce nao possui uma conta padrao definida]");
+						System.out.println();
 					}
 					break;
 
 				case DEPOSITAROUTRACONTA:
-					System.out.println();
-					System.out.printf("\t\t\t\tInforme o numero da conta para deposito: ");
-					System.out.println();
-					conta = ContaDAO.read(TratamentodeEntradas.trataEntradaNumeroConta());
+					try {
+						System.out.println();
+						System.out.printf("\t\t\t\tInforme o numero da conta para deposito: ");
+						System.out.println();
+						conta = ContaDAO.read(TratamentodeEntradas.trataEntradaNumeroConta());
+						if (conta != null) {
+							valor = TratamentodeEntradas.trataValorTransacao();
+							if (valor > 0) {
+								try {
+									Controller.realizarTransacao1(new Date(), conta,
+											null, valor, 2);
+									System.out.println();
+									System.out.println("\t\t\t\t[Deposito realizado com sucesso]");
+									System.out.println();
+									ContaDAO.salvarContas();
+								} catch (Exception e) {
 
-					if (conta != null) {
-						valor = TratamentodeEntradas.trataEntradaSaldoConta();
-						ContaDAO.depositar(conta, valor);
-					} else {
+								}
+							} else {
+								System.out.println();
+								System.out.println("\t\t\t\t[Valor invalido para deposito]");
+								System.out.println();
+							}
+						}
+					} catch (Exception ex) {
+						System.out.println();
+						System.out.println("\t\t\t\t[Conta não Encontrada]");
 						System.out.println();
 					}
-
 					break;
 
 				case SAIR:

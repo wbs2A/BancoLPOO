@@ -1,8 +1,9 @@
 package exceptions;
 
 	/**
-	 * Classe de exceção se conta não existe 
-	 * @author Controller 
+	 * Classe de excecao se conta nao existe 
+	 * @author Nathaly
+	 * @author: Wesley B. 
 	 */
 
 public class ContaInexistente extends Exception{

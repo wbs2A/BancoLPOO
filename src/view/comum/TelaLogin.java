@@ -1,9 +1,6 @@
 package view.comum;
 
-import java.io.IOException;
-
 import controller.Controller;
-import exceptions.SenhaIncorreta;
 import model.Pessoa;
 import view.ClearConsole;
 import view.EntradaDeDados;
@@ -25,9 +22,8 @@ public class TelaLogin {
 	 * logar no sistema. Para logar, sera necessario que ele forneca seu cpf e a
 	 * senha de usuario.
 	 */
-	public static void menuLogin() throws SenhaIncorreta {
-
-		do {
+	public static void menuLogin() {
+		try {
 			ClearConsole.clearConsole();
 			System.out.println();
 			System.out.println("\t\t\t*******************************************************");
@@ -38,17 +34,17 @@ public class TelaLogin {
 			System.out.println("\t\t\t\t*                 LOGIN                *");
 			System.out.println("\t\t\t\t****************************************");
 			System.out.println("\t\t\t\t\n\t\t\t\t");
-			try {
-				valido = Controller.validaLogin(TratamentodeEntradas.trataEntradaCpf(), EntradaDeDados.lerSenha());
-				if (valido) {
-					TelaGerenciamentoContaPessoa.menuOpcoes();
-				}
-			} catch (IOException ex) {
-				System.out.println();
-				System.out.println("\t\t\t\t[Usuario e/ou Senha Incorreto(s)]");
-				System.out.println();
-				System.out.println("\t\t\t\tDeseja Continuar (1)Sim (2)Nao.");
+
+			valido = Controller.validaLogin(TratamentodeEntradas.trataEntradaCpf(), EntradaDeDados.lerSenha());
+			if (valido) {
+				TelaGerenciamentoContaPessoa.menuOpcoes();
 			}
-		} while (TratamentodeEntradas.trataEntradaOpcao() != 2);
+		} catch (Exception e) {
+			System.out.println();
+			System.out.println("\t\t\t\t[Usuario e/ou Senha Incorreto(s)]");
+			System.out.println();
+		}
+
 	}
+
 }
