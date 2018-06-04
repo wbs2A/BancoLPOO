@@ -8,14 +8,14 @@ import exceptions.ContaInexistente;
 import exceptions.SaldoNegativo;
 import exceptions.SenhaIncorreta;
 
-/*
+/**
  * Classe que representa as operacoes CRUDs da ContaDAO e operacoes de alguma transacao requisitada.
  * @author: Nathaly.
  * @author: Wesley B.
  */
 
 public class ContaDAO extends DAO<Object>{
-
+	//TODO
 	@SuppressWarnings("unchecked")
 	public static void carregarContas(){
 		ArrayList<Conta> arrayCarregaContas = (ArrayList<Conta>) ContaDAO.carregar(diretorioConta);
@@ -26,7 +26,7 @@ public class ContaDAO extends DAO<Object>{
         	ContaDAO.descarregar(diretorioConta, getContas());
         }
     }
-
+	//TODO
     public static void salvarContas() {
         ContaDAO.descarregar(diretorioConta, getContas());
     }
@@ -35,18 +35,19 @@ public class ContaDAO extends DAO<Object>{
 	private static String diretorioConta = "Conta.dat";
 	static Random gerador = new Random();
 	
-	 /*
-	 * @author Nathaly
+	 /**
 	 * Metodo le int numero da conta
+	 * @author Nathaly
 	 * @return int
 	 */
 	public static int num(){
 		return 100000 +(gerador.nextInt(90000));
 	}
 
-	 /*
-	 * @author Nathaly
+	 /**
 	 * Metodo instancia objeto do tipo conta (cria) e adiciona o objeto conta no array de contas em pessoa
+	 * 
+	 * @author Nathaly
 	 * @param string senha
 	 * @param objeto pessoa
 	 * @return objeto
@@ -58,9 +59,9 @@ public class ContaDAO extends DAO<Object>{
 		return conta;
 	}
 
-	 /*
-	 * @author Nathaly
+	 /**
 	 * Metodo atualiza senha
+	 * @author Nathaly
 	 * @param objeto conta
 	 * @param senha
 	 */
@@ -68,9 +69,10 @@ public class ContaDAO extends DAO<Object>{
 		conta.setSenha(senha);
 	}
 
-	/*
-	 * @author Nathaly
+	/**
+	 * 
 	 * Metodo retorna array de Conta
+	 * @author Nathaly
 	 * @return array tipo conta de contas
 	 */
 	public static ArrayList<Conta> getContas(){
@@ -81,9 +83,9 @@ public class ContaDAO extends DAO<Object>{
     	ContaDAO.arrayConta = arrayConta;
     }
 	
-	/*
-	 * @author Nathaly
+	/**
 	 * Metodo buscar mas so se a senha estiver correta
+	 * @author Nathaly
 	 * @param int numero conta, senha string
 	 * @return objeto conta
 	 */
@@ -95,9 +97,9 @@ public class ContaDAO extends DAO<Object>{
     		throw new SenhaIncorreta("Senha incorreta");
     	}
 	}
-	/*
-	 * @author Nathaly
+	/**
 	 * Metodo buscar um objeto no array pelo numero da conta
+	 * @author Nathaly
 	 * @param int
 	 * @return objeto conta
 	 */
@@ -112,7 +114,7 @@ public class ContaDAO extends DAO<Object>{
 		throw new ContaInexistente("Conta nao existe");
 	}
 	
-	/*
+	/**
 	 * @author Nathaly
 	 * Metodo exclui um objeto no array conta
 	 * @param objeto
@@ -123,9 +125,9 @@ public class ContaDAO extends DAO<Object>{
 	}
 
 
-	/*
-	 * @author Nathaly
+	/**
 	 * Metodo sacar um valor
+	 * @author Nathaly
 	 * @param objeto, valor
 	 * @return boolean
 	 */
@@ -137,9 +139,9 @@ public class ContaDAO extends DAO<Object>{
 		return false;
 	}
 	
-	/*
-	 * @author Nathaly
+	/**
 	 * Metodo deposita um valor
+	 * @author Nathaly
 	 * @param valor
 	 * @return boolean
 	 */
@@ -151,9 +153,9 @@ public class ContaDAO extends DAO<Object>{
 		return false;
 	}
 	
-	/*
-	 * @author Nathaly
+	/**
 	 * Metodo verifica se tem excecoes para entao realizar uma operacao
+	 * @author Nathaly
 	 * @param objeto, valor
 	 * @return boolean
 	 */
@@ -164,9 +166,9 @@ public class ContaDAO extends DAO<Object>{
 		throw new SaldoNegativo("Saldo negativo");
 	}
 	
-	/*
-	 * @author Nathaly
+	/**
 	 * Metodo transfere um valor
+	 * @author Nathaly
 	 * @param valor, objeto 
 	 * @return boolean
 	 */
