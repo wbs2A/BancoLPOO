@@ -40,11 +40,11 @@ public class TelaExcluiPessoa {
 				System.out.println("\t \t\t\t**************************************");
 				System.out.println();
 				System.out.println("\t\t\t\t  Deseja realmente excluir sua Conta?  ");
-				System.out.println("\t\t\tAo excluir, seus dados serão perdidos permanentemente");
-				System.out.println("\t\t\t  Todas as suas Contas Bancarias também serão perdidas");
+				System.out.println("\t\t\t Ao excluir, seus dados ser�o perdidos permanentemente");
+				System.out.println("\t\t\t Todas as suas Contas Bancarias tambem serao perdidas");
 				System.out.println();
-				System.out.println("\t \t\t\t**************************************");
-				System.out.println("\t\t\t\t*    (" + MenuExcluirConta.NAO.opcao + ")Não                          *");
+				System.out.println("\t\t\t\t**************************************");
+				System.out.println("\t\t\t\t*    (" + MenuExcluirConta.NAO.opcao + ")Nao                          *");
 				System.out.println("\t\t\t\t**************************************");
 				System.out.println("\t\t\t\t*    (" + MenuExcluirConta.SIM.opcao + ")Sim                          *");
 				System.out.println("\t\t\t\t**************************************");
