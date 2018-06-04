@@ -46,17 +46,17 @@ public class TelaTransacaoDeposito {
 				System.out.println("\t\t\t*******************************************************");
 				System.out.println("\t\t\t\t\n\t\t\t\t");
 				System.out.println("\t \t\t\t**************************************");
-				System.out.println("\t\t\t\t*             DEPOSITO                *");
+				System.out.println("\t\t\t\t*             DEPOSITO               *");
 				System.out.println("\t \t\t\t**************************************");
 				System.out.println("\t\t\t\t\n\t\t\t\t");
-				System.out.println("\t \t\t\t**************************************");
-				System.out.println(
-						"\t\t\t\t*   " + MenuDeposito.DEPOSITARCONTAPADRAO.opcao + ".Depositar na Conta Padrao    *");
 				System.out.println("\t\t\t\t***************************************");
 				System.out.println(
-						"\t\t\t\t*   " + MenuDeposito.DEPOSITAROUTRACONTA.opcao + ".Depositar em outra Conta    *");
+						"\t\t\t\t*   " + MenuDeposito.DEPOSITARCONTAPADRAO.opcao + ".Depositar na Conta Padrao       *");
 				System.out.println("\t\t\t\t***************************************");
-				System.out.println("\t\t\t\t*   " + MenuDeposito.SAIR.opcao + ".Voltar    *");
+				System.out.println(
+						"\t\t\t\t*   " + MenuDeposito.DEPOSITAROUTRACONTA.opcao + ".Depositar em outra Conta        *");
+				System.out.println("\t\t\t\t***************************************");
+				System.out.println("\t\t\t\t*   " + MenuDeposito.SAIR.opcao + ".Voltar                          *");
 				System.out.println("\t\t\t\t***************************************");
 				opcao = TratamentodeEntradas.trataEntradaOpcao();
 

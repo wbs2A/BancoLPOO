@@ -48,17 +48,17 @@ public class TelaTransacaoTransferencia {
 				System.out.println("\t\t\t*******************************************************");
 				System.out.println("\t\t\t\t\n\t\t\t\t");
 				System.out.println("\t \t\t\t**************************************");
-				System.out.println("\t\t\t\t*            TRANSFERENCIA            *");
+				System.out.println("\t\t\t\t*            TRANSFERENCIA           *");
 				System.out.println("\t \t\t\t**************************************");
 				System.out.println("\t\t\t\t\n\t\t\t\t");
-				System.out.println("\t \t\t\t****************************************");
+				System.out.println("\t\t\t\t**************************************");
 				System.out.println("\t\t\t\t*   " + MenuTransferencia.TRANSFERIRDACONTAPADRAO.opcao
-						+ ".Transferir da Conta Padrao             *");
+						+ ".Transferir da Conta Padrao     *");
 				System.out.println("\t\t\t\t**************************************");
 				System.out.println("\t\t\t\t*   " + MenuTransferencia.TRANSFERIRDEOUTRACONTA.opcao
-						+ ".Transferir de Outra Conta             *");
+						+ ".Transferir de Outra Conta      *");
 				System.out.println("\t\t\t\t**************************************");
-				System.out.println("\t\t\t\t*   " + MenuTransferencia.SAIR.opcao + ".Voltar             *");
+				System.out.println("\t\t\t\t*   " + MenuTransferencia.SAIR.opcao + ".Voltar                         *");
 				System.out.println("\t\t\t\t**************************************");
 				opcao = TratamentodeEntradas.trataEntradaOpcao();
 
