@@ -23,7 +23,7 @@ abstract class DAO<T>{
     *  Ele carrega o objeto encontrado no arquivo do FileInputStream e
     *  e registra as excecoes no Logger da classe.
     * @author: Wesley B.
-    * @param: Tipo do objeto, que nomeara o arquivo.
+    * @param: Nome do arquivo
     * @return: Objeto a ser convertido para a classe correta.
     */
     public static Object carregar(String type){
@@ -50,7 +50,7 @@ abstract class DAO<T>{
     *  Ele descarrega o objeto no arquivo criado com o
     *  FileInputStream e registra as excecoes no Logger da classe.
     * @author: Wesley B.
-    * @param: Objeto a ser serializado.
+    * @param: Nome do arquivo e Objeto a ser serializado.
     * @return: Booleano informando o resultado da operacao.
     */
 
