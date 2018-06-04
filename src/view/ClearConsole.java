@@ -1,6 +1,15 @@
 package view;
 
+/**
+ * Classe responsavel por limpar a tela
+ * @author michael_douglas
+ *
+ */
 public class ClearConsole {
+	
+	/**
+	 * Metodo que verifica qual o sistema (linux ou windows) para limpar a tela de acordo com o sistema operacional.
+	 */
 	public final static void clearConsole(){
 
         try{
