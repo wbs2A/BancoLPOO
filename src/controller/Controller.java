@@ -10,26 +10,29 @@ import exceptions.SenhaIncorreta;
 import java.io.IOException;
 import model.Conta;
 import model.Movimentacoes;
-/*
- * Classe que representa o controller
- 	principal da aplicacao, contendo metodos que sao comuns nas classes do sistema
- 	ou conectando metodo com os respectivos DAOs.
+
+/**
+ * Classe que representa o controller principal da aplicacao, contendo metodos
+ * que sao comuns nas classes do sistema ou conectando metodo com os respectivos
+ * DAOs.
+ * 
  * @author: Nathaly.
  * @author: Wesley B.
  */
-public class Controller{
-    private static Pessoa sessao = null;
-    private static ArrayList<Pessoa> pessoas = new ArrayList<Pessoa>();
+public class Controller {
+	private static Pessoa sessao = null;
+	private static ArrayList<Pessoa> pessoas = new ArrayList<Pessoa>();
 
-	/*
+	/**
 	 * Variavel que armazena a pessoa que estao a usar o sistema.
+	 * 
 	 * @author: Wesley B.
 	 */
-    private static Pessoa instSessao;
-    
+	private static Pessoa instSessao;
 
-    /*
+	/**
 	 * Metodo que retorna a pessoa da sessao.
+	 * 
 	 * @author: Wesley B.
 	 * @return: Pessoa da sessao
 	 */
@@ -37,144 +40,178 @@ public class Controller{
 		return sessao;
 	}
 
-    /*
+	/**
 	 * Metodo que defina a pessoa da sessao.
+	 * 
 	 * @author: Wesley B.
-	 * @param: Pessoa da sessao
-	 */    
+	 * @param: Pessoa
+	 *             da sessao
+	 */
 	public static void setSessao(Pessoa sessao) {
 		Controller.sessao = sessao;
 	}
 
-    /*
-	 * Metodo que recebe os dados de uma pessoa a
-	   ser criada no sistema.
+	/**
+	 * Metodo que recebe os dados de uma pessoa a ser criada no sistema.
+	 * 
 	 * @author: Wesley B.
-	 * @param: nome: String que representa o nome
-	    pessoa a ser criada
-	 * @param: senha: Senha de acesso
-	 * @param: cpf: Cadastro unico
-	 * @param: data: Data de nascimento
-	 * @param: sexo: Genero
-	 * @param: telefone: Numero de telefone
-	 * @param: email: Endereco eletrinico da pessoa
+	 * @param: nome:
+	 *             String que representa o nome pessoa a ser criada
+	 * @param: senha:
+	 *             Senha de acesso
+	 * @param: cpf:
+	 *             Cadastro unico
+	 * @param: data:
+	 *             Data de nascimento
+	 * @param: sexo:
+	 *             Genero
+	 * @param: telefone:
+	 *             Numero de telefone
+	 * @param: email:
+	 *             Endereco eletrinico da pessoa
 	 */
-    public static void criarPessoa(String nome, String senha, String cpf, Date data, String sexo, String telefone, String email){
-	Pessoa p = (Pessoa) PessoaDAO.create(nome, senha, cpf, data, sexo, telefone, email);
-        Controller.pessoas.add(p);
-    }
+	public static void criarPessoa(String nome, String senha, String cpf, Date data, String sexo, String telefone,
+			String email) {
+		Pessoa p = (Pessoa) PessoaDAO.create(nome, senha, cpf, data, sexo, telefone, email);
+		Controller.pessoas.add(p);
+	}
 
-	/*
-	 * Metodo que conecta a solicitacao de uma pessoa
-	   da view com o DAO.
+	/**
+	 * Metodo que conecta a solicitacao de uma pessoa da view com o DAO.
+	 * 
 	 * @author: Wesley B.
-	 * @param: cpf: Cadastro unico
-	 * @param: senha: Senha de acesso ao sistema.
+	 * @param: cpf:
+	 *             Cadastro unico
+	 * @param: senha:
+	 *             Senha de acesso ao sistema.
 	 * @return Pessoa solicitada.
 	 */
-	public static Pessoa getPessoa(String cpf, String senha) throws SenhaIncorreta{
-	     return PessoaDAO.get(cpf, senha);
+	public static Pessoa getPessoa(String cpf, String senha) throws SenhaIncorreta {
+		return PessoaDAO.get(cpf, senha);
 	}
 
-	/*
+	/**
 	 * Metodo que valida o acesso de uma pessoa ao sistema.
+	 * 
 	 * @author: Wesley B.
-	 * @param: cpf: Cadastro unico
-	 * @param: senha: Senha de acesso ao sistema.
+	 * @param: cpf:
+	 *             Cadastro unico
+	 * @param: senha:
+	 *             Senha de acesso ao sistema.
 	 * @return Um booleano indicando se a solicitacao e valida ou nao
 	 */
-	public static boolean validaLogin(String cpf, String senha) throws IOException,SenhaIncorreta{
-	//Atribui uma pessoa a  sessao
-	
+	public static boolean validaLogin(String cpf, String senha) throws IOException, SenhaIncorreta {
+		// Atribui uma pessoa a sessao
+
 		Pessoa p = Controller.getPessoa(cpf, senha);
- 		if(p != null){
-	 		if(p.getSenha().equals(senha)){
+		if (p != null) {
+			if (p.getSenha().equals(senha)) {
 				setSessao(p);
 				return true;
-			}else{
+			} else {
 				return false;
 			}
-		}else
-			throw new IOException();	
+		} else
+			throw new IOException();
 	}
 
-
-	/*
-	 * Metodo que conecta a solicitao de uma pessoa
-	   da view com o DAO ao remover alguem do sistema
+	/**
+	 * Metodo que conecta a solicitao de uma pessoa da view com o DAO ao remover
+	 * alguem do sistema
+	 * 
 	 * @author: Wesley B.
-	 * @param: Pessoa a ser removida.
+	 * @param: Pessoa
+	 *             a ser removida.
 	 */
-	public static void removerPessoa(Pessoa pessoa){
+	public static void removerPessoa(Pessoa pessoa) {
 		PessoaDAO.delete(pessoa.getCpf());
 	}
 
-	/*
-	* Este conjunto de metodos com prefixo "atualiza" referem-se
-	* aos metodos chamados pela view para atualizar um determi--
-	* nado campo de uma pessoa utilizando o factory de atuali---
-	* zacoes da classe PessoaDAO, passando o parametro correto
-	* que indica a atualizacao a ser feita.
-	* @author: Wesley B.
-	* @param: pessoa: Pessoa a ser atualizada
-	* @param: campo: String contendo o valor do campo homonimo a
-	  ser atualizado 
-	*/
-	public static void atualizaNomePessoa(Pessoa pessoa, String nome){
+	/**
+	 * Este conjunto de metodos com prefixo "atualiza" referem-se aos metodos
+	 * chamados pela view para atualizar um determi-- nado campo de uma pessoa
+	 * utilizando o factory de atuali--- zacoes da classe PessoaDAO, passando o
+	 * parametro correto que indica a atualizacao a ser feita.
+	 * 
+	 * @author: Wesley B.
+	 * @param: pessoa:
+	 *             Pessoa a ser atualizada
+	 * @param: campo:
+	 *             String contendo o valor do campo homonimo a ser atualizado
+	 */
+	public static void atualizaNomePessoa(Pessoa pessoa, String nome) {
 		PessoaDAO.update(1, pessoa, nome);
 	}
-	public static void atualizaSenhaPessoa(Pessoa pessoa, String senha){
+
+	// TODO
+	public static void atualizaSenhaPessoa(Pessoa pessoa, String senha) {
 		PessoaDAO.update(2, pessoa, senha);
-    }
-	public static void atualizaDtNascPessoa(Pessoa pessoa, Date dtNasc){
+	}
+
+	// TODO
+	public static void atualizaDtNascPessoa(Pessoa pessoa, Date dtNasc) {
 		PessoaDAO.update(3, pessoa, dtNasc);
 	}
 
-	public static void atualizaSexoPessoa(Pessoa pessoa, String sexo){
+	// TODO
+	public static void atualizaSexoPessoa(Pessoa pessoa, String sexo) {
 		PessoaDAO.update(4, pessoa, sexo);
-    }
-	
-	public static void atualizaTelefonePessoa(Pessoa pessoa, String telefone){
-		PessoaDAO.update(5, pessoa, telefone);
-    }
-	
-	public static void atualizaEmailPessoa(Pessoa pessoa, String email){
-		PessoaDAO.update(6, pessoa, email);
-    }
-	
-	public static void atualizaCpfPessoa(Pessoa pessoa, String cpf){
-		PessoaDAO.update(7, pessoa, cpf);
-    }
-	
-	/*
-	 * @author Nathaly
-	 * @author: Wesley B.
-	 * 3 Metodos que realizam as transacoes e armazena no extrato apenas se a transacao ocorrer
-	 * @param Data trnasacao, objeto conta, descricao, valor, numero da operacao deseja realizar
-	 */
-    public static void realizarTransacao(Date date, Conta conta, String descricao, float valor, int num_operacao) throws SaldoNegativo {
-    	if(ContaDAO.sacar(conta, valor) == true){
-	        Movimentacoes movimentacaoMovimentada = new Movimentacoes(date, conta, descricao, valor, num_operacao);
-	        conta.getMovimentacoes().add(movimentacaoMovimentada);
-    	}
-    }
-    public static void realizarTransacao(Date date, Conta contaRemetente, Conta contaDestino, String descricao, float valor, int num_operacao) throws SaldoNegativo {
-        if(ContaDAO.transferir(valor, contaDestino,contaRemetente)== true){
-	        Movimentacoes movimentacaoMovimentada = new Movimentacoes(date, contaDestino, contaRemetente, descricao, valor, num_operacao);
-	        contaRemetente.getMovimentacoes().add(movimentacaoMovimentada);
-        }
-    }
-    public static void realizarTransacao1(Date date, Conta conta, String descricao, float valor, int num_operacao) throws SaldoNegativo {
-    	if(ContaDAO.depositar(conta, valor) == true){
-	        Movimentacoes movimentacaoMovimentada = new Movimentacoes(date, conta, descricao, valor, num_operacao);
-	        conta.getMovimentacoes().add(movimentacaoMovimentada);
-    	}
-    }
+	}
 
+	// TODO
+	public static void atualizaTelefonePessoa(Pessoa pessoa, String telefone) {
+		PessoaDAO.update(5, pessoa, telefone);
+	}
+
+	// TODO
+	public static void atualizaEmailPessoa(Pessoa pessoa, String email) {
+		PessoaDAO.update(6, pessoa, email);
+	}
+
+	// TODO
+	public static void atualizaCpfPessoa(Pessoa pessoa, String cpf) {
+		PessoaDAO.update(7, pessoa, cpf);
+	}
+
+	/**
+	 * @author Nathaly
+	 * @author: Wesley B. 3 Metodos que realizam as transacoes e armazena no
+	 *          extrato apenas se a transacao ocorrer
+	 * @param Data
+	 *            trnasacao, objeto conta, descricao, valor, numero da operacao
+	 *            deseja realizar
+	 */
+	public static void realizarTransacao(Date date, Conta conta, String descricao, float valor, int num_operacao)
+			throws SaldoNegativo {
+		if (ContaDAO.sacar(conta, valor) == true) {
+			Movimentacoes movimentacaoMovimentada = new Movimentacoes(date, conta, descricao, valor, num_operacao);
+			conta.getMovimentacoes().add(movimentacaoMovimentada);
+		}
+	}
+
+	public static void realizarTransacao(Date date, Conta contaRemetente, Conta contaDestino, String descricao,
+			float valor, int num_operacao) throws SaldoNegativo {
+		if (ContaDAO.transferir(valor, contaDestino, contaRemetente) == true) {
+			Movimentacoes movimentacaoMovimentada = new Movimentacoes(date, contaDestino, contaRemetente, descricao,
+					valor, num_operacao);
+			contaRemetente.getMovimentacoes().add(movimentacaoMovimentada);
+		}
+	}
+
+	public static void realizarTransacao1(Date date, Conta conta, String descricao, float valor, int num_operacao)
+			throws SaldoNegativo {
+		if (ContaDAO.depositar(conta, valor) == true) {
+			Movimentacoes movimentacaoMovimentada = new Movimentacoes(date, conta, descricao, valor, num_operacao);
+			conta.getMovimentacoes().add(movimentacaoMovimentada);
+		}
+	}
+
+	// TODO
 	public static Pessoa getInstSessao() {
 		return instSessao;
 	}
 
+	// TODO
 	public static void setInstSessao(Pessoa instSessao) {
 		Controller.instSessao = instSessao;
 	}
