@@ -70,10 +70,11 @@ public class ContaDAO extends DAO<Object>{
 		int num = ContaDAO.num();
 		for(Conta conta : arrayConta){
 		 if(conta.getNumero() == num){
-		   num = ContaDAO.num();
+			System.out.println("Conta ja existente.");		   
+			num = ContaDAO.num();
 			 return num;
 		  }else{
-			System.out.println("Conta ja existente.");
+			
 			 return num;
 		  }
 	    }
