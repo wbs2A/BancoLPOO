@@ -7,8 +7,7 @@ import java.io.IOException;
 
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
 
 /**
  * Classe que representa os processo de serializacao e deserializacao de
@@ -39,10 +38,9 @@ abstract class DAO<T> {
 			ois.close();
 			return obj;
 		} catch (FileNotFoundException ex) {
-			Logger.getLogger(DAO.class.getName()).log(Level.SEVERE, null, ex);
+			
 			return null;
 		} catch (ClassNotFoundException | IOException ex) {
-			Logger.getLogger(DAO.class.getName()).log(Level.SEVERE, null, ex);
 			return null;
 		}
 
@@ -68,10 +66,10 @@ abstract class DAO<T> {
 			return true;
 
 		} catch (FileNotFoundException ex) {
-			ex.printStackTrace();
+			
 			return false;
 		} catch (IOException ex) {
-			ex.printStackTrace();
+			
 			return false;
 		}
 	}
