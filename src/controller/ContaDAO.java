@@ -53,12 +53,33 @@ public class ContaDAO extends DAO<Object>{
 	 * @return objeto
 	 */
 	public static Object create(String senha, Pessoa pessoa ){
-		Conta conta = new Conta(1400, ContaDAO.num(), 0, senha, pessoa);
+		Conta conta = new Conta(1400, ContaDAO.comparaConta(), 0, senha, pessoa);
 		arrayConta.add(conta);
 		pessoa.getContas().add(conta);
 		return conta;
 	}
 
+	/**
+ 	* Metodo que compara irá comparar o numero da conta se ja existe para poder criar uma nova.
+	*@author Allison
+	* 
+	* @return nova conta.
+	*/
+
+	public static int comparaConta(){
+		int num = ContaDAO.num();
+		for(Conta conta : arrayConta){
+		 if(conta.getNumero() == num){
+		   num = ContaDAO.num();
+			 return num;
+		  }else{
+			System.out.println("Conta ja existente.");
+			 return num;
+		  }
+	    }
+	   return num;
+	}
+			
 	 /**
 	 * Metodo atualiza senha
 	 * @author Nathaly
