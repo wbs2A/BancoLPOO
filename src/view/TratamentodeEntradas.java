@@ -77,15 +77,14 @@ public class TratamentodeEntradas {
 				System.out.println("\t\t\t\t[O campo nome deve conter no minimo 2 caracteres]");
 				System.out.println();
 			} else {
-				Pattern pattern = Pattern.compile("[^a-z A-Z0-9]");
-				Matcher matcher = pattern.matcher(nome);
 				Pattern pattern1 = Pattern.compile("[0-9]");
 				Matcher matcher1 = pattern1.matcher(nome);
-				if (matcher.find() || matcher1.find()) {
+				if ( matcher1.find()) {
 					System.out.println();
-					System.out.println("\t\t\t\t[O campo nome nao deve conter numeros ou caracteres especiais]");
+					System.out.println("\t\t\t\t[O campo nome nao deve conter numeros ]");
 					System.out.println();
 					valido = false;
+
 
 				} else {
 					valido = true;
