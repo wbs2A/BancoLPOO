@@ -105,7 +105,7 @@ public class ContaDAO extends DAO<Object>{
 	 */
 	public static Conta read(int num) throws ContaInexistente{
 		for(Conta conta : arrayConta){
-			if(conta.getNumero().equals(num)){
+			if(conta.getNumero() == num){
 				return conta;
 			}
 		}
