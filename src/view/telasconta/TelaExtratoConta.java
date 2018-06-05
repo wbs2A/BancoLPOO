@@ -85,7 +85,7 @@ public class TelaExtratoConta {
 						System.out.println();
 						conta = ContaDAO.read(TratamentodeEntradas.trataEntradaNumeroConta());
 						if (conta != null) {
-							if (conta.getPessoa() == Controller.getSessao()) {
+							if (conta.getPessoa().getCpf().equals(Controller.getSessao().getCpf())){
 								System.out.println();
 								System.out.println(conta);
 								System.out.println();
@@ -100,12 +100,12 @@ public class TelaExtratoConta {
 								}
 							} else {
 								System.out.println();
-								System.out.println("\t\t\t\t[Conta nao encontrada]");
+								System.out.println("\t\t\t\t[Conta nao encontrada 1]");
 								System.out.println();
 							}
 						}
 					} catch (Exception ex) {
-						System.out.println();
+						System.out.println(ex);
 						System.out.println("\t\t\t\t[Conta nao Encontrada]");
 						System.out.println();
 					}

@@ -111,7 +111,7 @@ public class TelaTransacaoSaque {
 						conta = ContaDAO.read(TratamentodeEntradas.trataEntradaNumeroConta(),
 								EntradaDeDados.lerSenhaConta());
 						if (conta != null) {
-							if (conta.getPessoa() == Controller.getSessao()) {
+							if (conta.getPessoa().getCpf().equals(Controller.getSessao().getCpf())) {
 								valor = TratamentodeEntradas.trataValorTransacao();
 								if (valor > 0) {
 									try {

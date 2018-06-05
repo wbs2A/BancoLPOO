@@ -120,7 +120,7 @@ public class TelaTransacaoDeposito {
 							}
 						}
 					} catch (Exception ex) {
-						System.out.println();
+						System.out.println(ex);
 						System.out.println("\t\t\t\t[Conta não Encontrada]");
 						System.out.println();
 					}

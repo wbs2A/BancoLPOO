@@ -2,6 +2,7 @@ package view.telasconta;
 
 import java.util.ArrayList;
 
+import controller.ContaDAO;
 import controller.Controller;
 import model.Conta;
 import model.Pessoa;
@@ -41,12 +42,13 @@ public class TelaConsultaConta {
 		pessoa = Controller.getSessao();
 		contas = pessoa.getContas();
 
-		if (contas.isEmpty()) {
+		if (contas.isEmpty()){
 			System.out.println();
 			System.out.println("\t\t\t\t[Voce nao possui nenhuma conta bancaria]");
 			System.out.println();
 		} else{
-			for (Conta contaspessoa : contas) {
+	
+			for (Conta contaspessoa : contas){
 				System.out.println(contaspessoa);
 				System.out.println("\t\t\t\tSaldo atual: " + contaspessoa.getSaldo());
 				System.out.println();

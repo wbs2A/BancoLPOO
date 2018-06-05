@@ -68,7 +68,7 @@ public class TelaExcluiConta {
 						conta = ContaDAO.read(TratamentodeEntradas.trataEntradaNumeroConta(),
 								EntradaDeDados.lerSenhaConta());
 						if (conta != null) {
-							if (conta.getPessoa() == Controller.getSessao()) {
+							if (conta.getPessoa().getCpf().equals(Controller.getSessao().getCpf())) {
 								System.out.println();
 								System.out.println("\t\t\t\t        Confirme sua Senha de Login        ");
 								System.out.println();

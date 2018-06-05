@@ -149,7 +149,7 @@ public class TelaTransacaoTransferencia {
 												"\t\t\t\t[Nao é possivel fazer transferencias entre contas iguais]");
 										System.out.println();
 									} else {
-										if (contaRemetente.getPessoa() == Controller.getSessao()) {
+										if (contaRemetente.getPessoa().getCpf().equals(Controller.getSessao().getCpf())) {
 											valor = TratamentodeEntradas.trataValorTransacao();
 											if (valor > 0) {
 												try {

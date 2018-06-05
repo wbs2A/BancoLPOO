@@ -55,7 +55,7 @@ public class TelaDefineContaPadrao {
 						conta = ContaDAO.read(TratamentodeEntradas.trataEntradaNumeroConta(),
 								EntradaDeDados.lerSenhaConta());
 						if (conta != null) {
-							if (conta.getPessoa() == Controller.getSessao()) {
+							if (conta.getPessoa().getCpf().equals(Controller.getSessao().getCpf())) {
 								Controller.getSessao().setContaPadrao(conta);
 								System.out.println();
 								System.out.println("[\t\t\t\t[Conta padrao definida com sucesso]");
