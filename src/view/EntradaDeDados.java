@@ -15,8 +15,7 @@ import java.util.Scanner;
 
 public class EntradaDeDados {
 
-	private static Scanner scanner = new Scanner(System.in);
-
+	 private static Scanner scanner = new Scanner(System.in,"UTF-8");
 	/**
 	 * O metodo lerNome() e responsavel por imprimir a opcao que sera lida, no caso
 	 * o nome e retornar a funcao scanner para realizar a leitura.
