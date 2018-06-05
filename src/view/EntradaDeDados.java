@@ -34,7 +34,7 @@ public class EntradaDeDados {
 	 */
 	public static String lerDtNasc() {
 		System.out.println();
-		System.out.printf("\t\t\t\tData de Nascimento dd/mm/yyy: ");
+		System.out.printf("\t\t\t\tData de Nascimento dia/mes/ano: ");
 		return scanner.nextLine();
 	}
 
