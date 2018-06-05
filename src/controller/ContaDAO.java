@@ -91,7 +91,7 @@ public class ContaDAO extends DAO<Object>{
 	 */
 	public static Conta read(int num, String senha) throws ContaInexistente, SenhaIncorreta{
 		Conta conta = ContaDAO.read(num);
-    	if(conta.getSenha().equals(senha)){
+    	if(conta.getNumero() == num){
     		return conta;
     	}else{
     		throw new SenhaIncorreta("Senha incorreta");
