@@ -126,7 +126,7 @@ public class EntradaDeDados {
 	 */
 	public static String lerTelefoneCelular() {
 		System.out.println();
-		System.out.printf("\t\t\t\tNumero do seu Celular (DDD)9xxxx-xxxx: ");
+		System.out.printf("\t\t\t\tNumero do seu Celular (DD)9xxxx-xxxx: ");
 		return scanner.nextLine();
 	}
 
