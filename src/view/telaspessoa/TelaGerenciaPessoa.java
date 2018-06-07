@@ -8,10 +8,10 @@ import view.TratamentodeEntradas;
  * atualizar dados de cadastro,excluir conta,mostrar dados cadastrados pessoa e
  * ajuda.
  *
- * @author Michael Douglas
+ * @author Adler Cavalcante
  * @author Joao Gabriel
  * @author Joao Victor
- * @author Adler Cavalcante
+ * @author Michael Douglas
  */
 public class TelaGerenciaPessoa {
 
