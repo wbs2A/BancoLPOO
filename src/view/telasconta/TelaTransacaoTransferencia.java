@@ -91,7 +91,7 @@ public class TelaTransacaoTransferencia {
 										System.out.println();
 										if (EntradaDeDados.lerSenhaConta().equals(contaRemetente.getSenha())) {
 											try {
-												Controller.realizarTransacao(new Date(), contaRemetente, contaDestino,
+												Controller.mov_transferencia(new Date(), contaRemetente, contaDestino,
 														null, valor, 3);
 												System.out.println();
 												System.out.println("\t\t\t\t[Transferencia realizado com sucesso]");
@@ -153,7 +153,7 @@ public class TelaTransacaoTransferencia {
 											valor = TratamentodeEntradas.trataValorTransacao();
 											if (valor > 0) {
 												try {
-													Controller.realizarTransacao(new Date(), contaRemetente,
+													Controller.mov_transferencia(new Date(), contaRemetente,
 															contaDestino, null, valor,
 															3);
 													System.out.println();

@@ -73,7 +73,7 @@ public class TelaTransacaoDeposito {
 						valor = TratamentodeEntradas.trataValorTransacao();
 						if (valor > 0) {
 							try {
-								Controller.realizarTransacao1(new Date(), conta, null,
+								Controller.mov_saque_deposito(new Date(), conta, null,
 										valor, 2);
 								System.out.println();
 								System.out.println("\t\t\t\t[Deposito realizado com sucesso]");
@@ -104,7 +104,7 @@ public class TelaTransacaoDeposito {
 							valor = TratamentodeEntradas.trataValorTransacao();
 							if (valor > 0) {
 								try {
-									Controller.realizarTransacao1(new Date(), conta,
+									Controller.mov_saque_deposito(new Date(), conta,
 											null, valor, 2);
 									System.out.println();
 									System.out.println("\t\t\t\t[Deposito realizado com sucesso]");
