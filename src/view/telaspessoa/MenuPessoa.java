@@ -1,18 +1,22 @@
 package view.telaspessoa;
 
 /**
- * Classe responsavel por disponibilizar as opcoes do Enum MenuPessoa
+ * A Classe MenuPessoa e responsavel por disponibilizar as opcoes do Enum
+ * MenuPessoa
  *
- * @author Michael Douglas
+ * @author Adler Cavalcante
  * @author Joao Gabriel
  * @author Joao Victor
- * @author Adler Cavalcante
+ * @author Michael Douglas
  */
 public enum MenuPessoa {
-    ATUALIZARDADOS(1), EXLUCIRPESSOA(2), VERDADOSPESSOA(3),AJUDA(4), SAIR(0);
+    ATUALIZARDADOS(1), EXLUCIRPESSOA(2), VERDADOSPESSOA(3), AJUDA(4), SAIR(0);
     int opcao;
 
     /**
+     * O metodo MenuPessoa e responsavel por atribuir a variavel opcao o
+     * parametro que e passado quando uma variavel do tipo MenuPessoa e
+     * declarada
      *
      * @param op
      */
@@ -32,8 +36,8 @@ public enum MenuPessoa {
         } else if (opcao == 2) {
             return MenuPessoa.EXLUCIRPESSOA;
         } else if (opcao == 3) {
-            return MenuPessoa.VERDADOSPESSOA; 
-        }else if(opcao == 4){    
+            return MenuPessoa.VERDADOSPESSOA;
+        } else if (opcao == 4) {
             return MenuPessoa.AJUDA;
         } else if (opcao == 0) {
             return MenuPessoa.SAIR;
