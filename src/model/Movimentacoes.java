@@ -271,7 +271,7 @@ public class Movimentacoes implements Serializable {
 						"\n\t\t\t\t\t\tNome: "+this.getConta().getPessoa().getNome()+
 						"\n\t\t\t\t\t\tAgencia: "+ this.getConta().getAgencia()+
 						"\n\t\t\t\t\t\tNumero: "+ this.getConta().getNumero()+
-						"\n\t\t\t\t\t\tSaldo anterior: "+this.getSaldo_anteior()+
+						/*"\n\t\t\t\t\t\tSaldo anterior: "+this.getSaldo_anteior()+ */
 						"\n\t\t\t\t\t\tSaldo atual: "+this.getSaldo_atual();
 			}else{
 				return "\n\t\t\t\tData: "+ this.getDate()+

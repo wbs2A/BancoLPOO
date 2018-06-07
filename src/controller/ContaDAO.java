@@ -82,6 +82,21 @@ public class ContaDAO extends DAO<Object>{
 	    }
 	   return num;
 	}
+	
+	public static int qtd_contas(){
+		int i = 0;
+		int cont = 0;
+		for(i = 0; i < arrayConta.size(); i++){
+			cont++;
+		}
+		if(cont == 1){
+			return 1;
+		}else if(cont == 0){
+			return 2;
+		}else{
+			return 3;
+		}
+	}
 			
 	 /**
 	 * Metodo atualiza senha

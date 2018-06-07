@@ -1,5 +1,6 @@
 package view.telasconta;
 
+import controller.ContaDAO;
 import view.ClearConsole;
 import view.TratamentodeEntradas;
 
@@ -88,7 +89,13 @@ public class TelaGerenciaConta {
 					TelaConsultaConta.consultaConta();
 					break;
 				case DEFINIRCONTAPADRAO:
-					TelaDefineContaPadrao.menuDefineContaPadrao();
+					if(ContaDAO.qtd_contas() == 1){
+						System.out.println("\t\t\t\t Voce so tem 1 conta bancaria!");
+					}else if(ContaDAO.qtd_contas() == 2){
+						System.out.println("\t\t\t\t Voce nao possui contas cadastradas!");
+					}else if(ContaDAO.qtd_contas() == 3){
+						TelaDefineContaPadrao.menuDefineContaPadrao();
+					}
 					break;
 				case ATUALIZARSENHACONTA:
 					TelaAtualizaSenhaConta.menuAtualizaSenhaConta();
