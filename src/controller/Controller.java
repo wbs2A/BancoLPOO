@@ -182,28 +182,27 @@ public class Controller {
 	 *            trnasacao, objeto conta, descricao, valor, numero da operacao
 	 *            deseja realizar
 	 */
-	public static void realizarTransacao(Date date, Conta conta, String descricao, float valor, int num_operacao)
+	public static void mov_saque_deposito(Date date, Conta conta, String descricao, float valor, int num_operacao)
 			throws SaldoNegativo {
-		if (ContaDAO.sacar(conta, valor) == true) {
-			Movimentacoes movimentacaoMovimentada = new Movimentacoes(date, conta, descricao, valor, num_operacao);
-			conta.getMovimentacoes().add(movimentacaoMovimentada);
+		if(num_operacao == 1){
+			if (ContaDAO.sacar(conta, valor) == true) {
+				Movimentacoes movimentacaoMovimentada = new Movimentacoes(date, conta, descricao, valor, num_operacao);
+				conta.getMovimentacoes().add(movimentacaoMovimentada);
+			}
+		}else if(num_operacao == 2){
+			if (ContaDAO.depositar(conta, valor) == true) {
+				Movimentacoes movimentacaoMovimentada = new Movimentacoes(date, conta, descricao, valor, num_operacao);
+				conta.getMovimentacoes().add(movimentacaoMovimentada);
+			}
 		}
 	}
 
-	public static void realizarTransacao(Date date, Conta contaRemetente, Conta contaDestino, String descricao,
+	public static void mov_transferencia(Date date, Conta contaRemetente, Conta contaDestino, String descricao,
 			float valor, int num_operacao) throws SaldoNegativo {
 		if (ContaDAO.transferir(valor, contaDestino, contaRemetente) == true) {
 			Movimentacoes movimentacaoMovimentada = new Movimentacoes(date, contaDestino, contaRemetente, descricao,
 					valor, num_operacao);
 			contaRemetente.getMovimentacoes().add(movimentacaoMovimentada);
-		}
-	}
-
-	public static void realizarTransacao1(Date date, Conta conta, String descricao, float valor, int num_operacao)
-			throws SaldoNegativo {
-		if (ContaDAO.depositar(conta, valor) == true) {
-			Movimentacoes movimentacaoMovimentada = new Movimentacoes(date, conta, descricao, valor, num_operacao);
-			conta.getMovimentacoes().add(movimentacaoMovimentada);
 		}
 	}
 
