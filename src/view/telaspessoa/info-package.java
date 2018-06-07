@@ -1,7 +1,9 @@
 /**
- * O pacote telaspessoa contem as seguintes classes: MenuAtualizaDados, MenuExcluirConta,
- * MenuPessoa, TelaAjudaPessoa, TelaAtualizaDadosPessoa, TelaCadastraPessoa,TelaConsultaDadosPessoa,TelaExcluirPessoa,TelaGerenciaPessoa.
- * Sendo elas as telas que gerenciam as possiveis acoes relacionadas a uma pessoa.
+ * O pacote telaspessoa contem as seguintes classes: MenuAtualizaDados,
+ * MenuExcluirConta, MenuPessoa, TelaAjudaPessoa, TelaAtualizaDadosPessoa,
+ * TelaCadastraPessoa,TelaConsultaDadosPessoa,TelaExcluirPessoa,TelaGerenciaPessoa.
+ * Sendo elas as telas que gerenciam as possiveis acoes relacionadas a uma
+ * pessoa.
  *
  * @author Adler Cavalcante
  * @author Joao Gabriel
