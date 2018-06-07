@@ -83,6 +83,12 @@ public class ContaDAO extends DAO<Object>{
 	   return num;
 	}
 	
+	/**
+	 * Método verifica se tem mais de uma conta ou se esta vazio
+	 * @author Nathaly.
+	 * @return int que é usado na tela de gerenciamento de conta
+	 */
+	
 	public static int qtd_contas(){
 		int i = 0;
 		int cont = 0;
