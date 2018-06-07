@@ -8,7 +8,7 @@
  * @author Joao Gabriel
  * @author Joao Victor
  * @author Michael Douglas
- * @since 1.0 
+ * @since 1.0
  */
 
-package comum;
+package view.comum;
