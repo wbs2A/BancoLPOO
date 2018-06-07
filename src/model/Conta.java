@@ -7,7 +7,7 @@ import java.util.ArrayList;
  * @author Allison
  * @author Valdenize
  * @author Helmuth
- * Classe Conta
+ * Classe que representa o objeto pessoa, com seus respctivos atributos e metodos
  */
 
 public class Conta implements Serializable{

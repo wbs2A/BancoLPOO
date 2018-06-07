@@ -12,6 +12,13 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
+/**
+ * @author Allison
+ * @author Valdenize
+ * @author Helmuth
+ *Classe que representa o objeto pessoa, com seus respctivos atributos e metodos
+ */
+
 public class Pessoa implements Serializable{
 	private transient static final long serialVersionUID = 1L;
 	private String Nome;

@@ -9,15 +9,16 @@ package exceptions;
 public class SaldoNegativo extends Exception{
 
 	private static final long serialVersionUID = 1L;
-
+	
+	//TODO
 	public SaldoNegativo(String msg){
 		super(msg);
 	}
-	
+	//TODO
 	public SaldoNegativo(String msg, Throwable cause){
 		super(msg, cause);
 	}
-	
+	//TODO
 	public SaldoNegativo(Throwable cause){
 		super(cause);
 	}

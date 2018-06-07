@@ -14,7 +14,7 @@ import exceptions.SenhaIncorreta;
  */
 
 public class PessoaDAO extends DAO<Object> {
-
+	//TODO
 	@SuppressWarnings("unchecked")
 	public static void carregarPessoas() {
 		ArrayList<Pessoa> arrayCarregaPessoas = (ArrayList<Pessoa>) PessoaDAO.carregar(diretorioPessoa);
@@ -58,19 +58,12 @@ public class PessoaDAO extends DAO<Object> {
 	 * objeto pessoa no array de pessoas
 	 * 
 	 * @author Jose Sandonas
-	 * 
 	 * @param String nome que representa o nome da pessoa
-	 * 
 	 * @param String senha que representa a senha de cadastro
-	 * 
 	 * @param String cpf que representa o cadastro
-	 * 
 	 * @param Date data que representa a data de nascimento
-	 * 
 	 * @param String sexo genero seja ele qual for
-	 * 
 	 * @param String email 
-	 * 
 	 * @return pessoa
 	 */
 	public static Object create(String nome, String senha, String cpf, Date data, String sexo, String telefone,
@@ -85,7 +78,6 @@ public class PessoaDAO extends DAO<Object> {
 	 * CPF
 	 * 
 	 * @author Jose Sandonas
-	 * 
 	 * @return pessoa especificada ou nulo caso nao encontrada
 	 * @param cpf
 	 */
@@ -167,6 +159,7 @@ public class PessoaDAO extends DAO<Object> {
 	 * @param String senha
 	 * @return Pessoa
 	 * @author Jose Sandonas
+	 * @throws Caso a senha esteja incorreta
 	 */
 	
 	public static Pessoa get(String cpf, String senha) throws SenhaIncorreta {

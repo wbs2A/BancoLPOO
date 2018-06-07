@@ -10,7 +10,15 @@ import view.comum.TelaInicial;
  * @author: Wesley B.
  */
 public class Main {
-
+	
+	/**
+	 * Método principal que executa a aplicação. Nele e
+	 * executado o carregamento dos objetos, a tela principal da aplicacao e o descarregamento quando sai
+	 * @author: Nathaly.
+	 * @author: Wesley B.
+	 * @param String argumentos na linha de comando
+	 */
+	
 	public static void main(String[] args) {
 		PessoaDAO.carregarPessoas();
 		ContaDAO.carregarContas();

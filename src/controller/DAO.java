@@ -25,8 +25,7 @@ abstract class DAO<T> {
 	 * excecoes no Logger da classe.
 	 * 
 	 * @author: Wesley B.
-	 * @param: Nome
-	 *             do arquivo
+	 * @param: Nome do arquivo
 	 * @return: Objeto a ser convertido para a classe correta.
 	 */
 	public static Object carregar(String type) {
@@ -52,8 +51,7 @@ abstract class DAO<T> {
 	 * Logger da classe.
 	 * 
 	 * @author: Wesley B.
-	 * @param: Nome
-	 *             do arquivo e Objeto a ser serializado.
+	 * @param: Nome do arquivo e Objeto a ser serializado.
 	 * @return: Booleano informando o resultado da operacao.
 	 */
 
@@ -79,8 +77,7 @@ abstract class DAO<T> {
 	 * utilizados no sistema.
 	 * 
 	 * @author: Wesley B.
-	 * @param: Objeto
-	 *             a alterar-se com o cast.
+	 * @param: Objeto a alterar-se com o cast.
 	 * @return: Objeto no tipo solicitado.
 	 */
 	@SuppressWarnings("unchecked")
