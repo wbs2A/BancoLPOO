@@ -9,48 +9,48 @@ import view.EntradaDeDados;
  * informacoes pessoais referentes a uma determinada pessoa.
  *
  * @author Adler Cavalcante
- * @author Michael Douglas
  * @author Joao Gabriel
  * @author Joao Victor
- * 
+ * @author Michael Douglas
+ *
  */
-
 public class TelaConsultaDadosPessoa {
-	/**
-	 * O metodo menuConsultaDadosPessoa e responsavel por disponibilizar a
-	 * visualizacao dos dados pessoais de uma pessoa, utilizando de uma validacao de
-	 * login para evitar a visualizacao de dados pessoais de outras pessoas,
-	 * emitindo um aviso de erro caso alguma informacao inserida na verificacao seja
-	 * invalida.
-	 */
-	public static void menuConsultadoDadosPessoa() {
 
-		new ClearConsole();
-		System.out.println();
-		System.out.println("\t\t\t*******************************************************");
-		System.out.println("\t\t\t*\t           CPAN BANCO CENTER                  *");
-		System.out.println("\t\t\t*******************************************************");
-		System.out.println("\t\t\t\t\n\t\t\t\t");
-		System.out.println("\t\t\t\t**************************************");
-		System.out.println("\t\t\t\t*         CONSULTA DADOS PESSOA      *");
-		System.out.println("\t\t\t\t**************************************");
-		System.out.println("\t\t\t\t\n\t\t\t\t");
-		System.out.println();
-		System.out.println();
-		System.out.println("\t\t\t\t        Confirme sua Senha de Login        ");
-		System.out.println();
+    /**
+     * O metodo menuConsultaDadosPessoa e responsavel por disponibilizar a
+     * visualizacao dos dados pessoais de uma pessoa, utilizando de uma
+     * validacao de login para evitar a visualizacao de dados pessoais de outras
+     * pessoas, emitindo um aviso de erro caso alguma informacao inserida na
+     * verificacao seja invalida.
+     */
+    public static void menuConsultadoDadosPessoa() {
 
-		if (Controller.getSessao().getSenha().equals(EntradaDeDados.lerSenha())) {
-			System.out.println();
-			System.out.println(Controller.getSessao());
-			System.out.println("\t\t\t\tSenha de Login: " + Controller.getSessao().getSenha());
-			System.out.println();
+        new ClearConsole();
+        System.out.println();
+        System.out.println("\t\t\t*******************************************************");
+        System.out.println("\t\t\t*\t           CPAN BANCO CENTER                  *");
+        System.out.println("\t\t\t*******************************************************");
+        System.out.println("\t\t\t\t\n\t\t\t\t");
+        System.out.println("\t\t\t\t**************************************");
+        System.out.println("\t\t\t\t*         CONSULTA DADOS PESSOA      *");
+        System.out.println("\t\t\t\t**************************************");
+        System.out.println("\t\t\t\t\n\t\t\t\t");
+        System.out.println();
+        System.out.println();
+        System.out.println("\t\t\t\t        Confirme sua Senha de Login        ");
+        System.out.println();
 
-		} else {
-			System.out.println();
-			System.out.println("\t\t\t\t[Senha Incorreta]");
-			System.out.println();
-		}
+        if (Controller.getSessao().getSenha().equals(EntradaDeDados.lerSenha())) {
+            System.out.println();
+            System.out.println(Controller.getSessao());
+            System.out.println("\t\t\t\tSenha de Login: " + Controller.getSessao().getSenha());
+            System.out.println();
 
-	}
+        } else {
+            System.out.println();
+            System.out.println("\t\t\t\t[Senha Incorreta]");
+            System.out.println();
+        }
+
+    }
 }
