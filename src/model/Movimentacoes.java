@@ -16,6 +16,7 @@ public class Movimentacoes implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	
 	private Date date;
 	private Conta conta;
 	private Conta destino;
@@ -27,7 +28,7 @@ public class Movimentacoes implements Serializable {
 	private double saldo_atual;
 	private boolean isDestinatario;
 
-	private SimpleDateFormat sdf = new SimpleDateFormat("dd-M-yyyy");
+	private SimpleDateFormat sdf = new SimpleDateFormat("dd-M-yyyy HH:mm:ss");
 
 
 	/**
@@ -264,8 +265,6 @@ public class Movimentacoes implements Serializable {
 						"\n\t\t\t\tRemetente: "+
 						"\n\t\t\t\t\t\tNome: "+this.getDestino().getPessoa().getNome()+
 						"\n\t\t\t\t\t\tCPF: "+this.getDestino().getPessoa().getCpf()+
-						"\n\t\t\t\t\t\tAgencia: "+ this.getDestino().getAgencia()+
-						"\n\t\t\t\t\t\tNumero: "+ this.getDestino().getNumero()+
 						"\n\t\t\t\t\t\tValor da operacao: "+this.getValorOperacao() +
 						"\n\t\t\t\t\t\tOperacao: "+this.getNomeOperacao()+
 						"\n\t\t\t\tDestinatario: "+
@@ -280,8 +279,7 @@ public class Movimentacoes implements Serializable {
 						"\n\t\t\t\t\t\tNome: "+this.getConta().getPessoa().getNome()+
 						"\n\t\t\t\t\t\tAgencia: "+ this.getConta().getAgencia()+
 						"\n\t\t\t\t\t\tNumero: "+ this.getConta().getNumero()+
-						"\n\t\t\t\t\t\tSaldo anterior: "+this.getSaldo_anteior()+
-						"\n\t\t\t\t\t\tValor da operacao: "+this.getValorOperacao() +
+						"\n\t\t\t\t\t\tValor transferido: "+this.getValorOperacao() +
 						"\n\t\t\t\t\t\tOperacao: "+this.getNomeOperacao()+
 						"\n\t\t\t\t\t\tSaldo atual: "+this.getSaldo_atual()+
 						"\n\t\t\t\tDestinatario: "+
