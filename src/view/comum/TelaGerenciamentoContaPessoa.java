@@ -10,7 +10,10 @@ import view.telaspessoa.TelaGerenciaPessoa;
  * visualizacao do menu relacionado as opcoes de gerenciamneto de pessoa e
  * conta.
  * 
- * @author michael_douglas
+ * @author Adler Cavalcante
+ * @author Joao Gabriel
+ * @author Joao Victor
+ * @author Michael Douglas
  *
  */
 public class TelaGerenciamentoContaPessoa {
@@ -37,17 +40,19 @@ public class TelaGerenciamentoContaPessoa {
 				System.out.println("\t\t\t\t**************************************");
 				System.out.println("\t\t\t\t\n\t\t\t\t");
 				System.out.println("\t\t\t\t**************************************");
-				System.out.println("\t\t\t\t*" +    MenuHome.GERENCIARCONTA.opcao + ". Gerenciar Conta(s)               *");
+				System.out
+						.println("\t\t\t\t*" + MenuHome.GERENCIARCONTA.opcao + ". Gerenciar Conta(s)               *");
 				System.out.println("\t\t\t\t**************************************");
-				System.out.println("\t\t\t\t*" +    MenuHome.GERENCIARPESSOA.opcao + ". Gerenciar Pessoa                 *");
+				System.out
+						.println("\t\t\t\t*" + MenuHome.GERENCIARPESSOA.opcao + ". Gerenciar Pessoa                 *");
 				System.out.println("\t\t\t\t**************************************");
-				System.out.println("\t\t\t\t*" +    MenuHome.SAIR.opcao + ". Sair                             *");
+				System.out.println("\t\t\t\t*" + MenuHome.SAIR.opcao + ". Sair                             *");
 				System.out.println("\t\t\t\t**************************************");
 				opcao = TratamentodeEntradas.trataEntradaOpcao();
 
 				switch (MenuHome.menuOpcao(opcao)) {
 				case GERENCIARCONTA:
-					//ContaDAO.carregarContas();
+					// ContaDAO.carregarContas();
 					TelaGerenciaConta.menuGerenciaContas();
 					break;
 
@@ -56,8 +61,8 @@ public class TelaGerenciamentoContaPessoa {
 					break;
 
 				case SAIR:
-					//ContaDAO.salvarContas();
-					//PessoaDAO.salvarPessoas();
+					// ContaDAO.salvarContas();
+					// PessoaDAO.salvarPessoas();
 					sair = true;
 					break;
 				}

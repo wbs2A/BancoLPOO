@@ -10,7 +10,10 @@ import view.TratamentodeEntradas;
  * A classe TelaLogin e responsavel por disponibilizar a tela onde o usuario ira
  * logar no sistema.
  * 
- * @author michael_douglas
+ * @author Adler Cavalcante
+ * @author Joao Gabriel
+ * @author Joao Victor
+ * @author Michael Douglas
  *
  */
 public class TelaLogin {

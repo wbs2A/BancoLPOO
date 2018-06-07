@@ -6,9 +6,12 @@ import view.telaspessoa.TelaCadastraPessoa;
 
 /**
  * A classe TelaInicial e responsavel por disponibilizar a visualizacao do menu
- * relacionado as opcoes na qual o usuario pode fazer antes de entrar no sistema
+ * relacionado as opcoes na qual o usuario pode fazer antes de entrar no sistema.
  * 
- * @author michael_douglas
+ * @author Adler Cavalcante
+ * @author Joao Gabriel
+ * @author Joao Victor
+ * @author Michael Douglas
  *
  */
 public class TelaInicial {
