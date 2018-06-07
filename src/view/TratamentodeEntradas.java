@@ -77,15 +77,11 @@ public class TratamentodeEntradas {
 				System.out.println("\t\t\t\t[O campo nome deve conter no minimo 2 caracteres]");
 				System.out.println();
 			} else {
-				Pattern pattern1 = Pattern.compile("[0-9]");
-				Matcher matcher1 = pattern1.matcher(nome);
-				if ( matcher1.find()) {
+				if (!nome.matches("^[a-zA-ZÁÂÃÀÇÉÊÍÓÔÕÚÜáâãàçéêíóôõúü\\p{Space}]*$")) {
 					System.out.println();
-					System.out.println("\t\t\t\t[O campo nome nao deve conter numeros ]");
+					System.out.println("\t\t\t\t[O campo nome nao deve conter caracteres especiais ou numeros]");
 					System.out.println();
 					valido = false;
-
-
 				} else {
 					valido = true;
 				}
@@ -300,16 +296,7 @@ public class TratamentodeEntradas {
 				System.out.println();
 				valido = false;
 			} else {
-				Pattern pattern = Pattern.compile("\\s");
-				Matcher matcher = pattern.matcher(numero);
-				if (matcher.find()) {
-					System.out.println();
-					System.out.println("\t\t\t\t[O campo senha de login nao pode conter espaco em branco]");
-					System.out.println();
-					valido = false;
-				} else {
-					return numero;
-				}
+				return numero;
 			}
 			/*
 			 * try { numero = EntradaDeDados.lerSenhaConta(); num =
@@ -406,7 +393,9 @@ public class TratamentodeEntradas {
 	}
 
 	/**
-	 * Este metodo e responsavel por validar se a senha da conta bancaria contem 6 digitos, sem espaco e somente valores inteiros.
+	 * Este metodo e responsavel por validar se a senha da conta bancaria contem 6
+	 * digitos, sem espaco e somente valores inteiros.
+	 * 
 	 * @return String
 	 */
 	public static String trataEntradaSenhaContaBancaria() {
