@@ -175,7 +175,8 @@ public class Controller {
 
 	/**
 	 * @author Nathaly
-	 * @author: Wesley B. 3 Metodos que realizam as transacoes e armazena no
+	 * @author: Wesley B.
+	 * Os 3 Metodos abaixo realizam as transacoes e armazenam no
 	 *          extrato apenas se a transacao ocorrer
 	 * @param Data
 	 *            trnasacao, objeto conta, descricao, valor, numero da operacao
@@ -206,12 +207,24 @@ public class Controller {
 		}
 	}
 
-	// TODO
+	/**
+	 * Metodo que retorna o objeto referente à pessoa que está a utilizar
+	 * o sistema, setado ao fazer login.
+	 * 
+	 * @author: Wesley B.
+	 * @author: Nathaly
+	 * @return: objeto do tipo Pessoa.
+	 */
 	public static Pessoa getInstSessao() {
 		return instSessao;
 	}
-
-	// TODO
+	
+	/**
+	 * Metodo que define a pessoa que está a utilizar o sistema.
+	 * 
+	 * @author: Wesley B.
+	 * @param: objeto Pessoa.
+	 */
 	public static void setInstSessao(Pessoa instSessao) {
 		Controller.instSessao = instSessao;
 	}
