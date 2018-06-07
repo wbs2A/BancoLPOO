@@ -1,40 +1,45 @@
 package view.telasconta;
 
 /**
- * Classe responsavel por disponiblizar as opcoes do Enum MenuExtratoConta
+ * A Classe MenuExtratoConta e responsavel por disponiblizar as opcoes do Enum
+ * MenuExtratoConta.
  *
+ * @author Adler Cavalcante
  * @author Joao Gabriel
- * @author Michael Douglas
  * @author Joao Victor
- * @author Adler Moraes
+ * @author Michael Douglas
  */
 public enum MenuExtratoConta {
-    EXTRATOCONTAPADRAO(1), EXTRATOOUTRACONTA(2), SAIR(0);
-    int opcao;
+	EXTRATOCONTAPADRAO(1), EXTRATOOUTRACONTA(2), SAIR(0);
+	int opcao;
 
-    /**
-     *
-     * @param op
-     */
-    MenuExtratoConta(int op) {
-        this.opcao = op;
+	/**
+	 * O metodo MenuExtratoConta e responsavel por atribuir a variavel opcao o
+	 * parametro que e passado quando uma variavel do tipo MenuExtratoConta e
+	 * declarada.
+	 * 
+	 * @param op
+	 */
+	MenuExtratoConta(int op) {
+		this.opcao = op;
 
-    }
+	}
 
-    /**
-     * Metodo para retorno da opcao escolhida
-     *
-     * @param opcao int - Valor da opcao escolhida
-     * @return enum opcao - Opcao com o nome correspondente
-     */
-    public static MenuExtratoConta menuOpcao(int opcao) {
-        if (opcao == 1) {
-            return MenuExtratoConta.EXTRATOCONTAPADRAO;
-        } else if (opcao == 2) {
-            return MenuExtratoConta.EXTRATOOUTRACONTA;
-        } else if (opcao == 0) {
-            return MenuExtratoConta.SAIR;
-        }
-        return null;
-    }
+	/**
+	 * Metodo para retorno da opcao escolhida.
+	 *
+	 * @param opcao
+	 *            int - Valor da opcao escolhida.
+	 * @return enum opcao - Opcao com o nome correspondente
+	 */
+	public static MenuExtratoConta menuOpcao(int opcao) {
+		if (opcao == 1) {
+			return MenuExtratoConta.EXTRATOCONTAPADRAO;
+		} else if (opcao == 2) {
+			return MenuExtratoConta.EXTRATOOUTRACONTA;
+		} else if (opcao == 0) {
+			return MenuExtratoConta.SAIR;
+		}
+		return null;
+	}
 }

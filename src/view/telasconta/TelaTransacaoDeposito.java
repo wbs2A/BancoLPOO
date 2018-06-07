@@ -14,7 +14,10 @@ import view.TratamentodeEntradas;
  * contidos em outras classes do controller, model e view, para acessar as
  * informacoes necessarias das contas.
  * 
- * @author Adler_Moraes
+ * @author Adler Cavalcante
+ * @author Joao Gabriel
+ * @author Joao Victor
+ * @author Michael Douglas
  *
  */
 
@@ -50,8 +53,8 @@ public class TelaTransacaoDeposito {
 				System.out.println("\t \t\t\t**************************************");
 				System.out.println("\t\t\t\t\n\t\t\t\t");
 				System.out.println("\t\t\t\t***************************************");
-				System.out.println(
-						"\t\t\t\t*   " + MenuDeposito.DEPOSITARCONTAPADRAO.opcao + ".Depositar na Conta Padrao       *");
+				System.out.println("\t\t\t\t*   " + MenuDeposito.DEPOSITARCONTAPADRAO.opcao
+						+ ".Depositar na Conta Padrao       *");
 				System.out.println("\t\t\t\t***************************************");
 				System.out.println(
 						"\t\t\t\t*   " + MenuDeposito.DEPOSITAROUTRACONTA.opcao + ".Depositar em outra Conta        *");
@@ -73,8 +76,7 @@ public class TelaTransacaoDeposito {
 						valor = TratamentodeEntradas.trataValorTransacao();
 						if (valor > 0) {
 							try {
-								Controller.mov_saque_deposito(new Date(), conta, null,
-										valor, 2);
+								Controller.mov_saque_deposito(new Date(), conta, null, valor, 2);
 								System.out.println();
 								System.out.println("\t\t\t\t[Deposito realizado com sucesso]");
 								System.out.println();
@@ -104,8 +106,7 @@ public class TelaTransacaoDeposito {
 							valor = TratamentodeEntradas.trataValorTransacao();
 							if (valor > 0) {
 								try {
-									Controller.mov_saque_deposito(new Date(), conta,
-											null, valor, 2);
+									Controller.mov_saque_deposito(new Date(), conta, null, valor, 2);
 									System.out.println();
 									System.out.println("\t\t\t\t[Deposito realizado com sucesso]");
 									System.out.println();

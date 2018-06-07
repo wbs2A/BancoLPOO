@@ -12,7 +12,10 @@ import model.Pessoa;
  * seus metodos para acessar as informacoes dentro das divisoes controller e
  * model, identificando quais contas que uma pessoa tem.
  * 
- * @author Adler_Moraes
+ * @author Adler Cavalcante
+ * @author Joao Gabriel
+ * @author Joao Victor
+ * @author Michael Douglas
  *
  */
 public class TelaConsultaConta {
@@ -27,7 +30,7 @@ public class TelaConsultaConta {
 	public static void consultaConta() {
 		Pessoa pessoa;
 		contas = new ArrayList<Conta>();
-		
+
 		System.out.println();
 		System.out.println("\t\t\t*******************************************************");
 		System.out.println("\t\t\t*\t           CPAN BANCO CENTER                  *");
@@ -41,13 +44,13 @@ public class TelaConsultaConta {
 		pessoa = Controller.getSessao();
 		contas = pessoa.getContas();
 
-		if (contas.isEmpty()){
+		if (contas.isEmpty()) {
 			System.out.println();
 			System.out.println("\t\t\t\t[Voce nao possui nenhuma conta bancaria]");
 			System.out.println();
-		} else{
-	
-			for (Conta contaspessoa : contas){
+		} else {
+
+			for (Conta contaspessoa : contas) {
 				System.out.println(contaspessoa);
 				System.out.println("\t\t\t\tSaldo atual: " + contaspessoa.getSaldo());
 				System.out.println();

@@ -1,13 +1,13 @@
 package view.telasconta;
 
 /**
- * Classe responsavel por disponibilizar as opcoes do Enum
- * MenuAtualizaSenhaConta
+ * A Classe MenuAtualizaSenhaConta e responsavel por disponibilizar as opcoes do
+ * Enum MenuAtualizaSenhaConta.
  *
- * @author Michael Douglas
+ * @author Adler Cavalcante
  * @author Joao Gabriel
  * @author Joao Victor
- * @author Adler Cavalcante
+ * @author Michael Douglas
  */
 public enum MenuAtualizaSenhaConta {
 	ATUALIZARSENHACONTAPADRAO(1), ATUALIZARSENHAOUTRACONTA(2), SAIR(0);
@@ -15,7 +15,10 @@ public enum MenuAtualizaSenhaConta {
 	int opcao;
 
 	/**
-	 *
+	 * O metodo MenuAtualizaSenhaConta e responsavel por atribuir a variavel opcao o
+	 * parametro que e passado quando uma variavel do tipo MenuAtualizaSenhaConta e
+	 * declarada.
+	 * 
 	 * @param op
 	 */
 	MenuAtualizaSenhaConta(int op) {
@@ -23,10 +26,10 @@ public enum MenuAtualizaSenhaConta {
 	}
 
 	/**
-	 * Metodo para retorno da opcao escolhida
+	 * Metodo para retorno da opcao escolhida.
 	 *
 	 * @param opcao
-	 *            int - Valor da opcao escolhida
+	 *            int - Valor da opcao escolhida.
 	 * @return enum opcao - Opcao com o nome correspondente
 	 */
 	public static MenuAtualizaSenhaConta menuOpcao(int opcao) {

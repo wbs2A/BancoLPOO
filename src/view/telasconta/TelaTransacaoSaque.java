@@ -15,7 +15,10 @@ import view.TratamentodeEntradas;
  * contidos em outras classes do controller, model e view, para acessar as
  * informacoes necessarias das contas.
  * 
- * @author Adler_Moraes
+ * @author Adler Cavalcante
+ * @author Joao Gabriel
+ * @author Joao Victor
+ * @author Michael Douglas
  *
  */
 
@@ -50,9 +53,11 @@ public class TelaTransacaoSaque {
 				System.out.println("\t \t\t\t**************************************");
 				System.out.println("\t\t\t\t\n\t\t\t\t");
 				System.out.println("\t\t\t\t***************************************");
-				System.out.println("\t\t\t\t*   " + MenuSaque.SACARCONTAPADRAO.opcao + ".Sacar da Conta Padrao           *");
+				System.out.println(
+						"\t\t\t\t*   " + MenuSaque.SACARCONTAPADRAO.opcao + ".Sacar da Conta Padrao           *");
 				System.out.println("\t\t\t\t***************************************");
-				System.out.println("\t\t\t\t*   " + MenuSaque.SACAROUTRACONTA.opcao + ".Sacar de Outra Conta            *");
+				System.out.println(
+						"\t\t\t\t*   " + MenuSaque.SACAROUTRACONTA.opcao + ".Sacar de Outra Conta            *");
 				System.out.println("\t\t\t\t***************************************");
 				System.out.println("\t\t\t\t*   " + MenuSaque.SAIR.opcao + ".Voltar                          *");
 				System.out.println("\t\t\t\t***************************************");
@@ -75,8 +80,7 @@ public class TelaTransacaoSaque {
 							System.out.println();
 							if (EntradaDeDados.lerSenhaConta().equals(conta.getSenha())) {
 								try {
-									Controller.mov_saque_deposito(new Date(), conta,
-											null, valor, 1);
+									Controller.mov_saque_deposito(new Date(), conta, null, valor, 1);
 									System.out.println();
 									System.out.println("\t\t\t\t[Saque realizado com sucesso]");
 									System.out.println();
@@ -115,8 +119,7 @@ public class TelaTransacaoSaque {
 								valor = TratamentodeEntradas.trataValorTransacao();
 								if (valor > 0) {
 									try {
-										Controller.mov_saque_deposito(new Date(), conta,
-												null, valor, 1);
+										Controller.mov_saque_deposito(new Date(), conta, null, valor, 1);
 										System.out.println();
 										System.out.println("\t\t\t\t[Saque realizado com sucesso]");
 										System.out.println();

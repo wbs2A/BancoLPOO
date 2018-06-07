@@ -15,10 +15,10 @@ import view.TratamentodeEntradas;
  * do controller, model e view, para acessar as informacoes necessarias das
  * contas.
  * 
- * @author Adler_Moraes
- * @author Michael Douglas
+ * @author Adler Cavalcante
  * @author Joao Gabriel
  * @author Joao Victor
+ * @author Michael Douglas
  *
  */
 public class TelaAtualizaSenhaConta {
@@ -57,7 +57,8 @@ public class TelaAtualizaSenhaConta {
 				System.out.println("\t\t\t\t*   " + MenuAtualizaSenhaConta.ATUALIZARSENHAOUTRACONTA.opcao
 						+ ".Atualizar Senha de outra Conta  *");
 				System.out.println("\t\t\t\t***************************************");
-				System.out.println("\t\t\t\t*   " + MenuAtualizaSenhaConta.SAIR.opcao + ".Voltar                          *");
+				System.out.println(
+						"\t\t\t\t*   " + MenuAtualizaSenhaConta.SAIR.opcao + ".Voltar                          *");
 				System.out.println("\t\t\t\t***************************************");
 				opcao = TratamentodeEntradas.trataEntradaOpcao();
 

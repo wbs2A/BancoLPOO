@@ -9,17 +9,20 @@ import view.EntradaDeDados;
 import view.TratamentodeEntradas;
 
 /**
- * Esta classe e responsavel por mostrar a tela onde o usuario podera definir
- * uma conta bancaria padrao.
+ * A Classe TelaDefineConta e responsavel por mostrar a tela onde o usuario
+ * podera definir uma conta bancaria padrao.
  * 
- * @author michael_douglas
+ * @author Adler Cavalcante
+ * @author Joao Gabriel
+ * @author Joao Victor
+ * @author Michael Douglas
  *
  */
 public class TelaDefineContaPadrao {
 
 	/**
 	 * Este metodo e resposanvel por mostrar o menu onde o usuario confirma se
-	 * deseja definir ou não uma conta bancaria padrao. Alem disso e mostrado a ele
+	 * deseja definir ou nao uma conta bancaria padrao. Alem disso e mostrado a ele
 	 * uma mensagem com detalhes sobre os beneficios de dinir uma conta bancaria
 	 * padrao.
 	 */
@@ -42,9 +45,11 @@ public class TelaDefineContaPadrao {
 				System.out.printf(
 						"\t\t\t\tCaso deseje, com ela sera possivel realizar \n \t\t\t\t   transacoes de maneira mais rapida.\n");
 				System.out.println("\t \t\t\t**************************************");
-				System.out.println("\t\t\t\t*   " + MenuDefineContaPadrao.SIM.opcao + ".Sim                            *");
+				System.out.println(
+						"\t\t\t\t*   " + MenuDefineContaPadrao.SIM.opcao + ".Sim                            *");
 				System.out.println("\t \t\t\t**************************************");
-				System.out.println("\t\t\t\t*   " + MenuDefineContaPadrao.NAO.opcao + ".Nao                            *");
+				System.out.println(
+						"\t\t\t\t*   " + MenuDefineContaPadrao.NAO.opcao + ".Nao                            *");
 				System.out.println("\t \t\t\t**************************************");
 				System.out.println("\t\t\t\t\n\t\t\t\t");
 				opcao = TratamentodeEntradas.trataEntradaOpcao();

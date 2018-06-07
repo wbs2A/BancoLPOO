@@ -9,7 +9,10 @@ import view.TratamentodeEntradas;
  * pode acessar, utilizando de metodos de outras views para o tratamento de
  * entradas e a limpeza da tela.
  * 
- * @author Adler_Moraes
+ * @author Adler Cavalcante
+ * @author Joao Gabriel
+ * @author Joao Victor
+ * @author Michael Douglas
  *
  */
 

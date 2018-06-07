@@ -15,7 +15,10 @@ import view.TratamentodeEntradas;
  * de metodos contidos em outras classes do controller, model e view, para
  * acessar as informacoes necessarias das contas.
  * 
- * @author Adler_Moraes
+ * @author Adler Cavalcante
+ * @author Joao Gabriel
+ * @author Joao Victor
+ * @author Michael Douglas
  *
  */
 
@@ -149,13 +152,13 @@ public class TelaTransacaoTransferencia {
 												"\t\t\t\t[Nao é possivel fazer transferencias entre contas iguais]");
 										System.out.println();
 									} else {
-										if (contaRemetente.getPessoa().getCpf().equals(Controller.getSessao().getCpf())) {
+										if (contaRemetente.getPessoa().getCpf()
+												.equals(Controller.getSessao().getCpf())) {
 											valor = TratamentodeEntradas.trataValorTransacao();
 											if (valor > 0) {
 												try {
 													Controller.mov_transferencia(new Date(), contaRemetente,
-															contaDestino, null, valor,
-															3);
+															contaDestino, null, valor, 3);
 													System.out.println();
 													System.out.println("\t\t\t\t[Transferencia realizado com sucesso]");
 													System.out.println();

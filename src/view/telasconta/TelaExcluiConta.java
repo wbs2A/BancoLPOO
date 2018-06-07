@@ -15,7 +15,10 @@ import view.telaspessoa.MenuExcluirConta;
  * acessar as informacoes e outros metodos necessarios que estao em outras
  * classes presentes no Controller, Model e em outras Views.
  * 
- * @author Adler_Moraes
+ * @author Adler Cavalcante
+ * @author Joao Gabriel
+ * @author Joao Victor
+ * @author Michael Douglas
  *
  */
 public class TelaExcluiConta {

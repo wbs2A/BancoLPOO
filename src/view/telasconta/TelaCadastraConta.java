@@ -15,7 +15,10 @@ import view.TratamentodeEntradas;
  * chamar as funcoes necessarias das outras classes relacionadas do controller e
  * model.
  * 
- * @author Adler_Moraes
+ * @author Adler Cavalcante
+ * @author Joao Gabriel
+ * @author Joao Victor
+ * @author Michael Douglas
  *
  */
 
@@ -45,7 +48,8 @@ public class TelaCadastraConta {
 		System.out.println("\t\t\t\t        Confirme sua Senha de Login        ");
 		if (Controller.getSessao().getSenha().equals(EntradaDeDados.lerSenha())) {
 			System.out.println();
-			conta = (Conta) ContaDAO.create(TratamentodeEntradas.trataEntradaSenhaContaBancaria(), Controller.getSessao());
+			conta = (Conta) ContaDAO.create(TratamentodeEntradas.trataEntradaSenhaContaBancaria(),
+					Controller.getSessao());
 			System.out.println();
 			System.out.println("\t\t\t\t[Conta Criada com Sucesso]");
 			System.out.println();

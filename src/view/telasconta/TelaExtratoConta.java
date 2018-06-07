@@ -13,18 +13,21 @@ import view.TratamentodeEntradas;
  * contidas no Controller, Model e utilizar metodos de outra view para tratar as
  * entradas.
  *
- * @author Adler_Moraes
+ * @author Adler Cavalcante
+ * @author Joao Gabriel
+ * @author Joao Victor
+ * @author Michael Douglas
  *
  */
 public class TelaExtratoConta {
 
 	/**
 	 * O metodo extratoConta ira retornar para o usuario o extrato da conta que ele
-	 * deseja, pois ele possui mais de uma conta dentro do banco. A primeira op��o �
-	 * o extrato da conta padr�o, caso n�o tenha ser� retornado uma mensagem o
-	 * informando. A segunda op��o � o extrato de outra conta,onde o usu�rio insere
-	 * o n�mero e a senha da conta e o programa retorna o extrato desta conta, caso
-	 * n�o ache o usu�rio � informado.
+	 * deseja, pois ele possui mais de uma conta dentro do banco. A primeira opcao e
+	 * o extrato da conta padrao, caso nao tenha sera retornado uma mensagem o
+	 * informando. A segunda opcao e o extrato de outra conta,onde o usuario insere
+	 * o numero e a senha da conta e o programa retorna o extrato desta conta, caso
+	 * nao ache o usuario e informado.
 	 */
 	public static void extratoConta() {
 		int opcao;
@@ -42,13 +45,14 @@ public class TelaExtratoConta {
 				System.out.println("\t\t\t\t****************************************");
 				System.out.println("\t\t\t\t\n\t\t\t\t");
 				System.out.println("\t\t\t\t****************************************");
-				System.out.println(
-						"\t\t\t\t*   " + MenuExtratoConta.EXTRATOCONTAPADRAO.opcao + ".Ver Extrato da Conta Padrao      *");
+				System.out.println("\t\t\t\t*   " + MenuExtratoConta.EXTRATOCONTAPADRAO.opcao
+						+ ".Ver Extrato da Conta Padrao      *");
 				System.out.println("\t\t\t\t****************************************");
-				System.out.println(
-						"\t\t\t\t*   " + MenuExtratoConta.EXTRATOOUTRACONTA.opcao + ".Ver Extrato de Outra Conta       *");
+				System.out.println("\t\t\t\t*   " + MenuExtratoConta.EXTRATOOUTRACONTA.opcao
+						+ ".Ver Extrato de Outra Conta       *");
 				System.out.println("\t\t\t\t****************************************");
-				System.out.println("\t\t\t\t*   " + MenuExtratoConta.SAIR.opcao + ".Voltar                           *");
+				System.out
+						.println("\t\t\t\t*   " + MenuExtratoConta.SAIR.opcao + ".Voltar                           *");
 				System.out.println("\t\t\t\t****************************************");
 				opcao = TratamentodeEntradas.trataEntradaOpcao();
 
@@ -85,13 +89,14 @@ public class TelaExtratoConta {
 						System.out.println();
 						conta = ContaDAO.read(TratamentodeEntradas.trataEntradaNumeroConta());
 						if (conta != null) {
-							if (conta.getPessoa().getCpf().equals(Controller.getSessao().getCpf())){
+							if (conta.getPessoa().getCpf().equals(Controller.getSessao().getCpf())) {
 								System.out.println();
 								System.out.println(conta);
 								System.out.println();
 								if (conta.getMovimentacoes().isEmpty()) {
 									System.out.println();
-									System.out.println("\t\t\t\t[Voce ainda nao efetuou nenhuma transacao nesta conta]");
+									System.out
+											.println("\t\t\t\t[Voce ainda nao efetuou nenhuma transacao nesta conta]");
 									System.out.println();
 								} else {
 									for (Movimentacoes movimentacoes : conta.getMovimentacoes()) {
