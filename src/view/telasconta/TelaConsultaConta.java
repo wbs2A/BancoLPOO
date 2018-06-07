@@ -2,7 +2,6 @@ package view.telasconta;
 
 import java.util.ArrayList;
 
-import controller.ContaDAO;
 import controller.Controller;
 import model.Conta;
 import model.Pessoa;
