@@ -1,5 +1,6 @@
 package view;
 
+import java.io.Console;
 import java.util.Scanner;
 
 /**
@@ -14,7 +15,10 @@ import java.util.Scanner;
  */
 
 public class EntradaDeDados {
-
+           
+         
+        private static Console console = System.console(); 
+    
 	 private static Scanner scanner = new Scanner(System.in,"UTF-8");
 	/**
 	 * O metodo lerNome() e responsavel por imprimir a opcao que sera lida, no caso
@@ -64,7 +68,7 @@ public class EntradaDeDados {
 	public static String lerSenha() {
 		System.out.println();
 		System.out.printf("\t\t\t\tSenha de Login: ");
-		return scanner.nextLine();
+		return new String (console.readPassword());
 	}
 
 	/**
