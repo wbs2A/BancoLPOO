@@ -12,7 +12,7 @@ import view.comum.TelaInicial;
 public class Main {
 	
 	/**
-	 * Método principal que executa a aplicação. Nele e
+	 * Metodo principal que executa a aplicacao. Nele e
 	 * executado o carregamento dos objetos, a tela principal da aplicacao e o descarregamento quando sai
 	 * @author: Nathaly.
 	 * @author: Wesley B.
