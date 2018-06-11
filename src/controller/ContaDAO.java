@@ -15,7 +15,10 @@ import exceptions.SenhaIncorreta;
  */
 
 public class ContaDAO extends DAO<Object>{
-	//TODO
+	/**
+	 * Metodo carrega dados para o objeto array de contas
+	 * @author Nathaly
+	 */
 	@SuppressWarnings("unchecked")
 	public static void carregarContas(){
 		ArrayList<Conta> arrayCarregaContas = (ArrayList<Conta>) ContaDAO.carregar(diretorioConta);
@@ -26,7 +29,10 @@ public class ContaDAO extends DAO<Object>{
         	ContaDAO.descarregar(diretorioConta, getContas());
         }
     }
-	//TODO
+	/**
+	 * Metodo salva array de contas em arquivo
+	 * @author Nathaly
+	 */
     public static void salvarContas() {
         ContaDAO.descarregar(diretorioConta, getContas());
     }
@@ -123,7 +129,10 @@ public class ContaDAO extends DAO<Object>{
 	public static ArrayList<Conta> getContas(){
 		return arrayConta;
 	}
-	
+	/**
+	 * Metodo set um array de conta se já existe, carrega dos objetos e insere no objeto array de contas
+	 * @author Nathaly
+	 */
 	public static void setArrayConta(ArrayList<Conta> arrayConta){
     	ContaDAO.arrayConta = arrayConta;
     }

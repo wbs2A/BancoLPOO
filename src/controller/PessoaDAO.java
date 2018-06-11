@@ -14,7 +14,10 @@ import exceptions.SenhaIncorreta;
  */
 
 public class PessoaDAO extends DAO<Object> {
-	//TODO
+	/**
+	 * Metodo carrega dados para o objeto array de pessoa
+	 * @author Nathaly
+	 */
 	@SuppressWarnings("unchecked")
 	public static void carregarPessoas() {
 		ArrayList<Pessoa> arrayCarregaPessoas = (ArrayList<Pessoa>) PessoaDAO.carregar(diretorioPessoa);
@@ -25,15 +28,23 @@ public class PessoaDAO extends DAO<Object> {
 			PessoaDAO.descarregar(diretorioPessoa, getPessoas());
 		}
 	}
-	//TODO
+	/**
+	 * Metodo salva array de pessoas em arquivo
+	 * @author Nathaly
+	 */
 	public static void salvarPessoas() {
 		PessoaDAO.descarregar(diretorioPessoa, getPessoas());
 	}
-	//TODO
+	/**
+	 * Metodo retorna array de pessoa
+	 * @author Nathaly
+	 * @return array de pessoas
+	 */
+
 	public static Object getPessoa() {
 		throw new UnsupportedOperationException("Not supported yet."); // To do
 	}
-
+	
 	private static ArrayList<Pessoa> arrayPessoa = new ArrayList<Pessoa>();
 	private static String diretorioPessoa = "Pessoa.dat";
 	/**

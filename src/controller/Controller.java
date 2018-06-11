@@ -143,32 +143,98 @@ public class Controller {
 		PessoaDAO.update(1, pessoa, nome);
 	}
 
-	// TODO
+	/**
+	 * Este conjunto de metodos com prefixo "atualiza" referem-se aos metodos
+	 * chamados pela view para atualizar um determi-- nado campo de uma pessoa
+	 * utilizando o factory de atuali--- zacoes da classe PessoaDAO, passando o
+	 * parametro correto que indica a atualizacao a ser feita.
+	 * 
+	 * @author: Wesley B.
+	 * @param: pessoa:
+	 *             Pessoa a ser atualizada
+	 * @param: campo:
+	 *             String contendo o valor do campo homonimo a ser atualizado
+	 */
 	public static void atualizaSenhaPessoa(Pessoa pessoa, String senha) {
 		PessoaDAO.update(2, pessoa, senha);
 	}
 
-	// TODO
+	/**
+	 * Este conjunto de metodos com prefixo "atualiza" referem-se aos metodos
+	 * chamados pela view para atualizar um determi-- nado campo de uma pessoa
+	 * utilizando o factory de atuali--- zacoes da classe PessoaDAO, passando o
+	 * parametro correto que indica a atualizacao a ser feita.
+	 * 
+	 * @author: Wesley B.
+	 * @param: pessoa:
+	 *             Pessoa a ser atualizada
+	 * @param: campo:
+	 *             String contendo o valor do campo homonimo a ser atualizado
+	 */
 	public static void atualizaDtNascPessoa(Pessoa pessoa, Date dtNasc) {
 		PessoaDAO.update(3, pessoa, dtNasc);
 	}
 
-	// TODO
+	/**
+	 * Este conjunto de metodos com prefixo "atualiza" referem-se aos metodos
+	 * chamados pela view para atualizar um determi-- nado campo de uma pessoa
+	 * utilizando o factory de atuali--- zacoes da classe PessoaDAO, passando o
+	 * parametro correto que indica a atualizacao a ser feita.
+	 * 
+	 * @author: Wesley B.
+	 * @param: pessoa:
+	 *             Pessoa a ser atualizada
+	 * @param: campo:
+	 *             String contendo o valor do campo homonimo a ser atualizado
+	 */
 	public static void atualizaSexoPessoa(Pessoa pessoa, String sexo) {
 		PessoaDAO.update(4, pessoa, sexo);
 	}
 
-	// TODO
+	/**
+	 * Este conjunto de metodos com prefixo "atualiza" referem-se aos metodos
+	 * chamados pela view para atualizar um determi-- nado campo de uma pessoa
+	 * utilizando o factory de atuali--- zacoes da classe PessoaDAO, passando o
+	 * parametro correto que indica a atualizacao a ser feita.
+	 * 
+	 * @author: Wesley B.
+	 * @param: pessoa:
+	 *             Pessoa a ser atualizada
+	 * @param: campo:
+	 *             String contendo o valor do campo homonimo a ser atualizado
+	 */
 	public static void atualizaTelefonePessoa(Pessoa pessoa, String telefone) {
 		PessoaDAO.update(5, pessoa, telefone);
 	}
 
-	// TODO
+	/**
+	 * Este conjunto de metodos com prefixo "atualiza" referem-se aos metodos
+	 * chamados pela view para atualizar um determi-- nado campo de uma pessoa
+	 * utilizando o factory de atuali--- zacoes da classe PessoaDAO, passando o
+	 * parametro correto que indica a atualizacao a ser feita.
+	 * 
+	 * @author: Wesley B.
+	 * @param: pessoa:
+	 *             Pessoa a ser atualizada
+	 * @param: campo:
+	 *             String contendo o valor do campo homonimo a ser atualizado
+	 */
 	public static void atualizaEmailPessoa(Pessoa pessoa, String email) {
 		PessoaDAO.update(6, pessoa, email);
 	}
 
-	// TODO
+	/**
+	 * Este conjunto de metodos com prefixo "atualiza" referem-se aos metodos
+	 * chamados pela view para atualizar um determi-- nado campo de uma pessoa
+	 * utilizando o factory de atuali--- zacoes da classe PessoaDAO, passando o
+	 * parametro correto que indica a atualizacao a ser feita.
+	 * 
+	 * @author: Wesley B.
+	 * @param: pessoa:
+	 *             Pessoa a ser atualizada
+	 * @param: campo:
+	 *             String contendo o valor do campo homonimo a ser atualizado
+	 */
 	public static void atualizaCpfPessoa(Pessoa pessoa, String cpf) {
 		PessoaDAO.update(7, pessoa, cpf);
 	}
@@ -176,7 +242,7 @@ public class Controller {
 	/**
 	 * @author Nathaly
 	 * @author: Wesley B.
-	 * Os 3 Metodos abaixo realizam as transacoes e armazenam no
+	 * Metodos abaixo realizam as transacoes e armazenam no
 	 *          extrato apenas se a transacao ocorrer
 	 * @param Data
 	 *            trnasacao, objeto conta, descricao, valor, numero da operacao
@@ -196,7 +262,14 @@ public class Controller {
 			}
 		}
 	}
-
+	/**
+	 * @author Nathaly
+	 * @author: Wesley B.
+	 * Metodos abaixo realiza a operacao de transacao
+	 * @param Data
+	 *            trnasacao, objeto conta remetende, conta destino, descricao, valor, numero da operacao
+	 *            deseja realizar
+	 */
 	public static void mov_transferencia(Date date, Conta contaRemetente, Conta contaDestino, String descricao,
 			float valor, int num_operacao) throws SaldoNegativo {
 		if (ContaDAO.transferir(valor, contaDestino, contaRemetente) == true) {
